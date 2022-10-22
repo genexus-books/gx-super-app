@@ -1,0 +1,47 @@
+package com.genexus.superapps.bankx.payments.ui
+
+import android.app.Activity
+import android.content.Context
+import android.content.Intent
+import android.os.Bundle
+import androidx.activity.ComponentActivity
+import androidx.activity.compose.setContent
+import com.genexus.superapps.bankx.payments.services.PaymentsService
+import com.genexus.superapps.bankx.payments.ui.theme.BankingSuperAppTheme
+
+class PaymentActivity : ComponentActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        val amount = intent.extras?.getInt(EXTRA_AMOUNT) ?: 0
+        setContent {
+            BankingSuperAppTheme {
+                PaymentSheet({ canceled() }) {
+                    BottomSheet(amount, { succeeded(amount) }, { canceled() })
+                }
+            }
+        }
+    }
+
+    private fun canceled() {
+        setResult(Activity.RESULT_CANCELED)
+        finish()
+    }
+
+    private fun succeeded(amount: Int) {
+        val paymentId = PaymentsService.pay(amount)
+        val result = Intent().apply { putExtra(EXTRA_PAYMENT_ID, paymentId) }
+        setResult(Activity.RESULT_OK, result)
+        finish()
+    }
+
+    companion object {
+        private const val EXTRA_AMOUNT = "Amount"
+        const val EXTRA_PAYMENT_ID = "PaymentId"
+
+        fun newIntent(context: Context?, amount: Int): Intent {
+            val intent = Intent(context, PaymentActivity::class.java)
+            intent.putExtra(EXTRA_AMOUNT, amount)
+            return intent
+        }
+    }
+}

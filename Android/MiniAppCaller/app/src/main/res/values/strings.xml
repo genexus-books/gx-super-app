@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">BankingSuperApp</string>
+    <string name="title_activity_main" translatable="false">MainActivity2</string>
+    <string name="title_activity_cache" translatable="false">CacheActivity</string>
+    <string name="id_main">Home</string>
+    <string name="id_cache">Cache</string>
+</resources>

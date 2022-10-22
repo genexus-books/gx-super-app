@@ -1,0 +1,16 @@
+buildscript {
+    ext {
+        compose_version = '1.3.0-beta01'
+        fc_version = "1.3-SNAPSHOT"
+    }
+}
+
+plugins {
+    id 'com.android.application' version '7.2.1' apply false
+    id 'com.android.library' version '7.2.1' apply false
+    id 'org.jetbrains.kotlin.android' version '1.7.10' apply false
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}

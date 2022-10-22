@@ -1,0 +1,11 @@
+# Default ignored files
+/shelf/
+/.idea/
+/.gradle/
+/GenexusTestMiniApps/build/
+/workspace.xml
+/local.properties
+.DS_Store
+/gradle/wrapper/gradle-wrapper.jar
+/gradlew
+/gradlew.bat

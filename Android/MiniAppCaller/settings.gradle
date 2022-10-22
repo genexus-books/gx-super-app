@@ -1,0 +1,23 @@
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+        google()
+        mavenCentral()
+        maven { url 'file:///D:/Dev/m2Repository/' }
+    }
+}
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+        maven { url 'file:///D:/Dev/m2Repository/' }
+        if (rootProject.hasProperty("useDependenciesProxy")) {
+            maven { url 'http://nexus.genexus.com/repository/maven-public'
+                allowInsecureProtocol = true }
+        }
+    }
+}
+rootProject.name = "BankingSuperApp"
+include ':app'
+include ':payments'
