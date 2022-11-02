@@ -22,6 +22,7 @@ A Mini App will be available only for a given Super App. If you want the same Mi
 
 ### Development 
 
+GeneXus is the low-code tool used to design, create and maintain the Mini apps. 
 The development process of a Mini App is the same as for any other mobile app developed with GeneXus. 
 To integrate the Mini App to the Super App, the following considerations must be taken into account:
 
