@@ -94,3 +94,8 @@ There are three key components to consider when building a Super App:
 The following diagram shows the overall architecture:
 ![SuperAppArchitecture](https://user-images.githubusercontent.com/33960187/177836808-6db764b5-b7b3-4ccb-9c94-0142228785c5.png)
 
+A Super App can be created from scratch, but also any App can be converted to a Super App with the inclusion of the Super App Render. The Super App Render is responsible for invoking and presenting to the user the Mini App on Super App screen. All this without previously installing the Mini App.
+
+When a Mini App is selected, it takes control of the screen and allows the user to perform certain actions. The Mini App can interact with the Super App and get important information about the user or context. Upon finishing, the Mini App is closed, and control is returned to the Super App.
+
+The Mini App Center is fully controlled by the Super App owner, being able to allow or revoke credentials to developers at any given time. While a developer remains authorized, it is fully autonomous in the development and uploading of Mini Apps.
