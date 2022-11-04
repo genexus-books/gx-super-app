@@ -1,0 +1,22 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.genexus.superappsflutterlib">
+    <application>
+        <provider
+            android:name="com.genexus.example_superapp.application.AppEntityDataProvider"
+            android:authorities="com.genexus.example_superapp.bankx.appentityprovider"
+            android:exported="false" />
+
+        <service
+            android:name="com.genexus.example_superapp.application.AppEntityService"
+            android:enabled="true" />
+
+        <activity
+            android:name="io.flutter.embedding.android.FlutterActivity"
+            android:theme="@style/TranslucentTheme"
+            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
+            android:hardwareAccelerated="true"
+            android:windowSoftInputMode="adjustResize"
+            />
+
+    </application>
+</manifest>
