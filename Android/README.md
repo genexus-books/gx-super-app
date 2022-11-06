@@ -7,11 +7,11 @@ This document explains how to develop and integrate the functionality that provi
 There are certain initial configuration steps in the project:
 
 1. Integration of the [Android libraries](GeneXus%20Libraries/README.md) corresponding to [Super App Render](../SuperAppRender.md)
-2. Set the values in the app's[superapp_json](MiniAppCaller/app/src/main/res/raw/superapp_json) file:
+2. Set the values in the app's [superapp_json](MiniAppCaller/app/src/main/res/raw/superapp_json) file:
 	- `GXSuperAppProvisioningURL`: String corresponding to the [Mini Apps Center's](../Provisioning.md) URL of the Mini Apps.
 	- `GXSuperAppId`: String corresponding to the Super App identifier, to be used at the Mini Apps Center. If this key is not included, the app's [Package Name](https://developer.android.com/reference/android/content/Context#getPackageName()) will be used.  
 	- `GXSuperAppVersion`: String corresponding to the Super App identifier, to be used at the Mini Apps Center. If this key is not included, the app's [Version Code](https://developer.android.com/reference/android/content/pm/PackageInfo#getLongVersionCode()) will be used.
-3. The public key that verifies the signature of the Mini Apps. It's downloaded from the Mini Apps Center and must be placed in the app's resources under the name [superapp_crt](MiniAppCaller/GenexusTestMiniApps/src/main/res/raw/superapp_crt) 
+3. The public key that verifies the signature of the Mini Apps. It's downloaded from the Mini Apps Center and must be placed in the app's resources under the name [superapp_crt](MiniAppCaller/app/src/main/res/raw/superapp_crt) 
    
 ## Communication API with the Mini Apps Center
 
