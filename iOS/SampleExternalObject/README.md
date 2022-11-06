@@ -8,7 +8,7 @@ The definition of the External Object used in this document is the same as [the 
 
 Some things to take into consideration about this definition:
 
-- The name of the External Object is "MyApp". It's important to use the same name in the implementation. 
+- The name of the External Object is "Payments". It's important to use the same name in the implementation. 
 - The External Object provides two methods: PayWithUI and PayWithoutUI, which receive an integer (amount) and return a _string_ (payment identifier)
 
 # Implementation for iOS
@@ -125,7 +125,7 @@ import GXCoreBL
 class SampleExObjLibrary: NSObject, GXExtensionLibraryProtocol {
 	func initializeExtensionLibrary(withContext context: GXExtensionLibraryContext) {
 		GXActionExternalObjectHandler.register(SampleExObjHandler.self,
-											   forExternalObjectName: "MyApp")
+											   forExternalObjectName: "Payments")
 	}
 }
 ```
@@ -134,7 +134,7 @@ Note that as for the External Obect, an `import GXCoreBL` is done, and also note
 
 The rest of the code is the implementation of the `initializeExtensionLibrary(withContext:)` function. In this case, it just registers the External Object.
 
-Note that the External Object is registered with the same name with which it was defined, "MyApp" in this example.
+Note that the External Object is registered with the same name with which it was defined, "Payments" in this example.
 
 ## Loading the _extension library_
 
