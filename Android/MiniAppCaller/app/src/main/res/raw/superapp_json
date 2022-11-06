@@ -1,1 +1,1 @@
-{"GXSuperAppProvisioningURL":"https://dummy-provisioning.dev","GXSuperAppId":"com.superapp.dummy","GXSuperAppVersion":1,"GXMiniAppCacheMaxCount":2,"GXMiniAppCacheMaxDays":1}
+{"GXSuperAppId":"com.genexus.bankx","GXSuperAppVersion":"1","GXSuperAppProvisioningURL":"https://sandbox-api.miniappcenter.com/api","GXMiniAppCacheMaxCount":0,"GXMiniAppCacheMaxDays":1}
