@@ -2,14 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>GXSuperAppId</key>
-	<string>com.genexus.superappnogxexample</string>
-	<key>GXSuperAppVersion</key>
-	<string>1</string>
-	<key>GXSuperAppProvisioningURL</key>
-	<string>https://sandbox-api.miniappcenter.com/api</string>
-	<key>GXMiniprogramsEnabled</key>
-	<true/>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleExecutable</key>
@@ -25,6 +17,14 @@
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
+	<string>1</string>
+	<key>GXMiniprogramsEnabled</key>
+	<true/>
+	<key>GXSuperAppId</key>
+	<string>com.genexus.bankx</string>
+	<key>GXSuperAppProvisioningURL</key>
+	<string>https://sandbox-api.miniappcenter.com/api</string>
+	<key>GXSuperAppVersion</key>
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
