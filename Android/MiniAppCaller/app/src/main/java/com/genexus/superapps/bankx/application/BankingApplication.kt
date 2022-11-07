@@ -4,7 +4,6 @@ import android.app.Application
 import android.content.res.Configuration
 import com.genexus.android.controls.grids.smart.SmartGridModule
 import com.genexus.android.core.application.ApplicationHelper
-import com.genexus.android.core.base.metadata.GenexusApplication
 import com.genexus.android.core.base.services.IEntityProvider
 import com.genexus.android.core.base.services.LogLevel
 import com.genexus.android.core.base.services.Services
@@ -31,9 +30,7 @@ class BankingApplication: Application(), IEntityProvider {
 		//Module provided by the native SuperApp
 		applicationHelper.registerModule(PaymentsModule())
 
-		//Use dummy GenexusApplication
-		val genexusApplication = GenexusApplication().apply { name = "BankingSuperApp" }
-		applicationHelper.onCreate(genexusApplication)
+		applicationHelper.onCreate()
 
 		//Turn MiniApps logging on
 		Services.Log.setLevel(LogLevel.DEBUG)
@@ -41,7 +38,7 @@ class BankingApplication: Application(), IEntityProvider {
 
     override fun onConfigurationChanged(newConfig: Configuration) {
         super.onConfigurationChanged(newConfig)
-		applicationHelper.onConfigurationChanged(newConfig);
+	    applicationHelper.onConfigurationChanged(newConfig)
     }
 
 	override fun getEntityServiceClass(): Class<out EntityService> {
