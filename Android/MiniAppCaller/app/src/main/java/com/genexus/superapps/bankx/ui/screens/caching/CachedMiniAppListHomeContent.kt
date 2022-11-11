@@ -10,6 +10,9 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import com.genexus.android.core.application.LifecycleListeners
+import com.genexus.android.core.base.services.Services
+import com.genexus.android.core.superapps.MiniApp
 import com.genexus.superapps.bankx.ui.MiniAppListItem
 import com.genexus.superapps.bankx.ui.screens.States.ErrorState
 import com.genexus.superapps.bankx.ui.screens.States.LoadingState
@@ -18,6 +21,7 @@ import com.genexus.superapps.bankx.viewmodel.caching.CacheViewModel
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun CachedMiniAppListHomeContent(model: CacheViewModel) {
+    registerCallback(model)
     when (val state = model.state.collectAsState().value) {
         is CacheViewModel.State.Loading -> {
             LoadingState()
@@ -36,4 +40,12 @@ fun CachedMiniAppListHomeContent(model: CacheViewModel) {
             }
         }
     }
+}
+
+private fun registerCallback(model: CacheViewModel) {
+    Services.Application.lifecycle.registerMiniApplicationLifecycleListener(object : LifecycleListeners.MiniApp {
+        override fun onMiniAppStopped(miniApp: MiniApp) { model.refresh() }
+        override fun onMiniAppException(miniApp: MiniApp, t: Throwable) { }
+        override fun onMiniAppStarted(miniApp: MiniApp) { }
+    })
 }

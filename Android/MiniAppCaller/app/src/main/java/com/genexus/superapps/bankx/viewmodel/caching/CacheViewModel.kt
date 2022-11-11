@@ -21,6 +21,10 @@ class CacheViewModel: ViewModel() {
     val state = _state.asStateFlow()
 
     init {
+        refresh()
+    }
+
+    fun refresh() {
         viewModelScope.launch {
             retrieveMiniApps()
         }
@@ -45,15 +49,7 @@ class CacheViewModel: ViewModel() {
         viewModelScope.launch {
             if (Services.SuperApps.removeMiniApp(id, miniApp.version)) {
                 _state.value = State.Loading
-                delay(300)
-
-                val cached = getCachedMiniApps()
-                val state = if (cached.isEmpty())
-                    State.Error("No applications found")
-                else
-                    State.Data(cached)
-
-                _state.value = state
+                retrieveMiniApps()
             }
         }
     }
