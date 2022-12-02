@@ -18,7 +18,7 @@ import GXCoreBL
 			onFinishedExecutingWithError(error)
 			return
 		}
-		let amount: Int
+		let amount: Double
 		let presentingController: UIViewController
 		do {
 			try amount = paymentAmout(from: parameters[0])
@@ -48,7 +48,7 @@ import GXCoreBL
 			onFinishedExecutingWithError(error)
 			return
 		}
-		let amount: Int
+		let amount: Double
 		do {
 			try amount = paymentAmout(from: parameters[0])
 		}
@@ -186,8 +186,8 @@ import GXCoreBL
 	
 	// MARK: Private
 	
-	private func paymentAmout(from parameter: Any) throws -> Int {
-		guard let amount = parameter as? Int, amount > 0 else {
+	private func paymentAmout(from parameter: Any) throws -> Double {
+		guard let amount = (parameter as? NSNumber)?.doubleValue, amount > 0 else {
 			throw NSError.defaultGXError(withLocalizedDescription: "The amount must be greater than 0.")
 		}
 		return amount
