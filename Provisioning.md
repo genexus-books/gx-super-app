@@ -12,6 +12,8 @@ The Mini Apps Center has the following functionalities:
 	2. Upload the Mini App package for review
 	3. Publish the Mini App as available
 
+See [here](https://wiki.genexus.com/commwiki/wiki?53318,Upload+a+Mini+App+version) for more details.
+
 - Provide each Super App with the list of its available Mini Apps, through an API. These searches can be done by:
 	1. Keywords
 	2. Location 
