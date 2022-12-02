@@ -8,6 +8,39 @@
 
 /* Begin PBXBuildFile section */
 		AE34576D269B7BE900A276BE /* GXCustomUserControlsMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE34576C269B7BE900A276BE /* GXCustomUserControlsMapper.swift */; };
+		AE457F20293A7F1700CD9D83 /* ProvisioningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE50801A2697504100926F54 /* ProvisioningViewController.swift */; };
+		AE457F21293A7F1700CD9D83 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5080162697504100926F54 /* AppDelegate.swift */; };
+		AE457F22293A7F1700CD9D83 /* GXCustomUserControlsMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE34576C269B7BE900A276BE /* GXCustomUserControlsMapper.swift */; };
+		AE457F23293A7F1700CD9D83 /* SampleExObjHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEEE718426DEC1780039C5E5 /* SampleExObjHandler.swift */; };
+		AE457F24293A7F1700CD9D83 /* CacheViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4BA5BD2795B85300286676 /* CacheViewController.swift */; };
+		AE457F25293A7F1700CD9D83 /* SampleExObjLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEEE718626DEC1780039C5E5 /* SampleExObjLibrary.swift */; };
+		AE457F27293A7F1700CD9D83 /* GXFoundation.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE7ECBF326A065FB00B8E41B /* GXFoundation.xcframework */; };
+		AE457F28293A7F1700CD9D83 /* GXDataLayer.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE7ECBEC26A065FB00B8E41B /* GXDataLayer.xcframework */; };
+		AE457F29293A7F1700CD9D83 /* GXUCStarRating.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE7ECBF226A065FB00B8E41B /* GXUCStarRating.xcframework */; };
+		AE457F2A293A7F1700CD9D83 /* YAJL.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE7ECBF126A065FB00B8E41B /* YAJL.xcframework */; };
+		AE457F2B293A7F1700CD9D83 /* GXStandardClasses.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE7ECBED26A065FB00B8E41B /* GXStandardClasses.xcframework */; };
+		AE457F2C293A7F1700CD9D83 /* GXUIApplication.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE7ECBEE26A065FB00B8E41B /* GXUIApplication.xcframework */; };
+		AE457F2D293A7F1700CD9D83 /* GXObjectsModel.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE7ECBEF26A065FB00B8E41B /* GXObjectsModel.xcframework */; };
+		AE457F2E293A7F1700CD9D83 /* GXCoreBL.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE7ECBF026A065FB00B8E41B /* GXCoreBL.xcframework */; };
+		AE457F2F293A7F1700CD9D83 /* GXDataLayerRemote.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE7ECBEB26A065FB00B8E41B /* GXDataLayerRemote.xcframework */; };
+		AE457F30293A7F1700CD9D83 /* GXCoreUI.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE7ECBF426A065FB00B8E41B /* GXCoreUI.xcframework */; };
+		AE457F32293A7F1700CD9D83 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE5080212697504200926F54 /* LaunchScreen.storyboard */; };
+		AE457F33293A7F1700CD9D83 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE50801F2697504200926F54 /* Assets.xcassets */; };
+		AE457F34293A7F1700CD9D83 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE50801C2697504100926F54 /* Main.storyboard */; };
+		AE457F35293A7F1700CD9D83 /* superapp.crt in Resources */ = {isa = PBXBuildFile; fileRef = AE4BA53127958A5D00286676 /* superapp.crt */; };
+		AE457F37293A7F1700CD9D83 /* GXDataLayer.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AE7ECBEC26A065FB00B8E41B /* GXDataLayer.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		AE457F38293A7F1700CD9D83 /* GXCoreBL.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AE7ECBF026A065FB00B8E41B /* GXCoreBL.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		AE457F39293A7F1700CD9D83 /* GXDataLayerRemote.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AE7ECBEB26A065FB00B8E41B /* GXDataLayerRemote.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		AE457F3A293A7F1700CD9D83 /* YAJL.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AE7ECBF126A065FB00B8E41B /* YAJL.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		AE457F3B293A7F1700CD9D83 /* GXObjectsModel.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AE7ECBEF26A065FB00B8E41B /* GXObjectsModel.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		AE457F3C293A7F1700CD9D83 /* GXStandardClasses.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AE7ECBED26A065FB00B8E41B /* GXStandardClasses.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		AE457F3D293A7F1700CD9D83 /* GXFoundation.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AE7ECBF326A065FB00B8E41B /* GXFoundation.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		AE457F3E293A7F1700CD9D83 /* GXUIApplication.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AE7ECBEE26A065FB00B8E41B /* GXUIApplication.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		AE457F3F293A7F1700CD9D83 /* GXCoreUI.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AE7ECBF426A065FB00B8E41B /* GXCoreUI.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		AE457F40293A7F1700CD9D83 /* GXUCStarRating.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AE7ECBF226A065FB00B8E41B /* GXUCStarRating.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		AE457FE2293A847500CD9D83 /* GXSuperAppSandbox.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE457FDF293A847500CD9D83 /* GXSuperAppSandbox.xcframework */; };
+		AE457FE3293A847500CD9D83 /* GXSuperApp.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE457FE0293A847500CD9D83 /* GXSuperApp.xcframework */; };
+		AE457FE4293A847500CD9D83 /* GXSuperApp.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE457FE0293A847500CD9D83 /* GXSuperApp.xcframework */; };
 		AE4BA53227958A5D00286676 /* superapp.crt in Resources */ = {isa = PBXBuildFile; fileRef = AE4BA53127958A5D00286676 /* superapp.crt */; };
 		AE4BA5BE2795B85300286676 /* CacheViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4BA5BD2795B85300286676 /* CacheViewController.swift */; };
 		AE5080172697504100926F54 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5080162697504100926F54 /* AppDelegate.swift */; };
@@ -40,6 +73,26 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		AE457F36293A7F1700CD9D83 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				AE457F37293A7F1700CD9D83 /* GXDataLayer.xcframework in Embed Frameworks */,
+				AE457F38293A7F1700CD9D83 /* GXCoreBL.xcframework in Embed Frameworks */,
+				AE457F39293A7F1700CD9D83 /* GXDataLayerRemote.xcframework in Embed Frameworks */,
+				AE457F3A293A7F1700CD9D83 /* YAJL.xcframework in Embed Frameworks */,
+				AE457F3B293A7F1700CD9D83 /* GXObjectsModel.xcframework in Embed Frameworks */,
+				AE457F3C293A7F1700CD9D83 /* GXStandardClasses.xcframework in Embed Frameworks */,
+				AE457F3D293A7F1700CD9D83 /* GXFoundation.xcframework in Embed Frameworks */,
+				AE457F3E293A7F1700CD9D83 /* GXUIApplication.xcframework in Embed Frameworks */,
+				AE457F3F293A7F1700CD9D83 /* GXCoreUI.xcframework in Embed Frameworks */,
+				AE457F40293A7F1700CD9D83 /* GXUCStarRating.xcframework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		AE5080DA269756DD00926F54 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -64,6 +117,10 @@
 
 /* Begin PBXFileReference section */
 		AE34576C269B7BE900A276BE /* GXCustomUserControlsMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GXCustomUserControlsMapper.swift; sourceTree = "<group>"; };
+		AE457F44293A7F1700CD9D83 /* ExampleSuperAppSandbox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExampleSuperAppSandbox.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AE457F45293A7F1700CD9D83 /* Sandbox-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Sandbox-Info.plist"; path = "../Sandbox-Info.plist"; sourceTree = "<group>"; };
+		AE457FDF293A847500CD9D83 /* GXSuperAppSandbox.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = GXSuperAppSandbox.xcframework; sourceTree = "<group>"; };
+		AE457FE0293A847500CD9D83 /* GXSuperApp.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = GXSuperApp.xcframework; sourceTree = "<group>"; };
 		AE4BA53127958A5D00286676 /* superapp.crt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = superapp.crt; sourceTree = "<group>"; };
 		AE4BA5BD2795B85300286676 /* CacheViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheViewController.swift; sourceTree = "<group>"; };
 		AE5080132697504100926F54 /* ExampleSuperApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExampleSuperApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -91,10 +148,30 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		AE457F26293A7F1700CD9D83 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AE457FE4293A847500CD9D83 /* GXSuperApp.xcframework in Frameworks */,
+				AE457F27293A7F1700CD9D83 /* GXFoundation.xcframework in Frameworks */,
+				AE457F28293A7F1700CD9D83 /* GXDataLayer.xcframework in Frameworks */,
+				AE457F29293A7F1700CD9D83 /* GXUCStarRating.xcframework in Frameworks */,
+				AE457F2A293A7F1700CD9D83 /* YAJL.xcframework in Frameworks */,
+				AE457FE2293A847500CD9D83 /* GXSuperAppSandbox.xcframework in Frameworks */,
+				AE457F2B293A7F1700CD9D83 /* GXStandardClasses.xcframework in Frameworks */,
+				AE457F2C293A7F1700CD9D83 /* GXUIApplication.xcframework in Frameworks */,
+				AE457F2D293A7F1700CD9D83 /* GXObjectsModel.xcframework in Frameworks */,
+				AE457F2E293A7F1700CD9D83 /* GXCoreBL.xcframework in Frameworks */,
+				AE457F2F293A7F1700CD9D83 /* GXDataLayerRemote.xcframework in Frameworks */,
+				AE457F30293A7F1700CD9D83 /* GXCoreUI.xcframework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		AE5080102697504100926F54 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE457FE3293A847500CD9D83 /* GXSuperApp.xcframework in Frameworks */,
 				AEF43D8326A5015E00577571 /* GXFoundation.xcframework in Frameworks */,
 				AEF43D7F26A5015A00577571 /* GXDataLayer.xcframework in Frameworks */,
 				AEF43D8926A5015F00577571 /* GXUCStarRating.xcframework in Frameworks */,
@@ -126,6 +203,7 @@
 			isa = PBXGroup;
 			children = (
 				AE5080132697504100926F54 /* ExampleSuperApp.app */,
+				AE457F44293A7F1700CD9D83 /* ExampleSuperAppSandbox.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -142,6 +220,7 @@
 				AE50801F2697504200926F54 /* Assets.xcassets */,
 				AE5080212697504200926F54 /* LaunchScreen.storyboard */,
 				AE5080242697504200926F54 /* Info.plist */,
+				AE457F45293A7F1700CD9D83 /* Sandbox-Info.plist */,
 			);
 			path = ExampleSuperApp;
 			sourceTree = "<group>";
@@ -157,6 +236,8 @@
 				AE7ECBF326A065FB00B8E41B /* GXFoundation.xcframework */,
 				AE7ECBEF26A065FB00B8E41B /* GXObjectsModel.xcframework */,
 				AE7ECBED26A065FB00B8E41B /* GXStandardClasses.xcframework */,
+				AE457FE0293A847500CD9D83 /* GXSuperApp.xcframework */,
+				AE457FDF293A847500CD9D83 /* GXSuperAppSandbox.xcframework */,
 				AE7ECBF226A065FB00B8E41B /* GXUCStarRating.xcframework */,
 				AE7ECBEE26A065FB00B8E41B /* GXUIApplication.xcframework */,
 				AE7ECBF126A065FB00B8E41B /* YAJL.xcframework */,
@@ -177,6 +258,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		AE457F1E293A7F1700CD9D83 /* ExampleSuperAppSandbox */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AE457F41293A7F1700CD9D83 /* Build configuration list for PBXNativeTarget "ExampleSuperAppSandbox" */;
+			buildPhases = (
+				AE457F1F293A7F1700CD9D83 /* Sources */,
+				AE457F26293A7F1700CD9D83 /* Frameworks */,
+				AE457F31293A7F1700CD9D83 /* Resources */,
+				AE457F36293A7F1700CD9D83 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ExampleSuperAppSandbox;
+			productName = ExampleSuperApp;
+			productReference = AE457F44293A7F1700CD9D83 /* ExampleSuperAppSandbox.app */;
+			productType = "com.apple.product-type.application";
+		};
 		AE5080122697504100926F54 /* ExampleSuperApp */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = AE5080272697504200926F54 /* Build configuration list for PBXNativeTarget "ExampleSuperApp" */;
@@ -223,11 +322,23 @@
 			projectRoot = "";
 			targets = (
 				AE5080122697504100926F54 /* ExampleSuperApp */,
+				AE457F1E293A7F1700CD9D83 /* ExampleSuperAppSandbox */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		AE457F31293A7F1700CD9D83 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AE457F32293A7F1700CD9D83 /* LaunchScreen.storyboard in Resources */,
+				AE457F33293A7F1700CD9D83 /* Assets.xcassets in Resources */,
+				AE457F34293A7F1700CD9D83 /* Main.storyboard in Resources */,
+				AE457F35293A7F1700CD9D83 /* superapp.crt in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		AE5080112697504100926F54 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -242,6 +353,19 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		AE457F1F293A7F1700CD9D83 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AE457F20293A7F1700CD9D83 /* ProvisioningViewController.swift in Sources */,
+				AE457F21293A7F1700CD9D83 /* AppDelegate.swift in Sources */,
+				AE457F22293A7F1700CD9D83 /* GXCustomUserControlsMapper.swift in Sources */,
+				AE457F23293A7F1700CD9D83 /* SampleExObjHandler.swift in Sources */,
+				AE457F24293A7F1700CD9D83 /* CacheViewController.swift in Sources */,
+				AE457F25293A7F1700CD9D83 /* SampleExObjLibrary.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		AE50800F2697504100926F54 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -277,6 +401,50 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		AE457F42293A7F1700CD9D83 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = "Sandbox-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.genexus.ExampleSuperApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG SUPERAPPSANDBOX";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		AE457F43293A7F1700CD9D83 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = "Sandbox-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.genexus.ExampleSuperApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = SUPERAPPSANDBOX;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		AE5080252697504200926F54 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -436,6 +604,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		AE457F41293A7F1700CD9D83 /* Build configuration list for PBXNativeTarget "ExampleSuperAppSandbox" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AE457F42293A7F1700CD9D83 /* Debug */,
+				AE457F43293A7F1700CD9D83 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		AE50800E2697504100926F54 /* Build configuration list for PBXProject "ExampleSuperApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
