@@ -109,7 +109,7 @@ In all cases within the `OnFailureListener` Listener, the error can be one of th
 - `SIGNATURE` is an error in the verification of the .zip file's signature of the Mini App metadata against the file [superapp_crt](MiniAppCaller/GenexusTestMiniApps/src/main/res/raw/superapp_crt).
 - `INFORMATION` is an error in the fields of the Mini App given by the server.
 
-A practical usage example on discovering and loading Mini Apps is available in [AppMainActivity.java](MiniAppCaller/GenexusTestMiniApps/src/main/java/com/genexus/testminiapps/AppMainActivity.java).
+A practical usage example on discovering and loading Mini Apps is available at [MainViewModel.kt](MiniAppCaller/app/src/main/java/com/genexus/superapps/bankx/viewmodel/main/MainViewModel.kt).
 
 To return to the Super App, both the Mini App developer and the Super App developer can use the `exit` method of the `SuperAppsHelper`class. This restores the `Activity` present at the moment in which the Mini App was loaded. 
     
