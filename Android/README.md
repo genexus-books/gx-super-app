@@ -15,7 +15,7 @@ There are certain initial configuration steps in the project:
    
 ## Communication API with the Mini Apps Center
 
-To access the Mini Apps that are available on the Mini Apps Center, the class `SuperAppsHelper` is used. It's included in the `SuperAppsLib` library and accessed via the `Services.SuperApps` static field after [registering the `SuperAppsLib` module](https://github.com/genexus-colab/gx-super-app/blob/7a861ad837d8338f93b608759b5a40063f777257/Android/MiniAppCaller/GenexusTestMiniApps/src/main/java/com/genexus/testminiapps/MainApplication.java#L36) in the initialization of the class that extends `Application`.
+To access the Mini Apps that are available on the Mini Apps Center, the class `SuperAppsHelper` is used. It's included in the `SuperAppsLib` library and accessed via the `Services.SuperApps` static field after [registering the `SuperAppsLib` module](https://github.com/genexus-colab/gx-super-app-backup/blob/d63a20f0ba839914c915fdd09aa9102946d021c2/Android/MiniAppCaller/app/src/main/java/com/genexus/superapps/bankx/application/BankingApplication.kt#L29) in the initialization of the class that extends `Application`.
 
 This class provides four methods to load Mini Apps, using different criteria. 
 In all cases there are two parameters in common: 
