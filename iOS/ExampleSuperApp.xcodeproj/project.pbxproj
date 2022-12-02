@@ -38,9 +38,12 @@
 		AE457F3E293A7F1700CD9D83 /* GXUIApplication.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AE7ECBEE26A065FB00B8E41B /* GXUIApplication.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		AE457F3F293A7F1700CD9D83 /* GXCoreUI.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AE7ECBF426A065FB00B8E41B /* GXCoreUI.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		AE457F40293A7F1700CD9D83 /* GXUCStarRating.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AE7ECBF226A065FB00B8E41B /* GXUCStarRating.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		AE457FE2293A847500CD9D83 /* GXSuperAppSandbox.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE457FDF293A847500CD9D83 /* GXSuperAppSandbox.xcframework */; };
-		AE457FE3293A847500CD9D83 /* GXSuperApp.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE457FE0293A847500CD9D83 /* GXSuperApp.xcframework */; };
-		AE457FE4293A847500CD9D83 /* GXSuperApp.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE457FE0293A847500CD9D83 /* GXSuperApp.xcframework */; };
+		AE45807E293A8A4A00CD9D83 /* GXSuperApp.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE457FE0293A847500CD9D83 /* GXSuperApp.xcframework */; };
+		AE45807F293A8A4A00CD9D83 /* GXSuperApp.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AE457FE0293A847500CD9D83 /* GXSuperApp.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		AE458080293A8A4A00CD9D83 /* GXSuperAppSandbox.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE457FDF293A847500CD9D83 /* GXSuperAppSandbox.xcframework */; };
+		AE458081293A8A4A00CD9D83 /* GXSuperAppSandbox.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AE457FDF293A847500CD9D83 /* GXSuperAppSandbox.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		AE458082293A8A4E00CD9D83 /* GXSuperApp.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE457FE0293A847500CD9D83 /* GXSuperApp.xcframework */; };
+		AE458083293A8A4E00CD9D83 /* GXSuperApp.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AE457FE0293A847500CD9D83 /* GXSuperApp.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		AE4BA53227958A5D00286676 /* superapp.crt in Resources */ = {isa = PBXBuildFile; fileRef = AE4BA53127958A5D00286676 /* superapp.crt */; };
 		AE4BA5BE2795B85300286676 /* CacheViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4BA5BD2795B85300286676 /* CacheViewController.swift */; };
 		AE5080172697504100926F54 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5080162697504100926F54 /* AppDelegate.swift */; };
@@ -82,8 +85,10 @@
 				AE457F37293A7F1700CD9D83 /* GXDataLayer.xcframework in Embed Frameworks */,
 				AE457F38293A7F1700CD9D83 /* GXCoreBL.xcframework in Embed Frameworks */,
 				AE457F39293A7F1700CD9D83 /* GXDataLayerRemote.xcframework in Embed Frameworks */,
+				AE45807F293A8A4A00CD9D83 /* GXSuperApp.xcframework in Embed Frameworks */,
 				AE457F3A293A7F1700CD9D83 /* YAJL.xcframework in Embed Frameworks */,
 				AE457F3B293A7F1700CD9D83 /* GXObjectsModel.xcframework in Embed Frameworks */,
+				AE458081293A8A4A00CD9D83 /* GXSuperAppSandbox.xcframework in Embed Frameworks */,
 				AE457F3C293A7F1700CD9D83 /* GXStandardClasses.xcframework in Embed Frameworks */,
 				AE457F3D293A7F1700CD9D83 /* GXFoundation.xcframework in Embed Frameworks */,
 				AE457F3E293A7F1700CD9D83 /* GXUIApplication.xcframework in Embed Frameworks */,
@@ -102,6 +107,7 @@
 				AEF43D8026A5015A00577571 /* GXDataLayer.xcframework in Embed Frameworks */,
 				AEF43D7C26A5015700577571 /* GXCoreBL.xcframework in Embed Frameworks */,
 				AEF43D8226A5015E00577571 /* GXDataLayerRemote.xcframework in Embed Frameworks */,
+				AE458083293A8A4E00CD9D83 /* GXSuperApp.xcframework in Embed Frameworks */,
 				AEF43D8E26A5015F00577571 /* YAJL.xcframework in Embed Frameworks */,
 				AEF43D8626A5015F00577571 /* GXObjectsModel.xcframework in Embed Frameworks */,
 				AEF43D8826A5015F00577571 /* GXStandardClasses.xcframework in Embed Frameworks */,
@@ -152,13 +158,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AE457FE4293A847500CD9D83 /* GXSuperApp.xcframework in Frameworks */,
+				AE45807E293A8A4A00CD9D83 /* GXSuperApp.xcframework in Frameworks */,
 				AE457F27293A7F1700CD9D83 /* GXFoundation.xcframework in Frameworks */,
 				AE457F28293A7F1700CD9D83 /* GXDataLayer.xcframework in Frameworks */,
 				AE457F29293A7F1700CD9D83 /* GXUCStarRating.xcframework in Frameworks */,
 				AE457F2A293A7F1700CD9D83 /* YAJL.xcframework in Frameworks */,
-				AE457FE2293A847500CD9D83 /* GXSuperAppSandbox.xcframework in Frameworks */,
 				AE457F2B293A7F1700CD9D83 /* GXStandardClasses.xcframework in Frameworks */,
+				AE458080293A8A4A00CD9D83 /* GXSuperAppSandbox.xcframework in Frameworks */,
 				AE457F2C293A7F1700CD9D83 /* GXUIApplication.xcframework in Frameworks */,
 				AE457F2D293A7F1700CD9D83 /* GXObjectsModel.xcframework in Frameworks */,
 				AE457F2E293A7F1700CD9D83 /* GXCoreBL.xcframework in Frameworks */,
@@ -171,10 +177,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AE457FE3293A847500CD9D83 /* GXSuperApp.xcframework in Frameworks */,
 				AEF43D8326A5015E00577571 /* GXFoundation.xcframework in Frameworks */,
 				AEF43D7F26A5015A00577571 /* GXDataLayer.xcframework in Frameworks */,
 				AEF43D8926A5015F00577571 /* GXUCStarRating.xcframework in Frameworks */,
+				AE458082293A8A4E00CD9D83 /* GXSuperApp.xcframework in Frameworks */,
 				AEF43D8D26A5015F00577571 /* YAJL.xcframework in Frameworks */,
 				AEF43D8726A5015F00577571 /* GXStandardClasses.xcframework in Frameworks */,
 				AEF43D8B26A5015F00577571 /* GXUIApplication.xcframework in Frameworks */,
