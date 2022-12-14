@@ -20,13 +20,13 @@ import kotlinx.coroutines.launch
 
 class PaymentsApi(action: ApiAction?) : ExternalApi(action) {
     private val methodPayWithoutUI = IMethodInvoker { parameters: List<Any> ->
-        val amount = parameters[0].toString().toInt()
+        val amount = parameters[0].toString().toDouble()
         val paymentId = PaymentsService.pay(amount)
         ExternalApiResult.success(paymentId)
     }
     private val methodPayWithUI: IMethodInvokerWithActivityResult = object : IMethodInvokerWithActivityResult {
         override fun invoke(parameters: List<Any>): ExternalApiResult {
-            val amount = parameters[0].toString().toInt()
+            val amount = parameters[0].toString().toDouble()
             startActivityForResult(PaymentActivity.newIntent(context, amount), PAYMENT_REQUEST_CODE)
             return ExternalApiResult.SUCCESS_WAIT
         }

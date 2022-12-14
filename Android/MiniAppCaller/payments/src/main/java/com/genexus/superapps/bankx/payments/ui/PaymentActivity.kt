@@ -12,7 +12,7 @@ import com.genexus.superapps.bankx.payments.ui.theme.BankingSuperAppTheme
 class PaymentActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val amount = intent.extras?.getInt(EXTRA_AMOUNT) ?: 0
+        val amount : Double = intent.extras?.getDouble(EXTRA_AMOUNT) ?: 0.0
         setContent {
             BankingSuperAppTheme {
                 PaymentSheet({ canceled() }) {
@@ -27,7 +27,7 @@ class PaymentActivity : ComponentActivity() {
         finish()
     }
 
-    private fun succeeded(amount: Int) {
+    private fun succeeded(amount: Double) {
         val paymentId = PaymentsService.pay(amount)
         val result = Intent().apply { putExtra(EXTRA_PAYMENT_ID, paymentId) }
         setResult(Activity.RESULT_OK, result)
@@ -38,7 +38,7 @@ class PaymentActivity : ComponentActivity() {
         private const val EXTRA_AMOUNT = "Amount"
         const val EXTRA_PAYMENT_ID = "PaymentId"
 
-        fun newIntent(context: Context?, amount: Int): Intent {
+        fun newIntent(context: Context?, amount: Double): Intent {
             val intent = Intent(context, PaymentActivity::class.java)
             intent.putExtra(EXTRA_AMOUNT, amount)
             return intent
