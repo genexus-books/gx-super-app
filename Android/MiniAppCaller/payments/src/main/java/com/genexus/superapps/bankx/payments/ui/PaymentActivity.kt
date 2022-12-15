@@ -12,7 +12,7 @@ import com.genexus.superapps.bankx.payments.ui.theme.BankingSuperAppTheme
 class PaymentActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val amount : Double = intent.extras?.getDouble(EXTRA_AMOUNT) ?: 0.0
+        val amount = intent.extras?.getDouble(EXTRA_AMOUNT) ?: 0.0
         setContent {
             BankingSuperAppTheme {
                 PaymentSheet({ canceled() }) {
