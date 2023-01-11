@@ -25,6 +25,22 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
+    flavorDimensions "default"
+    productFlavors {
+        normal {
+            dimension "default"
+            applicationIdSuffix ".normal"
+            versionNameSuffix "-normal"
+        }
+        sandbox {
+            dimension "default"
+            applicationIdSuffix ".sandbox"
+            versionNameSuffix "-sandbox"
+        }
+    }
+
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
@@ -53,6 +69,7 @@ dependencies {
     implementation "com.genexus.android:CoreUserControls:${fc_version}"
     implementation "com.genexus.android:SmartGridLib:${fc_version}"
     implementation "com.genexus.android:SuperAppsLib:${fc_version}"
+    sandboxImplementation "com.genexus.android:SuperAppsSandboxLib:${fc_version}"
     implementation 'androidx.core:core-ktx:1.8.0'
     implementation 'androidx.appcompat:appcompat:1.5.0'
     implementation 'com.google.android.material:material:1.6.1'

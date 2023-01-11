@@ -1,5 +1,8 @@
 package com.genexus.superapps.bankx.viewmodel.main
 
+import android.annotation.SuppressLint
+import android.content.Context
+import android.widget.Toast
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.genexus.android.core.base.services.Services
@@ -49,6 +52,27 @@ class MainViewModel : ViewModel() {
             override fun onComplete(task: Task<Boolean, LoadError>) {
                 if (!task.isSuccessful)
                     _state.value = State.Error("MiniApp loading failed")
+            }
+        })
+    }
+
+    @SuppressLint("MissingPermission")
+    suspend fun loadSandbox(context: Context) {
+        val task = Services.SuperApps.loadSandbox()
+        if (task == null) {
+            Services.Device.runOnUiThread {
+                Toast.makeText(context, "Loading task is null", Toast.LENGTH_SHORT).show()
+            }
+            return
+        }
+
+        task.addOnCompleteListener(object : OnCompleteListener<Boolean, LoadError> {
+            override fun onComplete(task: Task<Boolean, LoadError>) {
+                if (!task.isSuccessful) {
+                    Services.Device.runOnUiThread {
+                        Toast.makeText(context, "Loading task failed", Toast.LENGTH_SHORT).show()
+                    }
+                }
             }
         })
     }
