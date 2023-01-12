@@ -4,7 +4,6 @@
 //
 
 import GXCoreBL
-import GXSuperApp
 
 @objc public class SampleExObjHandler: GXActionExternalObjectHandler {
 	
@@ -30,14 +29,7 @@ import GXSuperApp
 			return
 		}
 		
-		var alertTitle = "Paying with UI"
-		if GXMiniAppsManager.isSandboxEnvironment {
-			/// GXMiniAppsManager.isSandboxEnvironment could be used to distinguish between test and production environments within the same API implementation. Note mini apps can't distinguish if it's running in a sandox environemnt or not.
-			alertTitle = "SANDBOX: " + alertTitle
-		}
-		
-		
-		let alertController = UIAlertController(title: alertTitle, message: "Received a payment of $\(amount)", preferredStyle: .alert)
+		let alertController = UIAlertController(title: "Paying with UI", message: "Received a payment of $\(amount)", preferredStyle: .alert)
 
 		let doneAlertAction = UIAlertAction(title: "Done", style: .default, handler: { _ in
 			alertController.dismiss(animated: true) {
@@ -65,13 +57,7 @@ import GXSuperApp
 			return
 		}
 		
-		var message = "Received a payment of $\(amount)"
-		if GXMiniAppsManager.isSandboxEnvironment {
-			/// GXMiniAppsManager.isSandboxEnvironment could be used to distinguish between test and production environments within the same API implementation. Note mini apps can't distinguish if it's running in a sandox environemnt or not.
-			message = "SANDBOX: " + message
-		}
-		
-		print("\(message)")
+		print("Received a payment of $\(amount)")
 
 		setReturnValue(GXUUID.create().toString())
 		onFinishedExecutingWithSuccess()
