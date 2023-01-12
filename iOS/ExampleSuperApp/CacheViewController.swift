@@ -5,7 +5,6 @@
 
 import UIKit
 import GXCoreUI
-import GXSuperApp
 
 class CacheViewController: UITableViewController {
 	

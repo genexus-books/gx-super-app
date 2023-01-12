@@ -5,10 +5,6 @@
 
 import UIKit
 import GXCoreUI
-import GXSuperApp
-#if SUPERAPPSANDBOX
-import GXSuperAppSandbox
-#endif // SUPERAPPSANDBOX
 
 class ProvisioningViewController: UITableViewController {
 	
@@ -20,11 +16,6 @@ class ProvisioningViewController: UITableViewController {
 		searchController.searchResultsUpdater = self
 		loadFromProvisioning()
 		refreshControl?.addTarget(self, action: #selector(Self.pullToRefresh), for: .valueChanged)
-#if SUPERAPPSANDBOX
-		navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .camera,
-															target: self,
-															action: #selector(Self.loadSandbox))
-#endif // SUPERAPPSANDBOX
 	}
 	
 	// MARK: - Loading
@@ -60,7 +51,7 @@ class ProvisioningViewController: UITableViewController {
 			guard reload == nil, loadedMiniAppsInfo.searchType == searchInfo.type else { return 0 }
 			return loadedMiniAppsInfo.miniApps.count
 		}()
-		let completion: GXSuperApp.GXSuperAppProvisioning.MiniAppsInfoCompletion = { [weak self] result in
+		let completion: GXCoreBL.GXSuperAppProvisioning.MiniAppsInfoCompletion = { [weak self] result in
 			DispatchQueue.main.async {
 				guard let sself = self, sself.currentLoadOperation != nil, sself.lastLoadedSearchInfo == searchInfo else { return }
 				defer { sself.refreshControl?.endRefreshing() }
@@ -186,16 +177,6 @@ class ProvisioningViewController: UITableViewController {
 			}
 		}
 	}
-	
-#if SUPERAPPSANDBOX
-	// MARK: - Sandbox
-	
-	@objc private func loadSandbox() {
-		let sandboxController = GXMiniAppsManager.sandboxLoaderViewController()
-		/// Can also be pushed into a navigation controller, as in: navigationController?.pushViewController(sandboxController, animated: true)
-		present(sandboxController, animated: true)
-	}
-#endif // SUPERAPPSANDBOX
 }
 
 private extension ProvisioningViewController {
