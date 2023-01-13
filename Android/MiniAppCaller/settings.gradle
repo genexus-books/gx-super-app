@@ -12,10 +12,7 @@ dependencyResolutionManagement {
         google()
         mavenCentral()
         maven { url 'file:///D:/Dev/m2Repository/' }
-        if (rootProject.hasProperty("useDependenciesProxy")) {
-            maven { url 'http://nexus.genexus.com/repository/maven-public'
-                allowInsecureProtocol = true }
-        }
+        maven { url 'https://jitpack.io' }
     }
 }
 rootProject.name = "BankingSuperApp"
