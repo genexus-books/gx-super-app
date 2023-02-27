@@ -61,7 +61,7 @@ fun MiniAppListHomeContent(model: MainViewModel) {
                 ErrorState(text = state.message)
             }
             is MainViewModel.State.Data -> {
-                val miniApps = remember { state.data }
+                val miniApps = state.data
                 LazyColumn(
                     contentPadding = PaddingValues(horizontal = 16.dp, vertical = 8.dp)
                 ) {
