@@ -46,7 +46,7 @@ fun MiniAppListItem(miniApp: MiniApp, onClick: () -> Unit = {}) {
                     .align(Alignment.CenterVertically)
 
             ) {
-                Text(text = miniApp.normalizedName, style = typography.h6, color = Color.Black)
+                Text(text = miniApp.name, style = typography.h6, color = Color.Black)
                 Text(text = "${miniApp.id}:${miniApp.version}", style = typography.caption, color = Color.Black)
             }
         }
