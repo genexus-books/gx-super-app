@@ -12,7 +12,7 @@ object PaymentsService {
     private const val SDT_PAYMENT_INFORMATION_ITEM_AFFINITY = "affinity"
     private const val SDT_PAYMENT_INFORMATION_ITEM_TYPE = "type"
 
-    fun pay(amount: Int): String {
+    fun pay(amount: Double): String {
         return amount.toString() + "-" + UUID.randomUUID().toString()
     }
 

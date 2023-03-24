@@ -21,7 +21,7 @@ import androidx.compose.ui.tooling.preview.PreviewParameterProvider
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun BottomSheet(@PreviewParameter(AmountProvider::class) amount: Int, succeeded: () -> Unit, canceled: () -> Unit) {
+fun BottomSheet(@PreviewParameter(AmountProvider::class) amount: Double, succeeded: () -> Unit, canceled: () -> Unit) {
     Surface(
         modifier = Modifier
             .fillMaxWidth()
