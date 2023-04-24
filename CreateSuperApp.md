@@ -6,9 +6,11 @@ Steps to take to turn an App into a Super App:
 2. Provide the communication interface in the Super App, which will be called from the integrated Mini Apps
 
 For Mini App Test & Review:
+
 3. Provide a Super App with Sandbox Mode
 
 For Production Environment:
+
 4. Integrate the **module to access the Mini Apps Center**, so as to get the Mini Apps and be able to load a Mini App
 5. Design the UX for the discovery of those Mini Apps
 
