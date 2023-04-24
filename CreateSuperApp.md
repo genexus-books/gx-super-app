@@ -3,20 +3,18 @@
 Steps to take to turn an App into a Super App:
 
 1. Integrate the GeneXus Super App Render (aka Flexible Client). It's the main component and is in charge of doing the **Mini App render**
-2. Integrate the **module to access the Mini Apps Center**, so as to get the Mini Apps and be able to load a Mini App
-3. Design the UX for the discovery of those Mini Apps
-4. Provide the communication interface in the Super App, which will be called from the integrated Mini Apps
+2. Provide the communication interface in the Super App, which will be called from the integrated Mini Apps
+
+For Mini App Test & Review:
+3. Provide a Super App with Sandbox Mode
+
+For Production Environment:
+4. Integrate the **module to access the Mini Apps Center**, so as to get the Mini Apps and be able to load a Mini App
+5. Design the UX for the discovery of those Mini Apps
 
 ## Integrate the [Super App Render](/SuperAppRender.md) library.
 
 This component is what allows an App to become a Super App.
-
-## Access to the Mini Apps Center to get the Mini Apps and UX design for their discovery.
-
-To get the list of Mini Apps available for the Super App, the communication API with the Mini Apps Center of the [Super App Render](/SuperAppRender.md) is used.
-
-- [iOS example](iOS/README.md)
-- [Android example](Android/README.md)
 
 ## Provide a **communication interface** to be called from the integrated Mini Apps. 
 
@@ -30,3 +28,18 @@ There are 2 examples of how to integrate the Super App Render component into a n
 
 -   [iOS example](iOS/SampleExternalObject/README.md)
 -   [Android example](Android/MiniAppCaller/README.md)
+
+
+## Provide a Super App with Sandbox Mode
+In production, the way to load a Mini App within the Super App is through the services provided by GeneXus Render to access the Mini App Center and obtain the list of approved and published Mini Apps for that Super App (Step 4).
+
+Using the Sandbox mode, your Mini App providers will be able to Test a Mini App, and you will be able to Review a Mini App within the Super App before it is published.
+
+
+## Access to the Mini Apps Center to get the Mini Apps and UX design for their discovery.
+
+To get the list of Mini Apps available for the Super App, the communication API with the Mini Apps Center of the [Super App Render](/SuperAppRender.md) is used.
+
+- [iOS example](iOS/README.md)
+- [Android example](Android/README.md)
+
