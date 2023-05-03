@@ -68,24 +68,23 @@ Here's an example of how to add this functionality on each platform to avoid thi
 
 In a native app with Apple, create a target to run in Sandbox mode.
 
-XX
+![image](https://user-images.githubusercontent.com/33960187/236041221-e60282e9-13ca-4d7b-8dce-15a40eaee7a0.png)
 
 In the [example code](https://github.com/genexus-colab/gx-super-app/blob/0448cfb714f2fb2bd55b00087e1ceabcfe581ed2/iOS/ExampleSuperApp/ProvisioningViewController.swift#L190), you can see how the action that invokes LoadSandbox is conditioned to only be visible when running for the Sandbox target. This is done through the use of Custom Flags:
 
-XX
+![image](https://user-images.githubusercontent.com/33960187/236041329-adc044ac-f926-4923-8423-3ab5aa4d83a3.png)
 
 #### Android
 
 Define two flavors, "normal" and "sandbox" as Build Variant. In this way, the Super App declares the SuperAppsSandboxLib module as a dependency only for the "sandbox" flavor.
 
-XX
+![image](https://user-images.githubusercontent.com/33960187/236041405-917a856a-e76b-4a31-81ac-34bfb0dfe87b.png)
 
 When the "Active Build Variant" is configured with the "sandbox" flavor, the application can display a FloatingActionButton that allows it to scan the QR code screen to load a Mini App through its QR code.
 
-XX
+![image](https://user-images.githubusercontent.com/33960187/236041504-61bd8494-d248-46d2-b42c-221cc80fe430.png)
 
 See the [example code](https://github.com/genexus-colab/gx-super-app/blob/bc191281437d2571608da7cd040f093fb8cb5f12/Android/MiniAppCaller/app/src/main/java/com/genexus/superapps/bankx/ui/screens/main/MiniAppListHomeContent.kt#L76).
-
 
 ### Step 3: Conditional code based on execution mode
 
@@ -100,6 +99,8 @@ The IsSandboxEnvironment method returns True if the class that implements the Sa
 
 #### Android
 In Android, the isSandboxEnvironment method of the ISuperApps interface must be used (implemented under Services.SuperApps)
+
+![image](https://user-images.githubusercontent.com/33960187/236041606-2d166a48-90eb-4554-b82d-aceb3b9ecfe5.png)
 
 [See example](https://github.com/genexus-colab/gx-super-app/blob/8440b384ff2d05979bb04235cb170c0d254b6823/Android/MiniAppCaller/app/src/main/java/com/genexus/superapps/bankx/ui/screens/main/MiniAppListHomeContent.kt#L76)
 
