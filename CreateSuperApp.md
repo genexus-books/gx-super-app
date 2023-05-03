@@ -35,7 +35,7 @@ There are 2 examples of how to integrate the Super App Render component into a n
 ## Provide a Super App with Sandbox Mode
 In production, the way to load a Mini App within the Super App is through the services provided by GeneXus Render to access the Mini App Center and obtain the list of approved and published Mini Apps for that Super App (Step 4).
 
-Using the Sandbox mode, your Mini App providers will be able to Test a Mini App, and you will be able to Review a Mini App within the Super App before it is published.
+Using the [Sandbox mode](CreateSuperAppSandboxMode.md), your Mini App providers will be able to Test a Mini App, and you will be able to Review a Mini App within the Super App before it is published.
 
 
 ## Access to the Mini Apps Center to get the Mini Apps and UX design for their discovery.
