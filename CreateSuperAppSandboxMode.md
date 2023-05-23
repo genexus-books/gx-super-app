@@ -41,8 +41,8 @@ This module is part of [GeneXus Super App Render]((/SuperAppRender.md)).
 
 **It should only be included as a dependency in the test version of the Super App and not in the production version, to prevent Mini Apps from being loaded without going through the approval process.**
 
-For Apple: 'GXSuperAppSandbox.xcframework'
-For Android: 'SuperAppsSandboxLib'
+- For Apple: 'GXSuperAppSandbox.xcframework'
+- For Android: 'SuperAppsSandboxLib'
 
 ### Step 2: Load Mini App with LoadSandbox()
 
@@ -82,8 +82,6 @@ Define two flavors, "normal" and "sandbox" as Build Variant. In this way, the Su
 
 When the "Active Build Variant" is configured with the "sandbox" flavor, the application can display a FloatingActionButton that allows it to scan the QR code screen to load a Mini App through its QR code.
 
-![image](https://user-images.githubusercontent.com/33960187/236041504-61bd8494-d248-46d2-b42c-221cc80fe430.png)
-
 See the [example code](https://github.com/genexus-colab/gx-super-app/blob/bc191281437d2571608da7cd040f093fb8cb5f12/Android/MiniAppCaller/app/src/main/java/com/genexus/superapps/bankx/ui/screens/main/MiniAppListHomeContent.kt#L76).
 
 ### Step 3: Conditional code based on execution mode
@@ -98,7 +96,7 @@ The IsSandboxEnvironment method returns True if the class that implements the Sa
 [See example](https://github.com/genexus-colab/gx-super-app/blob/0448cfb714f2fb2bd55b00087e1ceabcfe581ed2/iOS/SampleExternalObject/SampleExObjHandler.swift#L34)
 
 #### Android
-In Android, the isSandboxEnvironment method of the ISuperApps interface must be used (implemented under Services.SuperApps)
+In Android, the isSandboxEnvironment is implemented with the method Services.SuperApps.Prototyping.isEnabled. 
 
 ![image](https://user-images.githubusercontent.com/33960187/236041606-2d166a48-90eb-4554-b82d-aceb3b9ecfe5.png)
 
