@@ -15,4 +15,4 @@ GXCoreBLServices.registerCrashAnalyticsService(GXFirebaseCrashAnalyticsService.s
 
 Now, every time a fatal exception is thrown while a Mini App is executing, it will be forwarded to the Crashlytics profile configured for the project along with the Mini App Id and Version so it is easier to find when and under which circumstances the crash happened.
 
-Note the provided example is for Firebase Crashlytics, but the same could applies for other Crash Analytics provider.
+Note the provided example is for Firebase Crashlytics, but the same applies for other Crash Analytics provider.
