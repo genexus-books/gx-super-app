@@ -146,6 +146,7 @@
 		AE7ECBF226A065FB00B8E41B /* GXUCStarRating.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = GXUCStarRating.xcframework; sourceTree = "<group>"; };
 		AE7ECBF326A065FB00B8E41B /* GXFoundation.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = GXFoundation.xcframework; sourceTree = "<group>"; };
 		AE7ECBF426A065FB00B8E41B /* GXCoreUI.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = GXCoreUI.xcframework; sourceTree = "<group>"; };
+		AEA799C22A20C896001511C6 /* Logging.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Logging.md; sourceTree = "<group>"; };
 		AEEE718426DEC1780039C5E5 /* SampleExObjHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleExObjHandler.swift; sourceTree = "<group>"; };
 		AEEE718526DEC1780039C5E5 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		AEEE718626DEC1780039C5E5 /* SampleExObjLibrary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleExObjLibrary.swift; sourceTree = "<group>"; };
@@ -198,6 +199,7 @@
 			isa = PBXGroup;
 			children = (
 				AEFB723727A2EFD8005324FB /* README.md */,
+				AEA799C22A20C896001511C6 /* Logging.md */,
 				AE5080152697504100926F54 /* ExampleSuperApp */,
 				AEEE718326DEC1780039C5E5 /* SampleExternalObject */,
 				AE5080B52697557A00926F54 /* GeneXus Frameworks */,
