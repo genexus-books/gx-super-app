@@ -5,6 +5,7 @@
 
 import UIKit
 import GXCoreUI
+import GXSuperApp
 
 class ProvisioningViewController: UITableViewController {
 	
@@ -51,7 +52,7 @@ class ProvisioningViewController: UITableViewController {
 			guard reload == nil, loadedMiniAppsInfo.searchType == searchInfo.type else { return 0 }
 			return loadedMiniAppsInfo.miniApps.count
 		}()
-		let completion: GXCoreBL.GXSuperAppProvisioning.MiniAppsInfoCompletion = { [weak self] result in
+		let completion: GXSuperAppProvisioning.MiniAppsInfoCompletion = { [weak self] result in
 			DispatchQueue.main.async {
 				guard let sself = self, sself.currentLoadOperation != nil, sself.lastLoadedSearchInfo == searchInfo else { return }
 				defer { sself.refreshControl?.endRefreshing() }

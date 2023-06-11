@@ -1,26 +1,60 @@
-import ExampleSuperappPlatform from './example_superapp_platform_interface';
 import MiniApp from './model/miniapp';
+import { NativeModules } from 'react-native';
 
-class ExampleSuperApp {
-  static getMiniApps(tag: string) {
-    console.log("getMiniApps");
-    return ExampleSuperappPlatform.instance.getMiniApps(tag);
+const {ProvisioningAPI} = NativeModules;
+
+class ExampleSuperapp {
+  async getMiniApps(tag: string): Promise<MiniApp[] | null> {
+    console.log('into getMiniApps, tag:'+tag)
+    try {
+      const miniAppsJson = await ProvisioningAPI.handleMethodCall({ method: 'getMiniApps', arguments: { tag } }, (response: any) => {
+        console.log('Response:', response);
+      });      
+      return this.fromJson(miniAppsJson);
+    } catch (error) {
+      console.error('Error getting mini apps:', error);
+      return null;
+    }
   }
 
-  static getCachedMiniApps() {
-    console.log("getCachedMiniApps");
-    return ExampleSuperappPlatform.instance.getCachedMiniApps();
+  async getCachedMiniApps(): Promise<MiniApp[] | null> {
+    try {
+      const miniAppsJson = await ProvisioningAPI.getCachedMiniApps();
+      return this.fromJson(miniAppsJson);
+    } catch (error) {
+      console.error('Error getting cached mini apps:', error);
+      return null;
+    }
   }
 
-  static loadMiniApp(miniApp: MiniApp) {
-    console.log("loadMiniApp");
-    return ExampleSuperappPlatform.instance.loadMiniApp(miniApp);
+  fromJson(miniAppsJson: string | null): MiniApp[] | null {
+    if (!miniAppsJson || miniAppsJson.length === 0) {
+      return null;
+    }
+
+    const miniApps = JSON.parse(miniAppsJson).map((json: any) => new MiniApp(json));
+    return miniApps;
   }
 
-  static remove(miniApp: MiniApp) {
-    console.log("remove");
-    return ExampleSuperappPlatform.instance.remove(miniApp);
+  async loadMiniApp(miniApp: MiniApp): Promise<boolean | null> {
+    try {
+      const miniAppJson = JSON.stringify(miniApp.toJson());
+      return await ProvisioningAPI.load(miniAppJson);
+    } catch (error) {
+      console.error('Error loading mini app:', error);
+      return null;
+    }
+  }
+
+  async remove(miniApp: MiniApp): Promise<boolean | null> {
+    try {
+      const miniAppJson = JSON.stringify(miniApp.toJson());
+      return await ProvisioningAPI.remove(miniAppJson);
+    } catch (error) {
+      console.error('Error removing mini app:', error);
+      return null;
+    }
   }
 }
 
-export default ExampleSuperApp;
+export default ExampleSuperapp;

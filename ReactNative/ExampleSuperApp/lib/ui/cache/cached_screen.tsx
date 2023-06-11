@@ -1,9 +1,8 @@
 import React from 'react';
 import { View, Text, StyleSheet, Image, TouchableHighlight, FlatList } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
-import ExampleSuperApp from '../../../../lib/example_superapp';
-import MiniApp from '../../../../lib/model/miniapp';
-
+import ExampleSuperApp from '../../example_superapp';
+import MiniApp from '../../model/miniapp'
 
 interface CachedMiniAppsListProps {
 }
@@ -19,6 +18,7 @@ class CachedMiniAppsList extends React.Component<
   static label = 'Saved';
   static routeName = '/cachedList';
   static icon = 'heart'
+  static _plugin = new ExampleSuperApp()
 
   constructor(props: CachedMiniAppsListProps) {
     super(props);
@@ -33,7 +33,7 @@ class CachedMiniAppsList extends React.Component<
 
   async initMiniAppsList() {
     try {
-      const newMiniApps = await ExampleSuperApp.getCachedMiniApps();
+      const newMiniApps = await CachedMiniAppsList._plugin.getCachedMiniApps();
       if (newMiniApps != null) {
         this.setState({ miniApps: newMiniApps });
       }
@@ -76,7 +76,7 @@ class CachedMiniAppsList extends React.Component<
   };
 
   handleMiniAppPress(miniApp: MiniApp) {
-    ExampleSuperApp.loadMiniApp(miniApp);
+    CachedMiniAppsList._plugin.loadMiniApp(miniApp);
   }
 
   render() {

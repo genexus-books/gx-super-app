@@ -1,8 +1,6 @@
-//import { Icon } from 'react-native-vector-icons';
 import React from 'react';
 import CachedMiniAppsList from './ui/cache/cached_screen';
 import NetworkMiniAppsList from './ui/network/network_screen';
-import Icon from 'react-native-vector-icons/Ionicons';
 
 class TabItem {
   label: string;

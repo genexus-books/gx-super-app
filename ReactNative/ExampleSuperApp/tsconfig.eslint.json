@@ -1,0 +1,34 @@
+{
+  "extends": "./tsconfig.json",
+  "include": [
+	// 👇️ add all the directories and files
+	// that you want to lint here
+	"src",
+	"tests",
+	"example",
+	"lib",
+
+	// add all files in which you see
+	// the "parserOptions.project" error
+	".eslintrc.js",
+	"App.tsx",
+	"App-test.tsx",
+	"babel.config.js",
+	"routes.tsx",
+	"cached_screen.tsx",
+	"constants.tsx",
+	"main_screen.tsx",
+	"miniapps_skeleton.tsx",
+	"network_screen.tsx",
+	"skeleton.tsx",
+	"tsconfig.json",
+	"example_superapp_platform_interface.tsx",
+	"example_superapp_platform_method_channel.tsx",
+	"miniapp.tsx",
+	"rn_method_channel.tsx",
+	"rn_method_handler.tsx",
+	"rn_method_handler_interface.tsx",
+	"client.tsx",
+	"payments.tsx",
+	"selection_screen.tsx",
+}

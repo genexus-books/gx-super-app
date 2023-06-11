@@ -1,5 +1,5 @@
 import React from "react";
-import MainScreen, { MainScreenState } from "./example/lib/ui/main_screen";
+import MainScreen, { MainScreenState } from "./lib/ui/main_screen";
 
 export interface MainScreenStateContext {
   state: MainScreenState;
@@ -20,7 +20,7 @@ const App = () => {
 
   return (
     <UserContext.Provider value={contextValue}>
-      <MainScreen context={contextValue} />
+      <MainScreen />
     </UserContext.Provider>
   );
 };

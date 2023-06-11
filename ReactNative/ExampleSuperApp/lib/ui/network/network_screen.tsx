@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import ExampleSuperApp from "../../../../lib/example_superapp";
-import MiniApp from "../../../../lib/model/miniapp";
+import ExampleSuperApp from '../../example_superapp';
+import MiniApp from '../../model/miniapp'
 import MiniAppsSkeleton from "../miniapps_skeleton";
 
 import { FlatList, Image, Text, TouchableOpacity, View } from 'react-native';
@@ -18,12 +18,15 @@ interface NetworkMiniAppsListState {
 }
 
 class NetworkMiniAppsList extends Component<NetworkMiniAppsListProps, NetworkMiniAppsListState> {
+  private _plugin: ExampleSuperApp;
   constructor(props: NetworkMiniAppsListProps) {
     super(props);
     this.state = {
       miniApps: [],
       isLoading: true,
     };
+
+    this._plugin = new ExampleSuperApp();
   }
   
   static label = 'Network';
@@ -31,49 +34,33 @@ class NetworkMiniAppsList extends Component<NetworkMiniAppsListProps, NetworkMin
   static icon = 'list';
 
   componentDidMount() {
-    this.fetchMiniApps();
+    this.initMiniAppsList();
   }
 
-  fetchMiniApps = async () => {
+  initMiniAppsList = async () => {
+    let newMiniApps = null;
     try {
-      const newMiniApps = await ExampleSuperApp.getMiniApps('');
-      if (newMiniApps != null) {
-        this.setState({ miniApps: newMiniApps || [] });
-      }
+      newMiniApps = await this._plugin.getMiniApps('');
     } catch (error) {
-      console.log(error);
-    } finally {
-      this.setState({ isLoading: false });
+      newMiniApps = null;
+    }
+
+    if (newMiniApps) {
+      this.setState({ miniApps: newMiniApps, isLoading: false });
     }
   };
 
-  Card: React.FC<CardProps> = ({ children }) => {
+  renderMiniApp = ({ item: MiniApp }) => {
     return (
-      <View
-        style={{
-          borderWidth: 1,
-          borderColor: '#ccc',
-          borderRadius: 8,
-          padding: 16,
-          marginBottom: 16,
-        }}
-      >
-        {children}
-      </View>
-    );
-  };
-
-  renderMiniAppItem = ({ item }: { item: MiniApp }) => {
-    return (
-      <this.Card>
-        <TouchableOpacity onPress={() => ExampleSuperApp.loadMiniApp(item)}>
-          <Text style={{ fontSize: 16, fontWeight: 'bold', marginBottom: 8 }}>
-            {item.name}
-          </Text>
-          <Text>{item.description}</Text>
-          <Image source={{ uri: item.iconUrl }} style={{ marginTop: 8 }} />
-        </TouchableOpacity>
-      </this.Card>
+      <TouchableOpacity onPress={() => this._plugin.loadMiniApp(item)}>
+        <View style={{ padding: 16 }}>
+          <Image source={{ uri: item.iconUrl }} style={{ width: 40, height: 40, marginRight: 8 }} />
+          <View style={{ flex: 1 }}>
+            <Text>{item.name}</Text>
+            <Text>{item.description}</Text>
+          </View>
+        </View>
+      </TouchableOpacity>
     );
   };
 
@@ -84,16 +71,16 @@ class NetworkMiniAppsList extends Component<NetworkMiniAppsListProps, NetworkMin
       <View>
         {isLoading ? (
           <FlatList
-            data={[1, 2, 3, 4, 5]}
-            keyExtractor={(item) => item.toString()}
+            data={[...Array(5)]}
+            keyExtractor={(_, index) => index.toString()}
             renderItem={() => <MiniAppsSkeleton />}
             ItemSeparatorComponent={() => <View style={{ height: defaultPadding }} />}
           />
         ) : (
           <FlatList
             data={miniApps}
-            keyExtractor={(item) => item.id}
-            renderItem={this.renderMiniAppItem}
+            keyExtractor={(item) => item.name}
+            renderItem={this.renderMiniApp}
             ItemSeparatorComponent={() => <View style={{ height: defaultPadding }} />}
           />
         )}
@@ -103,3 +90,7 @@ class NetworkMiniAppsList extends Component<NetworkMiniAppsListProps, NetworkMin
 }
 
 export default NetworkMiniAppsList;
+function item(item: any): void {
+  throw new Error('Function not implemented.');
+}
+
