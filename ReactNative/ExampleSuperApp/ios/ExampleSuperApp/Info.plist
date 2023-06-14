@@ -4,14 +4,14 @@
 <dict>
 	<key>GXMiniprogramsEnabled</key>
 	<true/>
+	<key>GXSuperAppProvisioningURL</key>
+	<string>https://sandbox-api.miniappcenter.com/api</string>
 	<key>GXSuperAppVersion</key>
 	<string>1</string>
 	<key>GXSuperAppId</key>
 	<string>com.genexus.bankx</string>
-	<key>GXSuperAppVersion - 2</key>
-	<string>1</string>
 	<key>CFBundleDevelopmentRegion</key>
-	<string>en</string>
+	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
 	<string>ExampleSuperApp</string>
 	<key>CFBundleExecutable</key>

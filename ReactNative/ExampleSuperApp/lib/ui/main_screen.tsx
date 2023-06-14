@@ -45,8 +45,8 @@ const MainScreen = () => {
 
   return (
     <View style={{ flex: 1 }}>
-      <View style={{ backgroundColor: 'blue', padding: 16 }}>
-        <Text style={{ color: 'white', fontSize: 18, fontWeight: 'bold' }}>Example SuperApp</Text>
+      <View style={{ backgroundColor: 'White', padding: 16 }}>
+        <Text style={{ color: 'white', fontSize: 18, fontWeight: 'bold' }}>Mini Apps</Text>
       </View>
       <View style={{ flex: 1 }}>
         {tabItems[selectedTab].widget}
