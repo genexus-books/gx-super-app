@@ -37,4 +37,4 @@ a - run on Android
 note: if your environment needs extra configuration please follow the official documentation for React Native: https://reactnative.dev/docs/environment-setup
 
 Execute ios project 
-Open ExampleSuperApp.xcworkspace or select the option i - run on iOS from Metro  
+Open ExampleSuperApp/ios/ExampleSuperApp.xcworkspace or select the option i - run on iOS from Metro  
