@@ -10,7 +10,6 @@ class ExampleSuperapp {
     try {
       const miniAppsJson = await new Promise((resolve, reject) => {
         ProvisioningAPI.handleMethodCall({ method: 'getMiniApps', arguments: { tag } }, (response: any) => {
-          console.log('getMiniApps Response:', response);
           resolve(response); // Resolve the promise with the response
         });
       });
@@ -26,11 +25,10 @@ class ExampleSuperapp {
     try {
       const miniAppsJson = await new Promise((resolve, reject) => {
         ProvisioningAPI.handleMethodCall({ method: 'getCachedMiniApps' }, (response: any) => {
-          console.log('getCachedMiniApps Response:', response);
           resolve(response); // Resolve the promise with the response
         });
       });
-      
+      console.log(miniAppsJson)
       return this.fromJson(miniAppsJson);
     
     } catch (error) {
@@ -54,8 +52,7 @@ class ExampleSuperapp {
       const miniAppJson = JSON.stringify(miniApp.toJson());
       return await new Promise((resolve, reject) => {
         ProvisioningAPI.handleMethodCall({ method: 'load', arguments: { miniAppJson } }, (response: any) => {
-          console.log('loadMiniApp Response:', response);
-          resolve(response); // Resolve the promise with the response
+         resolve(response); // Resolve the promise with the response
         });});
     } catch (error) {
       console.error('Error loading mini app:', error);

@@ -15,9 +15,9 @@ class CachedMiniAppsList extends React.Component<
   CachedMiniAppsListProps,
   CachedMiniAppsListState
 > {
-  static label = 'Saved';
+  static label = 'History';
   static routeName = '/cachedList';
-  static icon = 'heart'
+  static icon = 'time'
   static _plugin = new ExampleSuperApp()
 
   constructor(props: CachedMiniAppsListProps) {
@@ -55,20 +55,27 @@ class CachedMiniAppsList extends React.Component<
   }
 
   renderMiniAppItem = ({ item }: { item: MiniApp }) => {
+    const timestamp = 709085944.24299502; // Unix timestamp
+
+  const date = new Date(timestamp * 1000); // Convert to milliseconds
+
+  const formattedDate = date.toLocaleString(); // Format the date string
     return (
       <TouchableHighlight
         style={styles.miniAppItem}
         onPress={() => this.handleMiniAppPress(item)}
       >
-        <View style={styles.miniAppItemContent}>
+        <View style={styles.miniAppItemContent} >
           {this.hasValue(item.iconUrl) ? (
             <Image source={{ uri: item.iconUrl }} style={styles.miniAppIcon} />
           ) : (
             <Icon name="information-circle" size={30} color="gray" />
           )}
           <View style={styles.miniAppTextContainer}>
-            <Text style={styles.miniAppName}>{item.name}</Text>
-            <Text style={styles.miniAppInfo}>{`${item.id}:${item.version}`}</Text>
+            <Text style={styles.miniAppName}>{`${item.id}`}</Text>
+
+            <Text style={styles.miniAppInfo}>{`Creation date: ${formattedDate}`}</Text>
+            <Text style={styles.miniAppInfo}>{`Last used date: ${item.lastUsedDate}`}</Text>
           </View>
         </View>
       </TouchableHighlight>

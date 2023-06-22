@@ -87,6 +87,7 @@ class ProvisioningAPI: NSObject, RCTBridgeModule {
       case .success(let cachedMiniApps):
         let encoder = JSONEncoder()
 
+        print("cached mini app \(cachedMiniApps)")
         encoder.keyEncodingStrategy = .custom({ codingPath in
           guard codingPath.count > 0 else {
             fatalError("Invalid coding key")

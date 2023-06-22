@@ -12,6 +12,7 @@ class MiniApp {
   version: number;
   creationDate: Date;
   lastUsedDate: Date;
+  date: any;
 
   constructor(json: any) {
     this.id = json[MiniApp.FIELD_ID] || "";

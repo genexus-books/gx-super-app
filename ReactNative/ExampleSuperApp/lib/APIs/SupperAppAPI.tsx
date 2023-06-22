@@ -3,9 +3,7 @@ import { NativeModules, Platform } from 'react-native';
 const { SuperAppApi } = NativeModules;
 
 class SuperAppAPI {
-    static setSuperAppAPI(apiInstance: SuperAppAPI) {
-        throw new Error('Function not implemented.');
-    }
+  
     static payNoUi(amount: number): Promise<string> {
         if (Platform.OS === 'android') {
           return SuperAppApi.payNoUi(amount);

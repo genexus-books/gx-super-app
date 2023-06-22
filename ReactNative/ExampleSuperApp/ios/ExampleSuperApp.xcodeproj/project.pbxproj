@@ -44,7 +44,6 @@
 		C9E747BE2A3550F300D3F898 /* YAJL.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C9E747972A35504500D3F898 /* YAJL.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C9E747C22A35524500D3F898 /* ProvisioningAPIBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = C9E747C02A35524400D3F898 /* ProvisioningAPIBridge.m */; };
 		C9E747C32A35524500D3F898 /* ProvisioningAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E747C12A35524500D3F898 /* ProvisioningAPI.swift */; };
-		C9E747C72A35707D00D3F898 /* SuperAppAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E747C62A35707D00D3F898 /* SuperAppAPI.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -119,7 +118,6 @@
 		C9E747A72A35506D00D3F898 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		C9E747C02A35524400D3F898 /* ProvisioningAPIBridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProvisioningAPIBridge.m; sourceTree = "<group>"; };
 		C9E747C12A35524500D3F898 /* ProvisioningAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProvisioningAPI.swift; sourceTree = "<group>"; };
-		C9E747C62A35707D00D3F898 /* SuperAppAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperAppAPI.swift; sourceTree = "<group>"; };
 		C9FBA6D92A39677B00832E6D /* GXUIApplicationHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GXUIApplicationHelper.h; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -179,7 +177,6 @@
 				C98C06132A35A042002E0152 /* AppDelegate.mm */,
 				C98C06142A35A042002E0152 /* main.m */,
 				C9E747C12A35524500D3F898 /* ProvisioningAPI.swift */,
-				C9E747C62A35707D00D3F898 /* SuperAppAPI.swift */,
 				C9E747C02A35524400D3F898 /* ProvisioningAPIBridge.m */,
 				C9C0434F2A354E6100C9342D /* superapp.crt */,
 				C9C043492A354D6D00C9342D /* SampleExternalObject */,
@@ -547,7 +544,6 @@
 				C9E747C32A35524500D3F898 /* ProvisioningAPI.swift in Sources */,
 				C98C06BB2A390173002E0152 /* AppDelegate.mm in Sources */,
 				C98C06182A376C90002E0152 /* GXUIApplicationHelper.swift in Sources */,
-				C9E747C72A35707D00D3F898 /* SuperAppAPI.swift in Sources */,
 				C9C0434E2A354D9400C9342D /* SampleExObjLibrary.swift in Sources */,
 				C98C06162A35A042002E0152 /* main.m in Sources */,
 				C9C5FA3D2A392A0900F8F384 /* SampleExObjHandlerBridge.m in Sources */,

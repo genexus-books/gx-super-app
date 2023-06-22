@@ -1,28 +1,31 @@
-import React, { Component } from 'react';
+import React from 'react';
 import ExampleSuperApp from '../../example_superapp';
 import MiniApp from '../../model/miniapp'
-import MiniAppsSkeleton from "../miniapps_skeleton";
 
-import { FlatList, Image, Text, TouchableOpacity, View } from 'react-native';
+import { FlatList, Image, RefreshControl, Text, TouchableOpacity, View } from 'react-native';
 import { defaultPadding } from '../constants';
+
+interface NetworkMiniAppsListProps {}
 
 interface NetworkMiniAppsListState {
   miniApps: MiniApp[];
   isLoading: boolean;
+  refreshing: boolean;
 }
 
-class NetworkMiniAppsList extends React.Component<{}, NetworkMiniAppsListState> {
+class NetworkMiniAppsList extends React.Component<NetworkMiniAppsListProps, NetworkMiniAppsListState> {
   plugin: ExampleSuperApp;
 
   static label = 'Network';
   static routeName = '/networkList';
   static icon = 'list';
 
-  constructor(props: {}) {
+  constructor(props: NetworkMiniAppsListProps) {
     super(props);
     this.state = {
       miniApps: [],
       isLoading: true,
+      refreshing: false,
     };
     this.plugin = new ExampleSuperApp(); 
   }
@@ -47,6 +50,13 @@ class NetworkMiniAppsList extends React.Component<{}, NetworkMiniAppsListState> 
     }
   };
 
+  onRefresh = () => {
+    this.setState({ refreshing: true });
+    setTimeout(() => {
+      this.setState({ refreshing: false });
+    }, 500);
+  };
+
   renderItem = ({ item }: { item: MiniApp }) => (
     <TouchableOpacity onPress={() => this.plugin.loadMiniApp(item)}>
       <View style={{ padding: 10 }}>
@@ -58,22 +68,27 @@ class NetworkMiniAppsList extends React.Component<{}, NetworkMiniAppsListState> 
   );
 
   render() {
-    const { miniApps, isLoading } = this.state;
+    const { miniApps, isLoading, refreshing } = this.state;
+
     return (
       <View>
         {isLoading ? (
           <FlatList
-            data={[1, 2, 3, 4, 5]}
-            keyExtractor={(item) => item.toString()}
-            renderItem={() => <MiniAppsSkeleton />}
-            ItemSeparatorComponent={() => <View style={{ height: defaultPadding }} />}
-          />
+          data={miniApps}
+          keyExtractor={(item) => item.toString()}
+          renderItem={this.renderItem}
+          refreshControl={
+            <RefreshControl refreshing={isLoading} onRefresh={this.onRefresh} />
+          }
+        />
+          
         ) : (
           <FlatList
             data={miniApps}
             keyExtractor={(item) => item.id.toString()}
             renderItem={this.renderItem}
-            ItemSeparatorComponent={() => <View style={{ height: defaultPadding }} />}
+            ItemSeparatorComponent={() => <View style={{ height: 20 }} />}
+            refreshControl={<RefreshControl refreshing={refreshing} onRefresh={this.onRefresh} />}
           />
         )}
       </View>
