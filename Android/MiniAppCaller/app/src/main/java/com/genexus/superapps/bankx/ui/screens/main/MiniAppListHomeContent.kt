@@ -73,7 +73,7 @@ fun MiniAppListHomeContent(model: MainViewModel) {
             }
         }
 
-        if (BuildConfig.FLAVOR == Flavor.SANDBOX && Services.SuperApps.Prototyping.isEnabled) {
+        if (BuildConfig.FLAVOR == Flavor.SANDBOX && Services.SuperApps.Prototyping.isEnabled()) {
             Box(modifier = Modifier.fillMaxSize()) {
                 FloatingActionButton(
                     elevation = FloatingActionButtonDefaults.elevation(),

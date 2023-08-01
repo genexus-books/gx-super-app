@@ -17,7 +17,7 @@ There are certain initial configuration steps in the project Xcode:
 
 ## Communication API with the Mini Apps Center
 
-To access the Mini Apps that are available on the Mini Apps Center, the class `GXSuperAppProvisioning` is used. It's included in the `GXCoreBL` framework.
+To access the Mini Apps that are available on the Mini Apps Center, the class `GXSuperAppProvisioning` is used. It's included in the `GXSuperApp` framework.
 
 This class provides four methods to load Mini Apps, using different criteria. 
 In all cases, there are parameters in common:
@@ -29,7 +29,7 @@ In all cases, there are parameters in common:
 In all the cases the return value is an operation that can be cancelled if necessary. 
 
 ```swift
-	public typealias MiniAppsInfoCompletion = ((Result<[GXObjectsModel.GXMiniAppInformation], GXCoreBL.GXSuperAppProvisioning.ProvisioningError>) -> Void)
+	public typealias MiniAppsInfoCompletion = ((Result<[GXObjectsModel.GXMiniAppInformation], GXSuperApp.GXSuperAppProvisioning.ProvisioningError>) -> Void)
 
     /// Performs a request to the Mini Apps Center for available Mini Apps.
     /// - Parameter text: The string with the search criteria.
@@ -37,7 +37,7 @@ In all the cases the return value is an operation that can be cancelled if neces
     /// - Parameter count: Maximum number of returned elements ( 0 means all ).
     /// - Parameter completion: Completion handler for the result.
     /// - Returns A cancelable operation.
-    open class func miniAppsInfoByText(_ text: String, start: Int, count: Int, completion: @escaping GXCoreBL.GXSuperAppProvisioning.MiniAppsInfoCompletion) -> GXFoundation.GXCancelableOperation
+    open class func miniAppsInfoByText(_ text: String, start: Int, count: Int, completion: @escaping GXSuperApp.GXSuperAppProvisioning.MiniAppsInfoCompletion) -> GXFoundation.GXCancelableOperation
 
     /// Performs a request to the Mini Apps Center for available Mini Apps that are available inside the given circular region.
     /// - Parameter center: The center point of the specified region.
@@ -46,7 +46,7 @@ In all the cases the return value is an operation that can be cancelled if neces
     /// - Parameter count: Maximum number of returned elements ( 0 means all ).
     /// - Parameter completion: Completion handler for the result.
     /// - Returns A cancelable operation.
-    open class func miniAppsInfoByLocation(center: CLLocationCoordinate2D, radius: CLLocationDistance, start: Int, count: Int, completion: @escaping GXCoreBL.GXSuperAppProvisioning.MiniAppsInfoCompletion) -> GXFoundation.GXCancelableOperation
+    open class func miniAppsInfoByLocation(center: CLLocationCoordinate2D, radius: CLLocationDistance, start: Int, count: Int, completion: @escaping GXSuperApp.GXSuperAppProvisioning.MiniAppsInfoCompletion) -> GXFoundation.GXCancelableOperation
 
     /// Performs a request to the Mini Apps Center for available Mini Apps with the given tag.
     /// - Parameter tag: The tag to search for (exact match).
@@ -54,14 +54,14 @@ In all the cases the return value is an operation that can be cancelled if neces
     /// - Parameter count: Maximum number of returned elements ( 0 means all ).
     /// - Parameter completion: Completion handler for the result.
     /// - Returns A cancelable operation.
-    open class func miniAppsInfoByTag(_ tag: String, start: Int, count: Int, completion: @escaping GXCoreBL.GXSuperAppProvisioning.MiniAppsInfoCompletion) -> GXFoundation.GXCancelableOperation
+    open class func miniAppsInfoByTag(_ tag: String, start: Int, count: Int, completion: @escaping GXSuperApp.GXSuperAppProvisioning.MiniAppsInfoCompletion) -> GXFoundation.GXCancelableOperation
 
     /// Performs a request to the Mini Apps Center for available featured Mini Apps.
     /// - Parameter start: 0-based index from which elements will be returned.
     /// - Parameter count: Maximum number of returned elements ( 0 means all ).
     /// - Parameter completion: Completion handler for the result.
     /// - Returns A cancelable operation.
-    open class func featuredMiniAppsInfo(start: Int, count: Int, completion: @escaping GXCoreBL.GXSuperAppProvisioning.MiniAppsInfoCompletion) -> GXFoundation.GXCancelableOperation
+    open class func featuredMiniAppsInfo(start: Int, count: Int, completion: @escaping GXSuperApp.GXSuperAppProvisioning.MiniAppsInfoCompletion) -> GXFoundation.GXCancelableOperation
 ```
 
 Practical usage examples are available in the source [ProvisioningViewController.swift](ExampleSuperApp/ProvisioningViewController.swift).
@@ -90,7 +90,7 @@ In all cases, the error can be one of three types:
 
 ## Mini App upload API
 
-Once the Mini Apps information have been obtained from the Mini Apps Center, the class `GXMiniAppsManager`, which is included in the `GXCoreBL`, is used to load them.
+Once the Mini Apps information have been obtained from the Mini Apps Center, the class `GXMiniAppsManager`, which is included in the `GXSuperApp`, is used to load them.
 The `loadMiniApp(info:completion)` method receives the Mini App's information obtained from the Mini Apps Center as its first parameter, and a callback at the end the operation as its second parameter, which can include an error if the loading failed for some reason (for example if the signature is not valid). 
 
 ```swift
@@ -104,7 +104,7 @@ The `loadMiniApp(info:completion)` method receives the Mini App's information ob
 A practical usage example is available in [ProvisioningViewController.swift](ExampleSuperApp/ProvisioningViewController.swift).
     
 Once a Mini App is loaded, the `rootController` of the `keyWindow` is replaced by the Mini App's UI.
-To return to the Super App, both the Mini App developer and the Super App developer can use the `exitFromMiniProgram()` method of the `GXMiniProgramLoader` class, also included in the `GXCoreBL` framework. This restores the existing `rootController` at the time the Mini App was loaded. 
+To return to the Super App, both the Mini App developer and the Super App developer can use the `exitFromMiniProgram()` method of the `GXMiniProgramLoader` class, also included in the `GXSuperApp` framework. This restores the existing `rootController` at the time the Mini App was loaded. 
 
 ## Mini Apps Cache Management
 
@@ -125,14 +125,14 @@ In the Super App configuration file ([Info.plist](ExampleSuperApp/Info.plist)) t
 
 #### Programmatically using the Mini App Cache API
 
-To manually manage the Mini Apps cache, functionality is provided in the `GXMiniAppsManager` class, which is included in the `GXCoreBL` framework. 
+To manually manage the Mini Apps cache, functionality is provided in the `GXMiniAppsManager` class, which is included in the `GXSuperApp` framework. 
 A method to get a list of the Mini Apps in the cache is included (`cachedMiniApps`), one to delete a specific Mini App from the cache (`removeCachedMiniApp`), and another one to delete all the Mini Apps from the cache (`clearCachedMiniApps`).
 
 ```swift
     /// Queries the file system for cached mini apps.
     /// - Returns: Collection of cached Mini Apps.
     /// - Note: Performs several file IO operations depending on the number of cached Mini Apps. To avoid blocking the main thread, consider calling on a background queue.
-    open class func cachedMiniApps() throws -> [GXCoreBL.GXCachedMiniApp]
+    open class func cachedMiniApps() throws -> [GXSuperApp.GXCachedMiniApp]
 
     /// Removes the Mini App from cache if found for the given identifier and version.
     /// - Parameter miniAppId: The Mini App identifier.

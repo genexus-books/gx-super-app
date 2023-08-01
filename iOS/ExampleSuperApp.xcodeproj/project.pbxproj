@@ -147,6 +147,8 @@
 		AE7ECBF326A065FB00B8E41B /* GXFoundation.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = GXFoundation.xcframework; sourceTree = "<group>"; };
 		AE7ECBF426A065FB00B8E41B /* GXCoreUI.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = GXCoreUI.xcframework; sourceTree = "<group>"; };
 		AEA799C22A20C896001511C6 /* Logging.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Logging.md; sourceTree = "<group>"; };
+		AEE860AF2A20D02E0013C7ED /* Crashlytics.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Crashlytics.md; sourceTree = "<group>"; };
+		AEE860B02A20D0350013C7ED /* GXFirebaseCrashAnalyticsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GXFirebaseCrashAnalyticsService.swift; sourceTree = "<group>"; };
 		AEEE718426DEC1780039C5E5 /* SampleExObjHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleExObjHandler.swift; sourceTree = "<group>"; };
 		AEEE718526DEC1780039C5E5 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		AEEE718626DEC1780039C5E5 /* SampleExObjLibrary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleExObjLibrary.swift; sourceTree = "<group>"; };
@@ -202,6 +204,7 @@
 				AEA799C22A20C896001511C6 /* Logging.md */,
 				AE5080152697504100926F54 /* ExampleSuperApp */,
 				AEEE718326DEC1780039C5E5 /* SampleExternalObject */,
+				AEE860AE2A20CFDE0013C7ED /* CrashAnalytics */,
 				AE5080B52697557A00926F54 /* GeneXus Frameworks */,
 				AE5080142697504100926F54 /* Products */,
 			);
@@ -251,6 +254,15 @@
 				AE7ECBF126A065FB00B8E41B /* YAJL.xcframework */,
 			);
 			path = "GeneXus Frameworks";
+			sourceTree = "<group>";
+		};
+		AEE860AE2A20CFDE0013C7ED /* CrashAnalytics */ = {
+			isa = PBXGroup;
+			children = (
+				AEE860AF2A20D02E0013C7ED /* Crashlytics.md */,
+				AEE860B02A20D0350013C7ED /* GXFirebaseCrashAnalyticsService.swift */,
+			);
+			path = CrashAnalytics;
 			sourceTree = "<group>";
 		};
 		AEEE718326DEC1780039C5E5 /* SampleExternalObject */ = {
