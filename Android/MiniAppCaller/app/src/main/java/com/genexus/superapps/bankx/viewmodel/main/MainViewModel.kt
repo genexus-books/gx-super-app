@@ -58,7 +58,7 @@ class MainViewModel : ViewModel() {
 
     @SuppressLint("MissingPermission")
     suspend fun loadSandbox(context: Context) {
-        val task = Services.SuperApps.loadSandbox()
+        val task = Services.SuperApps.Prototyping.loadSandbox()
         if (task == null) {
             Services.Device.runOnUiThread {
                 Toast.makeText(context, "Loading task is null", Toast.LENGTH_SHORT).show()
