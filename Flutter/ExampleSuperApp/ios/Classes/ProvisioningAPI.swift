@@ -1,6 +1,7 @@
 import Flutter
 import UIKit
 import GXCoreBL
+import GXSuperApp
 
 class ProvisioningAPI {
 	public func handleMethodCall(_ call: FlutterMethodCall, result: @escaping FlutterResult) {

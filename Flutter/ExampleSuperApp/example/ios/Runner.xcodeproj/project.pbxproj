@@ -12,6 +12,7 @@
 		97C146FC1CF9000F007C117D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97C146FA1CF9000F007C117D /* Main.storyboard */; };
 		97C146FE1CF9000F007C117D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97C146FD1CF9000F007C117D /* Assets.xcassets */; };
 		97C147011CF9000F007C117D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97C146FF1CF9000F007C117D /* LaunchScreen.storyboard */; };
+		AE53B9312A7C46F0006C16BD /* GXSuperApp.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE53B92F2A7C46ED006C16BD /* GXSuperApp.xcframework */; };
 		AEAE1C9129D432F500BEAF8D /* SuperAppAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEAE1C9029D432F500BEAF8D /* SuperAppAPI.swift */; };
 		AEAE1CAD29D4601B00BEAF8D /* superapp.crt in Resources */ = {isa = PBXBuildFile; fileRef = AEAE1CAC29D4601B00BEAF8D /* superapp.crt */; };
 		AEAE1CB029D460EF00BEAF8D /* GXCoreBL.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEAE1C9729D44CE500BEAF8D /* GXCoreBL.xcframework */; };
@@ -74,6 +75,8 @@
 		97C146FD1CF9000F007C117D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		97C147001CF9000F007C117D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		97C147021CF9000F007C117D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AE53B92F2A7C46ED006C16BD /* GXSuperApp.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = GXSuperApp.xcframework; sourceTree = "<group>"; };
+		AE53B9302A7C46ED006C16BD /* GXSuperAppSandbox.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = GXSuperAppSandbox.xcframework; sourceTree = "<group>"; };
 		AEAE1C9029D432F500BEAF8D /* SuperAppAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SuperAppAPI.swift; path = ../../../ios/Classes/SuperAppAPI.swift; sourceTree = "<group>"; };
 		AEAE1C9329D44CC400BEAF8D /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		AEAE1C9429D44CE500BEAF8D /* GXUCStarRating.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = GXUCStarRating.xcframework; sourceTree = "<group>"; };
@@ -100,6 +103,7 @@
 				AEAE1CB829D460F000BEAF8D /* GXFoundation.xcframework in Frameworks */,
 				AEAE1CB429D460F000BEAF8D /* GXDataLayer.xcframework in Frameworks */,
 				AEAE1CBE29D460F000BEAF8D /* GXUCStarRating.xcframework in Frameworks */,
+				AE53B9312A7C46F0006C16BD /* GXSuperApp.xcframework in Frameworks */,
 				AEAE1CC229D460F100BEAF8D /* YAJL.xcframework in Frameworks */,
 				AEAE1CBC29D460F000BEAF8D /* GXStandardClasses.xcframework in Frameworks */,
 				AEAE1CBA29D460F000BEAF8D /* GXObjectsModel.xcframework in Frameworks */,
@@ -170,6 +174,8 @@
 				AEAE1C9529D44CE500BEAF8D /* GXFoundation.xcframework */,
 				AEAE1C9929D44CE500BEAF8D /* GXObjectsModel.xcframework */,
 				AEAE1C9A29D44CE500BEAF8D /* GXStandardClasses.xcframework */,
+				AE53B92F2A7C46ED006C16BD /* GXSuperApp.xcframework */,
+				AE53B9302A7C46ED006C16BD /* GXSuperAppSandbox.xcframework */,
 				AEAE1C9429D44CE500BEAF8D /* GXUCStarRating.xcframework */,
 				AEAE1C9C29D44CE500BEAF8D /* GXUIApplication.xcframework */,
 				AEAE1C9B29D44CE500BEAF8D /* YAJL.xcframework */,
