@@ -12,6 +12,28 @@
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		7699B88040F8A987B510C191 /* libPods-ExampleSuperApp-ExampleSuperAppTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-ExampleSuperApp-ExampleSuperAppTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		C96AB3A72A827DEF0091D01A /* GXCoreBL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9530CD62A79513F00715A1F /* GXCoreBL.framework */; };
+		C96AB3A82A827DEF0091D01A /* GXCoreBL.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C9530CD62A79513F00715A1F /* GXCoreBL.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C96AB3A92A827DEF0091D01A /* GXCoreUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9530CD42A79513F00715A1F /* GXCoreUI.framework */; };
+		C96AB3AA2A827DEF0091D01A /* GXCoreUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C9530CD42A79513F00715A1F /* GXCoreUI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C96AB3AB2A827DEF0091D01A /* GXDataLayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9530CCC2A79513D00715A1F /* GXDataLayer.framework */; };
+		C96AB3AC2A827DEF0091D01A /* GXDataLayer.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C9530CCC2A79513D00715A1F /* GXDataLayer.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C96AB3AD2A827DEF0091D01A /* GXDataLayerRemote.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9530CD02A79513E00715A1F /* GXDataLayerRemote.framework */; };
+		C96AB3AE2A827DEF0091D01A /* GXDataLayerRemote.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C9530CD02A79513E00715A1F /* GXDataLayerRemote.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C96AB3AF2A827DEF0091D01A /* GXFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9530CD22A79513E00715A1F /* GXFoundation.framework */; };
+		C96AB3B02A827DEF0091D01A /* GXFoundation.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C9530CD22A79513E00715A1F /* GXFoundation.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C96AB3B12A827DEF0091D01A /* GXObjectsModel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9530CD32A79513E00715A1F /* GXObjectsModel.framework */; };
+		C96AB3B22A827DEF0091D01A /* GXObjectsModel.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C9530CD32A79513E00715A1F /* GXObjectsModel.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C96AB3B32A827DEF0091D01A /* GXStandardClasses.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9530CD12A79513E00715A1F /* GXStandardClasses.framework */; };
+		C96AB3B42A827DEF0091D01A /* GXStandardClasses.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C9530CD12A79513E00715A1F /* GXStandardClasses.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C96AB3B52A827DEF0091D01A /* GXSuperApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9530CCE2A79513D00715A1F /* GXSuperApp.framework */; };
+		C96AB3B62A827DEF0091D01A /* GXSuperApp.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C9530CCE2A79513D00715A1F /* GXSuperApp.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C96AB3B72A827DEF0091D01A /* GXUCStarRating.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9530CCD2A79513D00715A1F /* GXUCStarRating.framework */; };
+		C96AB3B82A827DEF0091D01A /* GXUCStarRating.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C9530CCD2A79513D00715A1F /* GXUCStarRating.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C96AB3B92A827DEF0091D01A /* GXUIApplication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9530CD52A79513F00715A1F /* GXUIApplication.framework */; };
+		C96AB3BA2A827DEF0091D01A /* GXUIApplication.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C9530CD52A79513F00715A1F /* GXUIApplication.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C96AB3BB2A827DEF0091D01A /* YAJL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9530CCF2A79513D00715A1F /* YAJL.framework */; };
+		C96AB3BC2A827DEF0091D01A /* YAJL.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C9530CCF2A79513D00715A1F /* YAJL.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C98C06162A35A042002E0152 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C98C06142A35A042002E0152 /* main.m */; };
 		C98C06182A376C90002E0152 /* GXUIApplicationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C98C06172A376C90002E0152 /* GXUIApplicationHelper.swift */; };
 		C98C06BB2A390173002E0152 /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = C98C06132A35A042002E0152 /* AppDelegate.mm */; };
@@ -40,6 +62,17 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				C96AB3BA2A827DEF0091D01A /* GXUIApplication.framework in Embed Frameworks */,
+				C96AB3B02A827DEF0091D01A /* GXFoundation.framework in Embed Frameworks */,
+				C96AB3AA2A827DEF0091D01A /* GXCoreUI.framework in Embed Frameworks */,
+				C96AB3B22A827DEF0091D01A /* GXObjectsModel.framework in Embed Frameworks */,
+				C96AB3AE2A827DEF0091D01A /* GXDataLayerRemote.framework in Embed Frameworks */,
+				C96AB3A82A827DEF0091D01A /* GXCoreBL.framework in Embed Frameworks */,
+				C96AB3AC2A827DEF0091D01A /* GXDataLayer.framework in Embed Frameworks */,
+				C96AB3B42A827DEF0091D01A /* GXStandardClasses.framework in Embed Frameworks */,
+				C96AB3B82A827DEF0091D01A /* GXUCStarRating.framework in Embed Frameworks */,
+				C96AB3B62A827DEF0091D01A /* GXSuperApp.framework in Embed Frameworks */,
+				C96AB3BC2A827DEF0091D01A /* YAJL.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -60,17 +93,17 @@
 		5DCACB8F33CDC322A6C60F78 /* libPods-ExampleSuperApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ExampleSuperApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = ExampleSuperApp/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89C6BE57DB24E9ADA2F236DE /* Pods-ExampleSuperApp-ExampleSuperAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ExampleSuperApp-ExampleSuperAppTests.release.xcconfig"; path = "Target Support Files/Pods-ExampleSuperApp-ExampleSuperAppTests/Pods-ExampleSuperApp-ExampleSuperAppTests.release.xcconfig"; sourceTree = "<group>"; };
-		C9530CCC2A79513D00715A1F /* GXDataLayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GXDataLayer.framework; path = "../../../iOS/GeneXus Frameworks/GeneXus Frameworks/GXDataLayer.framework"; sourceTree = "<group>"; };
-		C9530CCD2A79513D00715A1F /* GXUCStarRating.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GXUCStarRating.framework; path = "../../../iOS/GeneXus Frameworks/GeneXus Frameworks/GXUCStarRating.framework"; sourceTree = "<group>"; };
-		C9530CCE2A79513D00715A1F /* GXSuperApp.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GXSuperApp.framework; path = "../../../iOS/GeneXus Frameworks/GeneXus Frameworks/GXSuperApp.framework"; sourceTree = "<group>"; };
-		C9530CCF2A79513D00715A1F /* YAJL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = YAJL.framework; path = "../../../iOS/GeneXus Frameworks/GeneXus Frameworks/YAJL.framework"; sourceTree = "<group>"; };
-		C9530CD02A79513E00715A1F /* GXDataLayerRemote.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GXDataLayerRemote.framework; path = "../../../iOS/GeneXus Frameworks/GeneXus Frameworks/GXDataLayerRemote.framework"; sourceTree = "<group>"; };
-		C9530CD12A79513E00715A1F /* GXStandardClasses.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GXStandardClasses.framework; path = "../../../iOS/GeneXus Frameworks/GeneXus Frameworks/GXStandardClasses.framework"; sourceTree = "<group>"; };
-		C9530CD22A79513E00715A1F /* GXFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GXFoundation.framework; path = "../../../iOS/GeneXus Frameworks/GeneXus Frameworks/GXFoundation.framework"; sourceTree = "<group>"; };
-		C9530CD32A79513E00715A1F /* GXObjectsModel.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GXObjectsModel.framework; path = "../../../iOS/GeneXus Frameworks/GeneXus Frameworks/GXObjectsModel.framework"; sourceTree = "<group>"; };
-		C9530CD42A79513F00715A1F /* GXCoreUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GXCoreUI.framework; path = "../../../iOS/GeneXus Frameworks/GeneXus Frameworks/GXCoreUI.framework"; sourceTree = "<group>"; };
-		C9530CD52A79513F00715A1F /* GXUIApplication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GXUIApplication.framework; path = "../../../iOS/GeneXus Frameworks/GeneXus Frameworks/GXUIApplication.framework"; sourceTree = "<group>"; };
-		C9530CD62A79513F00715A1F /* GXCoreBL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GXCoreBL.framework; path = "../../../iOS/GeneXus Frameworks/GeneXus Frameworks/GXCoreBL.framework"; sourceTree = "<group>"; };
+		C9530CCC2A79513D00715A1F /* GXDataLayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GXDataLayer.framework; path = "../../../iOS/GeneXus Frameworks/GXDataLayer.framework"; sourceTree = "<group>"; };
+		C9530CCD2A79513D00715A1F /* GXUCStarRating.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GXUCStarRating.framework; path = "../../../iOS/GeneXus Frameworks/GXUCStarRating.framework"; sourceTree = "<group>"; };
+		C9530CCE2A79513D00715A1F /* GXSuperApp.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GXSuperApp.framework; path = "../../../iOS/GeneXus Frameworks/GXSuperApp.framework"; sourceTree = "<group>"; };
+		C9530CCF2A79513D00715A1F /* YAJL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = YAJL.framework; path = "../../../iOS/GeneXus Frameworks/YAJL.framework"; sourceTree = "<group>"; };
+		C9530CD02A79513E00715A1F /* GXDataLayerRemote.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GXDataLayerRemote.framework; path = "../../../iOS/GeneXus Frameworks/GXDataLayerRemote.framework"; sourceTree = "<group>"; };
+		C9530CD12A79513E00715A1F /* GXStandardClasses.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GXStandardClasses.framework; path = "../../../iOS/GeneXus Frameworks/GXStandardClasses.framework"; sourceTree = "<group>"; };
+		C9530CD22A79513E00715A1F /* GXFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GXFoundation.framework; path = "../../../iOS/GeneXus Frameworks/GXFoundation.framework"; sourceTree = "<group>"; };
+		C9530CD32A79513E00715A1F /* GXObjectsModel.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GXObjectsModel.framework; path = "../../../iOS/GeneXus Frameworks/GXObjectsModel.framework"; sourceTree = "<group>"; };
+		C9530CD42A79513F00715A1F /* GXCoreUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GXCoreUI.framework; path = "../../../iOS/GeneXus Frameworks/GXCoreUI.framework"; sourceTree = "<group>"; };
+		C9530CD52A79513F00715A1F /* GXUIApplication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GXUIApplication.framework; path = "../../../iOS/GeneXus Frameworks/GXUIApplication.framework"; sourceTree = "<group>"; };
+		C9530CD62A79513F00715A1F /* GXCoreBL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GXCoreBL.framework; path = "../../../iOS/GeneXus Frameworks/GXCoreBL.framework"; sourceTree = "<group>"; };
 		C98C06122A35A042002E0152 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = ExampleSuperApp/AppDelegate.h; sourceTree = "<group>"; };
 		C98C06132A35A042002E0152 /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AppDelegate.mm; path = ExampleSuperApp/AppDelegate.mm; sourceTree = "<group>"; };
 		C98C06142A35A042002E0152 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = ExampleSuperApp/main.m; sourceTree = "<group>"; };
@@ -100,7 +133,18 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C96AB3AF2A827DEF0091D01A /* GXFoundation.framework in Frameworks */,
+				C96AB3AD2A827DEF0091D01A /* GXDataLayerRemote.framework in Frameworks */,
+				C96AB3B92A827DEF0091D01A /* GXUIApplication.framework in Frameworks */,
+				C96AB3A92A827DEF0091D01A /* GXCoreUI.framework in Frameworks */,
+				C96AB3A72A827DEF0091D01A /* GXCoreBL.framework in Frameworks */,
+				C96AB3B72A827DEF0091D01A /* GXUCStarRating.framework in Frameworks */,
+				C96AB3BB2A827DEF0091D01A /* YAJL.framework in Frameworks */,
 				0C80B921A6F3F58F76C31292 /* libPods-ExampleSuperApp.a in Frameworks */,
+				C96AB3B52A827DEF0091D01A /* GXSuperApp.framework in Frameworks */,
+				C96AB3B32A827DEF0091D01A /* GXStandardClasses.framework in Frameworks */,
+				C96AB3B12A827DEF0091D01A /* GXObjectsModel.framework in Frameworks */,
+				C96AB3AB2A827DEF0091D01A /* GXDataLayer.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -578,7 +622,6 @@
 					"\"${PODS_XCFRAMEWORKS_BUILD_DIR}/Flipper-Glog\"",
 					"\"${PODS_XCFRAMEWORKS_BUILD_DIR}/OpenSSL-Universal\"",
 					"\"${PODS_XCFRAMEWORKS_BUILD_DIR}/hermes-engine/Pre-built\"",
-					"/Users/cinthya.riveros/Library/Developer/Xcode/DerivedData/GXFrameworks-behydqtgtzwwlnamlgkbycqxuaem/Build/Products/Debug-iphonesimulator",
 				);
 				INFOPLIST_FILE = ExampleSuperApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
