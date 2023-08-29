@@ -1,0 +1,56 @@
+group 'com.genexus.example_superapp'
+version '1.0-SNAPSHOT'
+
+buildscript {
+    ext.kotlin_version = '1.8.0'
+    repositories {
+        google()
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath 'com.android.tools.build:gradle:7.1.3'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
+        maven { url 'file:///D:/Dev/m2Repository/' }
+    }
+}
+
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+
+android {
+    compileSdkVersion 31
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+
+    sourceSets {
+        main.java.srcDirs += 'src/main/kotlin'
+    }
+
+    defaultConfig {
+        minSdkVersion 21
+    }
+}
+
+dependencies {
+    implementation "com.genexus.android:FlexibleClient:118.0-SNAPSHOT"
+    implementation "com.genexus.android:SqlDroidBase:118.0-SNAPSHOT"
+    implementation "com.genexus.android:CoreExternalObjects:118.0-SNAPSHOT"
+    implementation "com.genexus.android:CoreUserControls:118.0-SNAPSHOT"
+    implementation "com.genexus.android:SmartGridLib:118.0-SNAPSHOT"
+    implementation "com.genexus.android:SuperAppsLib:118.0-SNAPSHOT"
+}
