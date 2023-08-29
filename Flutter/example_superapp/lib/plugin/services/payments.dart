@@ -6,7 +6,7 @@ class PaymentsService {
   static const fieldAffinity = "affinity";
   static const fieldType = "type";
 
-  static String pay(int amount) {
+  static String pay(double amount) {
     return "paymentIdForAmount$amount";
   }
 

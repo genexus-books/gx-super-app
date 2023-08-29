@@ -27,11 +27,11 @@ class FlutterMethodChannel {
   Future<dynamic> _methodHandler(MethodCall call) async {
     switch (call.method) {
       case methodPayNoUi:
-        int amount = call.arguments["amount"];
+        double amount = call.arguments["amount"];
         String paymentId = api.payNoUi(amount);
         return Future.value(paymentId);
       case methodPayWithUi:
-        int amount = call.arguments["amount"];
+        double amount = call.arguments["amount"];
         Future<String> paymentId = api.payWithUi(amount, context);
         return paymentId;
       case methodGetClientInformation:

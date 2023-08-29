@@ -19,7 +19,7 @@ class PaymentsApi(action: ApiAction?) : ExternalApi(action) {
 
 	private val methodPayWithoutUI = object : IMethodInvoker {
 		override fun invoke(parameters: List<Any>): ExternalApiResult {
-			val amount = parameters[0].toString().toInt()
+			val amount = parameters[0].toString().toDouble()
 			SuperAppAPI.payWithoutUI(amount, resultHandler)
 			return ExternalApiResult.SUCCESS_WAIT
 		}
@@ -40,7 +40,7 @@ class PaymentsApi(action: ApiAction?) : ExternalApi(action) {
 
 	private val methodPayWithUI: IMethodInvoker = object : IMethodInvoker {
 		override fun invoke(parameters: List<Any>): ExternalApiResult {
-			val amount = parameters[0].toString().toInt()
+			val amount = parameters[0].toString().toDouble()
 
 //			val intentCachedEngine = FlutterActivity
 //				.withCachedEngine("plugin_engine")

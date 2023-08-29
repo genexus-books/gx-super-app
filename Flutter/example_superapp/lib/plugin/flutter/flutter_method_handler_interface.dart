@@ -16,11 +16,11 @@ abstract class SuperAppApiInterface extends PlatformInterface {
     _instance = instance;
   }
 
-  String payNoUi(int amount) {
+  String payNoUi(double amount) {
     throw UnimplementedError('payNoUi(amount: int) has not been implemented.');
   }
 
-  Future<String> payWithUi(int amount, BuildContext context) {
+  Future<String> payWithUi(double amount, BuildContext context) {
     throw UnimplementedError('payWithUi(amount: int) has not been implemented.');
   }
 

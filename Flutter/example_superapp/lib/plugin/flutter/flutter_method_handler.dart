@@ -7,12 +7,12 @@ import '../ui/selection_screen.dart';
 
 class SuperAppAPI implements SuperAppApiInterface {
   @override
-  String payNoUi(int amount) {
+  String payNoUi(double amount) {
     return PaymentsService.pay(amount);
   }
 
   @override
-  Future<String> payWithUi(int amount, BuildContext context) async {
+  Future<String> payWithUi(double amount, BuildContext context) async {
     return await Navigator.of(context).push(
         MaterialPageRoute(builder: (context) => SelectionScreen(totalAmount: amount))
     );

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class SelectionScreen extends StatefulWidget {
   const SelectionScreen({super.key, required this.totalAmount});
 
-  final int totalAmount;
+  final double totalAmount;
 
   @override
   State<SelectionScreen> createState() => _SelectionScreenState();

@@ -29,11 +29,11 @@ object SuperAppAPI: ISuperApp, IFlutterCallHandlerSetup {
 		}
 	}
 
-	override fun payWithoutUI(amount: Int, resultHandler: MethodChannel.Result?) {
+	override fun payWithoutUI(amount: Double, resultHandler: MethodChannel.Result?) {
 		callMethod(PaymentsApi.METHOD_PAY_NO_UI, hashMapOf("amount" to amount), resultHandler)
 	}
 
-	override fun payWithUI(amount: Int, resultHandler: MethodChannel.Result?) {
+	override fun payWithUI(amount: Double, resultHandler: MethodChannel.Result?) {
 		callMethod(PaymentsApi.METHOD_PAY_UI, hashMapOf("amount" to amount), resultHandler)
 	}
 
