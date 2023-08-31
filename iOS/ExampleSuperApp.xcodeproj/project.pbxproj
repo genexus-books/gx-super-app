@@ -3,10 +3,17 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2B1EDFC42AA11282006D6673 /* GXUIApplication in Frameworks */ = {isa = PBXBuildFile; productRef = 2B1EDFC32AA11282006D6673 /* GXUIApplication */; };
+		2B1EDFC72AA112E6006D6673 /* GXDataLayerRemote in Frameworks */ = {isa = PBXBuildFile; productRef = 2B1EDFC62AA112E6006D6673 /* GXDataLayerRemote */; };
+		2B1EDFCA2AA11345006D6673 /* GXSuperApp in Frameworks */ = {isa = PBXBuildFile; productRef = 2B1EDFC92AA11345006D6673 /* GXSuperApp */; };
+		2B1EDFCD2AA11384006D6673 /* GXUIApplication in Frameworks */ = {isa = PBXBuildFile; productRef = 2B1EDFCC2AA11384006D6673 /* GXUIApplication */; };
+		2B1EDFCF2AA11384006D6673 /* GXDataLayerRemote in Frameworks */ = {isa = PBXBuildFile; productRef = 2B1EDFCE2AA11384006D6673 /* GXDataLayerRemote */; };
+		2B1EDFD12AA11384006D6673 /* GXSuperApp in Frameworks */ = {isa = PBXBuildFile; productRef = 2B1EDFD02AA11384006D6673 /* GXSuperApp */; };
+		2B1EDFD42AA113BC006D6673 /* GXSuperAppSandbox in Frameworks */ = {isa = PBXBuildFile; productRef = 2B1EDFD32AA113BC006D6673 /* GXSuperAppSandbox */; };
 		AE34576D269B7BE900A276BE /* GXCustomUserControlsMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE34576C269B7BE900A276BE /* GXCustomUserControlsMapper.swift */; };
 		AE457F20293A7F1700CD9D83 /* ProvisioningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE50801A2697504100926F54 /* ProvisioningViewController.swift */; };
 		AE457F21293A7F1700CD9D83 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5080162697504100926F54 /* AppDelegate.swift */; };
@@ -14,36 +21,10 @@
 		AE457F23293A7F1700CD9D83 /* SampleExObjHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEEE718426DEC1780039C5E5 /* SampleExObjHandler.swift */; };
 		AE457F24293A7F1700CD9D83 /* CacheViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4BA5BD2795B85300286676 /* CacheViewController.swift */; };
 		AE457F25293A7F1700CD9D83 /* SampleExObjLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEEE718626DEC1780039C5E5 /* SampleExObjLibrary.swift */; };
-		AE457F27293A7F1700CD9D83 /* GXFoundation.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE7ECBF326A065FB00B8E41B /* GXFoundation.xcframework */; };
-		AE457F28293A7F1700CD9D83 /* GXDataLayer.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE7ECBEC26A065FB00B8E41B /* GXDataLayer.xcframework */; };
-		AE457F29293A7F1700CD9D83 /* GXUCStarRating.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE7ECBF226A065FB00B8E41B /* GXUCStarRating.xcframework */; };
-		AE457F2A293A7F1700CD9D83 /* YAJL.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE7ECBF126A065FB00B8E41B /* YAJL.xcframework */; };
-		AE457F2B293A7F1700CD9D83 /* GXStandardClasses.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE7ECBED26A065FB00B8E41B /* GXStandardClasses.xcframework */; };
-		AE457F2C293A7F1700CD9D83 /* GXUIApplication.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE7ECBEE26A065FB00B8E41B /* GXUIApplication.xcframework */; };
-		AE457F2D293A7F1700CD9D83 /* GXObjectsModel.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE7ECBEF26A065FB00B8E41B /* GXObjectsModel.xcframework */; };
-		AE457F2E293A7F1700CD9D83 /* GXCoreBL.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE7ECBF026A065FB00B8E41B /* GXCoreBL.xcframework */; };
-		AE457F2F293A7F1700CD9D83 /* GXDataLayerRemote.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE7ECBEB26A065FB00B8E41B /* GXDataLayerRemote.xcframework */; };
-		AE457F30293A7F1700CD9D83 /* GXCoreUI.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE7ECBF426A065FB00B8E41B /* GXCoreUI.xcframework */; };
 		AE457F32293A7F1700CD9D83 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE5080212697504200926F54 /* LaunchScreen.storyboard */; };
 		AE457F33293A7F1700CD9D83 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE50801F2697504200926F54 /* Assets.xcassets */; };
 		AE457F34293A7F1700CD9D83 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE50801C2697504100926F54 /* Main.storyboard */; };
 		AE457F35293A7F1700CD9D83 /* superapp.crt in Resources */ = {isa = PBXBuildFile; fileRef = AE4BA53127958A5D00286676 /* superapp.crt */; };
-		AE457F37293A7F1700CD9D83 /* GXDataLayer.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AE7ECBEC26A065FB00B8E41B /* GXDataLayer.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		AE457F38293A7F1700CD9D83 /* GXCoreBL.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AE7ECBF026A065FB00B8E41B /* GXCoreBL.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		AE457F39293A7F1700CD9D83 /* GXDataLayerRemote.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AE7ECBEB26A065FB00B8E41B /* GXDataLayerRemote.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		AE457F3A293A7F1700CD9D83 /* YAJL.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AE7ECBF126A065FB00B8E41B /* YAJL.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		AE457F3B293A7F1700CD9D83 /* GXObjectsModel.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AE7ECBEF26A065FB00B8E41B /* GXObjectsModel.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		AE457F3C293A7F1700CD9D83 /* GXStandardClasses.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AE7ECBED26A065FB00B8E41B /* GXStandardClasses.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		AE457F3D293A7F1700CD9D83 /* GXFoundation.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AE7ECBF326A065FB00B8E41B /* GXFoundation.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		AE457F3E293A7F1700CD9D83 /* GXUIApplication.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AE7ECBEE26A065FB00B8E41B /* GXUIApplication.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		AE457F3F293A7F1700CD9D83 /* GXCoreUI.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AE7ECBF426A065FB00B8E41B /* GXCoreUI.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		AE457F40293A7F1700CD9D83 /* GXUCStarRating.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AE7ECBF226A065FB00B8E41B /* GXUCStarRating.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		AE45807E293A8A4A00CD9D83 /* GXSuperApp.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE457FE0293A847500CD9D83 /* GXSuperApp.xcframework */; };
-		AE45807F293A8A4A00CD9D83 /* GXSuperApp.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AE457FE0293A847500CD9D83 /* GXSuperApp.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		AE458080293A8A4A00CD9D83 /* GXSuperAppSandbox.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE457FDF293A847500CD9D83 /* GXSuperAppSandbox.xcframework */; };
-		AE458081293A8A4A00CD9D83 /* GXSuperAppSandbox.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AE457FDF293A847500CD9D83 /* GXSuperAppSandbox.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		AE458082293A8A4E00CD9D83 /* GXSuperApp.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE457FE0293A847500CD9D83 /* GXSuperApp.xcframework */; };
-		AE458083293A8A4E00CD9D83 /* GXSuperApp.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AE457FE0293A847500CD9D83 /* GXSuperApp.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		AE4BA53227958A5D00286676 /* superapp.crt in Resources */ = {isa = PBXBuildFile; fileRef = AE4BA53127958A5D00286676 /* superapp.crt */; };
 		AE4BA5BE2795B85300286676 /* CacheViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4BA5BD2795B85300286676 /* CacheViewController.swift */; };
 		AE5080172697504100926F54 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5080162697504100926F54 /* AppDelegate.swift */; };
@@ -53,26 +34,6 @@
 		AE5080232697504200926F54 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE5080212697504200926F54 /* LaunchScreen.storyboard */; };
 		AEEE718726DEC1850039C5E5 /* SampleExObjHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEEE718426DEC1780039C5E5 /* SampleExObjHandler.swift */; };
 		AEEE718826DEC1880039C5E5 /* SampleExObjLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEEE718626DEC1780039C5E5 /* SampleExObjLibrary.swift */; };
-		AEF43D7B26A5015700577571 /* GXCoreBL.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE7ECBF026A065FB00B8E41B /* GXCoreBL.xcframework */; };
-		AEF43D7C26A5015700577571 /* GXCoreBL.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AE7ECBF026A065FB00B8E41B /* GXCoreBL.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		AEF43D7D26A5015900577571 /* GXCoreUI.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE7ECBF426A065FB00B8E41B /* GXCoreUI.xcframework */; };
-		AEF43D7E26A5015900577571 /* GXCoreUI.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AE7ECBF426A065FB00B8E41B /* GXCoreUI.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		AEF43D7F26A5015A00577571 /* GXDataLayer.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE7ECBEC26A065FB00B8E41B /* GXDataLayer.xcframework */; };
-		AEF43D8026A5015A00577571 /* GXDataLayer.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AE7ECBEC26A065FB00B8E41B /* GXDataLayer.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		AEF43D8126A5015E00577571 /* GXDataLayerRemote.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE7ECBEB26A065FB00B8E41B /* GXDataLayerRemote.xcframework */; };
-		AEF43D8226A5015E00577571 /* GXDataLayerRemote.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AE7ECBEB26A065FB00B8E41B /* GXDataLayerRemote.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		AEF43D8326A5015E00577571 /* GXFoundation.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE7ECBF326A065FB00B8E41B /* GXFoundation.xcframework */; };
-		AEF43D8426A5015E00577571 /* GXFoundation.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AE7ECBF326A065FB00B8E41B /* GXFoundation.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		AEF43D8526A5015E00577571 /* GXObjectsModel.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE7ECBEF26A065FB00B8E41B /* GXObjectsModel.xcframework */; };
-		AEF43D8626A5015F00577571 /* GXObjectsModel.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AE7ECBEF26A065FB00B8E41B /* GXObjectsModel.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		AEF43D8726A5015F00577571 /* GXStandardClasses.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE7ECBED26A065FB00B8E41B /* GXStandardClasses.xcframework */; };
-		AEF43D8826A5015F00577571 /* GXStandardClasses.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AE7ECBED26A065FB00B8E41B /* GXStandardClasses.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		AEF43D8926A5015F00577571 /* GXUCStarRating.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE7ECBF226A065FB00B8E41B /* GXUCStarRating.xcframework */; };
-		AEF43D8A26A5015F00577571 /* GXUCStarRating.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AE7ECBF226A065FB00B8E41B /* GXUCStarRating.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		AEF43D8B26A5015F00577571 /* GXUIApplication.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE7ECBEE26A065FB00B8E41B /* GXUIApplication.xcframework */; };
-		AEF43D8C26A5015F00577571 /* GXUIApplication.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AE7ECBEE26A065FB00B8E41B /* GXUIApplication.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		AEF43D8D26A5015F00577571 /* YAJL.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE7ECBF126A065FB00B8E41B /* YAJL.xcframework */; };
-		AEF43D8E26A5015F00577571 /* YAJL.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AE7ECBF126A065FB00B8E41B /* YAJL.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -82,18 +43,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				AE457F37293A7F1700CD9D83 /* GXDataLayer.xcframework in Embed Frameworks */,
-				AE457F38293A7F1700CD9D83 /* GXCoreBL.xcframework in Embed Frameworks */,
-				AE457F39293A7F1700CD9D83 /* GXDataLayerRemote.xcframework in Embed Frameworks */,
-				AE45807F293A8A4A00CD9D83 /* GXSuperApp.xcframework in Embed Frameworks */,
-				AE457F3A293A7F1700CD9D83 /* YAJL.xcframework in Embed Frameworks */,
-				AE457F3B293A7F1700CD9D83 /* GXObjectsModel.xcframework in Embed Frameworks */,
-				AE458081293A8A4A00CD9D83 /* GXSuperAppSandbox.xcframework in Embed Frameworks */,
-				AE457F3C293A7F1700CD9D83 /* GXStandardClasses.xcframework in Embed Frameworks */,
-				AE457F3D293A7F1700CD9D83 /* GXFoundation.xcframework in Embed Frameworks */,
-				AE457F3E293A7F1700CD9D83 /* GXUIApplication.xcframework in Embed Frameworks */,
-				AE457F3F293A7F1700CD9D83 /* GXCoreUI.xcframework in Embed Frameworks */,
-				AE457F40293A7F1700CD9D83 /* GXUCStarRating.xcframework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -104,17 +53,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				AEF43D8026A5015A00577571 /* GXDataLayer.xcframework in Embed Frameworks */,
-				AEF43D7C26A5015700577571 /* GXCoreBL.xcframework in Embed Frameworks */,
-				AEF43D8226A5015E00577571 /* GXDataLayerRemote.xcframework in Embed Frameworks */,
-				AE458083293A8A4E00CD9D83 /* GXSuperApp.xcframework in Embed Frameworks */,
-				AEF43D8E26A5015F00577571 /* YAJL.xcframework in Embed Frameworks */,
-				AEF43D8626A5015F00577571 /* GXObjectsModel.xcframework in Embed Frameworks */,
-				AEF43D8826A5015F00577571 /* GXStandardClasses.xcframework in Embed Frameworks */,
-				AEF43D8426A5015E00577571 /* GXFoundation.xcframework in Embed Frameworks */,
-				AEF43D8C26A5015F00577571 /* GXUIApplication.xcframework in Embed Frameworks */,
-				AEF43D7E26A5015900577571 /* GXCoreUI.xcframework in Embed Frameworks */,
-				AEF43D8A26A5015F00577571 /* GXUCStarRating.xcframework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -125,8 +63,6 @@
 		AE34576C269B7BE900A276BE /* GXCustomUserControlsMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GXCustomUserControlsMapper.swift; sourceTree = "<group>"; };
 		AE457F44293A7F1700CD9D83 /* ExampleSuperAppSandbox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExampleSuperAppSandbox.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE457F45293A7F1700CD9D83 /* Sandbox-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Sandbox-Info.plist"; path = "../Sandbox-Info.plist"; sourceTree = "<group>"; };
-		AE457FDF293A847500CD9D83 /* GXSuperAppSandbox.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = GXSuperAppSandbox.xcframework; sourceTree = "<group>"; };
-		AE457FE0293A847500CD9D83 /* GXSuperApp.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = GXSuperApp.xcframework; sourceTree = "<group>"; };
 		AE4BA53127958A5D00286676 /* superapp.crt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = superapp.crt; sourceTree = "<group>"; };
 		AE4BA5BD2795B85300286676 /* CacheViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheViewController.swift; sourceTree = "<group>"; };
 		AE5080132697504100926F54 /* ExampleSuperApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExampleSuperApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -136,16 +72,6 @@
 		AE50801F2697504200926F54 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AE5080222697504200926F54 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AE5080242697504200926F54 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		AE7ECBEB26A065FB00B8E41B /* GXDataLayerRemote.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = GXDataLayerRemote.xcframework; sourceTree = "<group>"; };
-		AE7ECBEC26A065FB00B8E41B /* GXDataLayer.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = GXDataLayer.xcframework; sourceTree = "<group>"; };
-		AE7ECBED26A065FB00B8E41B /* GXStandardClasses.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = GXStandardClasses.xcframework; sourceTree = "<group>"; };
-		AE7ECBEE26A065FB00B8E41B /* GXUIApplication.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = GXUIApplication.xcframework; sourceTree = "<group>"; };
-		AE7ECBEF26A065FB00B8E41B /* GXObjectsModel.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = GXObjectsModel.xcframework; sourceTree = "<group>"; };
-		AE7ECBF026A065FB00B8E41B /* GXCoreBL.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = GXCoreBL.xcframework; sourceTree = "<group>"; };
-		AE7ECBF126A065FB00B8E41B /* YAJL.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = YAJL.xcframework; sourceTree = "<group>"; };
-		AE7ECBF226A065FB00B8E41B /* GXUCStarRating.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = GXUCStarRating.xcframework; sourceTree = "<group>"; };
-		AE7ECBF326A065FB00B8E41B /* GXFoundation.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = GXFoundation.xcframework; sourceTree = "<group>"; };
-		AE7ECBF426A065FB00B8E41B /* GXCoreUI.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = GXCoreUI.xcframework; sourceTree = "<group>"; };
 		AEA799C22A20C896001511C6 /* Logging.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Logging.md; sourceTree = "<group>"; };
 		AEE860AF2A20D02E0013C7ED /* Crashlytics.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Crashlytics.md; sourceTree = "<group>"; };
 		AEE860B02A20D0350013C7ED /* GXFirebaseCrashAnalyticsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GXFirebaseCrashAnalyticsService.swift; sourceTree = "<group>"; };
@@ -161,18 +87,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AE45807E293A8A4A00CD9D83 /* GXSuperApp.xcframework in Frameworks */,
-				AE457F27293A7F1700CD9D83 /* GXFoundation.xcframework in Frameworks */,
-				AE457F28293A7F1700CD9D83 /* GXDataLayer.xcframework in Frameworks */,
-				AE457F29293A7F1700CD9D83 /* GXUCStarRating.xcframework in Frameworks */,
-				AE457F2A293A7F1700CD9D83 /* YAJL.xcframework in Frameworks */,
-				AE457F2B293A7F1700CD9D83 /* GXStandardClasses.xcframework in Frameworks */,
-				AE458080293A8A4A00CD9D83 /* GXSuperAppSandbox.xcframework in Frameworks */,
-				AE457F2C293A7F1700CD9D83 /* GXUIApplication.xcframework in Frameworks */,
-				AE457F2D293A7F1700CD9D83 /* GXObjectsModel.xcframework in Frameworks */,
-				AE457F2E293A7F1700CD9D83 /* GXCoreBL.xcframework in Frameworks */,
-				AE457F2F293A7F1700CD9D83 /* GXDataLayerRemote.xcframework in Frameworks */,
-				AE457F30293A7F1700CD9D83 /* GXCoreUI.xcframework in Frameworks */,
+				2B1EDFD12AA11384006D6673 /* GXSuperApp in Frameworks */,
+				2B1EDFCD2AA11384006D6673 /* GXUIApplication in Frameworks */,
+				2B1EDFCF2AA11384006D6673 /* GXDataLayerRemote in Frameworks */,
+				2B1EDFD42AA113BC006D6673 /* GXSuperAppSandbox in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -180,23 +98,22 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AEF43D8326A5015E00577571 /* GXFoundation.xcframework in Frameworks */,
-				AEF43D7F26A5015A00577571 /* GXDataLayer.xcframework in Frameworks */,
-				AEF43D8926A5015F00577571 /* GXUCStarRating.xcframework in Frameworks */,
-				AE458082293A8A4E00CD9D83 /* GXSuperApp.xcframework in Frameworks */,
-				AEF43D8D26A5015F00577571 /* YAJL.xcframework in Frameworks */,
-				AEF43D8726A5015F00577571 /* GXStandardClasses.xcframework in Frameworks */,
-				AEF43D8B26A5015F00577571 /* GXUIApplication.xcframework in Frameworks */,
-				AEF43D8526A5015E00577571 /* GXObjectsModel.xcframework in Frameworks */,
-				AEF43D7B26A5015700577571 /* GXCoreBL.xcframework in Frameworks */,
-				AEF43D8126A5015E00577571 /* GXDataLayerRemote.xcframework in Frameworks */,
-				AEF43D7D26A5015900577571 /* GXCoreUI.xcframework in Frameworks */,
+				2B1EDFC42AA11282006D6673 /* GXUIApplication in Frameworks */,
+				2B1EDFC72AA112E6006D6673 /* GXDataLayerRemote in Frameworks */,
+				2B1EDFCA2AA11345006D6673 /* GXSuperApp in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2B1EDFCB2AA11384006D6673 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		AE50800A2697504100926F54 = {
 			isa = PBXGroup;
 			children = (
@@ -207,6 +124,7 @@
 				AEE860AE2A20CFDE0013C7ED /* CrashAnalytics */,
 				AE5080B52697557A00926F54 /* GeneXus Frameworks */,
 				AE5080142697504100926F54 /* Products */,
+				2B1EDFCB2AA11384006D6673 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -240,18 +158,6 @@
 			isa = PBXGroup;
 			children = (
 				AEEE718A26DEC9D20039C5E5 /* README.md */,
-				AE7ECBF026A065FB00B8E41B /* GXCoreBL.xcframework */,
-				AE7ECBF426A065FB00B8E41B /* GXCoreUI.xcframework */,
-				AE7ECBEC26A065FB00B8E41B /* GXDataLayer.xcframework */,
-				AE7ECBEB26A065FB00B8E41B /* GXDataLayerRemote.xcframework */,
-				AE7ECBF326A065FB00B8E41B /* GXFoundation.xcframework */,
-				AE7ECBEF26A065FB00B8E41B /* GXObjectsModel.xcframework */,
-				AE7ECBED26A065FB00B8E41B /* GXStandardClasses.xcframework */,
-				AE457FE0293A847500CD9D83 /* GXSuperApp.xcframework */,
-				AE457FDF293A847500CD9D83 /* GXSuperAppSandbox.xcframework */,
-				AE7ECBF226A065FB00B8E41B /* GXUCStarRating.xcframework */,
-				AE7ECBEE26A065FB00B8E41B /* GXUIApplication.xcframework */,
-				AE7ECBF126A065FB00B8E41B /* YAJL.xcframework */,
 			);
 			path = "GeneXus Frameworks";
 			sourceTree = "<group>";
@@ -292,6 +198,12 @@
 			dependencies = (
 			);
 			name = ExampleSuperAppSandbox;
+			packageProductDependencies = (
+				2B1EDFCC2AA11384006D6673 /* GXUIApplication */,
+				2B1EDFCE2AA11384006D6673 /* GXDataLayerRemote */,
+				2B1EDFD02AA11384006D6673 /* GXSuperApp */,
+				2B1EDFD32AA113BC006D6673 /* GXSuperAppSandbox */,
+			);
 			productName = ExampleSuperApp;
 			productReference = AE457F44293A7F1700CD9D83 /* ExampleSuperAppSandbox.app */;
 			productType = "com.apple.product-type.application";
@@ -310,6 +222,11 @@
 			dependencies = (
 			);
 			name = ExampleSuperApp;
+			packageProductDependencies = (
+				2B1EDFC32AA11282006D6673 /* GXUIApplication */,
+				2B1EDFC62AA112E6006D6673 /* GXDataLayerRemote */,
+				2B1EDFC92AA11345006D6673 /* GXSuperApp */,
+			);
 			productName = ExampleSuperApp;
 			productReference = AE5080132697504100926F54 /* ExampleSuperApp.app */;
 			productType = "com.apple.product-type.application";
@@ -337,6 +254,12 @@
 				Base,
 			);
 			mainGroup = AE50800A2697504100926F54;
+			packageReferences = (
+				2B1EDFC22AA11282006D6673 /* XCRemoteSwiftPackageReference "GXUIApplication" */,
+				2B1EDFC52AA112E6006D6673 /* XCRemoteSwiftPackageReference "GXDataLayerRemote" */,
+				2B1EDFC82AA11345006D6673 /* XCRemoteSwiftPackageReference "GXSuperApp" */,
+				2B1EDFD22AA113BC006D6673 /* XCRemoteSwiftPackageReference "GXSuperAppSandbox" */,
+			);
 			productRefGroup = AE5080142697504100926F54 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -652,6 +575,79 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		2B1EDFC22AA11282006D6673 /* XCRemoteSwiftPackageReference "GXUIApplication" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/GeneXus-SwiftPackages/GXUIApplication.git";
+			requirement = {
+				kind = upToNextMinorVersion;
+				minimumVersion = 1.1.2;
+			};
+		};
+		2B1EDFC52AA112E6006D6673 /* XCRemoteSwiftPackageReference "GXDataLayerRemote" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "file:///Users/jechague/Developer/GitHub/iOSFlexibleClient/Build/.gxbuild/SwiftPackages/GXDataLayerRemote";
+			requirement = {
+				kind = upToNextMinorVersion;
+				minimumVersion = 1.1.2;
+			};
+		};
+		2B1EDFC82AA11345006D6673 /* XCRemoteSwiftPackageReference "GXSuperApp" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/GeneXus-SwiftPackages/GXSuperApp.git";
+			requirement = {
+				kind = upToNextMinorVersion;
+				minimumVersion = 1.1.2;
+			};
+		};
+		2B1EDFD22AA113BC006D6673 /* XCRemoteSwiftPackageReference "GXSuperAppSandbox" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/GeneXus-SwiftPackages/GXSuperAppSandbox.git";
+			requirement = {
+				kind = upToNextMinorVersion;
+				minimumVersion = 1.1.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		2B1EDFC32AA11282006D6673 /* GXUIApplication */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2B1EDFC22AA11282006D6673 /* XCRemoteSwiftPackageReference "GXUIApplication" */;
+			productName = GXUIApplication;
+		};
+		2B1EDFC62AA112E6006D6673 /* GXDataLayerRemote */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2B1EDFC52AA112E6006D6673 /* XCRemoteSwiftPackageReference "GXDataLayerRemote" */;
+			productName = GXDataLayerRemote;
+		};
+		2B1EDFC92AA11345006D6673 /* GXSuperApp */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2B1EDFC82AA11345006D6673 /* XCRemoteSwiftPackageReference "GXSuperApp" */;
+			productName = GXSuperApp;
+		};
+		2B1EDFCC2AA11384006D6673 /* GXUIApplication */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2B1EDFC22AA11282006D6673 /* XCRemoteSwiftPackageReference "GXUIApplication" */;
+			productName = GXUIApplication;
+		};
+		2B1EDFCE2AA11384006D6673 /* GXDataLayerRemote */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2B1EDFC52AA112E6006D6673 /* XCRemoteSwiftPackageReference "GXDataLayerRemote" */;
+			productName = GXDataLayerRemote;
+		};
+		2B1EDFD02AA11384006D6673 /* GXSuperApp */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2B1EDFC82AA11345006D6673 /* XCRemoteSwiftPackageReference "GXSuperApp" */;
+			productName = GXSuperApp;
+		};
+		2B1EDFD32AA113BC006D6673 /* GXSuperAppSandbox */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2B1EDFD22AA113BC006D6673 /* XCRemoteSwiftPackageReference "GXSuperAppSandbox" */;
+			productName = GXSuperAppSandbox;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = AE50800B2697504100926F54 /* Project object */;
 }
