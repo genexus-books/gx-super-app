@@ -1,2 +1,3 @@
 xcuserdata/
 iOS/GeneXus Frameworks/*.xcframework/
+**/*.xcworkspace/xcshareddata/swiftpm/Package.resolved
