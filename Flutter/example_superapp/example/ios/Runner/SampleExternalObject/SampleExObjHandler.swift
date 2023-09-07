@@ -29,7 +29,7 @@ import GXCoreBL
 			onFinishedExecutingWithError(error)
 			return
 		}
-		let args = ["amount": Int(amount)]
+		let args = ["amount": amount]
 		SuperAppAPI.callFlutterUIMethod(name: Constants.Methods.PAY_UI, arguments: args, uiContext: presentingController) { [weak self] result in
 			guard let sself = self else { return }
 			guard let returnValue = result as? String else {
@@ -61,7 +61,7 @@ import GXCoreBL
 			onFinishedExecutingWithError(error)
 			return
 		}
-		let args = ["amount": Int(amount)]
+		let args = ["amount": amount]
 		SuperAppAPI.callMethod(name: Constants.Methods.PAY_NO_UI, arguments: args) { [weak self] result in
 			guard let sself = self else { return }
 			guard let returnValue = result as? String else {
