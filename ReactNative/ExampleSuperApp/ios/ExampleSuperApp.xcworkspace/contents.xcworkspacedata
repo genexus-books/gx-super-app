@@ -4,19 +4,6 @@
    <FileRef
       location = "group:ExampleSuperApp.xcodeproj">
    </FileRef>
-   <Group
-      location = "group:"
-      name = "SampleExternalObject">
-      <FileRef
-         location = "group:SampleExObjHandler.swift">
-      </FileRef>
-      <FileRef
-         location = "group:SampleExObjLibrary.swift">
-      </FileRef>
-      <FileRef
-         location = "group:ExampleSuperApp-Bridging-Header.h">
-      </FileRef>
-   </Group>
    <FileRef
       location = "group:Pods/Pods.xcodeproj">
    </FileRef>

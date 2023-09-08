@@ -5,8 +5,9 @@
 
 #import <Foundation/Foundation.h>
 #import <React/RCTBridgeModule.h>
+#import <GXCoreBL/GXCoreBL.h>
 
-@interface RCT_EXTERN_MODULE(SampleExObjHandler, NSObject)
+@interface RCT_EXTERN_MODULE(SampleExObjHandler, GXActionExternalObjectHandler)
 
 RCT_EXTERN_METHOD(gxActionExObjMethodHandler_PayWithUI:(NSArray *))
 RCT_EXTERN_METHOD(gxActionExObjMethodHandler_PayWithoutUI:(NSArray *))

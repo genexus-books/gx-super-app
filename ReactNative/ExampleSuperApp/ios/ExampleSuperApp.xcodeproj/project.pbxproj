@@ -12,34 +12,16 @@
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		7699B88040F8A987B510C191 /* libPods-ExampleSuperApp-ExampleSuperAppTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-ExampleSuperApp-ExampleSuperAppTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
-		C96AB3A72A827DEF0091D01A /* GXCoreBL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9530CD62A79513F00715A1F /* GXCoreBL.framework */; };
-		C96AB3A82A827DEF0091D01A /* GXCoreBL.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C9530CD62A79513F00715A1F /* GXCoreBL.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		C96AB3A92A827DEF0091D01A /* GXCoreUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9530CD42A79513F00715A1F /* GXCoreUI.framework */; };
-		C96AB3AA2A827DEF0091D01A /* GXCoreUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C9530CD42A79513F00715A1F /* GXCoreUI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		C96AB3AB2A827DEF0091D01A /* GXDataLayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9530CCC2A79513D00715A1F /* GXDataLayer.framework */; };
-		C96AB3AC2A827DEF0091D01A /* GXDataLayer.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C9530CCC2A79513D00715A1F /* GXDataLayer.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		C96AB3AD2A827DEF0091D01A /* GXDataLayerRemote.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9530CD02A79513E00715A1F /* GXDataLayerRemote.framework */; };
-		C96AB3AE2A827DEF0091D01A /* GXDataLayerRemote.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C9530CD02A79513E00715A1F /* GXDataLayerRemote.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		C96AB3AF2A827DEF0091D01A /* GXFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9530CD22A79513E00715A1F /* GXFoundation.framework */; };
-		C96AB3B02A827DEF0091D01A /* GXFoundation.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C9530CD22A79513E00715A1F /* GXFoundation.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		C96AB3B12A827DEF0091D01A /* GXObjectsModel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9530CD32A79513E00715A1F /* GXObjectsModel.framework */; };
-		C96AB3B22A827DEF0091D01A /* GXObjectsModel.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C9530CD32A79513E00715A1F /* GXObjectsModel.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		C96AB3B32A827DEF0091D01A /* GXStandardClasses.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9530CD12A79513E00715A1F /* GXStandardClasses.framework */; };
-		C96AB3B42A827DEF0091D01A /* GXStandardClasses.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C9530CD12A79513E00715A1F /* GXStandardClasses.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		C96AB3B52A827DEF0091D01A /* GXSuperApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9530CCE2A79513D00715A1F /* GXSuperApp.framework */; };
-		C96AB3B62A827DEF0091D01A /* GXSuperApp.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C9530CCE2A79513D00715A1F /* GXSuperApp.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		C96AB3B72A827DEF0091D01A /* GXUCStarRating.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9530CCD2A79513D00715A1F /* GXUCStarRating.framework */; };
-		C96AB3B82A827DEF0091D01A /* GXUCStarRating.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C9530CCD2A79513D00715A1F /* GXUCStarRating.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		C96AB3B92A827DEF0091D01A /* GXUIApplication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9530CD52A79513F00715A1F /* GXUIApplication.framework */; };
-		C96AB3BA2A827DEF0091D01A /* GXUIApplication.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C9530CD52A79513F00715A1F /* GXUIApplication.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		C96AB3BB2A827DEF0091D01A /* YAJL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9530CCF2A79513D00715A1F /* YAJL.framework */; };
-		C96AB3BC2A827DEF0091D01A /* YAJL.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C9530CCF2A79513D00715A1F /* YAJL.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		AE5591982AAB074400D009D2 /* GXDataLayerRemote in Frameworks */ = {isa = PBXBuildFile; productRef = AE5591972AAB074400D009D2 /* GXDataLayerRemote */; };
+		AE55919B2AAB07A200D009D2 /* GXUIApplication in Frameworks */ = {isa = PBXBuildFile; productRef = AE55919A2AAB07A200D009D2 /* GXUIApplication */; };
+		AE55919E2AAB07B300D009D2 /* GXSuperApp in Frameworks */ = {isa = PBXBuildFile; productRef = AE55919D2AAB07B300D009D2 /* GXSuperApp */; };
+		AE5591A02AAB080000D009D2 /* superapp.crt in Resources */ = {isa = PBXBuildFile; fileRef = AE55919F2AAB080000D009D2 /* superapp.crt */; };
+		AE5591A22AAB0B3700D009D2 /* SampleExObjHandler+ReactNative.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5591A12AAB0B3700D009D2 /* SampleExObjHandler+ReactNative.swift */; };
 		C98C06162A35A042002E0152 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C98C06142A35A042002E0152 /* main.m */; };
 		C98C06182A376C90002E0152 /* GXUIApplicationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C98C06172A376C90002E0152 /* GXUIApplicationHelper.swift */; };
 		C98C06BB2A390173002E0152 /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = C98C06132A35A042002E0152 /* AppDelegate.mm */; };
 		C9C0434D2A354D9400C9342D /* SampleExObjHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C0434B2A354D9400C9342D /* SampleExObjHandler.swift */; };
 		C9C0434E2A354D9400C9342D /* SampleExObjLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C0434C2A354D9400C9342D /* SampleExObjLibrary.swift */; };
-		C9C043502A354E6100C9342D /* superapp.crt in Resources */ = {isa = PBXBuildFile; fileRef = C9C0434F2A354E6100C9342D /* superapp.crt */; };
 		C9C5FA3D2A392A0900F8F384 /* SampleExObjHandlerBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = C9C5FA3C2A392A0900F8F384 /* SampleExObjHandlerBridge.m */; };
 		C9E747C22A35524500D3F898 /* ProvisioningAPIBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = C9E747C02A35524400D3F898 /* ProvisioningAPIBridge.m */; };
 		C9E747C32A35524500D3F898 /* ProvisioningAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E747C12A35524500D3F898 /* ProvisioningAPI.swift */; };
@@ -62,17 +44,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				C96AB3BA2A827DEF0091D01A /* GXUIApplication.framework in Embed Frameworks */,
-				C96AB3B02A827DEF0091D01A /* GXFoundation.framework in Embed Frameworks */,
-				C96AB3AA2A827DEF0091D01A /* GXCoreUI.framework in Embed Frameworks */,
-				C96AB3B22A827DEF0091D01A /* GXObjectsModel.framework in Embed Frameworks */,
-				C96AB3AE2A827DEF0091D01A /* GXDataLayerRemote.framework in Embed Frameworks */,
-				C96AB3A82A827DEF0091D01A /* GXCoreBL.framework in Embed Frameworks */,
-				C96AB3AC2A827DEF0091D01A /* GXDataLayer.framework in Embed Frameworks */,
-				C96AB3B42A827DEF0091D01A /* GXStandardClasses.framework in Embed Frameworks */,
-				C96AB3B82A827DEF0091D01A /* GXUCStarRating.framework in Embed Frameworks */,
-				C96AB3B62A827DEF0091D01A /* GXSuperApp.framework in Embed Frameworks */,
-				C96AB3BC2A827DEF0091D01A /* YAJL.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -93,25 +64,16 @@
 		5DCACB8F33CDC322A6C60F78 /* libPods-ExampleSuperApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ExampleSuperApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = ExampleSuperApp/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89C6BE57DB24E9ADA2F236DE /* Pods-ExampleSuperApp-ExampleSuperAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ExampleSuperApp-ExampleSuperAppTests.release.xcconfig"; path = "Target Support Files/Pods-ExampleSuperApp-ExampleSuperAppTests/Pods-ExampleSuperApp-ExampleSuperAppTests.release.xcconfig"; sourceTree = "<group>"; };
-		C9530CCC2A79513D00715A1F /* GXDataLayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GXDataLayer.framework; path = "../../../iOS/GeneXus Frameworks/GXDataLayer.framework"; sourceTree = "<group>"; };
-		C9530CCD2A79513D00715A1F /* GXUCStarRating.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GXUCStarRating.framework; path = "../../../iOS/GeneXus Frameworks/GXUCStarRating.framework"; sourceTree = "<group>"; };
-		C9530CCE2A79513D00715A1F /* GXSuperApp.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GXSuperApp.framework; path = "../../../iOS/GeneXus Frameworks/GXSuperApp.framework"; sourceTree = "<group>"; };
-		C9530CCF2A79513D00715A1F /* YAJL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = YAJL.framework; path = "../../../iOS/GeneXus Frameworks/YAJL.framework"; sourceTree = "<group>"; };
-		C9530CD02A79513E00715A1F /* GXDataLayerRemote.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GXDataLayerRemote.framework; path = "../../../iOS/GeneXus Frameworks/GXDataLayerRemote.framework"; sourceTree = "<group>"; };
-		C9530CD12A79513E00715A1F /* GXStandardClasses.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GXStandardClasses.framework; path = "../../../iOS/GeneXus Frameworks/GXStandardClasses.framework"; sourceTree = "<group>"; };
-		C9530CD22A79513E00715A1F /* GXFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GXFoundation.framework; path = "../../../iOS/GeneXus Frameworks/GXFoundation.framework"; sourceTree = "<group>"; };
-		C9530CD32A79513E00715A1F /* GXObjectsModel.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GXObjectsModel.framework; path = "../../../iOS/GeneXus Frameworks/GXObjectsModel.framework"; sourceTree = "<group>"; };
-		C9530CD42A79513F00715A1F /* GXCoreUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GXCoreUI.framework; path = "../../../iOS/GeneXus Frameworks/GXCoreUI.framework"; sourceTree = "<group>"; };
-		C9530CD52A79513F00715A1F /* GXUIApplication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GXUIApplication.framework; path = "../../../iOS/GeneXus Frameworks/GXUIApplication.framework"; sourceTree = "<group>"; };
-		C9530CD62A79513F00715A1F /* GXCoreBL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GXCoreBL.framework; path = "../../../iOS/GeneXus Frameworks/GXCoreBL.framework"; sourceTree = "<group>"; };
+		AE55919F2AAB080000D009D2 /* superapp.crt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = superapp.crt; path = ../../../iOS/ExampleSuperApp/superapp.crt; sourceTree = "<group>"; };
+		AE5591A12AAB0B3700D009D2 /* SampleExObjHandler+ReactNative.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SampleExObjHandler+ReactNative.swift"; sourceTree = "<group>"; };
+		AE5591A32AAB0F0B00D009D2 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = "../../../iOS/GeneXus Frameworks/README.md"; sourceTree = "<group>"; };
 		C98C06122A35A042002E0152 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = ExampleSuperApp/AppDelegate.h; sourceTree = "<group>"; };
 		C98C06132A35A042002E0152 /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AppDelegate.mm; path = ExampleSuperApp/AppDelegate.mm; sourceTree = "<group>"; };
 		C98C06142A35A042002E0152 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = ExampleSuperApp/main.m; sourceTree = "<group>"; };
 		C98C06172A376C90002E0152 /* GXUIApplicationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GXUIApplicationHelper.swift; sourceTree = "<group>"; };
 		C9C0434A2A354D9300C9342D /* ExampleSuperApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ExampleSuperApp-Bridging-Header.h"; sourceTree = "<group>"; };
-		C9C0434B2A354D9400C9342D /* SampleExObjHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SampleExObjHandler.swift; sourceTree = "<group>"; };
-		C9C0434C2A354D9400C9342D /* SampleExObjLibrary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SampleExObjLibrary.swift; sourceTree = "<group>"; };
-		C9C0434F2A354E6100C9342D /* superapp.crt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = superapp.crt; sourceTree = "<group>"; };
+		C9C0434B2A354D9400C9342D /* SampleExObjHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SampleExObjHandler.swift; path = ../../../iOS/SampleExternalObject/SampleExObjHandler.swift; sourceTree = "<group>"; };
+		C9C0434C2A354D9400C9342D /* SampleExObjLibrary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SampleExObjLibrary.swift; path = ../../../iOS/SampleExternalObject/SampleExObjLibrary.swift; sourceTree = "<group>"; };
 		C9C5FA3B2A39299B00F8F384 /* SampleExObjHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SampleExObjHandler.h; sourceTree = "<group>"; };
 		C9C5FA3C2A392A0900F8F384 /* SampleExObjHandlerBridge.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SampleExObjHandlerBridge.m; sourceTree = "<group>"; };
 		C9E747C02A35524400D3F898 /* ProvisioningAPIBridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProvisioningAPIBridge.m; sourceTree = "<group>"; };
@@ -133,18 +95,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C96AB3AF2A827DEF0091D01A /* GXFoundation.framework in Frameworks */,
-				C96AB3AD2A827DEF0091D01A /* GXDataLayerRemote.framework in Frameworks */,
-				C96AB3B92A827DEF0091D01A /* GXUIApplication.framework in Frameworks */,
-				C96AB3A92A827DEF0091D01A /* GXCoreUI.framework in Frameworks */,
-				C96AB3A72A827DEF0091D01A /* GXCoreBL.framework in Frameworks */,
-				C96AB3B72A827DEF0091D01A /* GXUCStarRating.framework in Frameworks */,
-				C96AB3BB2A827DEF0091D01A /* YAJL.framework in Frameworks */,
+				AE55919B2AAB07A200D009D2 /* GXUIApplication in Frameworks */,
+				AE55919E2AAB07B300D009D2 /* GXSuperApp in Frameworks */,
 				0C80B921A6F3F58F76C31292 /* libPods-ExampleSuperApp.a in Frameworks */,
-				C96AB3B52A827DEF0091D01A /* GXSuperApp.framework in Frameworks */,
-				C96AB3B32A827DEF0091D01A /* GXStandardClasses.framework in Frameworks */,
-				C96AB3B12A827DEF0091D01A /* GXObjectsModel.framework in Frameworks */,
-				C96AB3AB2A827DEF0091D01A /* GXDataLayer.framework in Frameworks */,
+				AE5591982AAB074400D009D2 /* GXDataLayerRemote in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -176,7 +130,7 @@
 				C98C06142A35A042002E0152 /* main.m */,
 				C9E747C12A35524500D3F898 /* ProvisioningAPI.swift */,
 				C9E747C02A35524400D3F898 /* ProvisioningAPIBridge.m */,
-				C9C0434F2A354E6100C9342D /* superapp.crt */,
+				AE55919F2AAB080000D009D2 /* superapp.crt */,
 				C9C043492A354D6D00C9342D /* SampleExternalObject */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
 				13B07FB61A68108700A75B9A /* Info.plist */,
@@ -190,17 +144,7 @@
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				C9530CD62A79513F00715A1F /* GXCoreBL.framework */,
-				C9530CD42A79513F00715A1F /* GXCoreUI.framework */,
-				C9530CCC2A79513D00715A1F /* GXDataLayer.framework */,
-				C9530CD02A79513E00715A1F /* GXDataLayerRemote.framework */,
-				C9530CD22A79513E00715A1F /* GXFoundation.framework */,
-				C9530CD32A79513E00715A1F /* GXObjectsModel.framework */,
-				C9530CD12A79513E00715A1F /* GXStandardClasses.framework */,
-				C9530CCE2A79513D00715A1F /* GXSuperApp.framework */,
-				C9530CCD2A79513D00715A1F /* GXUCStarRating.framework */,
-				C9530CD52A79513F00715A1F /* GXUIApplication.framework */,
-				C9530CCF2A79513D00715A1F /* YAJL.framework */,
+				AE5591A32AAB0F0B00D009D2 /* README.md */,
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
 				5DCACB8F33CDC322A6C60F78 /* libPods-ExampleSuperApp.a */,
 				19F6CBCC0A4E27FBF8BF4A61 /* libPods-ExampleSuperApp-ExampleSuperAppTests.a */,
@@ -256,6 +200,7 @@
 				C9C0434A2A354D9300C9342D /* ExampleSuperApp-Bridging-Header.h */,
 				C9C0434B2A354D9400C9342D /* SampleExObjHandler.swift */,
 				C9C5FA3C2A392A0900F8F384 /* SampleExObjHandlerBridge.m */,
+				AE5591A12AAB0B3700D009D2 /* SampleExObjHandler+ReactNative.swift */,
 				C9C5FA3B2A39299B00F8F384 /* SampleExObjHandler.h */,
 				C9C0434C2A354D9400C9342D /* SampleExObjLibrary.swift */,
 			);
@@ -305,6 +250,11 @@
 			dependencies = (
 			);
 			name = ExampleSuperApp;
+			packageProductDependencies = (
+				AE5591972AAB074400D009D2 /* GXDataLayerRemote */,
+				AE55919A2AAB07A200D009D2 /* GXUIApplication */,
+				AE55919D2AAB07B300D009D2 /* GXSuperApp */,
+			);
 			productName = ExampleSuperApp;
 			productReference = 13B07F961A680F5B00A75B9A /* ExampleSuperApp.app */;
 			productType = "com.apple.product-type.application";
@@ -335,6 +285,11 @@
 				Base,
 			);
 			mainGroup = 83CBB9F61A601CBA00E9B192;
+			packageReferences = (
+				AE5591962AAB074400D009D2 /* XCRemoteSwiftPackageReference "GXDataLayerRemote" */,
+				AE5591992AAB07A200D009D2 /* XCRemoteSwiftPackageReference "GXUIApplication" */,
+				AE55919C2AAB07B300D009D2 /* XCRemoteSwiftPackageReference "GXSuperApp" */,
+			);
 			productRefGroup = 83CBBA001A601CBA00E9B192 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -357,7 +312,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C9C043502A354E6100C9342D /* superapp.crt in Resources */,
+				AE5591A02AAB080000D009D2 /* superapp.crt in Resources */,
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 			);
@@ -535,6 +490,7 @@
 				C9C0434E2A354D9400C9342D /* SampleExObjLibrary.swift in Sources */,
 				C98C06162A35A042002E0152 /* main.m in Sources */,
 				C9C5FA3D2A392A0900F8F384 /* SampleExObjHandlerBridge.m in Sources */,
+				AE5591A22AAB0B3700D009D2 /* SampleExObjHandler+ReactNative.swift in Sources */,
 				C9C0434D2A354D9400C9342D /* SampleExObjHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -730,7 +686,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					/usr/lib/swift,
 					"$(inherited)",
@@ -750,6 +706,7 @@
 				);
 				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 			};
 			name = Debug;
 		};
@@ -795,7 +752,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					/usr/lib/swift,
 					"$(inherited)",
@@ -849,6 +806,51 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		AE5591962AAB074400D009D2 /* XCRemoteSwiftPackageReference "GXDataLayerRemote" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/GeneXus-SwiftPackages/GXDataLayerRemote";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.1.3;
+			};
+		};
+		AE5591992AAB07A200D009D2 /* XCRemoteSwiftPackageReference "GXUIApplication" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/GeneXus-SwiftPackages/GXUIApplication";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.1.3;
+			};
+		};
+		AE55919C2AAB07B300D009D2 /* XCRemoteSwiftPackageReference "GXSuperApp" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/GeneXus-SwiftPackages/GXSuperApp";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.1.3;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		AE5591972AAB074400D009D2 /* GXDataLayerRemote */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AE5591962AAB074400D009D2 /* XCRemoteSwiftPackageReference "GXDataLayerRemote" */;
+			productName = GXDataLayerRemote;
+		};
+		AE55919A2AAB07A200D009D2 /* GXUIApplication */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AE5591992AAB07A200D009D2 /* XCRemoteSwiftPackageReference "GXUIApplication" */;
+			productName = GXUIApplication;
+		};
+		AE55919D2AAB07B300D009D2 /* GXSuperApp */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AE55919C2AAB07B300D009D2 /* XCRemoteSwiftPackageReference "GXSuperApp" */;
+			productName = GXSuperApp;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 83CBB9F71A601CBA00E9B192 /* Project object */;
 }
