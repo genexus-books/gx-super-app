@@ -6,7 +6,8 @@
 import GXCoreBL
 import GXSuperApp
 
-@objc public class SampleExObjHandler: GXActionExternalObjectHandler {
+@objc(SampleExObjHandler)
+public class SampleExObjHandler: GXActionExternalObjectHandler {
 	
 	public override static func handleActionExecutionUsingMethodHandlerSelectorNamePrefix() -> Bool {
 		return true
