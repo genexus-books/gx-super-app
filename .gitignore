@@ -1,3 +1,4 @@
 xcuserdata/
 iOS/GeneXus Frameworks/*.xcframework/
-**/*.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/Package.resolved
+**/*.xcworkspace/xcshareddata/swiftpm/Package.resolved
+ReactNative/package-lock.json
