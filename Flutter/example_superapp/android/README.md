@@ -6,19 +6,19 @@ This document explains how to develop and integrate the functionality that provi
 
 There are certain initial configuration steps in the project:
 
-1. Integration of the [Android libraries](../../Android/GeneXus%20Libraries/README.md) corresponding to [Super App Render](../../SuperAppRender.md)
-2. Set the values in the app's [superapp_json](example/android/app/src/main/res/raw/superapp_json) file:
-	- `GXSuperAppProvisioningURL`: String corresponding to the [Mini Apps Center's](../../Provisioning.md) URL of the Mini Apps.
+1. Integration of the [Android libraries](../../../Android/GeneXus%20Libraries/README.md) corresponding to [Super App Render](../../../SuperAppRender.md)
+2. Set the values in the app's [superapp_json](../example/android/app/src/main/res/raw/superapp_json) file:
+	- `GXSuperAppProvisioningURL`: String corresponding to the [Mini Apps Center's](../../../Provisioning.md) URL of the Mini Apps.
 	- `GXSuperAppId`: String corresponding to the Super App identifier, to be used at the Mini Apps Center. If this key is not included, the app's [Package Name](https://developer.android.com/reference/android/content/Context#getPackageName()) will be used.  
 	- `GXSuperAppVersion`: String corresponding to the Super App identifier, to be used at the Mini Apps Center. If this key is not included, the app's [Version Code](https://developer.android.com/reference/android/content/pm/PackageInfo#getLongVersionCode()) will be used.
-3. The public key that verifies the signature of the Mini Apps. It's downloaded from the Mini Apps Center and must be placed in the app's resources under the name [superapp_crt](example/android/app/src/main/res/raw/superapp_crt)
-4. Point the local repository URL and version at [build.gradle](android/build.gradle) to the directory where it is located.
-5. Point the local repository URL at [example\build.gradle](example/android/build.gradle) to the directory where it is located.
+3. The public key that verifies the signature of the Mini Apps. It's downloaded from the Mini Apps Center and must be placed in the app's resources under the name [superapp_crt](../example/android/app/src/main/res/raw/superapp_crt)
+4. Point the local repository URL and version at [build.gradle](build.gradle) to the directory where it is located.
+5. Point the local repository URL at [example\build.gradle](../example/android/build.gradle) to the directory where it is located.
 6. run ```flutter pub get```
    
 ## Communication API with the Mini Apps Center
 
-To access the Mini Apps that are available on the Mini Apps Center, the class `SuperAppsHelper` is used. It's included in the `SuperAppsLib` library and accessed via the `Services.SuperApps` static field after [registering the `SuperAppsLib` module](android/src/main/kotlin/com/genexus/example_superapp/ExampleSuperappPlugin.kt) in the initialization of the class that extends `FlutterPlugin`.
+To access the Mini Apps that are available on the Mini Apps Center, the class `SuperAppsHelper` is used. It's included in the `SuperAppsLib` library and accessed via the `Services.SuperApps` static field after [registering the `SuperAppsLib` module](../android/src/main/kotlin/com/genexus/example_superapp/ExampleSuperappPlugin.kt) in the initialization of the class that extends `FlutterPlugin`.
 
 This class provides four methods to load Mini Apps, using different criteria. 
 In all cases there are two parameters in common: 
@@ -109,10 +109,10 @@ In all cases within the `OnFailureListener` Listener, the error can be one of th
 ```
     
 - `DOWNLOAD` is an error in downloading the .zip file of the Mini App metadata. 
-- `SIGNATURE` is an error in the verification of the .zip file's signature of the Mini App metadata against the file [superapp_crt](example/android/app/src/main/res/raw/superapp_crt).
+- `SIGNATURE` is an error in the verification of the .zip file's signature of the Mini App metadata against the file [superapp_crt](../example/android/app/src/main/res/raw/superapp_crt).
 - `INFORMATION` is an error in the fields of the Mini App given by the server.
 
-A practical usage example on discovering and loading Mini Apps is available at [ProvisioningAPI.kt](android/src/main/kotlin/com/genexus/example_superapp/ProvisioningAPI.kt).
+A practical usage example on discovering and loading Mini Apps is available at [ProvisioningAPI.kt](src/main/kotlin/com/genexus/example_superapp/ProvisioningAPI.kt).
 
 To return to the Super App, both the Mini App developer and the Super App developer can use the `exit` method of the `SuperAppsHelper`class. This restores the `Activity` present at the moment in which the Mini App was loaded. 
     
@@ -128,7 +128,7 @@ When there is a new version of the Mini App published in the Mini App Center, th
 
 #### Automatic according to properties declared by the Super App
 
-In the Super App configuration file ([superapp_json](example/android/app/src/main/res/raw/superapp_json)) these two properties can be set:
+In the Super App configuration file ([superapp_json](../example/android/app/src/main/res/raw/superapp_json)) these two properties can be set:
 
    - `GXMiniAppCacheMaxCount`: Value (numeric) to specify the number of mini-apps that will be kept in the Super App cache. Zero means there is no limit. Otherwise, if the indicated number of Mini apps in the cache is reached, then the oldest one is deleted before adding a new one.
    - `GXMiniAppCacheMaxDays`: Value (numeric) to specify the number of days each Mini App cache will be kept. Zero means that there is no time limit, otherwise, the time must be counted from the last use of the Mini app, not from the date it was downloaded.
