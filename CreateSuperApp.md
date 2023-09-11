@@ -30,6 +30,7 @@ There are 2 examples of how to integrate the Super App Render component into a n
 
 -   [iOS example](iOS/SampleExternalObject/README.md)
 -   [Android example](Android/MiniAppCaller/README.md)
+-   [Android Flutter example](Flutter/android/README.md)
 
 
 ## Provide a Super App with Sandbox Mode

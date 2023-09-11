@@ -3,6 +3,9 @@ version '1.0-SNAPSHOT'
 
 buildscript {
     ext.kotlin_version = '1.8.0'
+    ext.genexus_render_version = '[Version Android Super App Render | 1.8.0]'
+    ext.genexus_render_url = '[URL Android Super App Render | file:///C:/sarender_android_1.8.0/m2Repository/]'
+
     repositories {
         google()
         mavenCentral()
@@ -18,7 +21,7 @@ allprojects {
     repositories {
         google()
         mavenCentral()
-        maven { url 'file:///D:/Dev/m2Repository/' }
+        maven { url genexus_render_url }
     }
 }
 
@@ -47,10 +50,10 @@ android {
 }
 
 dependencies {
-    implementation "com.genexus.android:FlexibleClient:118.0-SNAPSHOT"
-    implementation "com.genexus.android:SqlDroidBase:118.0-SNAPSHOT"
-    implementation "com.genexus.android:CoreExternalObjects:118.0-SNAPSHOT"
-    implementation "com.genexus.android:CoreUserControls:118.0-SNAPSHOT"
-    implementation "com.genexus.android:SmartGridLib:118.0-SNAPSHOT"
-    implementation "com.genexus.android:SuperAppsLib:118.0-SNAPSHOT"
+    implementation "com.genexus.android:FlexibleClient:$genexus_render_version"
+    implementation "com.genexus.android:SqlDroidBase:$genexus_render_version"
+    implementation "com.genexus.android:CoreExternalObjects:$genexus_render_version"
+    implementation "com.genexus.android:CoreUserControls:$genexus_render_version"
+    implementation "com.genexus.android:SmartGridLib:$genexus_render_version"
+    implementation "com.genexus.android:SuperAppsLib:$genexus_render_version"
 }
