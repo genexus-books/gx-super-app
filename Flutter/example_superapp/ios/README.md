@@ -6,13 +6,14 @@ This document explains how to develop and integrate the functionality that provi
 
 There are certain initial configuration steps in the project Xcode:
 
-1. Go to the flutter project folder and run `flutter clean && flutter pub get`.
-2. Set certain values in the app's [Info.plist](ExampleSuperApp/Info.plist):
-	- `GXSuperAppProvisioningURL`: String corresponding to the [Mini Apps Center's](../Provisioning.md) URL, the provisioning server of the Mini Apps.
+1. Go to the flutter project folder and run:
+	`flutter clean && flutter pub get && cd ios && pod install && cd ..`.
+2. Set certain values in the app's [Info.plist](../example/ios/Runner/Info.plist):
+	- `GXSuperAppProvisioningURL`: String corresponding to the [Mini Apps Center's](../../../Provisioning.md) URL, the provisioning server of the Mini Apps.
 	- `GXSuperAppId`: String corresponding to the Super App identifier, to be used at the Mini Apps Center. If this key is not included, the app's [bundle identifier](https://developer.apple.com/documentation/bundleresources/information_property_list/cfbundleidentifier) will be used.
 	- `GXSuperAppVersion`: String corresponding to the Super App version, to be used at the Mini Apps Center. If this key is not included, the app's [CFBundleVersion](https://developer.apple.com/documentation/bundleresources/information_property_list/cfbundleversion) will be used.
-	- `GXMiniprogramsEnabled`: Boolean with its value in true. Required to enable the Super App / Mini App functionality in the  [Super App Render](../SuperAppRender.md).
-3. The file [superapp.crt](ExampleSuperApp), corresponding to the public key that verifies the signature of the Mini Apps, once it's downloaded from the Mini Apps Center. It must be an app resource with that name. 
+	- `GXMiniprogramsEnabled`: Boolean with its value in true. Required to enable the Super App / Mini App functionality in the  [Super App Render](../../../SuperAppRender.md).
+3. The file [superapp.crt](../../../iOS/ExampleSuperApp), corresponding to the public key that verifies the signature of the Mini Apps, once it's downloaded from the Mini Apps Center. It must be an app resource with that name. 
 	
 
 ## Communication API with the Mini Apps Center
@@ -64,7 +65,7 @@ In all the cases the return value is an operation that can be cancelled if neces
     open class func featuredMiniAppsInfo(start: Int, count: Int, completion: @escaping GXSuperApp.GXSuperAppProvisioning.MiniAppsInfoCompletion) -> GXFoundation.GXCancelableOperation
 ```
 
-Practical usage examples are available in the source [ProvisioningViewController.swift](ExampleSuperApp/ProvisioningViewController.swift).
+Practical usage examples are available in the source [ProvisioningAPI.swift](../example/ios/Runner/ProvisioningAPI.swift).
 
 ### Error handling
 
@@ -101,7 +102,7 @@ The `loadMiniApp(info:completion)` method receives the Mini App's information ob
     open class func loadMiniApp(info: GXObjectsModel.GXMiniAppInformation, completion: ((Error?) -> Void)? = nil)
 ```
 
-A practical usage example is available in [ProvisioningViewController.swift](ExampleSuperApp/ProvisioningViewController.swift).
+A practical usage example is available in [ProvisioningAPI.swift](../example/ios/Runner/ProvisioningAPI.swift).
     
 Once a Mini App is loaded, the `rootController` of the `keyWindow` is replaced by the Mini App's UI.
 To return to the Super App, both the Mini App developer and the Super App developer can use the `exitFromMiniProgram()` method of the `GXMiniProgramLoader` class, also included in the `GXSuperApp` framework. This restores the existing `rootController` at the time the Mini App was loaded. 
@@ -118,7 +119,7 @@ When there is a new version of the Mini App published in the Mini App Center, th
 
 #### Automatic according to properties declared by the Super App
 
-In the Super App configuration file ([Info.plist](ExampleSuperApp/Info.plist)) these two properties can be set:
+In the Super App configuration file ([Info.plist](../example/ios/Runner/Info.plist)) these two properties can be set:
 
    - `GXMiniAppCacheMaxCount`: Value (numeric) to specify the number of mini-apps that will be kept in the Super App cache. Zero means there is no limit. Otherwise, if the indicated number of Mini apps in the cache is reached, then the oldest one is deleted before adding a new one.
    - `GXMiniAppCacheMaxDays`: Value (numeric) to specify the number of days each Mini App cache will be kept. Zero means that there is no time limit, otherwise, the time must be counted from the last use of the Mini app, not from the date it was downloaded.
@@ -146,6 +147,5 @@ A method to get a list of the Mini Apps in the cache is included (`cachedMiniApp
     open class func clearCachedMiniApps() throws
 ```
     
-Practical usage examples are available in [CacheViewController.swift](ExampleSuperApp/CacheViewController.swift).
 
 In any other case, the mini app is kept in the cache indefinitely and the OS itself could remove it from the cache at its discretion since it is stored in a temporary directory.
