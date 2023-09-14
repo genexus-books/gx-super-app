@@ -1,0 +1,22 @@
+PODS:
+  - example_superapp (0.0.1):
+    - Flutter
+  - Flutter (1.0.0)
+
+DEPENDENCIES:
+  - example_superapp (from `.symlinks/plugins/example_superapp/ios`)
+  - Flutter (from `Flutter`)
+
+EXTERNAL SOURCES:
+  example_superapp:
+    :path: ".symlinks/plugins/example_superapp/ios"
+  Flutter:
+    :path: Flutter
+
+SPEC CHECKSUMS:
+  example_superapp: 0f68b1494f0c0de1e4da3f8e2827890af1833519
+  Flutter: f04841e97a9d0b0a8025694d0796dd46242b2854
+
+PODFILE CHECKSUM: 4e8f8b2be68aeea4c0d5beb6ff1e79fface1d048
+
+COCOAPODS: 1.12.1
