@@ -16,3 +16,6 @@ It's simply a compressed format whose content is the Mini App's Metadata in json
 ## How do you get the gxsd?
 
 This metadata is the result of developing and generating a mobile app using GeneXus technology.
+
+## How to install the Super App Render?
+There is an SDK for each platform: [Apple frameworks](GeneXus%20Frameworks/README.md) and [Android libraries](GeneXus%20Libraries/README.md)
