@@ -5,6 +5,7 @@
 
 import Flutter
 import GXCoreBL
+import GXSuperApp
 
 class SampleExObjLibrary: NSObject, GXExtensionLibraryProtocol {
 	
@@ -16,7 +17,6 @@ class SampleExObjLibrary: NSObject, GXExtensionLibraryProtocol {
 	
 	func initializeExtensionLibrary(withContext context: GXExtensionLibraryContext) {
 		SuperAppAPI.setup(binaryMessenger: self.binaryMessenger)
-		GXActionExternalObjectHandler.register(SampleExObjHandler.self,
-											   forExternalObjectName: "Payments")
+		GXMiniAppsManager.registerSuperAppAPI(SampleExObjHandler.self, forExternalObjectName: "Payments")
 	}
 }

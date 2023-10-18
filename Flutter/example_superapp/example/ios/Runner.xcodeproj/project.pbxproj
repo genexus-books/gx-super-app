@@ -586,7 +586,7 @@
 			repositoryURL = "https://github.com/GeneXus-SwiftPackages/GXUIApplication";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 1.1.3;
+				minimumVersion = 1.2.0;
 			};
 		};
 		AEEDE5202AAA2D0D0029245F /* XCRemoteSwiftPackageReference "GXSuperApp" */ = {
@@ -594,7 +594,7 @@
 			repositoryURL = "https://github.com/GeneXus-SwiftPackages/GXSuperApp";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 1.1.3;
+				minimumVersion = 1.2.0;
 			};
 		};
 		AEEDE5232AAA2D210029245F /* XCRemoteSwiftPackageReference "GXDataLayerRemote" */ = {
@@ -602,7 +602,7 @@
 			repositoryURL = "https://github.com/GeneXus-SwiftPackages/GXDataLayerRemote";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 1.1.3;
+				minimumVersion = 1.2.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
