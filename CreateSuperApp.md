@@ -28,8 +28,9 @@ The Super App offers its users a variety of services (shopping in stores, paying
 
 There are 2 examples of how to integrate the Super App Render component into a native application in this repository:
 
--   [iOS example](iOS/SampleExternalObject/README.md)
--   [Android example](Android/MiniAppCaller/README.md)
+- [iOS example](iOS/SampleExternalObject/README.md)
+- [Android example](Android/MiniAppCaller/README.md)
+- [Android Flutter example](Flutter/example_superapp/example/android/README.md)
 
 
 ## Provide a Super App with Sandbox Mode
@@ -44,4 +45,7 @@ To get the list of Mini Apps available for the Super App, the communication API 
 
 - [iOS example](iOS/README.md)
 - [Android example](Android/README.md)
+- [iOS Flutter example](Flutter/example_superapp/ios/README.md)
+- [Android Flutter example](Flutter/example_superapp/android/README.md)
+- [iOS React Native example](ReactNative/ExampleSuperApp/ios/README.md)
 

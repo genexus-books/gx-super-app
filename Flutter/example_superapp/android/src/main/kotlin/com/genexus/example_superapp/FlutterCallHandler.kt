@@ -27,7 +27,7 @@ class FlutterCallHandler: MethodChannel.MethodCallHandler {
 				val miniAppInfo = JSONObject(miniAppJson)
 				val id = miniAppInfo.optString(MiniApp.FIELD_ID)
 				val version = miniAppInfo.optInt(MiniApp.FIELD_VERSION)
-				if (id.isNullOrEmpty() || version == MiniApp.INVALID_VERSION) {
+				if (id.isNullOrEmpty() || version == -1) { //MiniApp.INVALID_VERSION) {
 					result.error(ProvisioningAPI.ERROR_ARGUMENTS, "Cannot delete MiniApp as it contains incorrect information", null)
 					return
 				}

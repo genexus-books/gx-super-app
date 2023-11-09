@@ -89,7 +89,7 @@ There are three key components to consider when building a Super App:
 
 - The [Super App development](CreateSuperApp.md)
 - The [Mini Apps development](MiniApp.md)
-- The [MiniApps Center](Provisioning.md) or Mini App provisioning
+- The [Mini Apps Center](Provisioning.md) or Mini App provisioning
 
 The following diagram shows the overall architecture:
 ![SuperAppArchitecture](https://user-images.githubusercontent.com/33960187/177836808-6db764b5-b7b3-4ccb-9c94-0142228785c5.png)
