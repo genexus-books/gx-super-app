@@ -10,7 +10,7 @@ The evolution of these applications is, in general, very complicated, as their d
 
 The Web is the ideal platform to avoid these problems, but it's by far still imperfect.
 
-Compared to the native, it isn't easy to take advantage of the capabilities provided by the native operating system. Besides, it's usually difficult to design a Web application whose performance can actually match or surpass a similar native mobile application.
+Besides the fact that Web applications can´t take advantage of the capabilities provided by the native operating system, it's usually difficult to design a Web application whose performance can actually match or surpass a similar native mobile application.
 
 On a native mobile device, users get services or content outside the browser very frequently. Naturally, they would like all their applications to be consistent with user accounts, login status, and user interaction across the whole system.
 
