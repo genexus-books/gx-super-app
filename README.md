@@ -8,7 +8,7 @@ Table of contents
 
 # GeneXus Super App Technologies
 
-Native apps are well received in our daily life, but there are still many things that can be done to improve the user's experience.
+Native mobile applications are well received in our daily life, but there are still many things that can be done to improve the user's experience.
 
 Before users get the service from a native app, they often have to go through the process of downloading → installing → registering the app. 
 
