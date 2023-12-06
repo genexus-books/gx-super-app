@@ -1,6 +1,14 @@
+Table of contents
+=================
+
+* [GeneXus Super App Technologies](#genexus-super-app-technologies)
+* [About this repository](#about-this-repository)
+* [Guide to write the documentation](#guide-to-write-the-documentation)
+* [Collaboration guide](#collaboration-guide)
+
 # GeneXus Super App Technologies
 
-Native apps are well received in our daily life, but there are still many things that can be done to improve the users’ experience.
+Native apps are well received in our daily life, but there are still many things that can be done to improve the user's experience.
 
 Before users get the service from a native app, they often have to go through the process of downloading → installing → registering the app. 
 
@@ -20,82 +28,19 @@ In the middle of both solutions, Super Apps were born in China. They are basical
 
 GeneXus follows this strategy. Any organization has the possibility of making its own Super App, hence creating new digital ecosystems that offer a variety of services to its community. These services are displayed dynamically through what we call Mini Apps and may be developed by the Super App’s organization itself, or by third parties.
 
-## What are Super Apps and Mini Apps?
+# About this repository 
 
-### Super Apps
+The objective of this repository is to document all the components and features offered by GeneXus Super Apps.
+This documentation is intended to be used by developers who need to configure and integrate a GeneXus Super App.
 
-A Super App is a **native** application that can host small applications inside, as a way to provide **a variety of services**. 
+# Guide to write the documentation
 
-It can be described as an ecosystem of services that coexist within the same application (the Super App domain) but that are not necessarily related to each other.
+- Documentation home is [Super App Overview](/SuperAppOverview.md)
+- Use Markdown for basic writing and formatting (look at ['Basic Writing and Formatting Syntax' by GitHub](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)).
 
-These small applications that can be used within a Super App have the following characteristics:
+# Collaboration guide
 
-  - They are hosted by the Super App. 
-  - They consume services exposed by the super app. E.g. Login, Payments, etc.
-  - They are dynamically loaded in the super app according to the user’s request.
-
-These small applications that live inside a Super App are called Mini Apps.
-
-### Mini Apps
-
-A Mini App is a **singular**, small application that solves **a specific problem** within a Super App domain.
-
-Compared to a regular app, they need to be understood very fast, especially for infrequent use. 
-It is recommended to offer a user experience as simple as possible and try not to replicate a fully blown app.
-
-Unlike an app downloaded from the platform’s store, the Mini App doesn't take up extra storage space on the device. They are loaded dynamically according to user request and from different discovery mechanisms such as search, QR codes, user location, etc.
-
-A Mini App is also a native application, but you don’t need to compile and publish it in the platform’s stores.
-
-## Why you should consider creating a Super App
-
-Building this kind of Super App and its Mini Apps ecosystem has several business advantages.
-
-### For end-users
-
-  - Instant access to contextualized services
-  - Less friction 
-      - No download, registration, etc. is required to accomplish their purpose.
-  - Security by default
-      - The user would only have to register sensitive information once in the Super App and not in each Mini App.
-
-### For Super App Owners
-
-  - Provide more services through partners (for example: services of a municipality, health services of a government, services of a housing complex, financial institution or any company, payment services of various entities, among others).
-- It allows an incremental development of their business solution. 
-
-### For Mini App Owners
-
-  - Place your app in an already established ecosystem.
-  - Simplified development: as it's integrated into a Super App, many of the services considered sensitive (login, payments) are delegated to it.
-  - Productivity: It's just building a GeneXus app.
-  - Speed of deployment.
-
-## How does Super App work?
-
-For a Super App to work, it needs a component that enables other applications to load dynamically.
-
-GeneXus has an essential technology to give any native application the possibility of dynamically loading Mini Apps. This component is called [Super App Render](SuperAppRender.md) (a.k.a. GeneXus Flexible Client) and is available for both the Android and Apple platforms.
-
-What the Super App Render does is to render pure native applications, similarly to what the OS does. They are not applications running inside a browser.
-
-If you already have an App that hasn't been developed with GeneXus, but that you would like to turn into a Super App, you could incorporate the Super App Render technology in your current app (as it is also licensed separately).
-
-Thus, you can also turn any native application into a Super App, obtaining all its advantages: dynamic application loading, integration with partners, incremental development, and many more. 
-
-# Key elements when building a Super App
-
-There are three key components to consider when building a Super App:
-
-- The [Super App development](CreateSuperApp.md)
-- The [Mini Apps development](MiniApp.md)
-- The [Mini Apps Center](Provisioning.md) or Mini App provisioning
-
-The following diagram shows the overall architecture:
-![SuperAppArchitecture](https://user-images.githubusercontent.com/33960187/177836808-6db764b5-b7b3-4ccb-9c94-0142228785c5.png)
-
-A Super App can be created from scratch, but also any App can be converted to a Super App with the inclusion of the Super App Render. The Super App Render is responsible for invoking and presenting to the user the Mini App on Super App screen. All this without previously installing the Mini App.
-
-When a Mini App is selected, it takes control of the screen and allows the user to perform certain actions. The Mini App can interact with the Super App and get important information about the user or context. Upon finishing, the Mini App is closed, and control is returned to the Super App.
-
-The Mini App Center is fully controlled by the Super App owner, being able to allow or revoke credentials to developers at any given time. While a developer remains authorized, it is fully autonomous in the development and uploading of Mini Apps.
+Some basic rules:
+- Use English to write the documentation.
+- We accept collaboration using Pull Requests.
+- The changes are audited by a documentation team.
