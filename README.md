@@ -10,7 +10,7 @@ Table of contents
 
 Native mobile applications are well received in our daily life, but there are still many things that can be done to improve the user's experience.
 
-Before users get the service from a native app, they often have to go through the process of downloading → installing → registering the app. 
+Before users get the service from a native mobile application, they often have to go through the process of downloading → installing → registering the app. 
 
 In addition, they can only keep a limited number of native apps on their phones due to constraints of storage capability.  What’s more, it's not easy to share data between different native apps.
 
