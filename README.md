@@ -35,7 +35,7 @@ This documentation is intended to be used by developers who need to configure an
 
 # Guide to write the documentation
 
-- Documentation home is [Super App Overview](/SuperAppOverview.md)
+- Documentation home is [Super App Overview](/docs/SuperAppOverview.md)
 - Use Markdown for basic writing and formatting (look at ['Basic Writing and Formatting Syntax' by GitHub](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)).
 
 # Collaboration guide
