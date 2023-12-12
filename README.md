@@ -35,6 +35,7 @@ This documentation is intended to be used by developers who need to configure an
 
 # Guide to write the documentation
 
+- The files with the documentation contents are located in the folder [/docs](/docs)
 - Documentation home is [Super App Overview](/docs/SuperAppOverview.md)
 - Use Markdown for basic writing and formatting (look at ['Basic Writing and Formatting Syntax' by GitHub](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)).
 
