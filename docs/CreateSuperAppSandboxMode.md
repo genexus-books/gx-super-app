@@ -37,7 +37,7 @@ The steps to enable this functionality are listed below:
 
 ### Step 1: Include the Sandbox module
 
-This module is part of [GeneXus Super App Render]((/SuperAppRender.md)). 
+This module is part of [GeneXus Super App Render](/docs/SuperAppRender.md). 
 
 **It should only be included as a dependency in the test version of the Super App and not in the production version, to prevent Mini Apps from being loaded without going through the approval process.**
 
