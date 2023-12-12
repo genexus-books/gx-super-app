@@ -14,7 +14,7 @@ For Production Environment:
 4. Integrate the **module to access the Mini Apps Center**, so as to get the Mini Apps and be able to load a Mini App
 5. Design the UX for the discovery of those Mini Apps
 
-## Integrate the [Super App Render](/SuperAppRender.md) library.
+## Integrate the [Super App Render](/docs/SuperAppRender.md) library.
 
 This component is what allows an App to become a Super App.
 
@@ -28,9 +28,9 @@ The Super App offers its users a variety of services (shopping in stores, paying
 
 There are 2 examples of how to integrate the Super App Render component into a native application in this repository:
 
-- [iOS example](iOS/SampleExternalObject/README.md)
-- [Android example](Android/MiniAppCaller/README.md)
-- [Android Flutter example](Flutter/example_superapp/example/android/README.md)
+- [iOS example](/iOS/SampleExternalObject/README.md)
+- [Android example](/Android/MiniAppCaller/README.md)
+- [Android Flutter example](/Flutter/example_superapp/example/android/README.md)
 
 
 ## Provide a Super App with Sandbox Mode
@@ -43,9 +43,9 @@ Using the [Sandbox mode](CreateSuperAppSandboxMode.md), your Mini App providers 
 
 To get the list of Mini Apps available for the Super App, the communication API with the Mini Apps Center of the [Super App Render](/SuperAppRender.md) is used.
 
-- [iOS example](iOS/README.md)
-- [Android example](Android/README.md)
-- [iOS Flutter example](Flutter/example_superapp/ios/README.md)
-- [Android Flutter example](Flutter/example_superapp/android/README.md)
-- [iOS React Native example](ReactNative/ExampleSuperApp/ios/README.md)
+- [iOS example](/iOS/README.md)
+- [Android example](/Android/README.md)
+- [iOS Flutter example](/Flutter/example_superapp/ios/README.md)
+- [Android Flutter example](/Flutter/example_superapp/android/README.md)
+- [iOS React Native example](/ReactNative/ExampleSuperApp/ios/README.md)
 
