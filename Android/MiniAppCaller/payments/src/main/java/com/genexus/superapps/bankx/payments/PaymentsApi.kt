@@ -11,6 +11,7 @@ import com.genexus.android.core.actions.ActionExecution
 import com.genexus.android.core.base.metadata.expressions.Expression
 import com.genexus.android.core.base.model.Entity
 import com.genexus.android.core.base.model.EntityList
+import com.genexus.android.core.base.services.Services
 import com.genexus.android.core.base.utils.Strings
 import com.genexus.superapps.bankx.payments.services.PaymentsService
 import com.genexus.superapps.bankx.payments.ui.PaymentActivity
@@ -21,13 +22,15 @@ import kotlinx.coroutines.launch
 class PaymentsApi(action: ApiAction?) : ExternalApi(action) {
     private val methodPayWithoutUI = IMethodInvoker { parameters: List<Any> ->
         val amount = parameters[0].toString().toDouble()
-        val paymentId = PaymentsService.pay(amount)
+        val miniAppId = Services.Application.miniApp?.id
+        val paymentId = PaymentsService.pay(amount, miniAppId)
         ExternalApiResult.success(paymentId)
     }
     private val methodPayWithUI: IMethodInvokerWithActivityResult = object : IMethodInvokerWithActivityResult {
         override fun invoke(parameters: List<Any>): ExternalApiResult {
             val amount = parameters[0].toString().toDouble()
-            startActivityForResult(PaymentActivity.newIntent(context, amount), PAYMENT_REQUEST_CODE)
+            val miniAppId = Services.Application.miniApp?.id
+            startActivityForResult(PaymentActivity.newIntent(context, amount, miniAppId), PAYMENT_REQUEST_CODE)
             return ExternalApiResult.SUCCESS_WAIT
         }
 

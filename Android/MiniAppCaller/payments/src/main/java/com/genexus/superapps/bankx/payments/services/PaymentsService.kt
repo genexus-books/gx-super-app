@@ -12,8 +12,16 @@ object PaymentsService {
     private const val SDT_PAYMENT_INFORMATION_ITEM_AFFINITY = "affinity"
     private const val SDT_PAYMENT_INFORMATION_ITEM_TYPE = "type"
 
-    fun pay(amount: Double): String {
-        return amount.toString() + "-" + UUID.randomUUID().toString()
+    fun pay(amount: Double, miniAppId: String?): String {
+        val sb = StringBuilder(amount.toString()).apply {
+            append("-")
+            append(UUID.randomUUID().toString())
+            append("-")
+            if (!miniAppId.isNullOrEmpty())
+                append(miniAppId)
+        }
+
+        return sb.toString()
     }
 
     fun getPaymentInformationList(clientInformation: Entity): EntityList {
