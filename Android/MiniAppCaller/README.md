@@ -182,6 +182,11 @@ Note:
 - In case that the data is not what is expected, handleActivityResult returns ExternalApiResult.failure("Error description"), indicating that the execution failed together with a descriptive message of the error and canceling the GeneXus event. 
 - Even though this is not the best, as at the moment it doesn't allow the Mini App programmer to handle errors, it's useful as an example for this scenario. To allow the execution to continue, a standard value to represent the error could be defined, returning it via ExternalApiResult.success(errorValue).
 
+### Obtaining the caller's Mini App identifier
+
+In certain scenarios, obtaining the current Mini App identifier is useful for discerning the caller of the Super App API method and displaying relevant information about the invoking Mini App.
+
+
 ## Interface in GeneXus KB (External Object)
 
 ### For testing purposes, create a new External Object named “Payments”
