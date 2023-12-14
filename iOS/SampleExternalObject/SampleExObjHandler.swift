@@ -16,13 +16,16 @@ public class SampleExObjHandler: GXActionExternalObjectHandler {
 	// MARK: Action Handlers
 	
 	@objc public func gxActionExObjMethodHandler_PayWithUI(_ parameters: [Any]) {
+		guard let gxModel = self.executingGXModel else { return }
 		if let error = validateNumber(ofParametersReceived: UInt(parameters.count), expected: 1) {
 			onFinishedExecutingWithError(error)
 			return
 		}
+		let miniAppId: String
 		let amount: Double
 		let presentingController: UIViewController
 		do {
+			try miniAppId = self.miniAppId(from: gxModel)
 			try amount = paymentAmout(from: parameters[0])
 			try presentingController = presentingViewController()
 		}
@@ -38,7 +41,7 @@ public class SampleExObjHandler: GXActionExternalObjectHandler {
 		}
 		
 		
-		let alertController = UIAlertController(title: alertTitle, message: "Received a payment of $\(amount)", preferredStyle: .alert)
+		let alertController = UIAlertController(title: alertTitle, message: "Received a payment of $\(amount) from mini-app \(miniAppId)", preferredStyle: .alert)
 
 		let doneAlertAction = UIAlertAction(title: "Done", style: .default, handler: { _ in
 			alertController.dismiss(animated: true) {
@@ -53,12 +56,15 @@ public class SampleExObjHandler: GXActionExternalObjectHandler {
 	}
 	
 	@objc public func gxActionExObjMethodHandler_PayWithoutUI(_ parameters: [Any]) {
+		guard let gxModel = self.executingGXModel else { return }
 		if let error = validateNumber(ofParametersReceived: UInt(parameters.count), expected: 1) {
 			onFinishedExecutingWithError(error)
 			return
 		}
+		let miniAppId: String
 		let amount: Double
 		do {
+			try miniAppId = self.miniAppId(from: gxModel)
 			try amount = paymentAmout(from: parameters[0])
 		}
 		catch {
@@ -66,7 +72,7 @@ public class SampleExObjHandler: GXActionExternalObjectHandler {
 			return
 		}
 		
-		var message = "Received a payment of $\(amount)"
+		var message = "Received a payment of $\(amount) from mini-app \(miniAppId)"
 		if GXMiniAppsManager.isSandboxEnvironment {
 			/// GXMiniAppsManager.isSandboxEnvironment could be used to distinguish between test and production environments within the same API implementation. Note mini apps can't distinguish if it's running in a sandox environemnt or not.
 			message = "SANDBOX: " + message
@@ -200,6 +206,13 @@ public class SampleExObjHandler: GXActionExternalObjectHandler {
 	}
 	
 	// MARK: Private
+	
+	private func miniAppId(from gxModel: GXModel) throws -> String {
+		guard let miniAppId = gxModel.appModel.appMiniAppId else {
+			throw NSError.defaultGXError(withLocalizedDescription: "Invalid context without MiniApp Id.")
+		}
+		return miniAppId
+	}
 	
 	private func paymentAmout(from parameter: Any) throws -> Double {
 		guard let amount = (parameter as? NSNumber)?.doubleValue, amount > 0 else {
