@@ -153,6 +153,31 @@ let extLibraries: [GXExtensionLibraryProtocol] = [SampleExObjLibrary()]
 GXUIApplicationExecutionEnvironment.endCoreInitialization(extensionLibraries: extLibraries)
 ```
 
+
+### Obtaining the caller's Mini App identifier
+
+In certain scenarios, obtaining the current Mini App identifier is useful for discerning the caller of the Super App API method and displaying relevant information about the invoking Mini App.
+This code retrieves the current Mini App identifier:
+
+```
+private func miniAppId(from gxModel: GXModel) throws -> String {
+    guard let miniAppId = gxModel.appModel.appMiniAppId else {
+        throw NSError.defaultGXError(withLocalizedDescription: "Invalid context without MiniApp Id.")
+    }
+    return miniAppId
+}
+```
+
+To invoke this method, use the following code:
+
+```
+guard let gxModel = self.executingGXModel else { return }
+let miniAppId: String
+do {
+    try miniAppId = self.miniAppId(from: gxModel)
+}
+```
+
 # Conclusion
 
 By following the aforementioned steps, the External Object implementation is available for the Mini Apps.
