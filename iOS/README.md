@@ -67,8 +67,7 @@ In all the cases the return value is an operation that can be cancelled if neces
     /// - Parameter id: The Mini App identifier to look for.
     /// - Parameter completion: Completion handler for the result.
     /// - Returns A cancelable operation.
-    @discardableResult
-    open class func miniAppInfoById(_ id: String, completion: @escaping GXSuperApp.GXSuperAppProvisioning.OptionalMiniAppInfoCompletion) -> GXFoundation.GXCancelableOperation
+    open class func miniAppInfoById(id: String, completion: @escaping GXSuperApp.GXSuperAppProvisioning.OptionalMiniAppInfoCompletion) -> GXFoundation.GXCancelableOperation
 ```
 
 Practical usage examples are available in the source [ProvisioningViewController.swift](ExampleSuperApp/ProvisioningViewController.swift).
