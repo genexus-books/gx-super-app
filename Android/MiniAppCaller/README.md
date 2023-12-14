@@ -21,21 +21,19 @@ The way to integrate a new functionality with the FlexibleClient (GeneXus applic
 
 It's necessary to declare two new classes: one that implements the GenexusModule and another one that extends the ExternalApi. Look at the following example:
 
-```java
-public class PaymentsApi extends ExternalApi {
-    final static String NAME = "Payments";
-
-    public PaymentsApi(ApiAction action) {
-        super(action);
+```kotlin
+class PaymentsApi(action: ApiAction?) : ExternalApi(action) {
+    companion object {
+        const val NAME = "Payments"
     }
 }
 ```
 
-```java
-public class PaymentsModule implements GenexusModule {
-    @Override
-    public void initialize(Context context) {
-        ExternalApiFactory.addApi(new ExternalApiDefinition(PaymentsApi.NAME, PaymentsApi.class, false));
+```kotlin
+class PaymentsModule : GenexusModule {
+    override fun initialize(context: Context) {
+        val def = ExternalApiDefinition(PaymentsApi.NAME, PaymentsApi::class.java, false)
+        Services.SuperApps.Api = SuperAppApi(def)
     }
 }
 ```
@@ -47,43 +45,35 @@ Note:
 
 This new PaymentsModule must be referenced and registered in the FlexibleClient from the Application class used by the application:
 
-```java
-public class MainApplication extends Application implements IEntityProvider {
+```kotlin
+class MainApplication : Application(), IEntityProvider {
     
-    ApplicationHelper mApplicationHelper = new ApplicationHelper(this, this);
+    private val mApplicationHelper = ApplicationHelper(this, this)
 
-    @Override
-    public final void onCreate() {
-        super.onCreate();
-        
-        /* GenexusApplication initialization */
-        initializeModules();        
-        
-        GenexusApplication genexusApplication = new GenexusApplication();
-        genexusApplication.setName("testprototyper"); //Use dummy application
-        
-        mApplicationHelper.onCreate(genexusApplication);
+    override fun onCreate() {
+        super.onCreate()
+
+        initializeModules()
+        val genexusApplication = GenexusApplication()
+        genexusApplication.name = "testprototyper"
+        mApplicationHelper.onCreate(genexusApplication)
     }
 
-    public void initializeModules() {
-        /* Initialize other modules */
-        mApplicationHelper.registerModule(new PaymentsModule());
-    }
-    
-    @Override
-    public void onConfigurationChanged(Configuration newConfig) {
-        super.onConfigurationChanged(newConfig);
-        mApplicationHelper.onConfigurationChanged(newConfig);
-    }
-    
-    @Override
-    public Class<? extends EntityService> getEntityServiceClass() {
-        return AppEntityService.class;
+    private fun initializeModules() {
+        mApplicationHelper.registerModule(PaymentsModule())
     }
 
-    @Override
-    public EntityDataProvider getProvider() {
-        return new AppEntityDataProvider();
+    override fun onConfigurationChanged(newConfig: Configuration) {
+        super.onConfigurationChanged(newConfig)
+        mApplicationHelper.onConfigurationChanged(newConfig)
+    }
+
+    override fun getEntityServiceClass(): Class<out EntityService> {
+        return AppEntityService::class.java
+    }
+
+    override fun getProvider(): EntityDataProvider {
+        return AppEntityDataProvider()
     }
 }
 ```
@@ -92,36 +82,33 @@ public class MainApplication extends Application implements IEntityProvider {
 
 Finally, the implementation of the methods must be provided by declaring new IMethodInvoker (when it's not necessary to call a new Activity to get a result) or IMethodInvokerWithActivityResult (when it is). These invokers are referenced and registered by the PaymentsApi itself in its constructor: 
 
-```java
-public class PaymentsApi extends ExternalApi {
+```kotlin
+class PaymentsApi(action: ApiAction?) : ExternalApi(action) {
+    
+    private val methodPayWithoutUI = IMethodInvoker { parameters: List<Any> -> 
+        
+    }
 
-  final static String NAME = "Payments";
-  private final static String METHOD_PAY_NO_UI = "PayWithoutUI";
-  private final static String METHOD_PAY_UI = "PayWithUI";
+    private val methodPayWithUI: IMethodInvokerWithActivityResult = object : IMethodInvokerWithActivityResult {
+        override fun invoke(parameters: List<Any>): ExternalApiResult {
+            
+        }
 
-  public PaymentsApi(ApiAction action) {
-      super(action);
-      addMethodHandler(METHOD_PAY_NO_UI, 1, methodPayWithoutUI);
-      addMethodHandler(METHOD_PAY_UI, 1, methodPayWithUI);
-  }
+        override fun handleActivityResult(requestCode: Int, resultCode: Int, result: Intent?): ExternalApiResult {
 
-  private final IMethodInvoker methodPayWithoutUI = parameters -> {
+        }
+    }
 
-  };
+    companion object {
+        const val NAME = "Payments"
+        private const val METHOD_PAY_NO_UI = "PayWithoutUI"
+        private const val METHOD_PAY_UI = "PayWithUI"
+    }
 
-  private final IMethodInvokerWithActivityResult methodPayWithUI = new IMethodInvokerWithActivityResult() {
-      @NonNull
-      @Override
-      public ExternalApiResult invoke(List<Object> parameters) {
-
-      }
-
-      @NonNull
-      @Override
-      public ExternalApiResult handleActivityResult(int requestCode, int resultCode, @Nullable Intent result) {
-
-      }
-  };
+    init {
+        addMethodHandler(METHOD_PAY_NO_UI, 1, methodPayWithoutUI)
+        addMethodHandler(METHOD_PAY_UI, 1, methodPayWithUI)
+    }
 }
 ```
 
@@ -135,12 +122,12 @@ Right now, the "skeleton" of our interface is ready. To achieve the final goal, 
 
 The first method is “PayWithoutUI”. As an example, an action that doesn't require user interaction is performed and a random value is returned as payment ID. In a real-life case, this could involve a  call to a service that performs the necessary payment processing.
 
-```java
-private final IMethodInvoker methodPayWithoutUI = parameters -> {
-    int amount = Integer.parseInt(parameters.get(0).toString());
-    String paymentId = pay(amount);
-    return ExternalApiResult.success(paymentId);
-};
+```kotlin
+private val methodPayWithoutUI = IMethodInvoker { parameters: List<Any> ->
+    val amount = parameters[0].toString().toDouble()
+    val paymentId = PaymentsService.pay(amount)
+    ExternalApiResult.success(paymentId)
+}
 ```
 
 Note:
@@ -152,27 +139,22 @@ The second method is “PayWithUI”. As an example, a new Activity programmed b
 
 In a real-life case, it could be possible to create a payment flow that guides the user by collecting their data to then return the payment ID, completing it. 
 
-```java
-private final IMethodInvokerWithActivityResult methodPayWithUI = new IMethodInvokerWithActivityResult() {
-    @NonNull
-    @Override
-    public ExternalApiResult invoke(List<Object> parameters) {
-        int amount = Integer.parseInt(parameters.get(0).toString());
-        startActivityForResult(PaymentActivity.newIntent(getContext(), amount), PAYMENT_REQUEST_CODE);
-        return ExternalApiResult.SUCCESS_WAIT;
+```kotlin
+private val methodPayWithUI: IMethodInvokerWithActivityResult = object : IMethodInvokerWithActivityResult {
+    override fun invoke(parameters: List<Any>): ExternalApiResult {
+        val amount = parameters[0].toString().toDouble()
+        startActivityForResult(PaymentActivity.newIntent(context, amount), PAYMENT_REQUEST_CODE)
+        return ExternalApiResult.SUCCESS_WAIT
     }
 
-    @NonNull
-    @Override
-    public ExternalApiResult handleActivityResult(int requestCode, int resultCode, @Nullable Intent result) {
+    override fun handleActivityResult(requestCode: Int, resultCode: Int, result: Intent?): ExternalApiResult {
         if (resultCode == Activity.RESULT_OK && requestCode == PAYMENT_REQUEST_CODE && result != null) {
-            String paymentId = result.getStringExtra(PaymentActivity.EXTRA_PAYMENT_ID);
-            return ExternalApiResult.success(paymentId);
+            val paymentId = result.getStringExtra(PaymentActivity.EXTRA_PAYMENT_ID)
+            return ExternalApiResult.success(paymentId!!)
         }
-
-        return ExternalApiResult.failure("An error occurred processing your payment.");
+        return ExternalApiResult.failure("An error occurred processing your payment.")
     }
-};
+}
 ```
 
 Note:
@@ -185,7 +167,11 @@ Note:
 ### Obtaining the caller's Mini App identifier
 
 In certain scenarios, obtaining the current Mini App identifier is useful for discerning the caller of the Super App API method and displaying relevant information about the invoking Mini App.
+This code retrieves the current Mini App identifier:
 
+```kotlin
+val miniAppId = Services.Application.miniApp?.id
+```
 
 ## Interface in GeneXus KB (External Object)
 
