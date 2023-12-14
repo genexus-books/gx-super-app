@@ -17,8 +17,8 @@ There are certain initial configuration steps in the project:
 
 To access the Mini Apps that are available on the Mini Apps Center, the class `SuperAppsHelper` is used. It's included in the `SuperAppsLib` library and accessed via the `Services.SuperApps` static field after [registering the `SuperAppsLib` module](https://github.com/genexus-colab/gx-super-app-backup/blob/d63a20f0ba839914c915fdd09aa9102946d021c2/Android/MiniAppCaller/app/src/main/java/com/genexus/superapps/bankx/application/BankingApplication.kt#L29) in the initialization of the class that extends `Application`.
 
-This class provides four methods to load Mini Apps, using different criteria. 
-In all cases there are two parameters in common: 
+This class provides five methods to load Mini Apps, using different criteria. 
+The first returns only one mini-app, the rest returns a collection of Mini Apps and therefore has these 2 parameters in common:
 
 - `start: Int` 0-based index of the start of the page.
 - `count: Int` the number of elements to load (0 corresponds to unlimited).
@@ -26,6 +26,13 @@ In all cases there are two parameters in common:
 In all the cases the return value is a `Task<MiniAppCollection, SearchError>`, to which Listeners can be registered to handle the result under the `onSuccess`, `onFailure`, `onCompleted` and `onCanceled` methods.
 
 ```kotlin
+    /**
+     * Performs a request to the Mini Apps Center for an available Mini App with the given identifier.
+     * @param id The Mini App identifier to look for.
+     * @return A cancelable Task
+     */
+    fun searchById(id: String): Task<MiniAppCollection, SearchError>
+
     /**
      * Performs a request to the Mini Apps Center for available Mini Apps given the text.
      * @param text The string with the search criteria.
