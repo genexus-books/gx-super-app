@@ -13,10 +13,11 @@ class PaymentActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val amount = intent.extras?.getDouble(EXTRA_AMOUNT) ?: 0.0
+        val miniAppId = intent.extras?.getString(EXTRA_MINIAPP_ID) ?: ""
         setContent {
             BankingSuperAppTheme {
                 PaymentSheet({ canceled() }) {
-                    BottomSheet(amount, { succeeded(amount) }, { canceled() })
+                    BottomSheet(amount, miniAppId, { succeeded(amount, miniAppId) }, { canceled() })
                 }
             }
         }
@@ -27,8 +28,8 @@ class PaymentActivity : ComponentActivity() {
         finish()
     }
 
-    private fun succeeded(amount: Double) {
-        val paymentId = PaymentsService.pay(amount)
+    private fun succeeded(amount: Double, miniAppId: String) {
+        val paymentId = PaymentsService.pay(amount, miniAppId)
         val result = Intent().apply { putExtra(EXTRA_PAYMENT_ID, paymentId) }
         setResult(Activity.RESULT_OK, result)
         finish()
@@ -36,12 +37,15 @@ class PaymentActivity : ComponentActivity() {
 
     companion object {
         private const val EXTRA_AMOUNT = "Amount"
+        private const val EXTRA_MINIAPP_ID = "MiniAppId"
         const val EXTRA_PAYMENT_ID = "PaymentId"
 
-        fun newIntent(context: Context?, amount: Double): Intent {
-            val intent = Intent(context, PaymentActivity::class.java)
-            intent.putExtra(EXTRA_AMOUNT, amount)
-            return intent
+        fun newIntent(context: Context?, amount: Double, miniAppId: String?): Intent {
+            return Intent(context, PaymentActivity::class.java).apply {
+                putExtra(EXTRA_AMOUNT, amount)
+                if (miniAppId != null)
+                    putExtra(EXTRA_MINIAPP_ID, miniAppId)
+            }
         }
     }
 }

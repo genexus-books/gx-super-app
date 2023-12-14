@@ -21,7 +21,12 @@ import androidx.compose.ui.tooling.preview.PreviewParameterProvider
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun BottomSheet(@PreviewParameter(AmountProvider::class) amount: Double, succeeded: () -> Unit, canceled: () -> Unit) {
+fun BottomSheet(
+    @PreviewParameter(AmountProvider::class) amount: Double,
+    miniAppId: String,
+    succeeded: () -> Unit,
+    canceled: () -> Unit
+) {
     Surface(
         modifier = Modifier
             .fillMaxWidth()
@@ -33,7 +38,7 @@ fun BottomSheet(@PreviewParameter(AmountProvider::class) amount: Double, succeed
         ) {
             Text(
                 textAlign = TextAlign.Center,
-                text = "Confirm $$amount payment?",
+                text = "Confirm $$amount payment from $miniAppId?",
                 style = MaterialTheme.typography.h6
             )
             Spacer(modifier = Modifier.height(20.dp))
