@@ -51,7 +51,7 @@ class ProvisioningAPI(private val reactContext: ReactApplicationContext) : React
                 val arguments = call.getMap("arguments")
                 val miniAppJson = arguments?.getString(Constants.Arguments.MINI_APP_JSON)
                 if (miniAppJson.isNullOrEmpty()) {
-                    result.invoke(listOf(mapOf("error" to  "MiniApp json cannot be null or empty")))
+                    result.invoke(listOf(mapOf("error" to "MiniApp json cannot be null or empty")))
                     return
                 }
 
@@ -72,6 +72,25 @@ class ProvisioningAPI(private val reactContext: ReactApplicationContext) : React
                 }
 
                 load(miniApp, result)
+            }
+
+            Constants.Methods.REMOVE -> {
+                val arguments = call.getMap("arguments")
+                val miniAppJson = arguments?.getString(Constants.Arguments.MINI_APP_JSON)
+                if (miniAppJson.isNullOrEmpty()) {
+                    result.invoke(listOf(mapOf("error" to "MiniApp json cannot be null or empty")))
+                    return
+                }
+
+                val miniAppInfo = JSONObject(miniAppJson)
+                val id = miniAppInfo.optString(FIELD_ID)
+                val version = miniAppInfo.optInt(FIELD_VERSION)
+                if (id.isNullOrEmpty() || version == -1) { //MiniApp.INVALID_VERSION) {
+                    result.invoke(listOf(mapOf("error" to "Cannot delete MiniApp as it contains incorrect information")))
+                    return
+                }
+
+                remove(id, version, result)
             }
 
             else -> {
@@ -126,8 +145,9 @@ class ProvisioningAPI(private val reactContext: ReactApplicationContext) : React
         )
     }
 
-    private fun remove(id: String, version: Int?, result: (Any)) {
-
+    private fun remove(id: String, version: Int, result: Callback) {
+        val deleted = Services.SuperApps.removeMiniApp(id, version)
+        result(deleted)
     }
 
     private fun toJson(miniApps: List<MiniApp>): String {
@@ -159,18 +179,11 @@ class ProvisioningAPI(private val reactContext: ReactApplicationContext) : React
             const val GET_MINI_APPS_CACHED = "getCachedMiniApps"
             const val LOAD = "load"
             const val REMOVE = "remove"
-            const val ARGUMENT_TAG = "tag"
-            const val MINI_APP_JSON = "miniAppJson"
         }
 
         object Arguments {
             const val TAG = "tag"
             const val MINI_APP_JSON = "miniAppJson"
-        }
-
-        object MiniAppFields {
-            const val ID = "Id"
-            const val VERSION = "Version"
         }
     }
     sealed class State {
@@ -191,6 +204,5 @@ class ProvisioningAPI(private val reactContext: ReactApplicationContext) : React
         private const val FIELD_SERVICES_URL = "ServicesURL"
         private const val FIELD_SIGNATURE = "Signature"
         private const val FIELD_VERSION = "Version"
-        private const val FIELD_TYPE = "Type"
     }
 }
