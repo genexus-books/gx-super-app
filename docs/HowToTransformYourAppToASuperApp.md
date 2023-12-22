@@ -1,4 +1,4 @@
-# Requirements to act as a Super App
+# Requirements to turn your app into a Super App
 
 Steps to take to turn an App into a Super App:
 
