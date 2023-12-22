@@ -16,7 +16,7 @@ Repository URLs:
 - https://pkgs.dev.azure.com/genexuslabs/155eaada-eb3c-418f-9c98-dcbcffffae50/_packaging/android-releases/maven/v1
 - https://pkgs.dev.azure.com/genexuslabs/3361ab3b-96bc-4a69-a37a-f2b255ff2f35/_packaging/releases/maven/v1
 
-### Beta (Azure Artifacts):
+### Beta (Azure Artifacts)
 Dependencies for the "Beta" branch are also available on Azure Artifacts. Use the designated Azure Artifacts URL in your configuration to access these dependencies.
 
 Repository URLs: 
@@ -24,7 +24,7 @@ Repository URLs:
 - https://pkgs.dev.azure.com/genexuslabs/3361ab3b-96bc-4a69-a37a-f2b255ff2f35/_packaging/snapshots/maven/v1
 
 
-Ensure you update your settings.gradle file by including the specific URLs from the repositories corresponding to the branch of interest.
+Ensure you update your [settings.gradle](../MiniAppCaller/settings.gradle) file by including the specific URLs from the repositories corresponding to the branch of interest.
 
 ## Minimum Set of Libraries Required
 The minimum set of Super App Render's libraries for any Super App project includes the following: 
@@ -34,3 +34,6 @@ The minimum set of Super App Render's libraries for any Super App project includ
 - com.genexus.android:CoreUserControls
 - com.genexus.android:SmartGridLib
 - com.genexus.android:SuperAppsLib
+
+## Managing Dependencies
+In case a Mini App requires a specific Super App feature (for instance, access to the camera), you need to include this new dependency in your [build.gradle](../MiniAppCaller/app/build.gradle) with the corresponding Super App Render library. Ensure that you update this configuration file appropriately to enable the desired functionalities within your Super App.
