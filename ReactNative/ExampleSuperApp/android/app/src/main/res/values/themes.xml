@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Theme applied to the Android Window while the process is starting when the OS's Dark Mode setting is off -->
+    <style name="LaunchTheme" parent="Theme.Genexus.Base.Light">
+        <item name="android:windowBackground">@drawable/launch_background</item>
+    </style>
+    <style name="NormalTheme" parent="Theme.ExampleSuperApp.NoActionBar">
+        <item name="android:windowBackground">?android:colorBackground</item>
+    </style>
+
+    <style name="Theme.ExampleSuperApp" parent="Theme.Genexus.Light.DarkActionBar">
+    </style>
+
+    <style name="Theme.ExampleSuperApp.NoActionBar" parent="Theme.Genexus.ExampleSuperApp">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.Genexus.ExampleSuperApp" parent="Theme.Genexus.DayNight">
+    </style>
+</resources>
