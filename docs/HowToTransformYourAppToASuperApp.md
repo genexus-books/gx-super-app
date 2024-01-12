@@ -49,3 +49,4 @@ To get the list of Mini Apps available for the Super App, the communication API 
 - [Android Flutter example](/Flutter/example_superapp/android/README.md)
 - [iOS React Native example](/ReactNative/ExampleSuperApp/ios/README.md)
 
+To learn how to turn an application created with GeneXus into a Super App read [How to Create a Super App?] (https://wiki.genexus.com/commwiki/wiki?50906,How+to+create+a+Super+App%3F).
