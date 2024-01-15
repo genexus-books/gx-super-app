@@ -41,7 +41,7 @@ Using the [Sandbox mode](CreateSuperAppSandboxMode.md), your Mini App providers 
 
 ## Access to the Mini Apps Center to get the Mini Apps and UX design for their discovery.
 
-To get the list of Mini Apps available for the Super App, the communication API with the Mini Apps Center of the [Super App Render](/SuperAppRender.md) is used.
+To get the list of Mini Apps available for the Super App, the communication API with the Mini Apps Center of the [Super App Render](/docs/SuperAppRender.md) is used.
 
 - [iOS example](/iOS/README.md)
 - [Android example](/Android/README.md)
