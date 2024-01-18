@@ -67,7 +67,7 @@ fun MiniAppListHomeContent(model: MainViewModel) {
                 ) {
                     items(
                         items = miniApps,
-                        itemContent = { MiniAppListItem(miniApp = it) { model.loadMiniApp(it) } }
+                        itemContent = { MiniAppListItem(miniApp = it) { model.loadMiniApp(it, checkSecurity = false) } }
                     )
                 }
             }
