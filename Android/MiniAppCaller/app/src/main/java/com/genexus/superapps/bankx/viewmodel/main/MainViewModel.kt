@@ -50,8 +50,8 @@ class MainViewModel : ViewModel() {
         })
     }
 
-    fun loadMiniApp(miniApp: MiniApp, checkSecurity: Boolean) {
-        val options = if (!checkSecurity)
+    fun loadMiniApp(miniApp: MiniApp) {
+        val options = if (!miniApp.isSecure)
             null
         else {
             val superApToken = "Retrieve Super App Token and use it here"
