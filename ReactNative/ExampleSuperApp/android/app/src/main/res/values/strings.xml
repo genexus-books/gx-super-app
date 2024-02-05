@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">ExampleSuperApp</string>
+    <string name="title_activity_payments_compose">PaymentsComposeActivity</string>
 </resources>
