@@ -69,6 +69,7 @@ class ProvisioningAPI(private val reactContext: ReactApplicationContext) : React
                     this.bannerUrl = miniAppInfo.optString(FIELD_BANNER)
                     this.cardUrl = miniAppInfo.optString(FIELD_CARD)
                     this.description = miniAppInfo.optString(FIELD_DESCRIPTION)
+                    this.type = MiniApp.Type.valueOf(miniAppInfo.optString(FIELD_TYPE))
                 }
 
                 load(miniApp, result)
@@ -166,6 +167,7 @@ class ProvisioningAPI(private val reactContext: ReactApplicationContext) : React
                     put(FIELD_SERVICES_URL, miniApp.apiUri)
                     put(FIELD_SIGNATURE, miniApp.signature)
                     put(FIELD_VERSION, miniApp.version)
+                    put(FIELD_TYPE, miniApp.type.toString())
                 }
                 collection.put(node)
             }
@@ -204,5 +206,6 @@ class ProvisioningAPI(private val reactContext: ReactApplicationContext) : React
         private const val FIELD_SERVICES_URL = "ServicesURL"
         private const val FIELD_SIGNATURE = "Signature"
         private const val FIELD_VERSION = "Version"
+        private const val FIELD_TYPE = "Type"
     }
 }
