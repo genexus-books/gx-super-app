@@ -115,8 +115,8 @@ android {
     }
 }
 repositories {
-    maven { url uri("${System.properties['user.home']}/Dev/m2Repository") }
-    maven { url "https://pkgs.dev.azure.com/genexuslabs/3361ab3b-96bc-4a69-a37a-f2b255ff2f35/_packaging/snapshots/maven/v1" }
+    maven { url 'https://pkgs.dev.azure.com/genexuslabs/155eaada-eb3c-418f-9c98-dcbcffffae50/_packaging/android-releases/maven/v1' }
+    maven { url 'https://pkgs.dev.azure.com/genexuslabs/3361ab3b-96bc-4a69-a37a-f2b255ff2f35/_packaging/releases/maven/v1' }
 }
 dependencies {
     //Genexus libraries
