@@ -10,6 +10,7 @@ class MiniApp {
   apiUri: string;
   signature: string;
   version: number;
+  type: string;
   creationDate: Date;
   lastUsedDate: Date;
   date: any;
@@ -26,6 +27,7 @@ class MiniApp {
     this.apiUri = json[MiniApp.FIELD_SERVICES_URL] || "";
     this.signature = json[MiniApp.FIELD_SIGNATURE] || "";
     this.version = json[MiniApp.FIELD_VERSION] || 0;
+    this.type = json[MiniApp.FIELD_TYPE] || "";
     this.creationDate = json[MiniApp.FIELD_CREATION_DATE]
       ? new Date(json[MiniApp.FIELD_CREATION_DATE])
       : new Date();
@@ -51,6 +53,7 @@ class MiniApp {
       [MiniApp.FIELD_SERVICES_URL]: this.apiUri,
       [MiniApp.FIELD_SIGNATURE]: this.signature,
       [MiniApp.FIELD_VERSION]: this.version,
+      [MiniApp.FIELD_TYPE]: this.type,
       [MiniApp.FIELD_CREATION_DATE]: this.creationDate.toString(),
       [MiniApp.FIELD_LAST_USED_DATE]: this.lastUsedDate.toString(),
     };
@@ -67,6 +70,7 @@ class MiniApp {
   static readonly FIELD_SERVICES_URL = "ServicesURL";
   static readonly FIELD_SIGNATURE = "Signature";
   static readonly FIELD_VERSION = "Version";
+  static readonly FIELD_TYPE = "Type";
   static readonly FIELD_CREATION_DATE = "CreationDatetime";
   static readonly FIELD_LAST_USED_DATE = "LastUsedDatetime";
 }
