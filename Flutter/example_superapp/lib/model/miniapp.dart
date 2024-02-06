@@ -10,6 +10,7 @@ class MiniApp {
   final String apiUri;
   final String signature;
   final int version;
+  final String type;
   final DateTime creationDate;
   final DateTime lastUsedDate;
 
@@ -25,6 +26,7 @@ class MiniApp {
         apiUri = json.containsKey(FIELD_SERVICES_URL) ? json[FIELD_SERVICES_URL] : "",
         signature = json.containsKey(FIELD_SIGNATURE) ? json[FIELD_SIGNATURE] : "",
         version = json.containsKey(FIELD_VERSION) ? json[FIELD_VERSION] : 0,
+        type = json.containsKey(FIELD_TYPE) ? json[FIELD_TYPE] : "",
         creationDate = json.containsKey(FIELD_CREATION_DATE) ? DateTime.parse(json[FIELD_CREATION_DATE]) : DateTime.now(),
         lastUsedDate = json.containsKey(FIELD_LAST_USED_DATE) ? DateTime.parse(json[FIELD_LAST_USED_DATE]) : DateTime.now();
 
@@ -40,6 +42,7 @@ class MiniApp {
     FIELD_SERVICES_URL: apiUri,
     FIELD_SIGNATURE: signature,
     FIELD_VERSION: version,
+    FIELD_TYPE: type,
     FIELD_CREATION_DATE: creationDate.toString(),
     FIELD_LAST_USED_DATE: lastUsedDate.toString()
   };
@@ -55,6 +58,7 @@ class MiniApp {
   static const String FIELD_SERVICES_URL = "ServicesURL";
   static const String FIELD_SIGNATURE = "Signature";
   static const String FIELD_VERSION = "Version";
+  static const String FIELD_TYPE = "Type";
   static const String FIELD_CREATION_DATE = "CreationDatetime";
   static const String FIELD_LAST_USED_DATE = "LastUsedDatetime";
 }
