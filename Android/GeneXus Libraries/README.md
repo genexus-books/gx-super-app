@@ -21,7 +21,7 @@ Dependencies for the "Beta" branch are also available on Azure Artifacts. Use th
 
 Repository URLs: 
 - https://pkgs.dev.azure.com/genexuslabs/155eaada-eb3c-418f-9c98-dcbcffffae50/_packaging/android-preleases/maven/v1
-- https://pkgs.dev.azure.com/genexuslabs/3361ab3b-96bc-4a69-a37a-f2b255ff2f35/_packaging/preleases/maven/v1
+- https://pkgs.dev.azure.com/genexuslabs/3361ab3b-96bc-4a69-a37a-f2b255ff2f35/_packaging/snapshots/maven/v1
 
 
 Ensure you update your [settings.gradle](../MiniAppCaller/settings.gradle) file by including the specific URLs from the repositories corresponding to the branch of interest.
