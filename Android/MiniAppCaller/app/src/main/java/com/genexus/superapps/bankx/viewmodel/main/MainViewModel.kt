@@ -2,11 +2,14 @@ package com.genexus.superapps.bankx.viewmodel.main
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.net.Uri
 import android.widget.Toast
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.genexus.android.core.base.services.Services
 import com.genexus.android.core.base.utils.Strings
+import com.genexus.android.core.superapps.LoadingOptions
+import com.genexus.android.core.superapps.LoadingSecurityOptions
 import com.genexus.android.core.superapps.MiniApp
 import com.genexus.android.core.superapps.MiniAppCollection
 import com.genexus.android.core.superapps.errors.LoadError
@@ -48,10 +51,27 @@ class MainViewModel : ViewModel() {
     }
 
     fun loadMiniApp(miniApp: MiniApp) {
-        Services.SuperApps.load(miniApp).addOnCompleteListener(object : OnCompleteListener<Boolean, LoadError> {
+        val options = if (!miniApp.isSecure)
+            null
+        else {
+            val superApToken = "Retrieve Super App Token and use it here"
+            val miniAppTokenRetrievalUrl = Uri.parse("Configure Mini App access token retrieval URL here or in superapp.json")
+            val securityOptions = LoadingSecurityOptions.Builder()
+                .withAuthTokenCheckUrl(miniAppTokenRetrievalUrl) // This line is not needed if URL is set in superapp.json
+                .withSuperAppToken(superApToken)
+                .build()
+            LoadingOptions.Builder().withSecurityOptions(securityOptions).build()
+        }
+
+        Services.SuperApps.load(miniApp, options).addOnCompleteListener(object : OnCompleteListener<Boolean, LoadError> {
             override fun onComplete(task: Task<Boolean, LoadError>) {
-                if (!task.isSuccessful)
-                    _state.value = State.Error("MiniApp loading failed")
+                if (!task.isSuccessful) {
+                    _state.value = if (task.error == LoadError.AUTHORIZATION)
+                        State.Error("MiniApp access token not valid")
+                    else
+                        State.Error("MiniApp loading failed")
+                }
+
             }
         })
     }
