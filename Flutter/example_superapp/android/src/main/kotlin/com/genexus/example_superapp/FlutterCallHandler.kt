@@ -25,8 +25,8 @@ class FlutterCallHandler: MethodChannel.MethodCallHandler {
 				}
 
 				val miniAppInfo = JSONObject(miniAppJson)
-				val id = miniAppInfo.optString(MiniApp.FIELD_ID)
-				val version = miniAppInfo.optInt(MiniApp.FIELD_VERSION)
+				val id = miniAppInfo.optString(FIELD_ID)
+				val version = miniAppInfo.optInt(FIELD_VERSION)
 				if (id.isNullOrEmpty() || version == -1) { //MiniApp.INVALID_VERSION) {
 					result.error(ProvisioningAPI.ERROR_ARGUMENTS, "Cannot delete MiniApp as it contains incorrect information", null)
 					return
@@ -42,18 +42,19 @@ class FlutterCallHandler: MethodChannel.MethodCallHandler {
 				}
 
 				val miniAppInfo = JSONObject(miniAppJson)
-				val id = miniAppInfo.optString(MiniApp.FIELD_ID)
-				val version = miniAppInfo.optInt(MiniApp.FIELD_VERSION)
+				val id = miniAppInfo.optString(FIELD_ID)
+				val version = miniAppInfo.optInt(FIELD_VERSION)
 				val miniApp = MiniApp(id, version).apply {
-					this.appEntry = miniAppInfo.optString(MiniApp.FIELD_ENTRY_POINT)
-					this.apiUri = miniAppInfo.optString(MiniApp.FIELD_SERVICES_URL)
-					this.metadataRemoteUrl = miniAppInfo.optString(MiniApp.FIELD_METADATA)
-					this.signature = miniAppInfo.optString(MiniApp.FIELD_SIGNATURE)
-					this.name = miniAppInfo.optString(MiniApp.FIELD_NAME)
-					this.iconUrl = miniAppInfo.optString(MiniApp.FIELD_ICON)
-					this.bannerUrl = miniAppInfo.optString(MiniApp.FIELD_BANNER)
-					this.cardUrl = miniAppInfo.optString(MiniApp.FIELD_CARD)
-					this.description = miniAppInfo.optString(MiniApp.FIELD_DESCRIPTION)
+					this.appEntry = miniAppInfo.optString(FIELD_ENTRY_POINT)
+					this.apiUri = miniAppInfo.optString(FIELD_SERVICES_URL)
+					this.metadataRemoteUrl = miniAppInfo.optString(FIELD_METADATA)
+					this.signature = miniAppInfo.optString(FIELD_SIGNATURE)
+					this.name = miniAppInfo.optString(FIELD_NAME)
+					this.iconUrl = miniAppInfo.optString(FIELD_ICON)
+					this.bannerUrl = miniAppInfo.optString(FIELD_BANNER)
+					this.cardUrl = miniAppInfo.optString(FIELD_CARD)
+					this.description = miniAppInfo.optString(FIELD_DESCRIPTION)
+					this.type = MiniApp.Type.valueOf(miniAppInfo.optString(FIELD_TYPE))
 				}
 
 				provisioning.load(miniApp, result)
@@ -71,5 +72,18 @@ class FlutterCallHandler: MethodChannel.MethodCallHandler {
 		private const val METHOD_REMOVE = "remove"
 		private const val ARGUMENT_TAG = "tag"
 		private const val ARGUMENT_MINI_APP_JSON = "miniAppJson"
+
+		private const val FIELD_ID = "Id"
+		private const val FIELD_NAME = "Name"
+		private const val FIELD_DESCRIPTION = "Description"
+		private const val FIELD_ICON = "Icon"
+		private const val FIELD_BANNER = "Banner"
+		private const val FIELD_CARD = "Card"
+		private const val FIELD_METADATA = "Metadata"
+		private const val FIELD_ENTRY_POINT = "EntryPoint"
+		private const val FIELD_SERVICES_URL = "ServicesURL"
+		private const val FIELD_SIGNATURE = "Signature"
+		private const val FIELD_VERSION = "Version"
+		private const val FIELD_TYPE = "Type"
 	}
 }

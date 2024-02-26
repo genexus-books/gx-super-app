@@ -67,17 +67,18 @@ class ProvisioningAPI: IProvisioning {
 		if (miniApps.isNotEmpty()) {
 			for (miniApp in miniApps) {
 				val node = Services.Serializer.createNode().apply {
-					put(MiniApp.FIELD_ID, miniApp.id)
-					put(MiniApp.FIELD_NAME, miniApp.name)
-					put(MiniApp.FIELD_DESCRIPTION, miniApp.description)
-					put(MiniApp.FIELD_ICON, miniApp.iconUrl)
-					put(MiniApp.FIELD_BANNER, miniApp.bannerUrl)
-					put(MiniApp.FIELD_CARD, miniApp.cardUrl)
-					put(MiniApp.FIELD_METADATA, miniApp.metadataRemoteUrl)
-					put(MiniApp.FIELD_ENTRY_POINT, miniApp.appEntry)
-					put(MiniApp.FIELD_SERVICES_URL, miniApp.apiUri)
-					put(MiniApp.FIELD_SIGNATURE, miniApp.signature)
-					put(MiniApp.FIELD_VERSION, miniApp.version)
+					put(FIELD_ID, miniApp.id)
+					put(FIELD_NAME, miniApp.name)
+					put(FIELD_DESCRIPTION, miniApp.description)
+					put(FIELD_ICON, miniApp.iconUrl)
+					put(FIELD_BANNER, miniApp.bannerUrl)
+					put(FIELD_CARD, miniApp.cardUrl)
+					put(FIELD_METADATA, miniApp.metadataRemoteUrl)
+					put(FIELD_ENTRY_POINT, miniApp.appEntry)
+					put(FIELD_SERVICES_URL, miniApp.apiUri)
+					put(FIELD_SIGNATURE, miniApp.signature)
+					put(FIELD_VERSION, miniApp.version)
+					put(FIELD_TYPE, miniApp.type.toString())
 				}
 				collection.put(node)
 			}
@@ -90,5 +91,18 @@ class ProvisioningAPI: IProvisioning {
 		const val ERROR_ARGUMENTS = "1"
 		const val ERROR_GET = "2"
 		const val ERROR_LOAD = "3"
-	}
+		
+		private const val FIELD_ID = "Id"
+		private const val FIELD_NAME = "Name"
+		private const val FIELD_DESCRIPTION = "Description"
+		private const val FIELD_ICON = "Icon"
+		private const val FIELD_BANNER = "Banner"
+		private const val FIELD_CARD = "Card"
+		private const val FIELD_METADATA = "Metadata"
+		private const val FIELD_ENTRY_POINT = "EntryPoint"
+		private const val FIELD_SERVICES_URL = "ServicesURL"
+		private const val FIELD_SIGNATURE = "Signature"
+		private const val FIELD_VERSION = "Version"
+		private const val FIELD_TYPE = "Type"
+    }
 }
