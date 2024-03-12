@@ -68,6 +68,22 @@ In all the cases the return value is a `Task<MiniAppCollection, SearchError>`, t
      * @return A cancelable Task
      */
     fun searchFeatured(start: Int, count: Int): Task<MiniAppCollection, SearchError>
+
+	/**
+	 * Performs a request to the Mini Apps Center for available Mini Apps given the filters.
+	 * @param miniAppFilters Filter collection to apply to the search. It can contain multiple criteria.
+	 *                Example of usage:
+	 *                ```
+	 *                val miniAppFilters = MiniAppFilters().apply {
+	 *                    add(MiniAppFilter("Name", MiniAppFilter.Operator.Equal, mutableListOf("Test Mini App Name")))
+	 *                }
+	 *                ```
+	 *                This creates a filter that searches for mini apps with the name "Test Mini App Name".
+	 * @param start 0-based index from which elements will be returned.
+	 * @param count Maximum number of returned elements (0 means no limit).
+	 * @return A cancelable Task
+	 */
+	fun searchByFilters(miniAppFilters: MiniAppFilters, start: Int, count: Int): Task<MiniAppCollection, SearchError>
 ```
 
 ### Error handling
