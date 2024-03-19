@@ -83,7 +83,7 @@ In all the cases the return value is a `Task<MiniAppCollection, SearchError>`, t
 	 * @param count Maximum number of returned elements (0 means no limit).
 	 * @return A cancelable Task
 	 */
-	fun searchByFilters(miniAppFilters: MiniAppFilters, start: Int, count: Int): Task<MiniAppCollection, SearchError>
+    fun searchByFilters(miniAppFilters: MiniAppFilters, start: Int, count: Int): Task<MiniAppCollection, SearchError>
 ```
 
 ### Error handling
