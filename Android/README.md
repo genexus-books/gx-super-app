@@ -69,7 +69,7 @@ In all the cases the return value is a `Task<MiniAppCollection, SearchError>`, t
      */
     fun searchFeatured(start: Int, count: Int): Task<MiniAppCollection, SearchError>
 
-     /**
+    /**
      * Performs a request to the Mini App Center for available Mini Apps given the filters.
      * @param miniAppFilters Filter collection to apply to the search. It can contain multiple criteria.
      *     Example of usage:
