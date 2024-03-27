@@ -2,6 +2,8 @@ package com.genexus.example_superapp.api.services
 
 import com.genexus.android.core.base.model.Entity
 import com.genexus.android.core.base.model.EntityFactory
+import com.genexus.android.core.base.services.Services
+import com.genexus.android.core.superapps.MiniApp
 
 object ClientsService {
 
@@ -12,7 +14,13 @@ object ClientsService {
 	private const val SDT_CLIENT_ID = "clientId"
 
 	fun toEntity(map: Map<String, String>): Entity {
-		return EntityFactory.newSdt(SDT_CLIENT).apply {
+		val entity = if (Services.Application.miniApp?.type == MiniApp.Type.Native) {
+			EntityFactory.newSdt(SDT_CLIENT)
+		} else {
+			EntityFactory.newEntity()
+		}
+		
+		return entity.apply {
 			setProperty(SDT_CLIENT_ID, map[SDT_CLIENT_ID])
 			setProperty(SDT_CLIENT_NAME, map[SDT_CLIENT_NAME])
 			setProperty(SDT_CLIENT_LAST_NAME, map[SDT_CLIENT_LAST_NAME])

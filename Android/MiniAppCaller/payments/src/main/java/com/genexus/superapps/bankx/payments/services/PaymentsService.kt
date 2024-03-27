@@ -4,6 +4,8 @@ import com.genexus.android.core.base.metadata.expressions.Expression
 import com.genexus.android.core.base.model.Entity
 import com.genexus.android.core.base.model.EntityFactory
 import com.genexus.android.core.base.model.EntityList
+import com.genexus.android.core.base.services.Services
+import com.genexus.android.core.superapps.MiniApp
 import java.util.UUID
 
 object PaymentsService {
@@ -29,7 +31,11 @@ object PaymentsService {
         val paymentInformationList = EntityList()
         paymentInformationList.itemType = Expression.Type.SDT
         for (i in 1..3) {
-            val paymentInfoItem = EntityFactory.newSdt(SDT_PAYMENT_INFORMATION)
+            val paymentInfoItem = if (Services.Application.miniApp?.type == MiniApp.Type.Native) {
+                EntityFactory.newSdt(SDT_PAYMENT_INFORMATION)
+            } else {
+                EntityFactory.newEntity()
+            }
             paymentInfoItem.setProperty(SDT_PAYMENT_INFORMATION_ITEM_BRAND, "Brand $i for $clientId")
             paymentInfoItem.setProperty(SDT_PAYMENT_INFORMATION_ITEM_AFFINITY, "Affinity $i for $clientId")
             paymentInfoItem.setProperty(SDT_PAYMENT_INFORMATION_ITEM_TYPE, "Type $i for $clientId")
