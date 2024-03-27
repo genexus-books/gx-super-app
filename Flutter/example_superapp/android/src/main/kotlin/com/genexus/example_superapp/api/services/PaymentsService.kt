@@ -21,11 +21,11 @@ object PaymentsService {
 
 		for (map in list) {
 			val entity = if (Services.Application.miniApp?.type == MiniApp.Type.Native) {
-                EntityFactory.newSdt(SDT_PAYMENT_INFORMATION)
-            } else {
-                EntityFactory.newEntity()
-            }
-			
+				EntityFactory.newSdt(SDT_PAYMENT_INFORMATION)
+			} else {
+				EntityFactory.newEntity()
+			}
+
 			entity.apply {
 				setProperty(SDT_PAYMENT_INFORMATION_ITEM_BRAND, map[SDT_PAYMENT_INFORMATION_ITEM_BRAND])
 				setProperty(SDT_PAYMENT_INFORMATION_ITEM_AFFINITY, map[SDT_PAYMENT_INFORMATION_ITEM_AFFINITY])
