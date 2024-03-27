@@ -1,6 +1,6 @@
 # SuperApp Example
 
-This document explains how to develop and integrate the functionality that provides the API for access to the Mini Apps Center, as well as the API for managing their cache, based on the `MiniAppCaller` example.
+This document explains how to develop and integrate the functionality that provides the API for access to the Mini App Center, as well as the API for managing their cache, based on the `MiniAppCaller` example.
 
 ## Setting
 
@@ -8,15 +8,15 @@ There are certain initial configuration steps in the project:
 
 1. Integration of the [Android libraries](../../../Android/GeneXus%20Libraries/README.md) corresponding to [Super App Render](../../../SuperAppRender.md)
 2. Set the values in the app's [superapp_json](../example/android/app/src/main/res/raw/superapp_json) file:
-	- `GXSuperAppProvisioningURL`: String corresponding to the [Mini Apps Center's](../../../Provisioning.md) URL of the Mini Apps.
-	- `GXSuperAppId`: String corresponding to the Super App identifier, to be used at the Mini Apps Center. If this key is not included, the app's [Package Name](https://developer.android.com/reference/android/content/Context#getPackageName()) will be used.  
-	- `GXSuperAppVersion`: String corresponding to the Super App identifier, to be used at the Mini Apps Center. If this key is not included, the app's [Version Code](https://developer.android.com/reference/android/content/pm/PackageInfo#getLongVersionCode()) will be used.
-3. The public key that verifies the signature of the Mini Apps. It's downloaded from the Mini Apps Center and must be placed in the app's resources under the name [superapp_crt](../example/android/app/src/main/res/raw/superapp_crt)
+	- `GXSuperAppProvisioningURL`: String corresponding to the [Mini App Center's](../../../Provisioning.md) URL of the Mini Apps.
+	- `GXSuperAppId`: String corresponding to the Super App identifier, to be used at the Mini App Center. If this key is not included, the app's [Package Name](https://developer.android.com/reference/android/content/Context#getPackageName()) will be used.  
+	- `GXSuperAppVersion`: String corresponding to the Super App identifier, to be used at the Mini App Center. If this key is not included, the app's [Version Code](https://developer.android.com/reference/android/content/pm/PackageInfo#getLongVersionCode()) will be used.
+3. The public key that verifies the signature of the Mini Apps. It's downloaded from the Mini App Center and must be placed in the app's resources under the name [superapp_crt](../example/android/app/src/main/res/raw/superapp_crt)
 4. Point the local repository URL and version at [build.gradle](build.gradle) to the directory where it is located.
 5. Point the local repository URL at [example\build.gradle](../example/android/build.gradle) to the directory where it is located.
 6. run ```flutter pub get```
    
-## Communication API with the Mini Apps Center
+## Communication API with the Mini App Center
 
 To access the Mini Apps that are available on the Mini App Center, the class `SuperAppsHelper` is used. It's included in the `SuperAppsLib` library and accessed via the `Services.SuperApps` static field after [registering the `SuperAppsLib` module](../android/src/main/kotlin/com/genexus/example_superapp/ExampleSuperappPlugin.kt) in the initialization of the class that extends `FlutterPlugin`.
 
@@ -85,13 +85,13 @@ In all cases within the `OnFailureListener` Listener, the error can be one of th
 ```
     
 - `INVALID_REQUEST` is an error in the caller.
-- `NETWORK_ERROR` is a network error in communication with the Mini Apps Center.
-- `INVALID_RESPONSE` is an invalid response from the Mini Apps Center.
+- `NETWORK_ERROR` is a network error in communication with the Mini App Center.
+- `INVALID_RESPONSE` is an invalid response from the Mini App Center.
 
 ## Mini App upload API
 
-Once the Mini Apps have been obtained from the Mini Apps Center, the same `SuperAppsHelper` class is used to load one of them. 
-The `load` method receives the Mini App's information from the Mini Apps Center as a parameter and returns a `Task<Boolean, LoadError>`, which also accepts the Listeners' registry for handling results. 
+Once the Mini Apps have been obtained from the Mini App Center, the same `SuperAppsHelper` class is used to load one of them. 
+The `load` method receives the Mini App's information from the Mini App Center as a parameter and returns a `Task<Boolean, LoadError>`, which also accepts the Listeners' registry for handling results. 
 
 ```kotlin
     /**
@@ -136,8 +136,8 @@ When there is a new version of the Mini App published in the Mini App Center, th
 
 In the Super App configuration file ([superapp_json](../example/android/app/src/main/res/raw/superapp_json)) these two properties can be set:
 
-   - `GXMiniAppCacheMaxCount`: Value (numeric) to specify the number of mini-apps that will be kept in the Super App cache. Zero means there is no limit. Otherwise, if the indicated number of Mini apps in the cache is reached, then the oldest one is deleted before adding a new one.
-   - `GXMiniAppCacheMaxDays`: Value (numeric) to specify the number of days each Mini App cache will be kept. Zero means that there is no time limit, otherwise, the time must be counted from the last use of the Mini app, not from the date it was downloaded.
+   - `GXMiniAppCacheMaxCount`: Value (numeric) to specify the number of Mini Apps that will be kept in the Super App cache. Zero means there is no limit. Otherwise, if the indicated number of Mini Apps in the cache is reached, then the oldest one is deleted before adding a new one.
+   - `GXMiniAppCacheMaxDays`: Value (numeric) to specify the number of days each Mini App cache will be kept. Zero means that there is no time limit, otherwise, the time must be counted from the last use of the Mini App, not from the date it was downloaded.
 
 #### Programmatically using the Mini App Cache API
 
@@ -147,7 +147,7 @@ A method to get a list of the Mini Apps in the cache is included, one to delete 
 
 ```kotlin
     /**
-     * Queries the file system for cached mini apps.
+     * Queries the file system for cached Mini Apps.
      * Avoid calling from the main Thread as it performs several file IO operations.
      * @return The cached Mini Apps collection.
      */
@@ -170,4 +170,4 @@ A method to get a list of the Mini Apps in the cache is included, one to delete 
     fun clearCache(): Boolean
 ```
 
-In any other case, the mini app is kept in the cache indefinitely and the OS itself could remove it from the cache at its discretion since it is stored in a temporary directory.
+In any other case, the Mini App is kept in the cache indefinitely and the OS itself could remove it from the cache at its discretion since it is stored in a temporary directory.

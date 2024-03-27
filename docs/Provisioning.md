@@ -1,8 +1,8 @@
-# Mini Apps Center
+# Mini App Center
 
 The provisioning component is an essential part of the Super App and Mini App's architecture. It's where the Super App is declared and the Mini App's definitions are stored. 
 
-The Mini Apps Center has the following functionalities:
+The Mini App Center has the following functionalities:
 
 - Access management for Super App and Mini App publications.
 - The Super App owner defines who can upload Mini Apps and to which Super App.

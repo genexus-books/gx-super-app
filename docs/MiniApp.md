@@ -7,7 +7,7 @@ It's composed of a metadata (a .gxsd file) that results from the process of gene
 
 ### Enroll & Provisioning 
 
-First, you have to create the app in the Mini Apps Center. To do this, you have to send the Mini App developer's contact information (organization, name, e-mail) and the Mini App's information to the Super App creator. 
+First, you have to create the app in the Mini App Center. To do this, you have to send the Mini App developer's contact information (organization, name, e-mail) and the Mini App's information to the Super App creator. 
 
 Mini App's required information:
 
@@ -22,7 +22,7 @@ A Mini App will be available only for a given Super App. If you want the same Mi
 
 ### Development 
 
-GeneXus is the low-code tool used to design, create and maintain the Mini apps. 
+GeneXus is the low-code tool used to design, create and maintain the Mini Apps. 
 The development process of a Mini App is the same as for any other mobile app developed with GeneXus. 
 To integrate the Mini App to the Super App, the following considerations must be taken into account:
 
@@ -51,11 +51,11 @@ Steps to follow:
  2. Get the Mini App's metadata (.gxsd file)
  These steps can be performed through the [Application Deployment Tool](https://wiki.genexus.com/commwiki/servlet/wiki?32092,Toc%3AApplication+Deployment+tool). To generate the metadata, the "Enable KBN" property must be enabled.
  
- 3. Send the metadata to the Super App owner with the following information to be published on the Mini Apps Center.
+ 3. Send the metadata to the Super App owner with the following information to be published on the Mini App Center.
 	- Backend Services URL 
 	- App Name 
 	- App Main Object Type (Menu | Panel)
 4. The Mini App's review by the Super App owner starts here.
 5. This process may require sending new versions of the Mini App. Once it's completed, the Mini App is in Ready state. 
 
-**Important:** the backend services' version (step 1) must always match the metadata's version (step 2) sent to the Mini Apps Center.
+**Important:** the backend services' version (step 1) must always match the metadata's version (step 2) sent to the Mini App Center.

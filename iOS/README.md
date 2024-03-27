@@ -1,6 +1,6 @@
 # SuperApp Example 
 
-This document explains how to develop and integrate the functionality that provides the API for access to the Mini Apps Center, as well as the API for managing their cache, based on the `ExampleSuperApp.xcodeproj` example. 
+This document explains how to develop and integrate the functionality that provides the API for access to the Mini App Center, as well as the API for managing their cache, based on the `ExampleSuperApp.xcodeproj` example. 
 
 ## Setting
 
@@ -8,16 +8,16 @@ There are certain initial configuration steps in the project Xcode:
 
 1. Integration of the [iOS frameworks](GeneXus%20Frameworks/README.md) corresponding to [Super App Render](../SuperAppRender.md).
 2. Set certain values in the app's [Info.plist](ExampleSuperApp/Info.plist):
-	- `GXSuperAppProvisioningURL`: String corresponding to the [Mini Apps Center's](../Provisioning.md) URL, the provisioning server of the Mini Apps.
-	- `GXSuperAppId`: String corresponding to the Super App identifier, to be used at the Mini Apps Center. If this key is not included, the app's [bundle identifier](https://developer.apple.com/documentation/bundleresources/information_property_list/cfbundleidentifier) will be used.
-	- `GXSuperAppVersion`: String corresponding to the Super App version, to be used at the Mini Apps Center. If this key is not included, the app's [CFBundleVersion](https://developer.apple.com/documentation/bundleresources/information_property_list/cfbundleversion) will be used.
+	- `GXSuperAppProvisioningURL`: String corresponding to the [Mini App Center's](../Provisioning.md) URL, the provisioning server of the Mini Apps.
+	- `GXSuperAppId`: String corresponding to the Super App identifier, to be used at the Mini App Center. If this key is not included, the app's [bundle identifier](https://developer.apple.com/documentation/bundleresources/information_property_list/cfbundleidentifier) will be used.
+	- `GXSuperAppVersion`: String corresponding to the Super App version, to be used at the Mini App Center. If this key is not included, the app's [CFBundleVersion](https://developer.apple.com/documentation/bundleresources/information_property_list/cfbundleversion) will be used.
 	- `GXMiniprogramsEnabled`: Boolean with its value in true. Required to enable the Super App / Mini App functionality in the  [Super App Render](../SuperAppRender.md).
-3. The file [superapp.crt](ExampleSuperApp), corresponding to the public key that verifies the signature of the Mini Apps, once it's downloaded from the Mini Apps Center. It must be an app resource with that name. 
+3. The file [superapp.crt](ExampleSuperApp), corresponding to the public key that verifies the signature of the Mini Apps, once it's downloaded from the Mini App Center. It must be an app resource with that name. 
 	
 
-## Communication API with the Mini Apps Center
+## Communication API with the Mini App Center
 
-To access the Mini Apps that are available on the Mini Apps Center, the class `GXSuperAppProvisioning` is used. It's included in the `GXSuperApp` framework.
+To access the Mini Apps that are available on the Mini App Center, the class `GXSuperAppProvisioning` is used. It's included in the `GXSuperApp` framework.
 
 This class provides four methods to load Mini Apps, using different criteria. 
 In all cases, there are parameters in common:
@@ -31,7 +31,7 @@ In all the cases the return value is an operation that can be cancelled if neces
 ```swift
 	public typealias MiniAppsInfoCompletion = ((Result<[GXObjectsModel.GXMiniAppInformation], GXSuperApp.GXSuperAppProvisioning.ProvisioningError>) -> Void)
 
-    /// Performs a request to the Mini Apps Center for available Mini Apps.
+    /// Performs a request to the Mini App Center for available Mini Apps.
     /// - Parameter text: The string with the search criteria.
     /// - Parameter start: 0-based index from which elements will be returned.
     /// - Parameter count: Maximum number of returned elements ( 0 means all ).
@@ -39,7 +39,7 @@ In all the cases the return value is an operation that can be cancelled if neces
     /// - Returns A cancelable operation.
     open class func miniAppsInfoByText(_ text: String, start: Int, count: Int, completion: @escaping GXSuperApp.GXSuperAppProvisioning.MiniAppsInfoCompletion) -> GXFoundation.GXCancelableOperation
 
-    /// Performs a request to the Mini Apps Center for available Mini Apps that are available inside the given circular region.
+    /// Performs a request to the Mini App Center for available Mini Apps that are available inside the given circular region.
     /// - Parameter center: The center point of the specified region.
     /// - Parameter radius: The radius in meters of the circular region.
     /// - Parameter start: 0-based index from which elements will be returned.
@@ -48,7 +48,7 @@ In all the cases the return value is an operation that can be cancelled if neces
     /// - Returns A cancelable operation.
     open class func miniAppsInfoByLocation(center: CLLocationCoordinate2D, radius: CLLocationDistance, start: Int, count: Int, completion: @escaping GXSuperApp.GXSuperAppProvisioning.MiniAppsInfoCompletion) -> GXFoundation.GXCancelableOperation
 
-    /// Performs a request to the Mini Apps Center for available Mini Apps with the given tag.
+    /// Performs a request to the Mini App Center for available Mini Apps with the given tag.
     /// - Parameter tag: The tag to search for (exact match).
     /// - Parameter start: 0-based index from which elements will be returned.
     /// - Parameter count: Maximum number of returned elements ( 0 means all ).
@@ -56,14 +56,14 @@ In all the cases the return value is an operation that can be cancelled if neces
     /// - Returns A cancelable operation.
     open class func miniAppsInfoByTag(tag: String, start: Int, count: Int, completion: @escaping GXSuperApp.GXSuperAppProvisioning.MiniAppsInfoCompletion) -> GXFoundation.GXCancelableOperation
 
-    /// Performs a request to the Mini Apps Center for available featured Mini Apps.
+    /// Performs a request to the Mini App Center for available featured Mini Apps.
     /// - Parameter start: 0-based index from which elements will be returned.
     /// - Parameter count: Maximum number of returned elements ( 0 means all ).
     /// - Parameter completion: Completion handler for the result.
     /// - Returns A cancelable operation.
     open class func featuredMiniAppsInfo(start: Int, count: Int, completion: @escaping GXSuperApp.GXSuperAppProvisioning.MiniAppsInfoCompletion) -> GXFoundation.GXCancelableOperation
 
-    /// Performs a request to the Mini Apps Center for an available Mini App with the given identifier.
+    /// Performs a request to the Mini App Center for an available Mini App with the given identifier.
     /// - Parameter id: The Mini App identifier to look for.
     /// - Parameter completion: Completion handler for the result.
     /// - Returns A cancelable operation.
@@ -79,28 +79,28 @@ In all cases, the error can be one of three types:
 ```swift
     public enum ProvisioningError : Error {
 
-        /// Request to the Mini Apps Center was invalid with a description.
+        /// Request to the Mini App Center was invalid with a description.
         case invalidRequest(String)
 
         /// Request failed due to a network error with an inner error.
         case networkError(Error)
 
-        /// Mini Apps Center response was invalid with a description.
+        /// Mini App Center response was invalid with a description.
         case invalidResponse(String)
     }
 ```
     
 - `invalidRequest` is an error in the caller. It includes a message to the developer with its cause. 
-- `networkError` is a network error in communication with the Mini Apps Center, including an internal error. This case should be handled accordingly, as it is likely to occur in the final app, depending on the network conditions of the device. 
-- `invalidResponse` is an invalid response from the Mini Apps Center. It includes a message to the developer with its cause. 
+- `networkError` is a network error in communication with the Mini App Center, including an internal error. This case should be handled accordingly, as it is likely to occur in the final app, depending on the network conditions of the device. 
+- `invalidResponse` is an invalid response from the Mini App Center. It includes a message to the developer with its cause. 
 
 ## Mini App upload API
 
-Once the Mini Apps information have been obtained from the Mini Apps Center, the class `GXMiniAppsManager`, which is included in the `GXSuperApp`, is used to load them.
-The `loadMiniApp(info:completion)` method receives the Mini App's information obtained from the Mini Apps Center as its first parameter, and a callback at the end the operation as its second parameter, which can include an error if the loading failed for some reason (for example if the signature is not valid). 
+Once the Mini Apps information have been obtained from the Mini App Center, the class `GXMiniAppsManager`, which is included in the `GXSuperApp`, is used to load them.
+The `loadMiniApp(info:completion)` method receives the Mini App's information obtained from the Mini App Center as its first parameter, and a callback at the end the operation as its second parameter, which can include an error if the loading failed for some reason (for example if the signature is not valid). 
 
 ```swift
-    /// Loads a Mini app and transitions to it.
+    /// Loads a Mini App and transitions to it.
     /// - Parameter info: Mini App information to be loaded
     /// - Parameter completion: Completion handler.
     /// - Note: Mini App information is provided to the Super App by the Mini App Center. See *GXSuperAppProvisioning*.
@@ -126,8 +126,8 @@ When there is a new version of the Mini App published in the Mini App Center, th
 
 In the Super App configuration file ([Info.plist](ExampleSuperApp/Info.plist)) these two properties can be set:
 
-   - `GXMiniAppCacheMaxCount`: Value (numeric) to specify the number of mini-apps that will be kept in the Super App cache. Zero means there is no limit. Otherwise, if the indicated number of Mini apps in the cache is reached, then the oldest one is deleted before adding a new one.
-   - `GXMiniAppCacheMaxDays`: Value (numeric) to specify the number of days each Mini App cache will be kept. Zero means that there is no time limit, otherwise, the time must be counted from the last use of the Mini app, not from the date it was downloaded.
+   - `GXMiniAppCacheMaxCount`: Value (numeric) to specify the number of Mini Apps that will be kept in the Super App cache. Zero means there is no limit. Otherwise, if the indicated number of Mini Apps in the cache is reached, then the oldest one is deleted before adding a new one.
+   - `GXMiniAppCacheMaxDays`: Value (numeric) to specify the number of days each Mini App cache will be kept. Zero means that there is no time limit, otherwise, the time must be counted from the last use of the Mini App, not from the date it was downloaded.
 
 #### Programmatically using the Mini App Cache API
 
@@ -135,7 +135,7 @@ To manually manage the Mini Apps cache, functionality is provided in the `GXMini
 A method to get a list of the Mini Apps in the cache is included (`cachedMiniApps`), one to delete a specific Mini App from the cache (`removeCachedMiniApp`), and another one to delete all the Mini Apps from the cache (`clearCachedMiniApps`).
 
 ```swift
-    /// Queries the file system for cached mini apps.
+    /// Queries the file system for cached Mini Apps.
     /// - Returns: Collection of cached Mini Apps.
     /// - Note: Performs several file IO operations depending on the number of cached Mini Apps. To avoid blocking the main thread, consider calling on a background queue.
     open class func cachedMiniApps() throws -> [GXSuperApp.GXCachedMiniApp]
@@ -154,4 +154,4 @@ A method to get a list of the Mini Apps in the cache is included (`cachedMiniApp
     
 Practical usage examples are available in [CacheViewController.swift](ExampleSuperApp/CacheViewController.swift).
 
-In any other case, the mini app is kept in the cache indefinitely and the OS itself could remove it from the cache at its discretion since it is stored in a temporary directory.
+In any other case, the Mini App is kept in the cache indefinitely and the OS itself could remove it from the cache at its discretion since it is stored in a temporary directory.

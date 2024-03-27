@@ -11,7 +11,7 @@ For Mini App Test & Review:
 
 For Production Environment:
 
-4. Integrate the **module to access the Mini Apps Center**, so as to get the Mini Apps and be able to load a Mini App
+4. Integrate the **module to access the Mini App Center**, so as to get the Mini Apps and be able to load a Mini App
 5. Design the UX for the discovery of those Mini Apps
 
 ## Integrate the [Super App Render](/docs/SuperAppRender.md) library.
@@ -24,7 +24,7 @@ A Mini App can require certain actions from its Super App. To do this, these ser
 
 As an example, let's suppose there's a Super App associated with a financial institution where the users register their different means of payment, among other things.
 
-The Super App offers its users a variety of services (shopping in stores, paying for transport, etc.) through different Mini Apps. The user carries out the purchase process from the Mini App, but at the moment of paying they will be redirected to the Super App so as to choose the payment method. Once the payment is completed, the result of the operation is returned to the Miini App. In this way, the user not only does not have to enter their payment methods in each of the services, but also the Super App does not share that information with the mini apps.
+The Super App offers its users a variety of services (shopping in stores, paying for transport, etc.) through different Mini Apps. The user carries out the purchase process from the Mini App, but at the moment of paying they will be redirected to the Super App so as to choose the payment method. Once the payment is completed, the result of the operation is returned to the Miini App. In this way, the user not only does not have to enter their payment methods in each of the services, but also the Super App does not share that information with the Mini Apps.
 
 There are 2 examples of how to integrate the Super App Render component into a native application in this repository:
 
@@ -39,9 +39,9 @@ In production, the way to load a Mini App within the Super App is through the se
 Using the [Sandbox mode](CreateSuperAppSandboxMode.md), your Mini App providers will be able to Test a Mini App, and you will be able to Review a Mini App within the Super App before it is published.
 
 
-## Access to the Mini Apps Center to get the Mini Apps and UX design for their discovery.
+## Access to the Mini App Center to get the Mini Apps and UX design for their discovery.
 
-To get the list of Mini Apps available for the Super App, the communication API with the Mini Apps Center of the [Super App Render](/docs/SuperAppRender.md) is used.
+To get the list of Mini Apps available for the Super App, the communication API with the Mini App Center of the [Super App Render](/docs/SuperAppRender.md) is used.
 
 - [iOS example](/iOS/README.md)
 - [Android example](/Android/README.md)
