@@ -4,6 +4,8 @@ import com.genexus.android.core.base.metadata.expressions.Expression
 import com.genexus.android.core.base.model.Entity
 import com.genexus.android.core.base.model.EntityFactory
 import com.genexus.android.core.base.model.EntityList
+import com.genexus.android.core.base.services.Services
+import com.genexus.android.core.superapps.MiniApp
 import kotlin.collections.HashMap
 
 object PaymentsService {
@@ -18,7 +20,13 @@ object PaymentsService {
 			return entityList
 
 		for (map in list) {
-			val entity = EntityFactory.newSdt(SDT_PAYMENT_INFORMATION).apply {
+			val entity = if (Services.Application.miniApp?.type == MiniApp.Type.Native) {
+				EntityFactory.newSdt(SDT_PAYMENT_INFORMATION)
+			} else {
+				EntityFactory.newEntity()
+			}
+
+			entity.apply {
 				setProperty(SDT_PAYMENT_INFORMATION_ITEM_BRAND, map[SDT_PAYMENT_INFORMATION_ITEM_BRAND])
 				setProperty(SDT_PAYMENT_INFORMATION_ITEM_AFFINITY, map[SDT_PAYMENT_INFORMATION_ITEM_AFFINITY])
 				setProperty(SDT_PAYMENT_INFORMATION_ITEM_TYPE, map[SDT_PAYMENT_INFORMATION_ITEM_TYPE])
