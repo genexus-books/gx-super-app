@@ -1,6 +1,6 @@
 # SuperApp Example
 
-This document explains how to develop and integrate the functionality that provides the API for access to the Mini Apps Center, as well as the API for managing their cache, based on the `MiniAppCaller` example.
+This document explains how to develop and integrate the functionality that provides the API for access to the Mini App Center, as well as the API for managing their cache, based on the `MiniAppCaller` example.
 
 ## Setting
 
@@ -8,17 +8,17 @@ There are certain initial configuration steps in the project:
 
 1. Integration of the [Android libraries](GeneXus%20Libraries/README.md) corresponding to [Super App Render](../SuperAppRender.md)
 2. Set the values in the app's [superapp_json](MiniAppCaller/app/src/main/res/raw/superapp_json) file:
-	- `GXSuperAppProvisioningURL`: String corresponding to the [Mini Apps Center's](../Provisioning.md) URL of the Mini Apps.
-	- `GXSuperAppId`: String corresponding to the Super App identifier, to be used at the Mini Apps Center. If this key is not included, the app's [Package Name](https://developer.android.com/reference/android/content/Context#getPackageName()) will be used.  
-	- `GXSuperAppVersion`: String corresponding to the Super App identifier, to be used at the Mini Apps Center. If this key is not included, the app's [Version Code](https://developer.android.com/reference/android/content/pm/PackageInfo#getLongVersionCode()) will be used.
-3. The public key that verifies the signature of the Mini Apps. It's downloaded from the Mini Apps Center and must be placed in the app's resources under the name [superapp_crt](MiniAppCaller/app/src/main/res/raw/superapp_crt) 
+	- `GXSuperAppProvisioningURL`: String corresponding to the [Mini App Center's](../docs/Provisioning.md) URL of the Mini Apps.
+	- `GXSuperAppId`: String corresponding to the Super App identifier, to be used at the Mini App Center. If this key is not included, the app's [Package Name](https://developer.android.com/reference/android/content/Context#getPackageName()) will be used.  
+	- `GXSuperAppVersion`: String corresponding to the Super App identifier, to be used at the Mini App Center. If this key is not included, the app's [Version Code](https://developer.android.com/reference/android/content/pm/PackageInfo#getLongVersionCode()) will be used.
+3. The public key that verifies the signature of the Mini Apps. It's downloaded from the Mini App Center and must be placed in the app's resources under the name [superapp_crt](MiniAppCaller/app/src/main/res/raw/superapp_crt) 
    
-## Communication API with the Mini Apps Center
+## Communication API with the Mini App Center
 
-To access the Mini Apps that are available on the Mini Apps Center, the class `SuperAppsHelper` is used. It's included in the `SuperAppsLib` library and accessed via the `Services.SuperApps` static field after [registering the `SuperAppsLib` module](https://github.com/genexus-colab/gx-super-app-backup/blob/d63a20f0ba839914c915fdd09aa9102946d021c2/Android/MiniAppCaller/app/src/main/java/com/genexus/superapps/bankx/application/BankingApplication.kt#L29) in the initialization of the class that extends `Application`.
+To access the Mini Apps that are available on the Mini App Center, the class `SuperAppsHelper` is used. It's included in the `SuperAppsLib` library and accessed via the `Services.SuperApps` static field after [registering the `SuperAppsLib` module](https://github.com/genexus-colab/gx-super-app-backup/blob/d63a20f0ba839914c915fdd09aa9102946d021c2/Android/MiniAppCaller/app/src/main/java/com/genexus/superapps/bankx/application/BankingApplication.kt#L29) in the initialization of the class that extends `Application`.
 
 This class provides five methods to load Mini Apps, using different criteria. 
-The first returns only one mini-app, the rest returns a collection of Mini Apps and therefore has these 2 parameters in common:
+The first returns only one Mini App, the rest returns a collection of Mini Apps and therefore has these 2 parameters in common:
 
 - `start: Int` 0-based index of the start of the page.
 - `count: Int` the number of elements to load (0 corresponds to unlimited).
@@ -27,14 +27,14 @@ In all the cases the return value is a `Task<MiniAppCollection, SearchError>`, t
 
 ```kotlin
     /**
-     * Performs a request to the Mini Apps Center for an available Mini App with the given identifier.
+     * Performs a request to the Mini App Center for an available Mini App with the given identifier.
      * @param id The Mini App identifier to look for.
      * @return A cancelable Task
      */
     fun searchById(id: String): Task<MiniAppCollection, SearchError>
 
     /**
-     * Performs a request to the Mini Apps Center for available Mini Apps given the text.
+     * Performs a request to the Mini App Center for available Mini Apps given the text.
      * @param text The string with the search criteria.
      * @param start 0-based index from which elements will be returned.
      * @param count Maximum number of returned elements (0 means no limit).
@@ -43,7 +43,7 @@ In all the cases the return value is a `Task<MiniAppCollection, SearchError>`, t
     fun searchByText(text: String, start: Int, count: Int): Task<MiniAppCollection, SearchError>
 
     /**
-     * Performs a request to the Mini Apps Center for available Mini Apps that are available inside the given circular region.
+     * Performs a request to the Mini App Center for available Mini Apps that are available inside the given circular region.
      * @param center The center point of the specified region.
      * @param radius The radius in meters of the circular region.
      * @param start 0-based index from which elements will be returned.
@@ -53,7 +53,7 @@ In all the cases the return value is a `Task<MiniAppCollection, SearchError>`, t
     fun searchByLocation(center: Location, radius: Int, start: Int, count: Int): Task<MiniAppCollection, SearchError>
 
     /**
-     * Performs a request to the Mini Apps Center for available Mini Apps given the tag.
+     * Performs a request to the Mini App Center for available Mini Apps given the tag.
      * @param tag The tag to search for (exact match).
      * @param start 0-based index from which elements will be returned.
      * @param count Maximum number of returned elements (0 means no limit).
@@ -62,12 +62,28 @@ In all the cases the return value is a `Task<MiniAppCollection, SearchError>`, t
     fun searchByTag(tag: String, start: Int, count: Int): Task<MiniAppCollection, SearchError>
 
     /**
-     * Performs a request to the Mini Apps Center for available featured Mini Apps.
+     * Performs a request to the Mini App Center for available featured Mini Apps.
      * @param start 0-based index from which elements will be returned.
      * @param count Maximum number of returned elements (0 means no limit).
      * @return A cancelable Task
      */
     fun searchFeatured(start: Int, count: Int): Task<MiniAppCollection, SearchError>
+
+    /**
+     * Performs a request to the Mini App Center for available Mini Apps given the filters.
+     * @param miniAppFilters Filter collection to apply to the search. It can contain multiple criteria.
+     *     Example of usage:
+     *     ```
+     *     val miniAppFilters = MiniAppFilters().apply {
+     *         add(MiniAppFilter("Field Name", MiniAppFilter.Operator.Equal, mutableListOf("Test Mini App Name")))
+     *     }
+     *     ```
+     *     This creates a filter that searches for Mini Apps with "Field Name" equals to "Test Mini App Name".
+     * @param start 0-based index from which elements will be returned.
+     * @param count Maximum number of returned elements (0 means no limit).
+     * @return A cancelable Task
+     */
+    fun searchByFilters(miniAppFilters: MiniAppFilters, start: Int, count: Int): Task<MiniAppCollection, SearchError>
 ```
 
 ### Error handling
@@ -83,13 +99,13 @@ In all cases within the `OnFailureListener` Listener, the error can be one of th
 ```
     
 - `INVALID_REQUEST` is an error in the caller.
-- `NETWORK_ERROR` is a network error in communication with the Mini Apps Center.
-- `INVALID_RESPONSE` is an invalid response from the Mini Apps Center.
+- `NETWORK_ERROR` is a network error in communication with the Mini App Center.
+- `INVALID_RESPONSE` is an invalid response from the Mini App Center.
 
 ## Mini App upload API
 
-Once the Mini Apps have been obtained from the Mini Apps Center, the same `SuperAppsHelper` class is used to load one of them. 
-The `load` method receives the Mini App's information from the Mini Apps Center as a parameter and returns a `Task<Boolean, LoadError>`, which also accepts the Listeners' registry for handling results. 
+Once the Mini Apps have been obtained from the Mini App Center, the same `SuperAppsHelper` class is used to load one of them. 
+The `load` method receives the Mini App's information from the Mini App Center as a parameter and returns a `Task<Boolean, LoadError>`, which also accepts the Listeners' registry for handling results. 
 
 ```kotlin
     /**
@@ -134,8 +150,8 @@ When there is a new version of the Mini App published in the Mini App Center, th
 
 In the Super App configuration file ([superapp_json](MiniAppCaller/GenexusTestMiniApps/src/main/res/raw/superapp_json)) these two properties can be set:
 
-   - `GXMiniAppCacheMaxCount`: Value (numeric) to specify the number of mini-apps that will be kept in the Super App cache. Zero means there is no limit. Otherwise, if the indicated number of Mini apps in the cache is reached, then the oldest one is deleted before adding a new one.
-   - `GXMiniAppCacheMaxDays`: Value (numeric) to specify the number of days each Mini App cache will be kept. Zero means that there is no time limit, otherwise, the time must be counted from the last use of the Mini app, not from the date it was downloaded.
+   - `GXMiniAppCacheMaxCount`: Value (numeric) to specify the number of Mini Apps that will be kept in the Super App cache. Zero means there is no limit. Otherwise, if the indicated number of Mini Apps in the cache is reached, then the oldest one is deleted before adding a new one.
+   - `GXMiniAppCacheMaxDays`: Value (numeric) to specify the number of days each Mini App cache will be kept. Zero means that there is no time limit, otherwise, the time must be counted from the last use of the Mini App, not from the date it was downloaded.
 
 #### Programmatically using the Mini App Cache API
 
@@ -145,7 +161,7 @@ A method to get a list of the Mini Apps in the cache is included, one to delete 
 
 ```kotlin
     /**
-     * Queries the file system for cached mini apps.
+     * Queries the file system for cached Mini Apps.
      * Avoid calling from the main Thread as it performs several file IO operations.
      * @return The cached Mini Apps collection.
      */
@@ -168,4 +184,4 @@ A method to get a list of the Mini Apps in the cache is included, one to delete 
     fun clearCache(): Boolean
 ```
 
-In any other case, the mini app is kept in the cache indefinitely and the OS itself could remove it from the cache at its discretion since it is stored in a temporary directory.
+In any other case, the Mini App is kept in the cache indefinitely and the OS itself could remove it from the cache at its discretion since it is stored in a temporary directory.
