@@ -8,15 +8,15 @@ In the context where both the Super App and the Mini App support Single Sign-On 
 
 1. **Invocation of the Identity Provider (IdP) by the Super App**: When loading a Mini App, the Super App invokes a URL on its backend, which serves as the Identity Provider (IdP), to obtain the authentication token required for SSO.
 
-2. **Token Generation within the Mini App**: Once the Super App retrieves the token from the IdP, it is generated within the Mini App. This token is unique to the user and the specific Mini App being accessed.
+2. **Token generation within the Mini App**: Once the Super App retrieves the token from the IdP, it is generated within the Mini App. This token is unique to the user and the specific Mini App being accessed.
 
-3. **Token Transmission in Different Scenarios**:
+3. **Token transmission in different Scenarios**:
    
    - **For Native GX Mini Apps with GAM Integration**: If the Mini App is a Native GeneXus App integrated with [Genexus Access Manager (GAM)](https://wiki.genexus.com/commwiki/wiki?24746,Table+of+contents%3AGeneXus+Access+Manager+%28GAM%29), the Super App Render itself sends this token when invoking backend services of the Mini App that require authentication.
    
    - **For Web or Custom Authentication Mini Apps**: If the Mini App is a Web application or uses another authentication mechanism (not GAM), the Super App provides the token to the Mini App by passing the token in the header during the invocation of the EntryPointURL for Web Mini Apps, or during the call to services for native Mini Apps. In this way, the Mini App developer is responsible for including this token in the invocation of secure services.
 
-4. **Token Verification by the Mini-App Backend**: Upon receiving the token, the backend of the Mini App verifies it against the IdP of the Super App to ensure the authenticity and authorization of the user.
+4. **Token verification by the Mini App Backend**: Upon receiving the token, the backend of the Mini App verifies it against the IdP of the Super App to ensure the authenticity and authorization of the user.
 
 This process ensures seamless authentication and access to Mini Apps within the Super App ecosystem, enhancing user experience and security across the platform.
 
