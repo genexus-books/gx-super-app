@@ -20,7 +20,7 @@ Repository URLs:
 Dependencies for the "Beta" branch are also available on Azure Artifacts. Use the designated Azure Artifacts URL in your configuration to access these dependencies.
 
 Repository URLs: 
-- https://pkgs.dev.azure.com/genexuslabs/155eaada-eb3c-418f-9c98-dcbcffffae50/_packaging/android-preleases/maven/v1
+- https://pkgs.dev.azure.com/genexuslabs/155eaada-eb3c-418f-9c98-dcbcffffae50/_packaging/android-prereleases/maven/v1
 - https://pkgs.dev.azure.com/genexuslabs/3361ab3b-96bc-4a69-a37a-f2b255ff2f35/_packaging/snapshots/maven/v1
 
 
