@@ -66,6 +66,21 @@ In all the cases the return value is an operation that can be cancelled if neces
     /// - Returns A cancelable operation.
     open class func featuredMiniAppsInfo(start: Int, count: Int, completion: @escaping GXSuperApp.GXSuperAppProvisioning.MiniAppsInfoCompletion) -> GXFoundation.GXCancelableOperation
 
+    /// Performs a request to the Mini App Center for available Mini Apps given the filters.
+    /// - Parameter miniAppFilters: Filter collection to apply to the search. It can contain multiple criteria.
+    ///   Example of usage:
+    ///   ```
+    ///   let miniAppFilters: [GXSuperAppProvisioning.MiniAppFilter] = [
+    ///       .init(field: "Field Name", operator: .equals, values: ["Test Mini App Name"])
+    ///   ]
+    ///   ```
+    ///   This creates a filter that searches for Mini Apps with "Field Name" equals to "Test Mini App Name".
+    /// - Parameter start: 0-based index from which elements will be returned.
+    /// - Parameter count: Maximum number of returned elements ( 0 means all ).
+    /// - Parameter completion: Completion handler for the result.
+    /// - Returns A cancelable operation.
+    open class func miniAppsInfoByFilters(miniAppFilters: [MiniAppFilter], start: Int, count: Int, completion: @escaping GXSuperApp.GXSuperAppProvisioning.MiniAppsInfoCompletion) -> GXFoundation.GXCancelableOperation
+
     /// Performs a request to the Mini App Center for an available Mini App with the given identifier.
     /// - Parameter id: The Mini App identifier to look for.
     /// - Parameter completion: Completion handler for the result.
