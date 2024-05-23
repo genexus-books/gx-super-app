@@ -1,6 +1,6 @@
 # iOS Super App Example 
 
-This document explains how to develop and integrate the functionality that provides the API for access to the Mini App Center, as well as the API for managing their cache, based on the `ExampleSuperApp.xcodeproj` example. 
+This document explains how to develop and integrate the functionality that provides the API for accessing the Mini App Center, as well as the API for managing their cache, based on the `ExampleSuperApp.xcodeproj` example. 
 
 ## Setting
 
@@ -99,9 +99,9 @@ In all the cases the return value is an operation that can be cancelled if neces
 
 For general information on how GetByFilters works, please refer to:
 
-- [General information](https://wiki.genexus.com/commwiki/wiki?57960,Provisioning.GetByFilters+method).
-- [How to configure attributes in Super Apps](https://wiki.genexus.com/commwiki/wiki?53316,HowTo%3A+Create+a+Super+App+on+the+Mini+App+Center#Attribute+Configuration+in+Super+Apps).
-- [How to instantiate attribute values at the Mini App Version level](https://wiki.genexus.com/commwiki/wiki?53318,HowTo%3A+Upload+a+Mini+App+version+to+the+Mini+App+Center#Instantiate+attribute+values+at+the+Mini+App+Version+level).
+- [General information](https://wiki.genexus.com/commwiki/wiki?57960,Provisioning.GetByFilters)
+- [How to configure attributes in Super Apps](https://wiki.genexus.com/commwiki/wiki?53316,HowTo%3A+Create+a+Super+App+on+the+Mini+App+Center#Attribute+Configuration+in+Super+Apps)
+- [How to instantiate attribute values at the Mini App Version level](https://wiki.genexus.com/commwiki/wiki?53318,HowTo%3A+Upload+a+Mini+App+version+to+the+Mini+App+Center#Instantiate+attribute+values+at+the+Mini+App+Version+level)
 
 Practical usage examples are available in the source [ProvisioningViewController.swift](ExampleSuperApp/ProvisioningViewController.swift).
 
@@ -129,7 +129,7 @@ In all cases, the error can be one of three types:
 
 ## Mini App upload API
 
-Once the Mini Apps information have been obtained from the Mini App Center, the class `GXMiniAppsManager`, which is included in the `GXSuperApp`, is used to load them.
+Once the Mini Apps information has been obtained from the Mini App Center, the class `GXMiniAppsManager`, which is included in the `GXSuperApp`, is used to load them.
 The `loadMiniApp(info:completion)` method receives the Mini App's information obtained from the Mini App Center as its first parameter, and a callback at the end the operation as its second parameter, which can include an error if the loading failed for some reason (for example if the signature is not valid). 
 
 ```swift

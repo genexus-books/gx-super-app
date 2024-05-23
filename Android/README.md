@@ -1,6 +1,6 @@
 # Android Super App Example
 
-This document explains how to develop and integrate the functionality that provides the API for access to the Mini App Center, as well as the API for managing their cache, based on the `MiniAppCaller` example.
+This document explains how to develop and integrate the functionality that provides the API for accessing the Mini App Center, as well as the API for managing their cache, based on the `MiniAppCaller` example.
 
 ## Setting
 
@@ -97,9 +97,9 @@ In all the cases the return value is a `Task<MiniAppCollection, SearchError>`, t
 ```
 For general information on how GetByFilters works, please refer to:
 
-- [General information](https://wiki.genexus.com/commwiki/wiki?57960,Provisioning.GetByFilters+method).
-- [How to configure attributes in Super Apps](https://wiki.genexus.com/commwiki/wiki?53316,HowTo%3A+Create+a+Super+App+on+the+Mini+App+Center#Attribute+Configuration+in+Super+Apps).
-- [How to instantiate attribute values at the Mini App Version level](https://wiki.genexus.com/commwiki/wiki?53318,HowTo%3A+Upload+a+Mini+App+version+to+the+Mini+App+Center#Instantiate+attribute+values+at+the+Mini+App+Version+level).
+- [General information](https://wiki.genexus.com/commwiki/wiki?57960,Provisioning.GetByFilters)
+- [How to configure attributes in Super Apps](https://wiki.genexus.com/commwiki/wiki?53316,HowTo%3A+Create+a+Super+App+on+the+Mini+App+Center#Attribute+Configuration+in+Super+Apps)
+- [How to instantiate attribute values at the Mini App Version level](https://wiki.genexus.com/commwiki/wiki?53318,HowTo%3A+Upload+a+Mini+App+version+to+the+Mini+App+Center#Instantiate+attribute+values+at+the+Mini+App+Version+level)
 
 ### Error handling
 
