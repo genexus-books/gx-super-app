@@ -87,7 +87,7 @@ Thus, you can also turn any native mobile application into a Super App, obtainin
 
 There are three key components to consider when building a Super App:
 
-- The [Super App development](CreateSuperApp.md)
+- The [Super App development](HowToTransformYourAppToASuperApp.md)
 - The [Mini Apps development](MiniApp.md)
 - The [Mini App Center](Provisioning.md) or Mini App provisioning
 
