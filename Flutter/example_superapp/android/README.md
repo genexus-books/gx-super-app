@@ -1,4 +1,4 @@
-# SuperApp Example
+# Flutter Android Super App Example
 
 This document explains how to develop and integrate the functionality that provides the API for access to the Mini App Center, as well as the API for managing their cache, based on the `MiniAppCaller` example.
 
