@@ -1,6 +1,6 @@
-# SuperApp Example 
+# iOS Super App Example 
 
-This document explains how to develop and integrate the functionality that provides the API for access to the Mini App Center, as well as the API for managing their cache, based on the `ExampleSuperApp.xcodeproj` example. 
+This document explains how to develop and integrate the functionality that provides the API for accessing the Mini App Center, as well as the API for managing their cache, based on the `ExampleSuperApp.xcodeproj` example. 
 
 ## Setting
 
@@ -29,8 +29,18 @@ In all cases, there are parameters in common:
 In all the cases the return value is an operation that can be cancelled if necessary. 
 
 ```swift
-	public typealias MiniAppsInfoCompletion = ((Result<[GXObjectsModel.GXMiniAppInformation], GXSuperApp.GXSuperAppProvisioning.ProvisioningError>) -> Void)
+    public typealias MiniAppsInfoCompletion = ((Result<[GXObjectsModel.GXMiniAppInformation], GXSuperApp.GXSuperAppProvisioning.ProvisioningError>) -> Void)
+```
 
+```swift
+    /// Performs a request to the Mini App Center for an available Mini App with the given identifier.
+    /// - Parameter id: The Mini App identifier to look for.
+    /// - Parameter completion: Completion handler for the result.
+    /// - Returns A cancelable operation.
+    open class func miniAppInfoById(id: String, completion: @escaping GXSuperApp.GXSuperAppProvisioning.OptionalMiniAppInfoCompletion) -> GXFoundation.GXCancelableOperation
+```
+
+```swift
     /// Performs a request to the Mini App Center for available Mini Apps.
     /// - Parameter text: The string with the search criteria.
     /// - Parameter start: 0-based index from which elements will be returned.
@@ -38,7 +48,9 @@ In all the cases the return value is an operation that can be cancelled if neces
     /// - Parameter completion: Completion handler for the result.
     /// - Returns A cancelable operation.
     open class func miniAppsInfoByText(_ text: String, start: Int, count: Int, completion: @escaping GXSuperApp.GXSuperAppProvisioning.MiniAppsInfoCompletion) -> GXFoundation.GXCancelableOperation
+```
 
+```swift
     /// Performs a request to the Mini App Center for available Mini Apps that are available inside the given circular region.
     /// - Parameter center: The center point of the specified region.
     /// - Parameter radius: The radius in meters of the circular region.
@@ -47,7 +59,9 @@ In all the cases the return value is an operation that can be cancelled if neces
     /// - Parameter completion: Completion handler for the result.
     /// - Returns A cancelable operation.
     open class func miniAppsInfoByLocation(center: CLLocationCoordinate2D, radius: CLLocationDistance, start: Int, count: Int, completion: @escaping GXSuperApp.GXSuperAppProvisioning.MiniAppsInfoCompletion) -> GXFoundation.GXCancelableOperation
+```
 
+```swift
     /// Performs a request to the Mini App Center for available Mini Apps with the given tag.
     /// - Parameter tag: The tag to search for (exact match).
     /// - Parameter start: 0-based index from which elements will be returned.
@@ -55,20 +69,39 @@ In all the cases the return value is an operation that can be cancelled if neces
     /// - Parameter completion: Completion handler for the result.
     /// - Returns A cancelable operation.
     open class func miniAppsInfoByTag(tag: String, start: Int, count: Int, completion: @escaping GXSuperApp.GXSuperAppProvisioning.MiniAppsInfoCompletion) -> GXFoundation.GXCancelableOperation
+```
 
+```swift
     /// Performs a request to the Mini App Center for available featured Mini Apps.
     /// - Parameter start: 0-based index from which elements will be returned.
     /// - Parameter count: Maximum number of returned elements ( 0 means all ).
     /// - Parameter completion: Completion handler for the result.
     /// - Returns A cancelable operation.
     open class func featuredMiniAppsInfo(start: Int, count: Int, completion: @escaping GXSuperApp.GXSuperAppProvisioning.MiniAppsInfoCompletion) -> GXFoundation.GXCancelableOperation
+```
 
-    /// Performs a request to the Mini App Center for an available Mini App with the given identifier.
-    /// - Parameter id: The Mini App identifier to look for.
+```swift
+    /// Performs a request to the Mini App Center for available Mini Apps given the filters.
+    /// - Parameter miniAppFilters: Filter collection to apply to the search. It can contain multiple criteria.
+    ///   Example of usage:
+    ///   ```
+    ///   let miniAppFilters: [GXSuperAppProvisioning.MiniAppFilter] = [
+    ///       .init(field: "Field Name", operator: .equals, values: ["Test Mini App Name"])
+    ///   ]
+    ///   ```
+    ///   This creates a filter that searches for Mini Apps with "Field Name" equals to "Test Mini App Name".
+    /// - Parameter start: 0-based index from which elements will be returned.
+    /// - Parameter count: Maximum number of returned elements ( 0 means all ).
     /// - Parameter completion: Completion handler for the result.
     /// - Returns A cancelable operation.
-    open class func miniAppInfoById(id: String, completion: @escaping GXSuperApp.GXSuperAppProvisioning.OptionalMiniAppInfoCompletion) -> GXFoundation.GXCancelableOperation
+    open class func miniAppsInfoByFilters(miniAppFilters: [MiniAppFilter], start: Int, count: Int, completion: @escaping GXSuperApp.GXSuperAppProvisioning.MiniAppsInfoCompletion) -> GXFoundation.GXCancelableOperation
 ```
+
+For general information on how GetByFilters works, please refer to:
+
+- [General information](https://wiki.genexus.com/commwiki/wiki?57960,Provisioning.GetByFilters)
+- [How to configure attributes in Super Apps](https://wiki.genexus.com/commwiki/wiki?53316,HowTo%3A+Create+a+Super+App+on+the+Mini+App+Center#Attribute+Configuration+in+Super+Apps)
+- [How to instantiate attribute values at the Mini App Version level](https://wiki.genexus.com/commwiki/wiki?53318,HowTo%3A+Upload+a+Mini+App+version+to+the+Mini+App+Center#Instantiate+attribute+values+at+the+Mini+App+Version+level)
 
 Practical usage examples are available in the source [ProvisioningViewController.swift](ExampleSuperApp/ProvisioningViewController.swift).
 
@@ -96,7 +129,7 @@ In all cases, the error can be one of three types:
 
 ## Mini App upload API
 
-Once the Mini Apps information have been obtained from the Mini App Center, the class `GXMiniAppsManager`, which is included in the `GXSuperApp`, is used to load them.
+Once the Mini Apps information has been obtained from the Mini App Center, the class `GXMiniAppsManager`, which is included in the `GXSuperApp`, is used to load them.
 The `loadMiniApp(info:completion)` method receives the Mini App's information obtained from the Mini App Center as its first parameter, and a callback at the end the operation as its second parameter, which can include an error if the loading failed for some reason (for example if the signature is not valid). 
 
 ```swift
