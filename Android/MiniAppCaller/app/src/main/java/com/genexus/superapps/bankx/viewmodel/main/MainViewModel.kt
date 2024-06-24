@@ -65,13 +65,16 @@ class MainViewModel : ViewModel() {
 
         Services.SuperApps.load(miniApp, options).addOnCompleteListener(object : OnCompleteListener<Boolean, LoadError> {
             override fun onComplete(task: Task<Boolean, LoadError>) {
-                if (!task.isSuccessful) {
-                    _state.value = if (task.error == LoadError.AUTHORIZATION)
-                        State.Error("MiniApp access token not valid")
-                    else
-                        State.Error("MiniApp loading failed")
+                if (task.isSuccessful)
+                    return
+
+                val message = when (task.error) {
+                    LoadError.AUTHORIZATION_TOKEN -> "MiniApp access token not valid"
+                    LoadError.AUTHORIZATION_SCOPES -> "MiniApp requested scopes '${task.extra.toString()}' not granted"
+                    else -> "MiniApp loading failed"
                 }
 
+                _state.value = State.Error(message)
             }
         })
     }
