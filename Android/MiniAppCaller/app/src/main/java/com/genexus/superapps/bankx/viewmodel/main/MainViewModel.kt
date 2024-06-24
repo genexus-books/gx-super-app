@@ -15,6 +15,7 @@ import com.genexus.android.core.superapps.MiniAppCollection
 import com.genexus.android.core.superapps.errors.LoadError
 import com.genexus.android.core.superapps.errors.SearchError
 import com.genexus.android.core.tasking.OnCompleteListener
+import com.genexus.android.core.tasking.OnFailureListener
 import com.genexus.android.core.tasking.Task
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -63,14 +64,11 @@ class MainViewModel : ViewModel() {
             LoadingOptions.Builder().withSecurityOptions(securityOptions).build()
         }
 
-        Services.SuperApps.load(miniApp, options).addOnCompleteListener(object : OnCompleteListener<Boolean, LoadError> {
-            override fun onComplete(task: Task<Boolean, LoadError>) {
-                if (task.isSuccessful)
-                    return
-
-                val message = when (task.error) {
+        Services.SuperApps.load(miniApp, options).addOnFailureListener(object : OnFailureListener<LoadError> {
+            override fun onFailure(error: LoadError, extra: Any?) {
+                val message = when (error) {
                     LoadError.AUTHORIZATION_TOKEN -> "MiniApp access token not valid"
-                    LoadError.AUTHORIZATION_SCOPES -> "MiniApp requested scopes '${task.extra.toString()}' not granted"
+                    LoadError.AUTHORIZATION_SCOPES -> "MiniApp requested scopes '$extra}' not granted"
                     else -> "MiniApp loading failed"
                 }
 
