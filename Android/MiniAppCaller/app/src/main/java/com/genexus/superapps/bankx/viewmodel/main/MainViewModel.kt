@@ -68,7 +68,7 @@ class MainViewModel : ViewModel() {
             override fun onFailure(error: LoadError, extra: Any?) {
                 val message = when (error) {
                     LoadError.AUTHORIZATION_TOKEN -> "MiniApp access token not valid"
-                    LoadError.AUTHORIZATION_SCOPES -> "MiniApp requested scopes '$extra}' not granted"
+                    LoadError.AUTHORIZATION_SCOPES -> "MiniApp requested scopes '$extra' not granted"
                     else -> "MiniApp loading failed"
                 }
 
