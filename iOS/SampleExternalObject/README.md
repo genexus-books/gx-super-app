@@ -4,7 +4,7 @@ This document explains how to develop and integrate the functionality provided b
 
 # Definition of the External Object
 
-The definition of the External Object used in this document is the same as [the one described for Android](../../Android/MiniAppCaller/README.md#interfaz-en-kb-genexus-external-object ).
+The definition of the External Object used in this document is the same as [the one described for Android](../../Android/MiniAppCaller/README.md).
 
 Some things to take into consideration about this definition:
 
@@ -176,6 +176,13 @@ do {
     try miniAppId = self.miniAppId(from: gxModel)
 }
 ```
+
+## HowTo: Call a Super App API from a Mini App
+
+To implement a communication interface between Mini Apps and Super Apps, visit the official documentation:
+
+- For a Native mobile Mini App, please refer to: [HowTo: Call a Super App API from a Native mobile Mini App](https://wiki.genexus.com/commwiki/wiki?58185,HowTo%3A+Call+a+Super+App+API+from+a+Native+mobile+Mini+App#HowTo%3A+Call+a+non-GeneXus+Super+App+API)
+- For a Web Mini App, please refer to: [HowTo: Call a Super App API from a Web Mini App](https://wiki.genexus.com/commwiki/wiki?57430,HowTo%3A+Call+a+Super+App+API+from+a+Web+Mini+App)
 
 # Conclusion
 
