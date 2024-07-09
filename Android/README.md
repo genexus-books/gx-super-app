@@ -200,3 +200,26 @@ A method to get a list of the Mini Apps in the cache is included, one to delete 
 ```
 
 In any other case, the Mini App is kept in the cache indefinitely and the OS itself could remove it from the cache at its discretion since it is stored in a temporary directory.
+
+## GeneXus Theme Inheritance 
+
+Ensure Super App's Theme inherits from one of the required GeneXus themes:
+
+- Theme.Genexus.Dark
+- Theme.Genexus.Light
+- Theme.Genexus.Light.DarkActionBar
+
+Check out these steps:
+
+1. **Locate Theme Definition:**
+   Open [themes.xml](MiniAppCaller/app/src/main/res/values/themes.xml) file in your Android project. This file is usually found in the `res/values` directory.
+
+2. **Modify Theme:**
+   Ensure that the theme used in the application inherits from one of the GeneXus themes. Update the `parent` attribute of your theme as shown below:
+
+   ```xml
+   <style name="Theme.Genexus.BankingSuperApp" parent="Theme.Genexus.Light">
+     <item name="colorPrimary">@color/purple_500</item>
+     <item name="colorPrimaryVariant">@color/purple_700</item>
+   </style>
+   ```
