@@ -8,6 +8,6 @@ abstract class OnMiniAppStoppedListener: LifecycleListeners.MiniApp {
     override fun onMiniAppCreated(miniApp: MiniApp) {}
     override fun onMiniAppStarted(miniApp: MiniApp) {}
     override fun onMiniAppResumed(miniApp: MiniApp) {}
-    override fun onMiniAppPaused(miniApp: MiniApp, genexusApplication: GenexusApplication) {}
+    override fun onMiniAppPaused(miniApp: MiniApp, superApp: GenexusApplication) {}
     override fun onMiniAppException(miniApp: MiniApp, t: Throwable) {}
 }
