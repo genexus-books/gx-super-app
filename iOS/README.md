@@ -11,7 +11,7 @@ There are certain initial configuration steps in the project Xcode:
 	- `GXSuperAppProvisioningURL`: String corresponding to the [Mini App Center's](../docs/Provisioning.md) URL, the provisioning server of the Mini Apps.
 	- `GXSuperAppId`: String corresponding to the Super App identifier, to be used at the Mini App Center. If this key is not included, the app's [bundle identifier](https://developer.apple.com/documentation/bundleresources/information_property_list/cfbundleidentifier) will be used.
 	- `GXSuperAppVersion`: String corresponding to the Super App version, to be used at the Mini App Center. If this key is not included, the app's [CFBundleVersion](https://developer.apple.com/documentation/bundleresources/information_property_list/cfbundleversion) will be used.
-	- `GXMiniprogramsEnabled`: Boolean with its value in true. Required to enable the Super App / Mini App functionality in the  [Super App Render](../SuperAppRender.md).
+	- `GXMiniprogramsEnabled`: Boolean with its value in true. Required to enable the Super App / Mini App functionality in the  [Super App Render](../docs/SuperAppRender.md).
 3. The file [superapp.crt](ExampleSuperApp), corresponding to the public key that verifies the signature of the Mini Apps, once it's downloaded from the Mini App Center. It must be an app resource with that name. 
 	
 
