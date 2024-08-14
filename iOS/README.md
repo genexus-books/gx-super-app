@@ -6,7 +6,7 @@ This document explains how to develop and integrate the functionality that provi
 
 There are certain initial configuration steps in the project Xcode:
 
-1. Integration of the [iOS frameworks](GeneXus%20Frameworks/README.md) corresponding to [Super App Render](../SuperAppRender.md).
+1. Integration of the [iOS frameworks](GeneXus%20Frameworks/README.md) corresponding to [Super App Render](../docs/SuperAppRender.md).
 2. Set certain values in the app's [Info.plist](ExampleSuperApp/Info.plist):
 	- `GXSuperAppProvisioningURL`: String corresponding to the [Mini App Center's](../docs/Provisioning.md) URL, the provisioning server of the Mini Apps.
 	- `GXSuperAppId`: String corresponding to the Super App identifier, to be used at the Mini App Center. If this key is not included, the app's [bundle identifier](https://developer.apple.com/documentation/bundleresources/information_property_list/cfbundleidentifier) will be used.
