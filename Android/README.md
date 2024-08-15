@@ -6,7 +6,7 @@ This document explains how to develop and integrate the functionality that provi
 
 There are certain initial configuration steps in the project:
 
-1. Integration of the [Android libraries](GeneXus%20Libraries/README.md) corresponding to [Super App Render](../SuperAppRender.md)
+1. Integration of the [Android libraries](GeneXus%20Libraries/README.md) corresponding to [Super App Render](../docs/SuperAppRender.md)
 2. Set the values in the app's [superapp_json](MiniAppCaller/app/src/main/res/raw/superapp_json) file:
 	- `GXSuperAppProvisioningURL`: String corresponding to the [Mini App Center's](../docs/Provisioning.md) URL of the Mini Apps.
 	- `GXSuperAppId`: String corresponding to the Super App identifier, to be used at the Mini App Center. If this key is not included, the app's [Package Name](https://developer.android.com/reference/android/content/Context#getPackageName()) will be used.  
@@ -15,7 +15,7 @@ There are certain initial configuration steps in the project:
    
 ## Communication API with the Mini App Center
 
-To access the Mini Apps that are available on the Mini App Center, the class `SuperAppsHelper` is used. It's included in the `SuperAppsLib` library and accessed via the `Services.SuperApps` static field after [registering the `SuperAppsLib` module](https://github.com/genexus-colab/gx-super-app-backup/blob/d63a20f0ba839914c915fdd09aa9102946d021c2/Android/MiniAppCaller/app/src/main/java/com/genexus/superapps/bankx/application/BankingApplication.kt#L29) in the initialization of the class that extends `Application`.
+To access the Mini Apps that are available on the Mini App Center, the class `SuperAppsHelper` is used. It's included in the `SuperAppsLib` library and accessed via the `Services.SuperApps` static field after [registering the `SuperAppsLib` module](MiniAppCaller/app/src/main/java/com/genexus/superapps/bankx/application/BankingApplication.kt#L29) in the initialization of the class that extends `Application`.
 
 This class provides five methods to load Mini Apps, using different criteria. 
 The first returns only one Mini App, the rest returns a collection of Mini Apps and therefore has these 2 parameters in common:
