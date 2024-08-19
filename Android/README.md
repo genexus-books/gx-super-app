@@ -223,3 +223,77 @@ Check out these steps:
      <item name="colorPrimaryVariant">@color/purple_700</item>
    </style>
    ```
+
+## Implement `EntityProvider` for Super App
+
+1. Define [`AppEntityService.kt`](MiniAppCaller/app/src/main/java/com/genexus/superapps/bankx/application/AppEntityService.kt)
+    
+Create a class that extends `EntityService`. This service will handle entity-related operations within your Super App.
+
+```kotlin
+package com.genexus.superapps.bankx.application
+
+import com.genexus.android.core.services.EntityService
+
+class AppEntityService: EntityService()
+```
+
+2. Define [`AppEntityDataProvider.kt`](MiniAppCaller/app/src/main/java/com/genexus/superapps/bankx/application/AppEntityDataProvider.kt)
+
+Create a class that extends EntityDataProvider. This provider will supply the necessary data for your entities.
+
+```kotlin
+package com.genexus.superapps.bankx.application
+
+import com.genexus.android.core.providers.EntityDataProvider
+
+class AppEntityDataProvider: EntityDataProvider() {
+    init {
+        AUTHORITY = "com.genexus.superapps.bankx.appentityprovider"
+        URI_MATCHER = buildUriMatcher()
+    }
+}
+```
+
+3. Declare `AppEntityService` and `AppEntityDataProvider` in your [AndroidManifest.xml](MiniAppCaller/app/src/main/AndroidManifest.xml)
+file to ensure they are recognized by the Android system.
+
+```xml
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    ...
+    <application ...>
+        <provider
+            android:name=".application.AppEntityDataProvider"
+            android:authorities="com.genexus.superapps.bankx.appentityprovider"
+            android:exported="false" />
+
+        <service
+            android:name=".application.AppEntityService"
+            android:enabled="true" />
+    </application>
+</manifest>
+```
+
+4. Implement the `IEntityProvider` interface in [`MainApplication.kt`](MiniAppCaller/app/src/main/java/com/genexus/superapps/bankx/application/BankingApplication.kt) and override `getEntityServiceClass()` and `getProvider()` methods to return your custom service and provider.
+
+```kotlin
+package com.genexus.superapps.bankx.application
+
+...
+import com.genexus.android.core.providers.IEntityProvider
+import com.genexus.android.core.providers.EntityDataProvider
+import com.genexus.android.core.services.EntityService
+
+class BankingApplication: Application(), IEntityProvider {
+
+    ...
+
+    override fun getEntityServiceClass(): Class<out EntityService> {
+        return AppEntityService::class.java
+    }
+
+    override fun getProvider(): EntityDataProvider {
+        return AppEntityDataProvider()
+    }
+}
+```
