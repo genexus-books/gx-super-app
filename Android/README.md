@@ -1,12 +1,12 @@
 # Android Super App Example
 
-This document explains how to develop and integrate the functionality that provides the API for accessing the Mini App Center, as well as the API for managing their cache, based on the `MiniAppCaller` example.
+This document explains how to develop and integrate the functionality that provides the API for accessing the [Mini App Center](https://wiki.genexus.com/commwiki/wiki?51290,Table+of+contents%3AMini+App+Center), as well as the API for managing their cache, based on the `MiniAppCaller` example.
 
 ## Setting
 
 There are certain initial configuration steps in the project:
 
-1. Integration of the [Android libraries](GeneXus%20Libraries/README.md) corresponding to [Super App Render](../docs/SuperAppRender.md)
+1. Integration of the [Android libraries](GeneXus%20Libraries/README.md) corresponding to [Super App Render](../docs/SuperAppRender.md).
 2. Set the values in the app's [superapp_json](MiniAppCaller/app/src/main/res/raw/superapp_json) file:
 	- `GXSuperAppProvisioningURL`: String corresponding to the [Mini App Center's](../docs/Provisioning.md) URL of the Mini Apps.
 	- `GXSuperAppId`: String corresponding to the Super App identifier, to be used at the Mini App Center. If this key is not included, the app's [Package Name](https://developer.android.com/reference/android/content/Context#getPackageName()) will be used.  
@@ -103,7 +103,7 @@ For general information on how GetByFilters works, please refer to:
 
 ### Error handling
 
-In all cases within the `OnFailureListener` Listener, the error can be one of three types: 
+In all cases within the `OnFailureListener`, the error can be one of three types: 
 
 ```kotlin
     enum class SearchError {
