@@ -226,7 +226,7 @@ Check out these steps:
 
 ## Implement EntityProvider for Super App
 
-1. Define [AppEntityService.kt](MiniAppCaller/app/src/main/java/com/genexus/superapps/bankx/application/AppEntityService.kt)
+1. Define [AppEntityService.kt](MiniAppCaller/app/src/main/java/com/genexus/superapps/bankx/application/AppEntityService.kt).
     
 Create a class that extends `EntityService`. This service will handle entity-related operations within your Super App.
 
@@ -238,7 +238,7 @@ import com.genexus.android.core.services.EntityService
 class AppEntityService: EntityService()
 ```
 
-2. Define [AppEntityDataProvider.kt](MiniAppCaller/app/src/main/java/com/genexus/superapps/bankx/application/AppEntityDataProvider.kt)
+2. Define [AppEntityDataProvider.kt](MiniAppCaller/app/src/main/java/com/genexus/superapps/bankx/application/AppEntityDataProvider.kt).
 
 Create a class that extends `EntityDataProvider`. This provider will supply the necessary data for your entities.
 
