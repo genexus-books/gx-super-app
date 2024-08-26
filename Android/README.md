@@ -1,12 +1,12 @@
 # Android Super App Example
 
-This document explains how to develop and integrate the functionality that provides the API for accessing the Mini App Center, as well as the API for managing their cache, based on the `MiniAppCaller` example.
+This document explains how to develop and integrate the functionality that provides the API for accessing the [Mini App Center](https://wiki.genexus.com/commwiki/wiki?51290,Table+of+contents%3AMini+App+Center), as well as the API for managing their cache, based on the `MiniAppCaller` example.
 
 ## Setting
 
 There are certain initial configuration steps in the project:
 
-1. Integration of the [Android libraries](GeneXus%20Libraries/README.md) corresponding to [Super App Render](../docs/SuperAppRender.md)
+1. Integration of the [Android libraries](GeneXus%20Libraries/README.md) corresponding to [Super App Render](../docs/SuperAppRender.md).
 2. Set the values in the app's [superapp_json](MiniAppCaller/app/src/main/res/raw/superapp_json) file:
 	- `GXSuperAppProvisioningURL`: String corresponding to the [Mini App Center's](../docs/Provisioning.md) URL of the Mini Apps.
 	- `GXSuperAppId`: String corresponding to the Super App identifier, to be used at the Mini App Center. If this key is not included, the app's [Package Name](https://developer.android.com/reference/android/content/Context#getPackageName()) will be used.  
@@ -103,7 +103,7 @@ For general information on how GetByFilters works, please refer to:
 
 ### Error handling
 
-In all cases within the `OnFailureListener` Listener, the error can be one of three types: 
+In all cases within the `OnFailureListener`, the error can be one of three types: 
 
 ```kotlin
     enum class SearchError {
@@ -223,3 +223,77 @@ Check out these steps:
      <item name="colorPrimaryVariant">@color/purple_700</item>
    </style>
    ```
+
+## Implement EntityProvider for Super App
+
+1. Define [AppEntityService.kt](MiniAppCaller/app/src/main/java/com/genexus/superapps/bankx/application/AppEntityService.kt).
+    
+Create a class that extends `EntityService`. This service will handle entity-related operations within your Super App.
+
+```kotlin
+package com.genexus.superapps.bankx.application
+
+import com.genexus.android.core.services.EntityService
+
+class AppEntityService: EntityService()
+```
+
+2. Define [AppEntityDataProvider.kt](MiniAppCaller/app/src/main/java/com/genexus/superapps/bankx/application/AppEntityDataProvider.kt).
+
+Create a class that extends `EntityDataProvider`. This provider will supply the necessary data for your entities.
+
+```kotlin
+package com.genexus.superapps.bankx.application
+
+import com.genexus.android.core.providers.EntityDataProvider
+
+class AppEntityDataProvider: EntityDataProvider() {
+    init {
+        AUTHORITY = "com.genexus.superapps.bankx.appentityprovider"
+        URI_MATCHER = buildUriMatcher()
+    }
+}
+```
+
+3. Declare `AppEntityService` and `AppEntityDataProvider` in your [AndroidManifest.xml](MiniAppCaller/app/src/main/AndroidManifest.xml)
+file to ensure they are recognized by the Android system.
+
+```xml
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    ...
+    <application ...>
+        <provider
+            android:name=".application.AppEntityDataProvider"
+            android:authorities="com.genexus.superapps.bankx.appentityprovider"
+            android:exported="false" />
+
+        <service
+            android:name=".application.AppEntityService"
+            android:enabled="true" />
+    </application>
+</manifest>
+```
+
+4. Implement the `IEntityProvider` interface in [MainApplication](MiniAppCaller/app/src/main/java/com/genexus/superapps/bankx/application/BankingApplication.kt) and override `getEntityServiceClass()` and `getProvider()` methods to return your custom service and provider.
+
+```kotlin
+package com.genexus.superapps.bankx.application
+
+...
+import com.genexus.android.core.providers.IEntityProvider
+import com.genexus.android.core.providers.EntityDataProvider
+import com.genexus.android.core.services.EntityService
+
+class BankingApplication: Application(), IEntityProvider {
+
+    ...
+
+    override fun getEntityServiceClass(): Class<out EntityService> {
+        return AppEntityService::class.java
+    }
+
+    override fun getProvider(): EntityDataProvider {
+        return AppEntityDataProvider()
+    }
+}
+```
