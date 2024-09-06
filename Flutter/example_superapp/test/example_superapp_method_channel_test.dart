@@ -1,10 +1,10 @@
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:example_superapp/example_superapp_method_channel.dart';
+import 'package:example_superapp/plugin/native/invoker/example_superapp_method_channel.dart';
 
 void main() {
   MethodChannelExampleSuperapp platform = MethodChannelExampleSuperapp();
-  const MethodChannel channel = MethodChannel('example_superapp');
+  const MethodChannel channel = MethodChannel("com.genexus.superapp/Provisioning");
 
   TestWidgetsFlutterBinding.ensureInitialized();
 

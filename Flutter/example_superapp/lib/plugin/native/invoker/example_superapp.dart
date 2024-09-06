@@ -1,5 +1,4 @@
 import 'package:example_superapp/model/miniapp.dart';
-
 import 'example_superapp_platform_interface.dart';
 
 class ExampleSuperApp {
