@@ -5,7 +5,21 @@ import GXCoreBL
 import GXSuperApp
 
 class ProvisioningAPI {
-	public func handleMethodCall(_ call: FlutterMethodCall, result: @escaping FlutterResult) {
+	
+	private let flutterChannel: FlutterMethodChannel
+	
+	required init(binaryMessenger: FlutterBinaryMessenger) {
+		flutterChannel = FlutterMethodChannel(name: Constants.CHANNEL_NAME, binaryMessenger: binaryMessenger)
+		flutterChannel.setMethodCallHandler { [weak self] call, result in
+			self?.handleMethodCall(call, result: result)
+		}
+	}
+	
+	deinit {
+		flutterChannel.setMethodCallHandler(nil)
+	}
+
+	private func handleMethodCall(_ call: FlutterMethodCall, result: @escaping FlutterResult) {
 		switch call.method {
 		case Constants.Methods.GET_MINI_APPS:
 			let tag = (call.arguments as? [String: Any])?[Constants.Arguments.TAG] as? String ?? ""
@@ -139,7 +153,6 @@ class ProvisioningAPI {
 	}
 	
 	private struct Constants {
-		static let CHANNEL_NAME = "example_superapp"
 		struct Methods {
 			static let GET_MINI_APPS = "getMiniApps"
 			static let GET_MINI_APPS_CACHED = "getCachedMiniApps"
@@ -159,5 +172,6 @@ class ProvisioningAPI {
 			static let ID = "Id"
 			static let VERSION = "Version"
 		}
+		static let CHANNEL_NAME = "com.genexus.superapp/Provisioning"
 	}
 }

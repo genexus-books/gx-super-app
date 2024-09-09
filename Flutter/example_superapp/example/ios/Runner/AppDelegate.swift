@@ -5,21 +5,22 @@ import GXUIApplication
 import GXObjectsModel
 import GXCoreBL
 
-@UIApplicationMain
+@main
 @objc class AppDelegate: FlutterAppDelegate {
 	
-	weak private(set) var flutterRootController: FlutterViewController? = nil
+	let engines = FlutterEngineGroup(name: "multiple-flutters", project: nil)
+	private var provisioningAPI: ProvisioningAPI?
 	
 	override func application(_ application: UIApplication,
 							  didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 		/// Begin GX initialization as soon as possible in willFinishLaunching
 		GXUIApplicationExecutionEnvironment.beginCoreInitialization()
-		#if DEBUG
+#if DEBUG
 		/// Optionally register a developer info extension to receive extra information while debugging. This should not be set in a production environment.
 		GXUtilities.register(DebugDeveloperInfo())
-		#endif
-		let controller : FlutterViewController = window?.rootViewController as! FlutterViewController
-		flutterRootController = controller
+#endif
+		let controller = window?.rootViewController as! FlutterViewController
+		provisioningAPI = ProvisioningAPI(binaryMessenger: controller.binaryMessenger)
 		/// End GX initialization after host UI has been initialized
 		let extensionLibraries: [GXExtensionLibraryProtocol] = [
 			SampleExObjLibrary(binaryMessenger: controller.binaryMessenger)

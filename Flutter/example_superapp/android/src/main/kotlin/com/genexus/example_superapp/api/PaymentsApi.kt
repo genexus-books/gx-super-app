@@ -41,31 +41,16 @@ class PaymentsApi(action: ApiAction?) : ExternalApi(action) {
 	private val methodPayWithUI: IMethodInvoker = object : IMethodInvoker {
 		override fun invoke(parameters: List<Any>): ExternalApiResult {
 			val amount = parameters[0].toString().toDouble()
-
-//			val intentCachedEngine = FlutterActivity
-//				.withCachedEngine("plugin_engine")
-//				.backgroundMode(FlutterActivityLaunchConfigs.BackgroundMode.transparent)
-//				.build(context)
-//
-//			val intentNewEngine = FlutterActivity
-//				.withNewEngine()
-//				.initialRoute("/payments")
-//				.dartEntrypointArgs(mutableListOf(amount.toString()))
-//				.backgroundMode(FlutterActivityLaunchConfigs.BackgroundMode.transparent)
-//				.build(context)
-//
-//			startActivityForResult(intentNewEngine, 1231)
-
-			SuperAppAPI.payWithUI(amount, resultHandler)
+			UI_RESULT_HANDLER = resultHandler
+			SuperAppAPI.payWithUI(amount, activity)
 			return ExternalApiResult.SUCCESS_WAIT
 		}
 
-		val resultHandler = object : MethodChannel.Result {
+		private val resultHandler = object : MethodChannel.Result {
 			override fun success(result: Any?) {
 				val paymentId = result as String?
 				if (paymentId.isNullOrEmpty()) {
-//					"An error occurred processing your payment."
-					ActionExecution.cancelCurrent(getAction())
+					error("2", "Invalid payment id", null)
 					return
 				}
 
@@ -75,7 +60,10 @@ class PaymentsApi(action: ApiAction?) : ExternalApi(action) {
 				}
 			}
 
-			override fun error(errorCode: String, errorMessage: String?, errorDetails: Any?) {}
+			override fun error(errorCode: String, errorMessage: String?, errorDetails: Any?) {
+				ActionExecution.cancelCurrent(getAction())
+			}
+
 			override fun notImplemented() {}
 		}
 	}
@@ -161,6 +149,8 @@ class PaymentsApi(action: ApiAction?) : ExternalApi(action) {
 		const val METHOD_GET_CLIENT_INFO = "GetClientInformation"
 		const val METHOD_PAYMENT_INFORMATION = "GetPaymentInformation"
 		const val METHOD_GET_PAYMENT_AFFINITY = "GetPaymentInfoAffinity"
+
+		var UI_RESULT_HANDLER: MethodChannel.Result? = null
 	}
 
 	init {

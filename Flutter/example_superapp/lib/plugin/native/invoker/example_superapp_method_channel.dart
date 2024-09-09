@@ -3,23 +3,23 @@ import 'dart:convert';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 
+import '../../../model/miniapp.dart';
 import 'example_superapp_platform_interface.dart';
-import 'model/miniapp.dart';
 
 class MethodChannelExampleSuperapp extends ExampleSuperappPlatform {
 
   @visibleForTesting
-  final methodChannel = const MethodChannel('example_superapp');
+  final channelProvisioning = const MethodChannel("com.genexus.superapp/Provisioning");
 
   @override
   Future<List<MiniApp>?> getMiniApps(String tag) async {
-    final miniAppsJson = await methodChannel.invokeMethod<String>('getMiniApps', {"tag": tag});
+    final miniAppsJson = await channelProvisioning.invokeMethod<String>('getMiniApps', {"tag": tag});
     return fromJson(miniAppsJson);
   }
 
   @override
   Future<List<MiniApp>?> getCachedMiniApps() async {
-    final miniAppsJson = await methodChannel.invokeMethod<String>('getCachedMiniApps');
+    final miniAppsJson = await channelProvisioning.invokeMethod<String>('getCachedMiniApps');
     return fromJson(miniAppsJson);
   }
 
@@ -38,12 +38,12 @@ class MethodChannelExampleSuperapp extends ExampleSuperappPlatform {
   @override
   Future<bool?> loadMiniApp(MiniApp miniApp) async {
     var miniAppJson = jsonEncode(miniApp.toJson());
-    return await methodChannel.invokeMethod<bool>('load', {"miniAppJson": miniAppJson});
+    return await channelProvisioning.invokeMethod<bool>('load', {"miniAppJson": miniAppJson});
   }
 
   @override
   Future<bool?> remove(MiniApp miniApp) async {
     var miniAppJson = jsonEncode(miniApp.toJson());
-    return await methodChannel.invokeMethod<bool>('remove', {"miniAppJson": miniAppJson});
+    return await channelProvisioning.invokeMethod<bool>('remove', {"miniAppJson": miniAppJson});
   }
 }
