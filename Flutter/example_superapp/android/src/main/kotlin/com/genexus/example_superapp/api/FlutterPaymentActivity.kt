@@ -1,7 +1,10 @@
 package com.genexus.example_superapp.api
 
+import android.app.Activity
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
+import com.genexus.android.core.base.utils.Strings
 import com.genexus.example_superapp.EngineBindingsDelegate
 import com.genexus.example_superapp.FlutterEngineManager
 import io.flutter.embedding.android.FlutterActivity
@@ -59,13 +62,14 @@ class FlutterPaymentActivity : FlutterActivity(), EngineBindingsDelegate {
     }
 
     override fun onConfirm(args: String?) {
+        val data = Intent().apply { putExtra(EXTRA_PAYMENT_ID, args ?: Strings.EMPTY) }
+        setResult(Activity.RESULT_OK, data)
         finish()
-        PaymentsApi.UI_RESULT_HANDLER?.success(args)
     }
 
     override fun onCancel() {
+        setResult(Activity.RESULT_CANCELED)
         finish()
-        PaymentsApi.UI_RESULT_HANDLER?.error("1", "Payment canceled", null)
     }
 
     override fun onDestroy() {
@@ -74,6 +78,7 @@ class FlutterPaymentActivity : FlutterActivity(), EngineBindingsDelegate {
     }
 
     companion object {
+        const val EXTRA_PAYMENT_ID = "paymentId"
         private const val CHANNEL_PAYMENT_FLOW = "com.genexus.superapp/paymentConfirm"
         private const val METHOD_INIT = "init"
         private const val METHOD_FLOW_CONFIRM = "confirmFlutterActivity"

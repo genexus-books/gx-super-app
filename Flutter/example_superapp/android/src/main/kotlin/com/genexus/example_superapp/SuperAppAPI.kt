@@ -13,6 +13,7 @@ import io.flutter.plugin.common.MethodChannel
 
 object SuperAppAPI: ISuperApp, IFlutterCallHandlerSetup {
 
+	const val REQUEST_CODE_PAYMENT = 2552
 	private const val CHANNEL_NON_UI_METHODS = "com.genexus.superapp/SuperAppAPI"
 	private const val CHANNEL_PROVISIONING = "com.genexus.superapp/Provisioning"
 	private lateinit var nonUIMethodsChannel: MethodChannel
@@ -42,7 +43,7 @@ object SuperAppAPI: ISuperApp, IFlutterCallHandlerSetup {
 					putExtra(arg.key, arg.value.toString())
 		}
 
-		from.startActivity(intent)
+		from.startActivityForResult(intent, REQUEST_CODE_PAYMENT)
 
 //		Services.Device.runOnUiThread {
 //			val intent = FlutterActivity

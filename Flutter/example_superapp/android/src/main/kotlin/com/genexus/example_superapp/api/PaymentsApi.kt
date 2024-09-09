@@ -1,5 +1,7 @@
 package com.genexus.example_superapp.api
 
+import android.app.Activity
+import android.content.Intent
 import com.genexus.android.core.actions.ActionExecution
 import com.genexus.android.core.actions.ApiAction
 import com.genexus.android.core.base.metadata.expressions.Expression
@@ -10,8 +12,6 @@ import com.genexus.android.core.externalapi.ExternalApiResult
 import com.genexus.example_superapp.SuperAppAPI
 import com.genexus.example_superapp.api.services.ClientsService
 import com.genexus.example_superapp.api.services.PaymentsService
-import io.flutter.embedding.android.FlutterActivity
-import io.flutter.embedding.android.FlutterActivityLaunchConfigs
 import io.flutter.plugin.common.MethodChannel
 
 @Suppress("UNCHECKED_CAST")
@@ -38,33 +38,22 @@ class PaymentsApi(action: ApiAction?) : ExternalApi(action) {
 		}
 	}
 
-	private val methodPayWithUI: IMethodInvoker = object : IMethodInvoker {
+	private val methodPayWithUI: IMethodInvokerWithActivityResult = object : IMethodInvokerWithActivityResult {
 		override fun invoke(parameters: List<Any>): ExternalApiResult {
 			val amount = parameters[0].toString().toDouble()
-			UI_RESULT_HANDLER = resultHandler
 			SuperAppAPI.payWithUI(amount, activity)
 			return ExternalApiResult.SUCCESS_WAIT
 		}
 
-		private val resultHandler = object : MethodChannel.Result {
-			override fun success(result: Any?) {
-				val paymentId = result as String?
-				if (paymentId.isNullOrEmpty()) {
-					error("2", "Invalid payment id", null)
-					return
-				}
+		override fun handleActivityResult(requestCode: Int, resultCode: Int, data: Intent?): ExternalApiResult {
+			if (requestCode != SuperAppAPI.REQUEST_CODE_PAYMENT || resultCode != Activity.RESULT_OK)
+				return ExternalApiResult.FAILURE
 
-				getAction()?.let {
-					it.setOutputValue(Expression.Value.newString(paymentId))
-					ActionExecution.continueCurrent(activity, true, it)
-				}
-			}
+			val paymentId = data?.getStringExtra(FlutterPaymentActivity.EXTRA_PAYMENT_ID)
+			if (paymentId.isNullOrEmpty())
+				return ExternalApiResult.FAILURE
 
-			override fun error(errorCode: String, errorMessage: String?, errorDetails: Any?) {
-				ActionExecution.cancelCurrent(getAction())
-			}
-
-			override fun notImplemented() {}
+			return ExternalApiResult.success(Expression.Value.newString(paymentId))
 		}
 	}
 
@@ -149,8 +138,6 @@ class PaymentsApi(action: ApiAction?) : ExternalApi(action) {
 		const val METHOD_GET_CLIENT_INFO = "GetClientInformation"
 		const val METHOD_PAYMENT_INFORMATION = "GetPaymentInformation"
 		const val METHOD_GET_PAYMENT_AFFINITY = "GetPaymentInfoAffinity"
-
-		var UI_RESULT_HANDLER: MethodChannel.Result? = null
 	}
 
 	init {
