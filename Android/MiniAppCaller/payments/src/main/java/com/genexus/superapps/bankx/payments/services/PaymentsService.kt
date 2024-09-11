@@ -1,5 +1,6 @@
 package com.genexus.superapps.bankx.payments.services
 
+import android.util.Log
 import com.genexus.android.core.base.metadata.expressions.Expression
 import com.genexus.android.core.base.model.Entity
 import com.genexus.android.core.base.model.EntityFactory
@@ -8,25 +9,30 @@ import java.util.UUID
 
 object PaymentsService {
     private const val SDT_PAYMENT_INFORMATION = "PaymentInformation"
-    private const val SDT_PAYMENT_INFORMATION_ITEM_BRAND = "brand"
     private const val SDT_PAYMENT_INFORMATION_ITEM_AFFINITY = "affinity"
+    private const val SDT_PAYMENT_INFORMATION_ITEM_BRAND = "brand"
     private const val SDT_PAYMENT_INFORMATION_ITEM_TYPE = "type"
 
     fun pay(amount: Double): String {
         return amount.toString() + "-" + UUID.randomUUID().toString()
     }
 
-    fun getPaymentInformationList(clientInformation: Entity): EntityList {
-        val clientId = clientInformation.optStringProperty(ClientsService.SDT_CLIENT_ID)
+    fun getPaymentInformationList(): EntityList {
         val paymentInformationList = EntityList()
         paymentInformationList.itemType = Expression.Type.SDT
-        for (i in 1..3) {
-            val paymentInfoItem = EntityFactory.newSdt(SDT_PAYMENT_INFORMATION)
-            paymentInfoItem.setProperty(SDT_PAYMENT_INFORMATION_ITEM_BRAND, "Brand $i for $clientId")
-            paymentInfoItem.setProperty(SDT_PAYMENT_INFORMATION_ITEM_AFFINITY, "Affinity $i for $clientId")
-            paymentInfoItem.setProperty(SDT_PAYMENT_INFORMATION_ITEM_TYPE, "Type $i for $clientId")
-            paymentInformationList.add(paymentInfoItem)
-        }
+
+        var paymentInfoItem = EntityFactory.newSdt(SDT_PAYMENT_INFORMATION)
+        paymentInfoItem.setProperty(SDT_PAYMENT_INFORMATION_ITEM_AFFINITY, "Volar")
+        paymentInfoItem.setProperty(SDT_PAYMENT_INFORMATION_ITEM_BRAND, "VISA")
+        paymentInfoItem.setProperty(SDT_PAYMENT_INFORMATION_ITEM_TYPE, "Crédito")
+        paymentInformationList.add(paymentInfoItem)
+
+        paymentInfoItem = EntityFactory.newSdt(SDT_PAYMENT_INFORMATION)
+        paymentInfoItem.setProperty(SDT_PAYMENT_INFORMATION_ITEM_AFFINITY, "Volar")
+        paymentInfoItem.setProperty(SDT_PAYMENT_INFORMATION_ITEM_BRAND, "VISA")
+        paymentInfoItem.setProperty(SDT_PAYMENT_INFORMATION_ITEM_TYPE, "Débito")
+        paymentInformationList.add(paymentInfoItem)
+
         return paymentInformationList
     }
 

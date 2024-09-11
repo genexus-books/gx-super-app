@@ -10,6 +10,7 @@ import android.app.Activity
 import com.genexus.android.core.actions.ActionExecution
 import com.genexus.android.core.base.metadata.expressions.Expression
 import com.genexus.android.core.base.model.Entity
+import com.genexus.android.core.base.model.EntityFactory
 import com.genexus.android.core.base.model.EntityList
 import com.genexus.android.core.base.utils.Strings
 import com.genexus.superapps.bankx.payments.services.PaymentsService
@@ -26,15 +27,24 @@ class PaymentsApi(action: ApiAction?) : ExternalApi(action) {
     }
     private val methodPayWithUI: IMethodInvokerWithActivityResult = object : IMethodInvokerWithActivityResult {
         override fun invoke(parameters: List<Any>): ExternalApiResult {
-            val amount = parameters[0].toString().toDouble()
+            val payInformation = parameters[0] as Entity
+            val amount = payInformation.optStringProperty(PaymentActivity.EXTRA_AMOUNT).toDouble()
             startActivityForResult(PaymentActivity.newIntent(context, amount), PAYMENT_REQUEST_CODE)
             return ExternalApiResult.SUCCESS_WAIT
         }
 
         override fun handleActivityResult(requestCode: Int, resultCode: Int, result: Intent?): ExternalApiResult {
             if (resultCode == Activity.RESULT_OK && requestCode == PAYMENT_REQUEST_CODE && result != null) {
-                val paymentId = result.getStringExtra(PaymentActivity.EXTRA_PAYMENT_ID)
-                return ExternalApiResult.success(paymentId!!)
+                val code = result.getStringExtra(PaymentActivity.EXTRA_CODIGO)
+                val message = result.getStringExtra(PaymentActivity.EXTRA_MENSAJE)
+                val idAuthorization = result.getStringExtra(PaymentActivity.EXTRA_IDAUTORIZACION)
+
+                val payResult = EntityFactory.newSdt(SDT_PAY_RESULT)
+                payResult.setProperty(SDT_PAY_RESULT_CODIGO, code)
+                payResult.setProperty(SDT_PAY_RESULT_MENSAJE, message)
+                payResult.setProperty(SDT_PAY_RESULT_IDAUTORIZACION, idAuthorization)
+
+                return ExternalApiResult.success(payResult)
             }
             return ExternalApiResult.failure("An error occurred processing your payment.")
         }
@@ -42,9 +52,8 @@ class PaymentsApi(action: ApiAction?) : ExternalApi(action) {
 
     //Method that receives a String and returns a Client SDT
     private val methodGetClientInformation = IMethodInvoker { parameters: List<Any> ->
-        val clientId = parameters[0].toString()
         CoroutineScope(Dispatchers.IO).launch {
-            val clientInformation = getClientInformation(clientId)
+            val clientInformation = getClientInformation()
             action?.let {
                 it.setOutputValue(Expression.Value.newValue(clientInformation))
                 ActionExecution.continueCurrent(it.activity, true, it)
@@ -56,8 +65,7 @@ class PaymentsApi(action: ApiAction?) : ExternalApi(action) {
 
     //Method that receives a Client SDT and returns a PaymentInformation SDT (Collection)
     private val methodGetPaymentInformation = IMethodInvoker { parameters: List<Any?> ->
-        val clientInformation = parameters[0] as Entity
-        val paymentInformationList = PaymentsService.getPaymentInformationList(clientInformation)
+        val paymentInformationList = PaymentsService.getPaymentInformationList()
         ExternalApiResult.success(paymentInformationList)
     }
 
@@ -77,11 +85,18 @@ class PaymentsApi(action: ApiAction?) : ExternalApi(action) {
     }
 
     companion object {
-        const val NAME = "Payments"
+        const val NAME = "Itau"
+        private const val METHOD_PAY_UI = "Pay"
+        private const val METHOD_GET_CLIENT_INFO = "GetClientINFO"
+        private const val METHOD_PAYMENT_INFORMATION = "GetPaymentINFO"
+
+        private const val SDT_PAY_RESULT = "PayResult"
+        private const val SDT_PAY_RESULT_CODIGO = "codigo"
+        private const val SDT_PAY_RESULT_MENSAJE = "mensaje"
+        private const val SDT_PAY_RESULT_IDAUTORIZACION = "idautorizacion"
+
+        //not used
         private const val METHOD_PAY_NO_UI = "PayWithoutUI"
-        private const val METHOD_PAY_UI = "PayWithUI"
-        private const val METHOD_GET_CLIENT_INFO = "GetClientInformation"
-        private const val METHOD_PAYMENT_INFORMATION = "GetPaymentInformation"
         private const val METHOD_GET_PAYMENT_AFFINITY = "GetPaymentInfoAffinity"
         private const val PAYMENT_REQUEST_CODE = 1111
     }
@@ -89,8 +104,8 @@ class PaymentsApi(action: ApiAction?) : ExternalApi(action) {
     init {
         addMethodHandler(METHOD_PAY_NO_UI, 1, methodPayWithoutUI)
         addMethodHandler(METHOD_PAY_UI, 1, methodPayWithUI)
-        addMethodHandler(METHOD_GET_CLIENT_INFO, 1, methodGetClientInformation)
-        addMethodHandler(METHOD_PAYMENT_INFORMATION, 1, methodGetPaymentInformation)
+        addMethodHandler(METHOD_GET_CLIENT_INFO, 0, methodGetClientInformation)
+        addMethodHandler(METHOD_PAYMENT_INFORMATION, 0, methodGetPaymentInformation)
         addMethodHandler(METHOD_GET_PAYMENT_AFFINITY, 1, methodGetPaymentInfoAffinity)
     }
 }

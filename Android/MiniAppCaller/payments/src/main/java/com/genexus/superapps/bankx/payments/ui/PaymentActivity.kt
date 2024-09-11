@@ -28,15 +28,20 @@ class PaymentActivity : ComponentActivity() {
     }
 
     private fun succeeded(amount: Double) {
-        val paymentId = PaymentsService.pay(amount)
-        val result = Intent().apply { putExtra(EXTRA_PAYMENT_ID, paymentId) }
+        val result = Intent().apply {
+            putExtra(EXTRA_CODIGO, 0)
+            putExtra(EXTRA_MENSAJE, "")
+            putExtra(EXTRA_IDAUTORIZACION, "45445454511")
+        }
         setResult(Activity.RESULT_OK, result)
         finish()
     }
 
     companion object {
-        private const val EXTRA_AMOUNT = "Amount"
-        const val EXTRA_PAYMENT_ID = "PaymentId"
+        const val EXTRA_AMOUNT = "amount"
+        const val EXTRA_CODIGO = "codigo"
+        const val EXTRA_MENSAJE = "mensaje"
+        const val EXTRA_IDAUTORIZACION = "idautorizacion"
 
         fun newIntent(context: Context?, amount: Double): Intent {
             val intent = Intent(context, PaymentActivity::class.java)

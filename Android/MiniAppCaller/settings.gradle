@@ -3,7 +3,7 @@ pluginManagement {
         gradlePluginPortal()
         google()
         mavenCentral()
-        maven { url 'file:///D:/Dev/m2Repository/' }
+        maven { url 'file:///C:/gx18u5/Android/m2Repository/' }
     }
 }
 dependencyResolutionManagement {
@@ -11,7 +11,7 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
-        maven { url 'file:///D:/Dev/m2Repository/' }
+        maven { url 'file:///C:/gx18u5/Android/m2Repository/' }
         maven { url 'https://jitpack.io' }
     }
 }
