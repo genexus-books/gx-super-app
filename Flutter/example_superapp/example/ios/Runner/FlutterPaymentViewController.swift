@@ -42,9 +42,29 @@ class FlutterPaymentViewController: FlutterViewController {
 			result(nil)
 			return
 		}
-		self.gxResultHandler = nil
+        if (call.method == "getInformation" ){
+            let args = call.arguments as? [String: Any]
+            guard let data = args?["data"] as? String else {
+                let errDesc = "Invalid result arguments: \(String(describing: call.arguments))"
+                return
+            }
+            switch data {
+                case "session":
+                    self.getSessionInformation { info in
+                        if let info = info {
+                            result(info)
+                        } else {
+                            result(FlutterError(code: "UNAVAILABLE", message: "Data not available.", details: nil))
+                        }
+                    }
+                default:
+                    result(nil)
+            }
+            return
+        }
+        self.gxResultHandler = nil
 		dismiss(animated: true) {
-			defer { result(nil) }
+            defer { result(nil) }
 			switch call.method {
 			case "confirmFlutterActivity":
 				let resultArgs = call.arguments as? [String: Any]
@@ -61,6 +81,22 @@ class FlutterPaymentViewController: FlutterViewController {
 			}
 		}
     }
+    
+    private func getSessionInformation(completion: @escaping (String?) -> Void) {
+		SuperAppAPI.callMethod(name: SampleExObjHandler.Constants.Methods.GET_SESSION_INFO, arguments: nil) { result in
+			guard let returnValue = result as? String else {
+				let error: NSError
+				if let flutterError = result as? FlutterError {
+					error = NSError.defaultGXError(withDeveloperDescription: flutterError.description)
+				}
+				else {
+					error = NSError.defaultGXError()
+				}
+				return
+			}
+			completion(returnValue)
+		}
+	}
 
     enum StaticVars {
         static let CHANNEL = "com.genexus.superapp/paymentConfirm"
