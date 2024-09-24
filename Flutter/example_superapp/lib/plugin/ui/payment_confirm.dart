@@ -3,25 +3,33 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 class PaymentConfirm extends StatefulWidget {
-
   @override
   State<PaymentConfirm> createState() => _PaymentConfirmState();
 }
 
 class _PaymentConfirmState extends State<PaymentConfirm> {
   String? _data;
+  String? _session;
 
   @override
   void initState() {
     super.initState();
     PaymentsFlowChannel.channelPaymentsFlow.setMethodCallHandler((call) async {
       if (call.method == "init") {
+        _getSessionInformation();
         String? newData = call.arguments["data"];
         setState(() {
           _data = newData;
         });
       }
     });
+  }
+
+  void _getSessionInformation() async {
+    _session = await PaymentsFlowChannel.getSessionInformation();
+    if (_session != null) {
+      print("Session: $_session!");
+    }
   }
 
   @override
@@ -46,8 +54,11 @@ class _PaymentConfirmState extends State<PaymentConfirm> {
           ? const SizedBox.shrink()
           : Column(
               children: [
+                const SizedBox(
+                  height: 50,
+                ),
                 Center(
-                  child: Text('Data: $_data'),
+                  child: Text('Amount to be paid: $_data'),
                 ),
                 FilledButton(
                     onPressed: () {

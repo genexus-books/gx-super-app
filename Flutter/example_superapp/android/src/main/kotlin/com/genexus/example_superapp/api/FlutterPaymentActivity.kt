@@ -8,6 +8,10 @@ import io.flutter.embedding.android.FlutterActivity
 import io.flutter.embedding.engine.FlutterEngine
 import io.flutter.embedding.engine.FlutterEngineCache
 import io.flutter.plugin.common.MethodChannel
+import com.genexus.example_superapp.SuperAppAPI
+import androidx.lifecycle.lifecycleScope
+import kotlinx.coroutines.launch
+
 
 class FlutterPaymentActivity : FlutterActivity(), EngineBindingsDelegate {
 
@@ -54,6 +58,22 @@ class FlutterPaymentActivity : FlutterActivity(), EngineBindingsDelegate {
                 result.success(null)
             }
 
+            METHOD_FLOW_GETINFO -> {
+                // Handle the call in a coroutine to wait for onGetInformation
+                lifecycleScope.launch {
+                    try {
+                        val data = onGetInformation(call.argument<String>("data"))
+                        if (data != null) {
+                            result.success(data) // Send the result back to Flutter
+                        } else {
+                            result.error("UNAVAILABLE", "Data not available.", null)
+                        }
+                    } catch (e: Exception) {
+                        result.error("ERROR", "Exception occurred: ${e.message}", null)
+                    }
+                }
+            }
+
             else -> result.notImplemented()
         }
     }
@@ -68,6 +88,16 @@ class FlutterPaymentActivity : FlutterActivity(), EngineBindingsDelegate {
         PaymentsApi.UI_RESULT_HANDLER?.error("1", "Payment canceled", null)
     }
 
+    override suspend fun onGetInformation(args: String?): String? {
+        return when (args) {
+            GETINFORMATION_SESSION -> {
+                // Wait for the result of the API call
+                SuperAppAPI.getSessionInformation()
+            }
+            else -> null
+        }
+    }
+
     override fun onDestroy() {
         super.onDestroy()
         channelPaymentsFlow?.setMethodCallHandler(null)
@@ -78,5 +108,7 @@ class FlutterPaymentActivity : FlutterActivity(), EngineBindingsDelegate {
         private const val METHOD_INIT = "init"
         private const val METHOD_FLOW_CONFIRM = "confirmFlutterActivity"
         private const val METHOD_FLOW_CANCEL = "closeFlutterActivity"
+        private const val METHOD_FLOW_GETINFO = "getInformation"
+        private const val GETINFORMATION_SESSION = "session"
     }
 }

@@ -10,6 +10,8 @@ import com.genexus.example_superapp.api.services.ClientsService
 import com.genexus.example_superapp.api.services.PaymentsService
 import io.flutter.embedding.engine.plugins.FlutterPlugin
 import io.flutter.plugin.common.MethodChannel
+import kotlinx.coroutines.suspendCancellableCoroutine
+import kotlin.coroutines.resume
 
 object SuperAppAPI: ISuperApp, IFlutterCallHandlerSetup {
 
@@ -43,14 +45,6 @@ object SuperAppAPI: ISuperApp, IFlutterCallHandlerSetup {
 		}
 
 		from.startActivity(intent)
-
-//		Services.Device.runOnUiThread {
-//			val intent = FlutterActivity
-//				.withCachedEngine(FlutterEngineManager.ENGINE_PAYMENT_SCREEN)
-//				.build(from)
-//
-//			from.startActivity(intent)
-//		}
 	}
 
 	override fun payWithoutUI(amount: Double, resultHandler: MethodChannel.Result?) {
@@ -59,6 +53,23 @@ object SuperAppAPI: ISuperApp, IFlutterCallHandlerSetup {
 
 	override fun payWithUI(amount: Double, from: Activity) {
 		callUIMethod(FlutterPaymentActivity::class.java, hashMapOf("amount" to amount), from)
+	}
+
+	suspend fun getSessionInformation(): String? = suspendCancellableCoroutine { continuation ->
+		callMethod(PaymentsApi.METHOD_GET_SESSION_INFO, null, object: MethodChannel.Result {
+
+			override fun success(result: Any?) {
+				continuation.resume(result?.toString()) // Resume with the result
+			}
+
+			override fun error(errorCode: String, errorMessage: String?, errorDetails: Any?) {
+				continuation.resume(null) // Resume with null in case of an error
+			}
+
+			override fun notImplemented() {
+				continuation.resume(null) // Resume with null in case of an error
+			}
+		})
 	}
 
 	override fun getClientInformation(clientId: String, resultHandler: MethodChannel.Result?) {

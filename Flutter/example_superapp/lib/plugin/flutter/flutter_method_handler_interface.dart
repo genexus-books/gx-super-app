@@ -24,6 +24,9 @@ abstract class SuperAppApiInterface extends PlatformInterface {
     throw UnimplementedError('payWithUi(amount: int) has not been implemented.');
   }
 
+  String getSessionInformation() {
+    throw UnimplementedError('getPaymentInfoAffinity(paymentInformation: Map) has not been implemented.');
+  }
   Map<String, String> getClientInformation(String clientId) {
     throw UnimplementedError('getClientInformation(clientId: String) has not been implemented.');
   }
