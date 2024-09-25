@@ -7,6 +7,7 @@ class FlutterMethodChannel {
 
   static const methodPayNoUi = "PayWithoutUI";
   static const methodPayWithUi = "PayWithUI";
+  static const methodGetSessionInformation = "GetSessionInformation";
   static const methodGetClientInformation = "GetClientInformation";
   static const methodGetPaymentInformation = "GetPaymentInformation";
   static const methodGetPaymentInfoAffinity = "GetPaymentInfoAffinity";
@@ -34,6 +35,9 @@ class FlutterMethodChannel {
         double amount = call.arguments["amount"];
         Future<String> paymentId = api.payWithUi(amount, context);
         return paymentId;
+      case methodGetSessionInformation:
+        String result = api.getSessionInformation();
+        return Future.value(result);
       case methodGetClientInformation:
         String clientId = call.arguments["clientId"];
         Map<String, String> result = api.getClientInformation(clientId);

@@ -146,6 +146,7 @@ class PaymentsApi(action: ApiAction?) : ExternalApi(action) {
 		const val NAME = "Payments"
 		const val METHOD_PAY_NO_UI = "PayWithoutUI"
 		const val METHOD_PAY_UI = "PayWithUI"
+		const val METHOD_GET_SESSION_INFO = "GetSessionInformation"
 		const val METHOD_GET_CLIENT_INFO = "GetClientInformation"
 		const val METHOD_PAYMENT_INFORMATION = "GetPaymentInformation"
 		const val METHOD_GET_PAYMENT_AFFINITY = "GetPaymentInfoAffinity"

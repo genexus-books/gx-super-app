@@ -27,4 +27,15 @@ class PaymentsFlowChannel {
     }
     return isOk ?? false;
   }
+
+  static Future<String> getSessionInformation() async {
+    String? response;
+    try {
+      response = await channelPaymentsFlow.invokeMethod<String>('getInformation', { "data" : "session" });
+    } on PlatformException catch (e) {
+      log(e.message!);
+      response = "";
+    }
+    return response!;
+  }
 }

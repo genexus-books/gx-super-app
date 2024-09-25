@@ -184,6 +184,7 @@ import GXCoreBL
 		struct Methods {
 			static let PAY_NO_UI = "PayWithoutUI"
 			static let PAY_UI = "PayWithUI"
+			static let GET_SESSION_INFO = "GetSessionInformation"
 			static let GET_CLIENT_INFO = "GetClientInformation"
 			static let PAYMENT_INFORMATION = "GetPaymentInformation"
 			static let GET_PAYMENT_AFFINITY = "GetPaymentInfoAffinity"
