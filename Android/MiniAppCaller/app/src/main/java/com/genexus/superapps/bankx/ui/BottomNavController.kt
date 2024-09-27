@@ -7,6 +7,7 @@ import androidx.compose.material.Icon
 import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
@@ -21,15 +22,27 @@ import androidx.navigation.compose.rememberNavController
 import com.genexus.superapps.bankx.ui.screens.Screen
 import com.genexus.superapps.bankx.ui.screens.caching.CachedMiniAppListHomeContent
 import com.genexus.superapps.bankx.ui.screens.main.MiniAppListHomeContent
+import com.genexus.superapps.bankx.viewmodel.caching.CacheViewModel
+import com.genexus.superapps.bankx.viewmodel.main.MainViewModel
 
 @Composable
 fun BottomNavController() {
     val navController = rememberNavController()
+    val mainViewModel: MainViewModel = viewModel()
+    val cacheViewModel: CacheViewModel = viewModel()
     Scaffold(
         bottomBar = {
             BottomNavigation(elevation = 10.dp) {
                 val navBackStackEntry by navController.currentBackStackEntryAsState()
                 val currentDestination = navBackStackEntry?.destination
+
+                LaunchedEffect(key1 = currentDestination) {
+                    when (currentDestination?.route) {
+                        Screen.Main.route -> mainViewModel.refresh()
+                        Screen.Cache.route -> cacheViewModel.refresh()
+                    }
+                }
+                
                 items.forEach { screen ->
                     BottomNavigationItem(
                         icon = { Icon(screen.icon, contentDescription = null) },
@@ -55,8 +68,8 @@ fun BottomNavController() {
             startDestination = Screen.Main.route,
             Modifier.padding(innerPadding)
         ) {
-            composable(Screen.Main.route) { MiniAppListHomeContent(viewModel()) }
-            composable(Screen.Cache.route) { CachedMiniAppListHomeContent(viewModel()) }
+            composable(Screen.Main.route) { MiniAppListHomeContent(mainViewModel) }
+            composable(Screen.Cache.route) { CachedMiniAppListHomeContent(cacheViewModel) }
         }
     }
 }
