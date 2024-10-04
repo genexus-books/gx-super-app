@@ -174,16 +174,16 @@ In a real-life case, it could be possible to create a payment flow that guides t
 	private val methodPayWithUI: IMethodInvoker = object : IMethodInvoker {
 		override fun invoke(parameters: List<Any>): ExternalApiResult {
 			val amount = parameters[0].toString().toDouble()
-			SuperAppAPI.payWithUI(amount, resultHandler)
+			UI_RESULT_HANDLER = resultHandler
+			SuperAppAPI.payWithUI(amount, activity)
 			return ExternalApiResult.SUCCESS_WAIT
 		}
 
-		val resultHandler = object : MethodChannel.Result {
+		private val resultHandler = object : MethodChannel.Result {
 			override fun success(result: Any?) {
 				val paymentId = result as String?
 				if (paymentId.isNullOrEmpty()) {
-//					"An error occurred processing your payment."
-					ActionExecution.cancelCurrent(getAction())
+					error("2", "Invalid payment id", null)
 					return
 				}
 
@@ -193,11 +193,21 @@ In a real-life case, it could be possible to create a payment flow that guides t
 				}
 			}
 
-			override fun error(errorCode: String, errorMessage: String?, errorDetails: Any?) {}
+			override fun error(errorCode: String, errorMessage: String?, errorDetails: Any?) {
+				ActionExecution.cancelCurrent(getAction())
+			}
+
 			override fun notImplemented() {}
 		}
 	}
 ```
+
+As this is a typical case of navigation stack mixing, multiple Flutter instances should be used. That each instance is independent and maintains its own internal navigation stack, UI, and application states.
+Communication between Flutter instances is handled using [platform channels](https://docs.flutter.dev/platform-integration/platform-channels) through the host platform. 
+
+A diagram of this implementation is shown below.
+
+![Diagram to implement multiple Flutter instances](androidDiagram.png)
 
 # Definition of the External Object
 
