@@ -9,7 +9,7 @@ To integrate the necessary dependencies into your project, the following channel
 
 ### Officially Releases (Maven Central)
 Dependencies for the "Release" channel can be fetched from the Maven Central repository.
-This Release channel contains [officially released versions](https://wiki.genexus.com/commwiki/wiki?58156,GeneXus+Super+App+Render+Releases), including hotfixes. Examples: 2.3.1 (upgrade release).
+This Release channel contains [officially released versions](https://wiki.genexus.com/commwiki/wiki?58156,GeneXus+Super+App+Render+Releases), including hotfixes. Examples: 2.3.0 (upgrade release), 2.3.1 (hotfix for version 2.3)
 
 ### Officially Releases (Azure Artifacts)
 Dependencies for officially released versions (including hotfixes) can also be retrieved from Azure Artifacts repository.
