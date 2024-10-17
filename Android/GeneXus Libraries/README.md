@@ -4,20 +4,22 @@ The [GeneXus Super App Render](../../SuperAppRender.md) comprises a set of libra
 
 
 ## Available Branches and Repository URLs for Dependency Retrieval
-To integrate the necessary dependencies into your project, the following branches are available along with their respective repository URLs:
+To integrate the necessary dependencies into your project, the following branches are available along with their respective repository URLs. Utilize the provided URL in your configuration to retrieve these dependencies.
 
-### Release (Maven)
+
+### Official Releases (Maven Central)
 Dependencies for the "Release" branch can be fetched from the Maven Central repository.
+This Release branch contains [official released versions](https://wiki.genexus.com/commwiki/wiki?58156,GeneXus+Super+App+Render+Releases), including hotfixes. Examples: 2.3.1 (upgrade release), 2.3.0 (hotfix release for version 2.3).
 
-### Preview (Azure Artifacts)
-The "Preview" branch's dependencies are hosted on Azure Artifacts. Utilize the provided Azure Artifacts URL in your configuration to retrieve these dependencies.
+### Official Releases (Azure Artifacts)
+Dependencies for official released versions (including hotfixes) can also be retrieved from Azure Artifacts repository.
 
 Repository URLs: 
 - https://pkgs.dev.azure.com/genexuslabs/155eaada-eb3c-418f-9c98-dcbcffffae50/_packaging/android-releases/maven/v1
 - https://pkgs.dev.azure.com/genexuslabs/3361ab3b-96bc-4a69-a37a-f2b255ff2f35/_packaging/releases/maven/v1
 
-### Beta (Azure Artifacts)
-Dependencies for the "Beta" branch are also available on Azure Artifacts. Use the designated Azure Artifacts URL in your configuration to access these dependencies.
+### Pre-releases: RC & Beta versions (Azure Artifacts)
+This branch contains release candidates (rc/stable) and beta versions (beta/trunk).  For example, it includes versions like 2.4-beta01, 2.4-rc01, etc.
 
 Repository URLs: 
 - https://pkgs.dev.azure.com/genexuslabs/155eaada-eb3c-418f-9c98-dcbcffffae50/_packaging/android-prereleases/maven/v1
