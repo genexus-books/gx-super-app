@@ -19,3 +19,9 @@
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
+
+-keepclassmembers class * extends com.genexus.android.core.externalapi.ExternalApi {
+    public <init>(...);
+}
+
+-dontwarn org.springframework.core.io.ClassPathResource
