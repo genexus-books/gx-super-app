@@ -19,7 +19,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class PaymentsApi(action: ApiAction?) : ExternalApi(action) {
+class PaymentsApi(apiAction: ApiAction?) : ExternalApi(apiAction) {
     private val methodPayWithoutUI = IMethodInvoker { parameters: List<Any> ->
         val amount = parameters[0].toString().toDouble()
         val miniAppId = Services.Application.miniApp?.id
