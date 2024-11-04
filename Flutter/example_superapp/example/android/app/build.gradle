@@ -64,7 +64,6 @@ android {
             // Android Gradle plugin.
             shrinkResources true
 
-            //            minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
 
             // TODO: Add your own signing config for the release build.
