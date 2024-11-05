@@ -7,11 +7,12 @@ import android.widget.Toast
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.genexus.android.core.base.services.Services
-import com.genexus.android.core.base.utils.Strings
+import com.genexus.android.core.common.ApplicationToken
 import com.genexus.android.core.superapps.LoadingOptions
 import com.genexus.android.core.superapps.LoadingSecurityOptions
 import com.genexus.android.core.superapps.MiniApp
 import com.genexus.android.core.superapps.MiniAppCollection
+import com.genexus.android.core.superapps.OnApplicationTokenRequiredCallback
 import com.genexus.android.core.superapps.errors.LoadError
 import com.genexus.android.core.superapps.errors.SearchError
 import com.genexus.android.core.tasking.OnCompleteListener
@@ -27,6 +28,14 @@ class MainViewModel : ViewModel() {
     val state = _state.asStateFlow()
     private var _isRefreshing = MutableStateFlow(false)
     var isRefreshing = _isRefreshing.asStateFlow()
+
+    private val superAppTokenCallback = object : OnApplicationTokenRequiredCallback {
+        override fun getApplicationToken(): ApplicationToken {
+            val superAppTokenType = "Retrieve Super App token type somehow and set it here"
+            val superAppToken = "Retrieve Super App access token somehow and set it here"
+            return ApplicationToken(superAppTokenType, superAppToken)
+        }
+    }
 
     fun refresh() {
         viewModelScope.launch {
@@ -55,11 +64,10 @@ class MainViewModel : ViewModel() {
         val options = if (!miniApp.isSecure)
             null
         else {
-            val superApToken = "Retrieve Super App Token and use it here"
             val miniAppTokenRetrievalUrl = Uri.parse("Configure Mini App access token retrieval URL here or in superapp.json")
             val securityOptions = LoadingSecurityOptions.Builder()
                 .withAuthTokenCheckUrl(miniAppTokenRetrievalUrl) // This line is not needed if URL is set in superapp.json
-                .withSuperAppToken(superApToken)
+                .withAuthTokenRetrievalCallback(superAppTokenCallback)
                 .build()
             LoadingOptions.Builder().withSecurityOptions(securityOptions).build()
         }
