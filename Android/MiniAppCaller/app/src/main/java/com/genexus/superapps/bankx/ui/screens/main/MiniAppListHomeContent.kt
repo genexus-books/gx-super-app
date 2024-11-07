@@ -18,15 +18,17 @@ import androidx.compose.material.icons.filled.Search
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import com.genexus.android.core.base.services.Services
+import com.genexus.android.core.superapps.MiniApp
+import com.genexus.android.core.superapps.errors.LoadError
 import com.genexus.superapps.bankx.BuildConfig
 import com.genexus.superapps.bankx.Flavor
 import com.genexus.superapps.bankx.ui.MiniAppListItem
+import com.genexus.superapps.bankx.ui.screens.scopes.RequestScopesContract
 import com.genexus.superapps.bankx.ui.screens.States.ErrorState
 import com.genexus.superapps.bankx.ui.screens.States.LoadingState
 import com.genexus.superapps.bankx.viewmodel.main.MainViewModel
@@ -39,13 +41,27 @@ import kotlinx.coroutines.launch
 @Composable
 fun MiniAppListHomeContent(model: MainViewModel) {
     val context = LocalContext.current
-    val launcher = rememberLauncherForActivityResult(
+    var currentlyLoadingMiniApp: MiniApp? = null
+    
+    val cameraPermissionLauncher = rememberLauncherForActivityResult(
         ActivityResultContracts.RequestPermission()
     ) { isGranted: Boolean ->
         if (isGranted)
             CoroutineScope(Dispatchers.Default).launch { model.loadSandbox(context) }
         else
             Toast.makeText(context, "Camera permission is required for QR", Toast.LENGTH_LONG).show()
+    }
+    
+    val scopeRequestLauncher = rememberLauncherForActivityResult(
+        RequestScopesContract()
+    ) { accepted: Boolean ->
+        val miniApp = currentlyLoadingMiniApp
+        if (!accepted || miniApp == null)
+            Toast.makeText(context, "Missing scopes rejected", Toast.LENGTH_LONG).show()
+        else {
+            model.loadMiniApp(miniApp)
+            currentlyLoadingMiniApp = null
+        }
     }
 
     val isRefreshing by model.isRefreshing.collectAsState()
@@ -67,8 +83,22 @@ fun MiniAppListHomeContent(model: MainViewModel) {
                 ) {
                     items(
                         items = miniApps,
-                        itemContent = { MiniAppListItem(miniApp = it) { model.loadMiniApp(it) } }
+                        itemContent = {
+                            MiniAppListItem(miniApp = it) {
+                                currentlyLoadingMiniApp = it
+                                model.loadMiniApp(it)
+                            }
+                        }
                     )
+                }
+            }
+            is MainViewModel.State.Warning -> {
+                val miniApp = currentlyLoadingMiniApp
+                if (state.error != LoadError.AUTHORIZATION_SCOPES || miniApp == null) {
+                    ErrorState(text = "Unknown warning state")
+                } else {
+                    val input = RequestScopesContract.Input(miniApp.id, state.extra)
+                    scopeRequestLauncher.launch(input)
                 }
             }
         }
@@ -78,7 +108,7 @@ fun MiniAppListHomeContent(model: MainViewModel) {
                 FloatingActionButton(
                     elevation = FloatingActionButtonDefaults.elevation(),
                     modifier = Modifier.padding(all = 16.dp).align(alignment = Alignment.BottomEnd),
-                    onClick = { launcher.launch(Manifest.permission.CAMERA) },
+                    onClick = { cameraPermissionLauncher.launch(Manifest.permission.CAMERA) },
                 ) {
                     Icon(Icons.Filled.Search, "Read QR")
                 }

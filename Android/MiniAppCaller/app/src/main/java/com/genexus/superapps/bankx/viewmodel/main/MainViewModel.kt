@@ -74,13 +74,11 @@ class MainViewModel : ViewModel() {
 
         Services.SuperApps.load(miniApp, options).addOnFailureListener(object : OnFailureListener<LoadError> {
             override fun onFailure(error: LoadError, extra: Any?) {
-                val message = when (error) {
-                    LoadError.AUTHORIZATION_TOKEN -> "MiniApp access token not valid"
-                    LoadError.AUTHORIZATION_SCOPES -> "MiniApp requested scopes '$extra' not granted"
-                    else -> "MiniApp loading failed"
+                _state.value = when (error) {
+                    LoadError.AUTHORIZATION_TOKEN -> State.Error("MiniApp access token not valid")
+                    LoadError.AUTHORIZATION_SCOPES -> State.Warning(error, extra.toString())
+                    else -> State.Error("MiniApp loading failed")
                 }
-
-                _state.value = State.Error(message)
             }
         })
     }
@@ -112,5 +110,6 @@ class MainViewModel : ViewModel() {
         object Loading: State()
         data class Data(val data: MiniAppCollection): State()
         data class Error(val message: String): State()
+        data class Warning(val error: LoadError, val extra: String): State()
     }
 }
