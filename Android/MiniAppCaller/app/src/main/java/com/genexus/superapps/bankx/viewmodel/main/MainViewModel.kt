@@ -76,7 +76,7 @@ class MainViewModel : ViewModel() {
             override fun onFailure(error: LoadError, extra: Any?) {
                 _state.value = when (error) {
                     LoadError.AUTHORIZATION_TOKEN -> State.Error("MiniApp access token not valid")
-                    LoadError.AUTHORIZATION_SCOPES -> State.Warning(error, extra.toString())
+                    LoadError.AUTHORIZATION_SCOPES -> State.Warning(error, extra)
                     else -> State.Error("MiniApp loading failed")
                 }
             }
@@ -110,6 +110,6 @@ class MainViewModel : ViewModel() {
         object Loading: State()
         data class Data(val data: MiniAppCollection): State()
         data class Error(val message: String): State()
-        data class Warning(val error: LoadError, val extra: String): State()
+        data class Warning(val error: LoadError, val extra: Any?): State()
     }
 }

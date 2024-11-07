@@ -25,6 +25,7 @@ import androidx.compose.ui.unit.dp
 import com.genexus.android.core.base.services.Services
 import com.genexus.android.core.superapps.MiniApp
 import com.genexus.android.core.superapps.errors.LoadError
+import com.genexus.android.core.superapps.security.MiniAppScopesRequestResult
 import com.genexus.superapps.bankx.BuildConfig
 import com.genexus.superapps.bankx.Flavor
 import com.genexus.superapps.bankx.ui.MiniAppListItem
@@ -97,8 +98,14 @@ fun MiniAppListHomeContent(model: MainViewModel) {
                 if (state.error != LoadError.AUTHORIZATION_SCOPES || miniApp == null) {
                     ErrorState(text = "Unknown warning state")
                 } else {
-                    val input = RequestScopesContract.Input(miniApp.id, state.extra)
-                    scopeRequestLauncher.launch(input)
+                    val result = state.extra as? MiniAppScopesRequestResult
+                    val scopes = result?.scopes
+                    if (scopes.isNullOrEmpty()) {
+                        ErrorState(text = result?.messages?.errorText ?: "Unknown missing scopes")
+                    } else {
+                        val input = RequestScopesContract.Input(miniApp.id, scopes)
+                        scopeRequestLauncher.launch(input)
+                    }
                 }
             }
         }
