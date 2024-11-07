@@ -15,6 +15,8 @@ import com.genexus.android.core.superapps.MiniAppCollection
 import com.genexus.android.core.superapps.OnApplicationTokenRequiredCallback
 import com.genexus.android.core.superapps.errors.LoadError
 import com.genexus.android.core.superapps.errors.SearchError
+import com.genexus.android.core.superapps.security.MiniAppScopesRequestResult
+import com.genexus.android.core.superapps.security.MiniAppTokenRequestResult
 import com.genexus.android.core.tasking.OnCompleteListener
 import com.genexus.android.core.tasking.OnFailureListener
 import com.genexus.android.core.tasking.Task
@@ -60,7 +62,7 @@ class MainViewModel : ViewModel() {
         })
     }
 
-    fun loadMiniApp(miniApp: MiniApp) {
+    fun loadMiniApp(miniApp: MiniApp, hasScopesErrorOccurred: Boolean) {
         val options = if (!miniApp.isSecure)
             null
         else {
@@ -75,9 +77,21 @@ class MainViewModel : ViewModel() {
         Services.SuperApps.load(miniApp, options).addOnFailureListener(object : OnFailureListener<LoadError> {
             override fun onFailure(error: LoadError, extra: Any?) {
                 _state.value = when (error) {
-                    LoadError.AUTHORIZATION_TOKEN -> State.Error("MiniApp access token not valid")
-                    LoadError.AUTHORIZATION_SCOPES -> State.Warning(error, extra)
-                    else -> State.Error("MiniApp loading failed")
+                    LoadError.AUTHORIZATION_TOKEN -> {
+                        val errorMessage = (extra as MiniAppTokenRequestResult).messages?.errorText 
+                            ?: "MiniApp access token not valid"
+                        State.Error(errorMessage)
+                    }
+                    LoadError.AUTHORIZATION_SCOPES ->  {
+                        if (!hasScopesErrorOccurred)
+                            State.Warning(error, extra)
+                        else {
+                            val errorMessage = (extra as MiniAppScopesRequestResult).messages?.errorText
+                                ?: "Missing scopes have not been accepted"
+                            State.Error(errorMessage)
+                        }
+                    }
+                    else -> State.Error("MiniApp loading failed because of '$error'")
                 }
             }
         })

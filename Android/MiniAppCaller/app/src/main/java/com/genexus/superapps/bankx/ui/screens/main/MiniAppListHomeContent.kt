@@ -60,7 +60,7 @@ fun MiniAppListHomeContent(model: MainViewModel) {
         if (!accepted || miniApp == null)
             Toast.makeText(context, "Missing scopes rejected", Toast.LENGTH_LONG).show()
         else {
-            model.loadMiniApp(miniApp)
+            model.loadMiniApp(miniApp, true)
             currentlyLoadingMiniApp = null
         }
     }
@@ -87,7 +87,7 @@ fun MiniAppListHomeContent(model: MainViewModel) {
                         itemContent = {
                             MiniAppListItem(miniApp = it) {
                                 currentlyLoadingMiniApp = it
-                                model.loadMiniApp(it)
+                                model.loadMiniApp(it, false)
                             }
                         }
                     )
@@ -95,8 +95,10 @@ fun MiniAppListHomeContent(model: MainViewModel) {
             }
             is MainViewModel.State.Warning -> {
                 val miniApp = currentlyLoadingMiniApp
-                if (state.error != LoadError.AUTHORIZATION_SCOPES || miniApp == null) {
+                if (state.error != LoadError.AUTHORIZATION_SCOPES) {
                     ErrorState(text = "Unknown warning state")
+                } else if (miniApp == null) {
+                    ErrorState(text = "Not currently loading any Mini App")
                 } else {
                     val result = state.extra as? MiniAppScopesRequestResult
                     val scopes = result?.scopes
