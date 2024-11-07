@@ -30,37 +30,49 @@ fun RequestScopesScreen(
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Text(
-            text = miniAppId,
-            style = MaterialTheme.typography.h1,
+            text = "Permissions for Mini App $miniAppId",
+            style = MaterialTheme.typography.h4,
             color = MaterialTheme.colors.onBackground
         )
 
-        Spacer(modifier = Modifier.height(8.dp))
+        Spacer(modifier = Modifier.height(30.dp))
 
         Text(
+            text = "Scopes:",
+            textAlign = TextAlign.Start,
+            textDecoration = TextDecoration.Underline,
+            style = MaterialTheme.typography.h4,
+            color = MaterialTheme.colors.onBackground
+        )
+        Text(
             text = scopes,
-            style = MaterialTheme.typography.h2,
+            style = MaterialTheme.typography.h5,
             color = MaterialTheme.colors.onBackground
         )
 
         Spacer(modifier = Modifier.height(16.dp))
 
-        Button(
-            onClick = onAccepted,
-            colors = ButtonDefaults.buttonColors(backgroundColor = Color.Green),
-            modifier = Modifier.fillMaxWidth()
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(16.dp),
+            verticalAlignment = Alignment.Top
         ) {
-            Text("Accept")
-        }
-
-        Spacer(modifier = Modifier.height(8.dp))
-
-        Button(
-            onClick = onRejected,
-            colors = ButtonDefaults.buttonColors(backgroundColor = Color.Red),
-            modifier = Modifier.fillMaxWidth()
-        ) {
-            Text("Reject")
+            Button(
+                onClick = onAccepted,
+                colors = ButtonDefaults.buttonColors(backgroundColor = Color.Green),
+                modifier = Modifier.width(200.dp)
+            ) {
+                Text("Accept")
+            }
+            Spacer(modifier = Modifier.width(16.dp))
+            Button(
+                onClick = onRejected,
+                colors = ButtonDefaults.buttonColors(backgroundColor = Color.Red),
+                modifier = Modifier.width(200.dp)
+            ) {
+                Text("Reject")
+            }
         }
     }
 }

@@ -33,8 +33,8 @@ class MainViewModel : ViewModel() {
 
     private val superAppTokenCallback = object : OnApplicationTokenRequiredCallback {
         override fun getApplicationToken(): ApplicationToken {
-            val superAppTokenType = "Retrieve Super App token type somehow and set it here"
-            val superAppToken = "Retrieve Super App access token somehow and set it here"
+            val superAppTokenType = "Retrieve Super App token type somehow and set it here" // TODO
+            val superAppToken = "Retrieve Super App access token somehow and set it here"   // TODO
             return ApplicationToken(superAppTokenType, superAppToken)
         }
     }
@@ -66,7 +66,7 @@ class MainViewModel : ViewModel() {
         val options = if (!miniApp.isSecure)
             null
         else {
-            val miniAppTokenRetrievalUrl = Uri.parse("Configure Mini App access token retrieval URL here or in superapp.json")
+            val miniAppTokenRetrievalUrl = Uri.parse("Configure Mini App access token retrieval URL here or in superapp.json")  // This line is not needed if URL is set in superapp.json
             val securityOptions = LoadingSecurityOptions.Builder()
                 .withAuthTokenCheckUrl(miniAppTokenRetrievalUrl) // This line is not needed if URL is set in superapp.json
                 .withAuthTokenRetrievalCallback(superAppTokenCallback)

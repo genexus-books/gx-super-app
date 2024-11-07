@@ -40,6 +40,7 @@ class RequestScopesActivity: AppCompatActivity() {
 
     private val onAccepted = object : () -> Unit {
         override fun invoke() {
+            // TODO: Please keep the confirmation of the permissions so that the next time the GXSSOURLCheckMiniAppScope service runs, it returns is_allowed = true.
             setResult(Activity.RESULT_OK)
             finish()
         }
