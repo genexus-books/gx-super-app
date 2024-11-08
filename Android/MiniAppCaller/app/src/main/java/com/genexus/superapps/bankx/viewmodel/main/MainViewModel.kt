@@ -49,7 +49,7 @@ class MainViewModel : ViewModel() {
 
     private suspend fun retrieveMiniApps() {
         delay(1500)
-        Services.SuperApps.searchByTag(Strings.EMPTY, 0, 10).addOnCompleteListener(object : OnCompleteListener<MiniAppCollection, SearchError> {
+        Services.SuperApps.searchByTag("", 0, 10).addOnCompleteListener(object : OnCompleteListener<MiniAppCollection, SearchError> {
             override fun onComplete(task: Task<MiniAppCollection, SearchError>) {
                 val miniApps = task.result
                 if (!task.isSuccessful || miniApps.isNullOrEmpty()) {

@@ -1,10 +1,12 @@
 package com.genexus.superapps.bankx.ui.screens.scopes
 
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.material.Button
 import androidx.compose.material.ButtonDefaults
 import androidx.compose.material.MaterialTheme
@@ -30,23 +32,16 @@ fun RequestScopesScreen(
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Text(
-            text = "Permissions for Mini App $miniAppId",
-            style = MaterialTheme.typography.h4,
+            text = "Mini App '$miniAppId' needs your permission to access the following scopes",
+            style = MaterialTheme.typography.h5,
             color = MaterialTheme.colors.onBackground
         )
 
         Spacer(modifier = Modifier.height(30.dp))
 
         Text(
-            text = "Scopes:",
-            textAlign = TextAlign.Start,
-            textDecoration = TextDecoration.Underline,
-            style = MaterialTheme.typography.h4,
-            color = MaterialTheme.colors.onBackground
-        )
-        Text(
             text = scopes,
-            style = MaterialTheme.typography.h5,
+            style = MaterialTheme.typography.h6,
             color = MaterialTheme.colors.onBackground
         )
 
@@ -54,14 +49,13 @@ fun RequestScopesScreen(
 
         Row(
             modifier = Modifier
-                .fillMaxWidth()
-                .padding(16.dp),
+                .fillMaxWidth(),
             verticalAlignment = Alignment.Top
         ) {
             Button(
                 onClick = onAccepted,
                 colors = ButtonDefaults.buttonColors(backgroundColor = Color.Green),
-                modifier = Modifier.width(200.dp)
+                modifier = Modifier.fillMaxWidth(0.5f)
             ) {
                 Text("Accept")
             }
@@ -69,7 +63,7 @@ fun RequestScopesScreen(
             Button(
                 onClick = onRejected,
                 colors = ButtonDefaults.buttonColors(backgroundColor = Color.Red),
-                modifier = Modifier.width(200.dp)
+                modifier = Modifier.fillMaxWidth()
             ) {
                 Text("Reject")
             }
@@ -81,8 +75,8 @@ fun RequestScopesScreen(
 @Composable
 fun PreviewRequestScopesScreen() {
     RequestScopesScreen(
-        miniAppId = "SSO",
-        scopes = "user_email",
+        miniAppId = "com.genexus.example.miniapp",
+        scopes = "user_email;user_name;user_id",
         onRejected = { },
         onAccepted = { }
     )
