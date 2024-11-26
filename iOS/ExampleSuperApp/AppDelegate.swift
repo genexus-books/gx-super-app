@@ -33,7 +33,10 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 		GXMiniAppsManager.registerSuperAppAccessTokenProvider { miniAppId, completion in
 			/// This closure is called when the super app access token is required for requesting an authorization token for the mini-app with the given id.
 			/// Configuring GXSSOURLGetMiniAppAccessToken in Info.plist is required (GXSSOURLCheckMiniAppScope is optional).
-			let superAppToken: String? = "Retrieve Super App access token somehow and call completion with it"
+			let superAppToken: GXMiniAppsManager.SuperAppAccessToken? = (
+				token: "Retrieve Super App access token somehow and set it here",
+				type: "Retrieve Super App token type somehow and set it here"
+			)
 			completion(.success(superAppToken))
 		}
 #endif // SSO_ENABLED
