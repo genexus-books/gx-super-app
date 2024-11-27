@@ -6,11 +6,11 @@ This document explains how to develop and integrate the functionality that provi
 
 There are certain initial configuration steps in the project:
 
-1. Integration of the [Android libraries](../../../Android/GeneXus%20Libraries/README.md) corresponding to [Super App Render](../../../SuperAppRender.md)
+1. Integration of the [Android libraries](../../../Android/GeneXus%20Libraries/README.md) corresponding to [Super App Render](../../../docs/SuperAppRender.md)
 2. Set the values in the app's [superapp_json](../example/android/app/src/main/res/raw/superapp_json) file:
-	- `GXSuperAppProvisioningURL`: String corresponding to the [Mini App Center's](../../../Provisioning.md) URL of the Mini Apps.
+	- `GXSuperAppProvisioningURL`: String corresponding to the [Mini App Center's](../../../docs/Provisioning.md) URL of the Mini Apps.
 	- `GXSuperAppId`: String corresponding to the Super App identifier, to be used at the Mini App Center. If this key is not included, the app's [Package Name](https://developer.android.com/reference/android/content/Context#getPackageName()) will be used.  
-	- `GXSuperAppVersion`: String corresponding to the Super App identifier, to be used at the Mini App Center. If this key is not included, the app's [Version Code](https://developer.android.com/reference/android/content/pm/PackageInfo#getLongVersionCode()) will be used.
+	- `GXSuperAppVersion`: String corresponding to the Version of Super App, to be used at the Mini App Center. If this key is not included, the app's [Version Code](https://developer.android.com/reference/android/content/pm/PackageInfo#getLongVersionCode()) will be used.
 3. The public key that verifies the signature of the Mini Apps. It's downloaded from the Mini App Center and must be placed in the app's resources under the name [superapp_crt](../example/android/app/src/main/res/raw/superapp_crt)
 4. Point the local repository URL and version at [build.gradle](build.gradle) to the directory where it is located.
 5. Point the local repository URL at [example\build.gradle](../example/android/build.gradle) to the directory where it is located.
@@ -18,7 +18,7 @@ There are certain initial configuration steps in the project:
    
 ## Communication API with the Mini App Center
 
-To access the Mini Apps that are available on the Mini App Center, the class `SuperAppsHelper` is used. It's included in the `SuperAppsLib` library and accessed via the `Services.SuperApps` static field after [registering the `SuperAppsLib` module](../android/src/main/kotlin/com/genexus/example_superapp/ExampleSuperappPlugin.kt) in the initialization of the class that extends `FlutterPlugin`.
+To access the Mini Apps that are available on the Mini App Center, the class `SuperAppsHelper` is used. It's included in the `SuperAppsLib` library and accessed via the `Services.SuperApps` static field after [registering the `SuperAppsLib` module](../android/src/main/kotlin/com/genexus/example_superapp/ExampleSuperappPlugin.kt#L44) in the initialization of the class that extends `FlutterPlugin`.
 
 This class provides five methods to load Mini Apps using different criteria. 
 The first returns only one Mini App, the rest returns a collection of Mini Apps and, therefore, has these 2 parameters in common:

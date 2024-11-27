@@ -1,12 +1,12 @@
 # Android Super App Example
 
-This document explains how to develop and integrate the functionality that provides the API for accessing the Mini App Center, as well as the API for managing their cache, based on the `MiniAppCaller` example.
+This document explains how to develop and integrate the functionality that provides the API for accessing the [Mini App Center](https://wiki.genexus.com/commwiki/wiki?51290,Table+of+contents%3AMini+App+Center), as well as the API for managing their cache, based on the `MiniAppCaller` example.
 
 ## Setting
 
 There are certain initial configuration steps in the project:
 
-1. Integration of the [Android libraries](GeneXus%20Libraries/README.md) corresponding to [Super App Render](../SuperAppRender.md)
+1. Integration of the [Android libraries](GeneXus%20Libraries/README.md) corresponding to [Super App Render](../docs/SuperAppRender.md).
 2. Set the values in the app's [superapp_json](MiniAppCaller/app/src/main/res/raw/superapp_json) file:
 	- `GXSuperAppProvisioningURL`: String corresponding to the [Mini App Center's](../docs/Provisioning.md) URL of the Mini Apps.
 	- `GXSuperAppId`: String corresponding to the Super App identifier, to be used at the Mini App Center. If this key is not included, the app's [Package Name](https://developer.android.com/reference/android/content/Context#getPackageName()) will be used.  
@@ -15,7 +15,7 @@ There are certain initial configuration steps in the project:
    
 ## Communication API with the Mini App Center
 
-To access the Mini Apps that are available on the Mini App Center, the class `SuperAppsHelper` is used. It's included in the `SuperAppsLib` library and accessed via the `Services.SuperApps` static field after [registering the `SuperAppsLib` module](https://github.com/genexus-colab/gx-super-app-backup/blob/d63a20f0ba839914c915fdd09aa9102946d021c2/Android/MiniAppCaller/app/src/main/java/com/genexus/superapps/bankx/application/BankingApplication.kt#L29) in the initialization of the class that extends `Application`.
+To access the Mini Apps that are available on the Mini App Center, the class `SuperAppsHelper` is used. It's included in the `SuperAppsLib` library and accessed via the `Services.SuperApps` static field after [registering the `SuperAppsLib` module](MiniAppCaller/app/src/main/java/com/genexus/superapps/bankx/application/BankingApplication.kt#L29) in the initialization of the class that extends `Application`.
 
 This class provides five methods to load Mini Apps, using different criteria. 
 The first returns only one Mini App, the rest returns a collection of Mini Apps and therefore has these 2 parameters in common:
@@ -103,7 +103,7 @@ For general information on how GetByFilters works, please refer to:
 
 ### Error handling
 
-In all cases within the `OnFailureListener` Listener, the error can be one of three types: 
+In all cases within the `OnFailureListener`, the error can be one of three types: 
 
 ```kotlin
     enum class SearchError {
@@ -200,3 +200,100 @@ A method to get a list of the Mini Apps in the cache is included, one to delete 
 ```
 
 In any other case, the Mini App is kept in the cache indefinitely and the OS itself could remove it from the cache at its discretion since it is stored in a temporary directory.
+
+## GeneXus Theme Inheritance 
+
+Ensure Super App's Theme inherits from one of the required GeneXus themes:
+
+- Theme.Genexus.Dark
+- Theme.Genexus.Light
+- Theme.Genexus.Light.DarkActionBar
+
+Check out these steps:
+
+1. **Locate Theme Definition:**
+   Open [themes.xml](MiniAppCaller/app/src/main/res/values/themes.xml) file in your Android project. This file is usually found in the `res/values` directory.
+
+2. **Modify Theme:**
+   Ensure that the theme used in the application inherits from one of the GeneXus themes. Update the `parent` attribute of your theme as shown below:
+
+   ```xml
+   <style name="Theme.Genexus.BankingSuperApp" parent="Theme.Genexus.Light">
+     <item name="colorPrimary">@color/purple_500</item>
+     <item name="colorPrimaryVariant">@color/purple_700</item>
+   </style>
+   ```
+
+## Implement EntityProvider for Super App
+
+1. Define [AppEntityService.kt](MiniAppCaller/app/src/main/java/com/genexus/superapps/bankx/application/AppEntityService.kt).
+    
+Create a class that extends `EntityService`. This service will handle entity-related operations within your Super App.
+
+```kotlin
+package com.genexus.superapps.bankx.application
+
+import com.genexus.android.core.services.EntityService
+
+class AppEntityService: EntityService()
+```
+
+2. Define [AppEntityDataProvider.kt](MiniAppCaller/app/src/main/java/com/genexus/superapps/bankx/application/AppEntityDataProvider.kt).
+
+Create a class that extends `EntityDataProvider`. This provider will supply the necessary data for your entities.
+
+```kotlin
+package com.genexus.superapps.bankx.application
+
+import com.genexus.android.core.providers.EntityDataProvider
+
+class AppEntityDataProvider: EntityDataProvider() {
+    init {
+        AUTHORITY = "com.genexus.superapps.bankx.appentityprovider"
+        URI_MATCHER = buildUriMatcher()
+    }
+}
+```
+
+3. Declare `AppEntityService` and `AppEntityDataProvider` in your [AndroidManifest.xml](MiniAppCaller/app/src/main/AndroidManifest.xml)
+file to ensure they are recognized by the Android system.
+
+```xml
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    ...
+    <application ...>
+        <provider
+            android:name=".application.AppEntityDataProvider"
+            android:authorities="com.genexus.superapps.bankx.appentityprovider"
+            android:exported="false" />
+
+        <service
+            android:name=".application.AppEntityService"
+            android:enabled="true" />
+    </application>
+</manifest>
+```
+
+4. Implement the `IEntityProvider` interface in [MainApplication](MiniAppCaller/app/src/main/java/com/genexus/superapps/bankx/application/BankingApplication.kt) and override `getEntityServiceClass()` and `getProvider()` methods to return your custom service and provider.
+
+```kotlin
+package com.genexus.superapps.bankx.application
+
+...
+import com.genexus.android.core.providers.IEntityProvider
+import com.genexus.android.core.providers.EntityDataProvider
+import com.genexus.android.core.services.EntityService
+
+class BankingApplication: Application(), IEntityProvider {
+
+    ...
+
+    override fun getEntityServiceClass(): Class<out EntityService> {
+        return AppEntityService::class.java
+    }
+
+    override fun getProvider(): EntityDataProvider {
+        return AppEntityDataProvider()
+    }
+}
+```

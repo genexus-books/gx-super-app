@@ -1,40 +1,75 @@
 package com.genexus.example_superapp
 
+import android.app.Activity
+import android.content.Intent
 import com.genexus.android.core.base.model.Entity
 import com.genexus.android.core.base.services.Services
+import com.genexus.example_superapp.api.FlutterPaymentActivity
 import com.genexus.example_superapp.api.PaymentsApi
 import com.genexus.example_superapp.api.services.ClientsService
 import com.genexus.example_superapp.api.services.PaymentsService
 import io.flutter.embedding.engine.plugins.FlutterPlugin
 import io.flutter.plugin.common.MethodChannel
+import kotlinx.coroutines.suspendCancellableCoroutine
+import kotlin.coroutines.resume
 
 object SuperAppAPI: ISuperApp, IFlutterCallHandlerSetup {
 
-	private const val CHANNEL_NAME = "example_superapp"
-	private lateinit var methodChannel: MethodChannel
+	private const val CHANNEL_NON_UI_METHODS = "com.genexus.superapp/SuperAppAPI"
+	private const val CHANNEL_PROVISIONING = "com.genexus.superapp/Provisioning"
+	private lateinit var nonUIMethodsChannel: MethodChannel
+	private lateinit var methodChannelProvisioning: MethodChannel
 
 	override fun setupChannel(flutterBinding: FlutterPlugin.FlutterPluginBinding) {
-		methodChannel = MethodChannel(flutterBinding.binaryMessenger, CHANNEL_NAME).apply {
+		nonUIMethodsChannel = MethodChannel(flutterBinding.binaryMessenger, CHANNEL_NON_UI_METHODS)
+		methodChannelProvisioning = MethodChannel(flutterBinding.binaryMessenger, CHANNEL_PROVISIONING).apply {
 			setMethodCallHandler(FlutterCallHandler())
 		}
 	}
 
 	override fun destroyChannel(flutterBinding: FlutterPlugin.FlutterPluginBinding) {
-		methodChannel.setMethodCallHandler(null)
+		methodChannelProvisioning.setMethodCallHandler(null)
 	}
 
 	private fun callMethod(name: String, arguments: Map<String, Any>?, resultHandler: MethodChannel.Result? = null) {
 		Services.Device.runOnUiThread { // Flutter method invocation must run on Ui thread
-			methodChannel.invokeMethod(name, arguments, resultHandler)
+			nonUIMethodsChannel.invokeMethod(name, arguments, resultHandler)
 		}
+	}
+
+	private fun callUIMethod(route: Class<out Activity>, arguments: Map<String, Any>?, from: Activity) {
+		val intent = Intent(from.baseContext, route).apply {
+			if (arguments != null)
+				for (arg in arguments.entries)
+					putExtra(arg.key, arg.value.toString())
+		}
+
+		from.startActivity(intent)
 	}
 
 	override fun payWithoutUI(amount: Double, resultHandler: MethodChannel.Result?) {
 		callMethod(PaymentsApi.METHOD_PAY_NO_UI, hashMapOf("amount" to amount), resultHandler)
 	}
 
-	override fun payWithUI(amount: Double, resultHandler: MethodChannel.Result?) {
-		callMethod(PaymentsApi.METHOD_PAY_UI, hashMapOf("amount" to amount), resultHandler)
+	override fun payWithUI(amount: Double, from: Activity) {
+		callUIMethod(FlutterPaymentActivity::class.java, hashMapOf("amount" to amount), from)
+	}
+
+	suspend fun getSessionInformation(): String? = suspendCancellableCoroutine { continuation ->
+		callMethod(PaymentsApi.METHOD_GET_SESSION_INFO, null, object: MethodChannel.Result {
+
+			override fun success(result: Any?) {
+				continuation.resume(result?.toString()) // Resume with the result
+			}
+
+			override fun error(errorCode: String, errorMessage: String?, errorDetails: Any?) {
+				continuation.resume(null) // Resume with null in case of an error
+			}
+
+			override fun notImplemented() {
+				continuation.resume(null) // Resume with null in case of an error
+			}
+		})
 	}
 
 	override fun getClientInformation(clientId: String, resultHandler: MethodChannel.Result?) {

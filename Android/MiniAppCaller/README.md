@@ -1,4 +1,4 @@
-# Programming a functionality provided by a native SuperApp
+# Programming a functionality provided by a native Super App
 
 ## Setting
 
@@ -173,25 +173,12 @@ This code retrieves the current Mini App identifier:
 val miniAppId = Services.Application.miniApp?.id
 ```
 
-## Interface in GeneXus KB (External Object)
+## HowTo: Call a Super App API from a Mini App
 
-### For testing purposes, create a new External Object named “Payments”
+To implement a communication interface between Mini Apps and Super Apps, visit the official documentation:
 
-![image](https://user-images.githubusercontent.com/11620451/170534441-6a5d3788-6659-4b85-90ae-074f7e385300.png)
-
-### Declare two new methods: “PayWithUI” and “PayWithoutUI”
-
-![image](https://user-images.githubusercontent.com/11620451/170534961-d2536785-ff67-4265-903b-a7e02cb4896e.png)
-
-Note the number of parameters received by each method (one of Numeric/Integer type), the type returned (VarChar/String) and the “Is Static” property with its value in “True”.
-
-### Reference the new External Object from a button's event programmed in the Checkout Panel
-
-![image](https://user-images.githubusercontent.com/11620451/128559420-2b140ad8-412b-48d9-a9de-c7c7ce95eb09.png)
-
-![image](https://user-images.githubusercontent.com/11620451/170535263-874b14bf-51fc-45dc-a698-9f792f25ffd9.png)
-
-As aforementioned and especially for this example, the amount of the transaction is passed to both methods as a parameter, whose processing returns the payment Id.
+- For a Native mobile Mini App, please refer to: [HowTo: Call a Super App API from a Native mobile Mini App](https://wiki.genexus.com/commwiki/wiki?58185,HowTo%3A+Call+a+Super+App+API+from+a+Native+mobile+Mini+App#HowTo%3A+Call+a+non-GeneXus+Super+App+API)
+- For a Web Mini App, please refer to: [HowTo: Call a Super App API from a Web Mini App](https://wiki.genexus.com/commwiki/wiki?57430,HowTo%3A+Call+a+Super+App+API+from+a+Web+Mini+App)
 
 ## Conclusion
 

@@ -10,24 +10,17 @@ import com.genexus.android.core.services.EntityService
 import com.genexus.example_superapp.api.PaymentsModule
 import com.genexus.example_superapp.application.AppEntityDataProvider
 import com.genexus.example_superapp.application.AppEntityService
-import io.flutter.embedding.engine.FlutterEngine
-import io.flutter.embedding.engine.FlutterEngineCache
-import io.flutter.embedding.engine.dart.DartExecutor
 import io.flutter.embedding.engine.plugins.FlutterPlugin
 
 class ExampleSuperappPlugin: FlutterPlugin {
 
-	private var application: ApplicationHelper? = null
-
 	override fun onAttachedToEngine(flutterPluginBinding: FlutterPlugin.FlutterPluginBinding) {
+		if (application != null)
+			return
+
 		val context = flutterPluginBinding.applicationContext as Application
 		initApplication(context)
 		SuperAppAPI.setupChannel(flutterPluginBinding)
-//		FlutterEngine(context).apply {
-//			navigationChannel.setInitialRoute("/payments")
-//			dartExecutor.executeDartEntrypoint(DartExecutor.DartEntrypoint.createDefault())
-//			FlutterEngineCache.getInstance().put("plugin_engine", this)
-//		}
 	}
 
 	override fun onDetachedFromEngine(flutterPluginBinding: FlutterPlugin.FlutterPluginBinding) {
@@ -61,5 +54,9 @@ class ExampleSuperappPlugin: FlutterPlugin {
 		override fun getProvider(): EntityDataProvider {
 			return AppEntityDataProvider()
 		}
+	}
+
+	companion object {
+		private var application: ApplicationHelper? = null
 	}
 }

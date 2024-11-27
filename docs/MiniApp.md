@@ -27,7 +27,7 @@ The development process of a Mini App is the same as for any other mobile app de
 To integrate the Mini App to the Super App, the following considerations must be taken into account:
 
 - Super App API 
-	- The Mini App has interaction points with the Super App through the API of the services it offers. You need to request that API and integrate it into the GeneXus Knowledge Base (KB) as an External Object. See the following [example](/Android/MiniAppCaller/README.md#interfaz-en-kb-genexus-external-object).
+	- The Mini App has interaction points with the Super App through the API of the services it offers. You need to request that API and integrate it into the GeneXus Knowledge Base (KB) as an External Object.
 
 - Install the GeneXusMiniApps Module
 	- This module is directly installed into the KB from the Manage Module References. It provides the MiniApp.Exit() method, that enables you to close a Mini App and return to the Super App. This option should be in the Mini App's appbar.
@@ -59,3 +59,10 @@ Steps to follow:
 5. This process may require sending new versions of the Mini App. Once it's completed, the Mini App is in Ready state. 
 
 **Important:** the backend services' version (step 1) must always match the metadata's version (step 2) sent to the Mini App Center.
+
+## Additional Resources
+
+You might also be interested in:
+
+- [Mini App Object](https://wiki.genexus.com/commwiki/wiki?58037,Category%3AMini+App+object)
+- [Mini App Development Process](https://wiki.genexus.com/commwiki/wiki?58172,Mini+App+Development+Process)

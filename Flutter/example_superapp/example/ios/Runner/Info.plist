@@ -55,5 +55,7 @@
 	<string>https://sandbox-api.miniappcenter.com/api</string>
 	<key>GXSuperAppVersion</key>
 	<string>1</string>
+	<key>FLTEnableImpeller</key>
+	<false />
 </dict>
 </plist>

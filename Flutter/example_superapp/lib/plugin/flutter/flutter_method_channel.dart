@@ -3,15 +3,16 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
 
 class FlutterMethodChannel {
-  static const channelName = 'example_superapp';
+  static const channelName = "com.genexus.superapp/SuperAppAPI";
 
   static const methodPayNoUi = "PayWithoutUI";
   static const methodPayWithUi = "PayWithUI";
+  static const methodGetSessionInformation = "GetSessionInformation";
   static const methodGetClientInformation = "GetClientInformation";
   static const methodGetPaymentInformation = "GetPaymentInformation";
   static const methodGetPaymentInfoAffinity = "GetPaymentInfoAffinity";
 
-  late MethodChannel channel;
+  late MethodChannel channelNonUIMethods;
   late BuildContext context;
   SuperAppApiInterface api = SuperAppApiInterface.instance;
 
@@ -20,8 +21,8 @@ class FlutterMethodChannel {
 
   void configureChannel(BuildContext buildContext) {
     context = buildContext;
-    channel = const MethodChannel(channelName);
-    channel.setMethodCallHandler(_methodHandler);
+    channelNonUIMethods = const MethodChannel(channelName);
+    channelNonUIMethods.setMethodCallHandler(_methodHandler);
   }
 
   Future<dynamic> _methodHandler(MethodCall call) async {
@@ -34,6 +35,9 @@ class FlutterMethodChannel {
         double amount = call.arguments["amount"];
         Future<String> paymentId = api.payWithUi(amount, context);
         return paymentId;
+      case methodGetSessionInformation:
+        String result = api.getSessionInformation();
+        return Future.value(result);
       case methodGetClientInformation:
         String clientId = call.arguments["clientId"];
         Map<String, String> result = api.getClientInformation(clientId);

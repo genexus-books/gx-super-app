@@ -1,4 +1,4 @@
-import 'package:example_superapp/example_superapp.dart';
+import 'package:example_superapp/plugin/native/invoker/example_superapp.dart';
 import 'package:example_superapp/model/miniapp.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';

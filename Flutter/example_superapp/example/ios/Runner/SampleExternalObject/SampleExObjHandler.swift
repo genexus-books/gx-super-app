@@ -29,22 +29,17 @@ import GXCoreBL
 			onFinishedExecutingWithError(error)
 			return
 		}
-		let args = ["amount": amount]
+		let args = String(format: "%f", amount)
 		SuperAppAPI.callFlutterUIMethod(name: Constants.Methods.PAY_UI, arguments: args, uiContext: presentingController) { [weak self] result in
 			guard let sself = self else { return }
-			guard let returnValue = result as? String else {
-				let error: NSError
-				if let flutterError = result as? FlutterError {
-					error = NSError.defaultGXError(withDeveloperDescription: flutterError.description)
-				}
-				else {
-					error = NSError.defaultGXError()
-				}
-				sself.onFinishedExecutingWithError(error)
-				return
+			do {
+				let returnValue = try result.get()
+				sself.setReturnValue(returnValue)
+				sself.onFinishedExecutingWithSuccess()
 			}
-			sself.setReturnValue(returnValue)
-			sself.onFinishedExecutingWithSuccess()
+			catch {
+				sself.onFinishedExecutingWithError(error)
+			}
 		}
 	}
 	
@@ -185,10 +180,11 @@ import GXCoreBL
 	
 	// MARK: Private
 	
-	private struct Constants {
+	struct Constants {
 		struct Methods {
 			static let PAY_NO_UI = "PayWithoutUI"
 			static let PAY_UI = "PayWithUI"
+			static let GET_SESSION_INFO = "GetSessionInformation"
 			static let GET_CLIENT_INFO = "GetClientInformation"
 			static let PAYMENT_INFORMATION = "GetPaymentInformation"
 			static let GET_PAYMENT_AFFINITY = "GetPaymentInfoAffinity"
