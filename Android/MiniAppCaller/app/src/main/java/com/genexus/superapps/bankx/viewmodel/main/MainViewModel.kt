@@ -20,7 +20,6 @@ import com.genexus.android.core.superapps.security.MiniAppTokenRequestResult
 import com.genexus.android.core.tasking.OnCompleteListener
 import com.genexus.android.core.tasking.OnFailureListener
 import com.genexus.android.core.tasking.Task
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
@@ -47,8 +46,8 @@ class MainViewModel : ViewModel() {
         }
     }
 
-    private suspend fun retrieveMiniApps() {
-        delay(1500)
+    private fun retrieveMiniApps() {
+        _state.value = State.Loading
         Services.SuperApps.searchByTag("", 0, 10).addOnCompleteListener(object : OnCompleteListener<MiniAppCollection, SearchError> {
             override fun onComplete(task: Task<MiniAppCollection, SearchError>) {
                 val miniApps = task.result
