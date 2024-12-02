@@ -30,8 +30,8 @@ class CacheViewModel: ViewModel() {
         }
     }
 
-    private suspend fun retrieveMiniApps() {
-        delay(250)
+    private fun retrieveMiniApps() {
+        _state.value = State.Loading
         val miniApps = getCachedMiniApps()
         if (miniApps.isEmpty()) {
             _state.value = State.Error("No applications found")
@@ -43,7 +43,7 @@ class CacheViewModel: ViewModel() {
 
     fun deleteMiniApp(miniApp: MiniApp) {
         val id = miniApp.id
-        if (id.isNullOrEmpty())
+        if (id.isEmpty())
             return
 
         viewModelScope.launch {

@@ -19,6 +19,7 @@
         android:theme="@style/Theme.BankingSuperApp.NoActionBar"
         tools:replace="android:icon"
         tools:targetApi="31">
+        
         <activity
             android:name=".ui.screens.MainActivity"
             android:exported="true"
@@ -30,6 +31,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        
+        <activity 
+            android:name=".ui.screens.scopes.RequestScopesActivity"
+            android:exported="false"/>
 
         <provider
             android:name=".application.AppEntityDataProvider"
