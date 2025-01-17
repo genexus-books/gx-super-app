@@ -10,6 +10,7 @@
       android:roundIcon="@mipmap/ic_launcher_round"
       android:allowBackup="false"
       android:theme="@style/Theme.ExampleSuperApp"
+      android:supportsRtl="true"
         android:dataExtractionRules="@xml/data_extraction_rules">
       <activity
         android:name=".MainActivity"
