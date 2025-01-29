@@ -114,4 +114,4 @@ To implement SSO in Native iOS Super App, follow these steps:
             #endif // SSO_ENABLED
         ```
 
-For general information on Single Sign-On in GeneXus Super Apps Technologies, please refer to this [doc](../docs/SingleSignOn.md).
+For general information on Single Sign-On in GeneXus Super Apps Technologies, please refer to this [document](../docs/SingleSignOn.md).

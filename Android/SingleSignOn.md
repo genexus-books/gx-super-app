@@ -64,7 +64,7 @@ To implement SSO in Native Android Super App, follow these steps:
             })
         }
     ```
-    - URL to retrive Mini App Access Token also can be set in [superapp.json](https://github.com/genexus-colab/gx-super-app/blob/main/Android/MiniAppCaller/app/src/main/res/raw/superapp_json) configuration file by adding the key `GXSSOURLGetMiniAppAccessToken`.
+    - The URL to retrieve Mini App Access Token can also be set in [superapp.json](https://github.com/genexus-colab/gx-super-app/blob/main/Android/MiniAppCaller/app/src/main/res/raw/superapp_json) configuration file by adding the key `GXSSOURLGetMiniAppAccessToken`.
 
     ```json
     "GXSSOURLGetMiniAppAccessToken":"Your Mini App Token Retrieval Url"
@@ -72,4 +72,4 @@ To implement SSO in Native Android Super App, follow these steps:
 
     - If both are configured, <u>URL loaded in code takes precedence</u>.
 
-For general information on Single Sign-On in GeneXus Super Apps Technologies, please refer to this [doc](../docs/SingleSignOn.md).
+For general information on Single Sign-On in GeneXus Super Apps Technologies, please refer to this [document](../docs/SingleSignOn.md).
