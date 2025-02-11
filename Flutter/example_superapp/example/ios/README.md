@@ -1,10 +1,10 @@
 # Introduction
 
-This document explains how to develop and integrate the functionality provided by the Super App and then integrated into the Mini Apps by using an External Object.
+This document briefly details how a functionality provided by a native Super App must be programmed so that it can be referenced from an External Object integrated in a Mini App build with GeneXus.
 
 # Definition of the External Object
 
-The definition of the External Object used in this document is the same as [the one described for Android](../../Android/MiniAppCaller/README.md).
+The definition of the External Object used in this document is the same as [the one described for Android](../../../../Android/MiniAppCaller/README.md).
 
 Some things to take into consideration about this definition:
 
@@ -20,7 +20,7 @@ For the implementation in iOS, you need to follow this steps:
 
 ## External Object implementation
 
-The External Object implementation is found in the [SampleExObjHandler.swift](SampleExObjHandler.swift) file. It begins by importing `GXCoreBL`, which contains the base class to implement the External Object. 
+The External Object implementation is found in the [SampleExObjHandler.swift](Runner/SampleExternalObject/SampleExObjHandler.swift) file. It begins by importing `GXCoreBL`, which contains the base class to implement the External Object. 
 
 ```Swift
 import GXCoreBL
@@ -131,7 +131,7 @@ A diagram of this implementation is shown below.
 
 ## Implementation of the _extension library_
 
-The class that implements the _extension library_ is found in the file [SampleExObjLibrary.swift](SampleExObjLibrary.swift), which contains the following:
+The class that implements the _extension library_ is found in the file [SampleExObjLibrary.swift](Runner/SampleExternalObject/SampleExObjLibrary.swift), which contains the following:
 
 ```Swift
 import GXCoreBL

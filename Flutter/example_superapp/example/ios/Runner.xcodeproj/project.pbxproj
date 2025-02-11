@@ -13,7 +13,6 @@
 		97C146FC1CF9000F007C117D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97C146FA1CF9000F007C117D /* Main.storyboard */; };
 		97C146FE1CF9000F007C117D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97C146FD1CF9000F007C117D /* Assets.xcassets */; };
 		97C147011CF9000F007C117D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97C146FF1CF9000F007C117D /* LaunchScreen.storyboard */; };
-		AEAE1CAD29D4601B00BEAF8D /* superapp.crt in Resources */ = {isa = PBXBuildFile; fileRef = AEAE1CAC29D4601B00BEAF8D /* superapp.crt */; };
 		AEAE1E4B29D4841000BEAF8D /* SampleExObjHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEAE1E4929D4841000BEAF8D /* SampleExObjHandler.swift */; };
 		AEAE1E4C29D4841000BEAF8D /* SampleExObjLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEAE1E4A29D4841000BEAF8D /* SampleExObjLibrary.swift */; };
 		AECA72C62AAA3CAE004C0329 /* ProvisioningAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECA72C42AAA3CAE004C0329 /* ProvisioningAPI.swift */; };
@@ -21,6 +20,7 @@
 		AEEDE51F2AAA2CF70029245F /* GXUIApplication in Frameworks */ = {isa = PBXBuildFile; productRef = AEEDE51E2AAA2CF70029245F /* GXUIApplication */; };
 		AEEDE5222AAA2D0D0029245F /* GXSuperApp in Frameworks */ = {isa = PBXBuildFile; productRef = AEEDE5212AAA2D0D0029245F /* GXSuperApp */; };
 		AEEDE5252AAA2D210029245F /* GXDataLayerRemote in Frameworks */ = {isa = PBXBuildFile; productRef = AEEDE5242AAA2D210029245F /* GXDataLayerRemote */; };
+		C517F2392D5A985A00CD27BE /* superapp.crt in Resources */ = {isa = PBXBuildFile; fileRef = C517F2382D5A985A00CD27BE /* superapp.crt */; };
 		FE8CCF3A507888B465B5AFCF /* Pods_Runner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B9F5F570DC395913E086E08 /* Pods_Runner.framework */; };
 /* End PBXBuildFile section */
 
@@ -53,12 +53,12 @@
 		97C147021CF9000F007C117D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9B9F5F570DC395913E086E08 /* Pods_Runner.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Runner.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AEAE1C9329D44CC400BEAF8D /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		AEAE1CAC29D4601B00BEAF8D /* superapp.crt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = superapp.crt; path = ../../../../../iOS/ExampleSuperApp/superapp.crt; sourceTree = "<group>"; };
 		AEAE1E4929D4841000BEAF8D /* SampleExObjHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SampleExObjHandler.swift; sourceTree = "<group>"; };
 		AEAE1E4A29D4841000BEAF8D /* SampleExObjLibrary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SampleExObjLibrary.swift; sourceTree = "<group>"; };
 		AECA72BE2AAA36A1004C0329 /* Generated.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = Generated.xcconfig; path = Flutter/Generated.xcconfig; sourceTree = "<group>"; };
 		AECA72C42AAA3CAE004C0329 /* ProvisioningAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProvisioningAPI.swift; sourceTree = "<group>"; };
 		AECA72C52AAA3CAE004C0329 /* SuperAppAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuperAppAPI.swift; sourceTree = "<group>"; };
+		C517F2382D5A985A00CD27BE /* superapp.crt */ = {isa = PBXFileReference; lastKnownFileType = text; path = superapp.crt; sourceTree = "<group>"; };
 		F3820A57D61CD9C7865224EA /* Pods-Runner.profile.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runner.profile.xcconfig"; path = "Target Support Files/Pods-Runner/Pods-Runner.profile.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -120,11 +120,11 @@
 		97C146F01CF9000F007C117D /* Runner */ = {
 			isa = PBXGroup;
 			children = (
+				C517F2382D5A985A00CD27BE /* superapp.crt */,
 				97C146FA1CF9000F007C117D /* Main.storyboard */,
 				97C146FD1CF9000F007C117D /* Assets.xcassets */,
 				97C146FF1CF9000F007C117D /* LaunchScreen.storyboard */,
 				97C147021CF9000F007C117D /* Info.plist */,
-				AEAE1CAC29D4601B00BEAF8D /* superapp.crt */,
 				74858FAE1ED2DC5600515810 /* AppDelegate.swift */,
 				AECA72C42AAA3CAE004C0329 /* ProvisioningAPI.swift */,
 				AECA72C52AAA3CAE004C0329 /* SuperAppAPI.swift */,
@@ -239,7 +239,7 @@
 				3B3967161E833CAA004F5970 /* AppFrameworkInfo.plist in Resources */,
 				97C146FE1CF9000F007C117D /* Assets.xcassets in Resources */,
 				97C146FC1CF9000F007C117D /* Main.storyboard in Resources */,
-				AEAE1CAD29D4601B00BEAF8D /* superapp.crt in Resources */,
+				C517F2392D5A985A00CD27BE /* superapp.crt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -590,7 +590,7 @@
 			repositoryURL = "https://github.com/GeneXus-SwiftPackages/GXUIApplication";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 2.0.12;
+				minimumVersion = "3.0.0-rc.15";
 			};
 		};
 		AEEDE5202AAA2D0D0029245F /* XCRemoteSwiftPackageReference "GXSuperApp" */ = {
@@ -598,7 +598,7 @@
 			repositoryURL = "https://github.com/GeneXus-SwiftPackages/GXSuperApp";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 2.0.12;
+				minimumVersion = "3.0.0-rc.15";
 			};
 		};
 		AEEDE5232AAA2D210029245F /* XCRemoteSwiftPackageReference "GXDataLayerRemote" */ = {
@@ -606,7 +606,7 @@
 			repositoryURL = "https://github.com/GeneXus-SwiftPackages/GXDataLayerRemote";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 2.0.12;
+				minimumVersion = "3.0.0-rc.15";
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
