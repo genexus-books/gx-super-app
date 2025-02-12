@@ -1,3 +1,4 @@
+
 //
 //  ViewController.swift
 //  ExampleSuperApp
@@ -16,7 +17,7 @@ class ProvisioningViewController: UITableViewController {
 		super.viewDidLoad()
 		tableView.register(MiniAppTableViewCell.self, forCellReuseIdentifier: Self.miniAppCellId)
 		navigationItem.searchController = searchController
-		searchController.searchBar.scopeButtonTitles = ["Texto", "Tags"]
+		searchController.searchBar.scopeButtonTitles = ["Text", "Tags"]
 		searchController.searchResultsUpdater = self
 		loadFromProvisioning()
 		refreshControl?.addTarget(self, action: #selector(Self.pullToRefresh), for: .valueChanged)
@@ -122,7 +123,7 @@ class ProvisioningViewController: UITableViewController {
 	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let cell = tableView.dequeueReusableCell(withIdentifier: Self.miniAppCellId, for: indexPath) as! MiniAppTableViewCell
 		let miniApp = loadedMiniAppsInfo.miniApps[indexPath.row]
-		cell.miniAppId = miniApp
+		cell.miniAppInfo = miniApp
 		updateCellLoadingIndicator(cell)
 		return cell
 	}
@@ -131,34 +132,10 @@ class ProvisioningViewController: UITableViewController {
 	
 	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		tableView.deselectRow(at: indexPath, animated: true)
-		guard let cell = tableView.cellForRow(at: indexPath) as! MiniAppTableViewCell?, let miniApp = cell.miniAppId else {
+		guard let cell = tableView.cellForRow(at: indexPath) as! MiniAppTableViewCell?, let miniApp = cell.miniAppInfo else {
 			return
 		}
-		guard loadingMiniApp == nil else {
-			if loadingMiniApp?.id != miniApp.id {
-				print("Mini app \(loadingMiniApp!.id) aun cargando...")
-			}
-			return
-		}
-		loadingMiniApp = miniApp
-		updateCellLoadingIndicator(cell)
-		
-		/// Call GXMiniProgramLoader loadMiniProgram method to load a mini app. Use completion handler to handle error or to provide feedback.
-		/// Loading the mini app will replace UIApplication.shared.keyWindow.rootViewController, and it will be restored when the mini app exits to the host super app.
-		/// Note "GXMiniprogramsEnabled" boolean key is currently required in the applications Info.plist.
-		
-		GXMiniAppsManager.loadMiniApp(info: miniApp) { error in
-			DispatchQueue.main.async {
-				guard self.loadingMiniApp?.id == miniApp.id else { return }
-				self.loadingMiniApp = nil
-				if let cell = tableView.cellForRow(at: indexPath) as! MiniAppTableViewCell?, cell.miniAppId.id == miniApp.id {
-					self.updateCellLoadingIndicator(cell)
-				}
-				if let error = error {
-					print("Ha ocurrido un error al cargar la mini app \(miniApp.id): \(error.localizedDescription)")
-				}
-			}
-		}
+		loadMiniApp(miniApp, from: cell)
 	}
 	
 	override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
@@ -176,13 +153,65 @@ class ProvisioningViewController: UITableViewController {
 			indicator.hidesWhenStopped = true
 			cell.accessoryView = indicator
 		}
-		let isLoadingMiniApp = loadingMiniApp?.id == cell.miniAppId.id
+		let isLoadingMiniApp = loadingMiniApp?.id == cell.miniAppInfo.id
 		if (indicator.isAnimating != isLoadingMiniApp) {
 			if isLoadingMiniApp {
 				indicator.startAnimating()
 			}
 			else {
 				indicator.stopAnimating()
+			}
+		}
+	}
+	
+	private func visibleCell(for miniAppId: String) -> MiniAppTableViewCell? {
+		tableView?.visibleCells.compactMapFirst {
+			guard let miniAppCell = $0 as? MiniAppTableViewCell, miniAppCell.miniAppInfo.id == miniAppId else {
+				return nil
+			}
+			return miniAppCell
+		}
+	}
+	
+	private func loadMiniApp(_ miniApp: GXMiniAppInformation, from miniAppCell: MiniAppTableViewCell? = nil) {
+		guard loadingMiniApp == nil else {
+			if loadingMiniApp?.id != miniApp.id {
+				print("Mini app \(loadingMiniApp!.id) is still loading...")
+			}
+			return
+		}
+		loadingMiniApp = miniApp
+		if let cell = miniAppCell ?? visibleCell(for: miniApp.id) {
+			updateCellLoadingIndicator(cell)
+		}
+		
+		/// Call GXMiniProgramLoader loadMiniProgram method to load a mini app. Use completion handler to handle error or to provide feedback.
+		/// Loading the mini app will hide UIApplication.shared.keyWindow, and it will be restored when the mini app exits to the host super app.
+		
+		GXMiniAppsManager.loadMiniApp(info: miniApp) { [weak self] error in
+			DispatchQueue.main.async {
+				guard let sself = self, sself.loadingMiniApp?.id == miniApp.id else { return }
+				sself.loadingMiniApp = nil
+				if let cell = sself.visibleCell(for: miniApp.id) {
+					sself.updateCellLoadingIndicator(cell)
+				}
+				if let error {
+#if SSO_ENABLED
+					if case .authorizationSSO(let ssoError) = error {
+						/// Handle SSO error.
+						switch ssoError {
+						case .scopeMissing(let scopes):
+							/// Handling this error is required if GXSSOURLCheckMiniAppScope was configured (which returned is_allowed = false resulting in this error).
+							sself.handleMissingScopes(scopes, miniApp: miniApp)
+							return
+						default:
+							/// Handle other errors as needed.
+							break
+						}
+					}
+#endif // SSO_ENABLED
+					print("There was an error loading mini app \(miniApp.id): \(error.localizedDescription)")
+				}
 			}
 		}
 	}
@@ -196,6 +225,23 @@ class ProvisioningViewController: UITableViewController {
 		present(sandboxController, animated: true)
 	}
 #endif // SUPERAPPSANDBOX
+	
+#if SSO_ENABLED
+	private func handleMissingScopes(_ scopes: String, miniApp: GXMiniAppInformation) {
+		///	An option is to ask the user to accept the scopes
+		let msg = "Mini App '\(miniApp.name)' needs your permission to access the following scopes: \(scopes)"
+		let alertController = UIAlertController(title: nil, message: msg, preferredStyle: .alert)
+		alertController.addAction(.init(title: "Accept", style: .default, handler: { [weak self] _ in
+			/// Update where needed for GXSSOURLCheckMiniAppScope to return is_allowed = true on the next call, and then call GXMiniAppsManager.loadMiniApp(info: miniApp) again.
+			guard let sself = self, sself.loadingMiniApp == nil else {
+				return
+			}
+			sself.loadMiniApp(miniApp)
+		}))
+		alertController.addAction(.init(title: "Reject", style: .cancel))
+		present(alertController, animated: true)
+	}
+#endif // SSO_ENABLED
 }
 
 private extension ProvisioningViewController {
@@ -254,9 +300,9 @@ private class MiniAppTableViewCell: UITableViewCell {
 		super.init(coder: coder)
 	}
 	
-	var miniAppId: GXMiniAppInformation! {
+	var miniAppInfo: GXMiniAppInformation! {
 		didSet {
-			textLabel?.text = miniAppId.name
+			textLabel?.text = miniAppInfo.name
 		}
 	}
 }

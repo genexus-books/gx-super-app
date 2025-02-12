@@ -14,4 +14,8 @@ The required .xcframeworks for the sample project are distributed using [Swift P
     - [YAJL](https://github.com/GeneXus-SwiftPackages/YAJL.git)
 - [GXDataLayerRemote](https://github.com/GeneXus-SwiftPackages/GXDataLayerRemote.git)
 - [GXSuperApp](https://github.com/GeneXus-SwiftPackages/GXSuperApp.git)
+
+## Optional Frameworks to include in the Super App
+
 - [GXSuperAppSandbox](https://github.com/GeneXus-SwiftPackages/GXSuperAppSandbox.git) (only in [sandbox version](../../CreateSuperAppSandboxMode.md))
+- [GXGAMUI](https://github.com/GeneXus-SwiftPackages/GXGAMUI.git) (only if the Super App supports SSO)
