@@ -12,9 +12,6 @@ There are certain initial configuration steps in the project:
 	- `GXSuperAppId`: String corresponding to the Super App identifier, to be used at the Mini App Center. If this key is not included, the app's [Package Name](https://developer.android.com/reference/android/content/Context#getPackageName()) will be used.  
 	- `GXSuperAppVersion`: String corresponding to the Version of Super App, to be used at the Mini App Center. If this key is not included, the app's [Version Code](https://developer.android.com/reference/android/content/pm/PackageInfo#getLongVersionCode()) will be used.
 3. The public key that verifies the signature of the Mini Apps. It's downloaded from the Mini App Center and must be placed in the app's resources under the name [superapp_crt](../example/android/app/src/main/res/raw/superapp_crt)
-4. Point the local repository URL and version at [build.gradle](build.gradle) to the directory where it is located.
-5. Point the local repository URL at [example\build.gradle](../example/android/build.gradle) to the directory where it is located.
-6. run ```flutter pub get```
    
 ## Communication API with the Mini App Center
 

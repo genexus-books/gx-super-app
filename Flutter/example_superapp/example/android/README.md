@@ -1,13 +1,3 @@
-# Programming a functionality provided by a native SuperApp
-
-## Setting
-
-- Point the local repository URL at [build.gradle](https://github.com/genexus-books/gx-super-app/blob/fcc14fade3caf5379892c20545f0cf53ba2b574e/Flutter/example_superapp/android/build.gradle) to the directory where it is located.
-
-- Configure the Android SDK directory.
-
-- Open the Android Studio project, compile and run.
-
 ## Introduction
 
 This document briefly details how a functionality provided by a native Super App must be programmed so that it can be referenced from an External Object integrated in a Mini App build with GeneXus.
@@ -211,7 +201,7 @@ A diagram of this implementation is shown below.
 
 # Definition of the External Object
 
-The definition of the External Object used in this document is the same as [the one described for Android](https://github.com/genexus-books/gx-super-app/blob/main/Android/MiniAppCaller/README.md).
+The definition of the External Object used in this document is the same as [the one described for Android](../../../../Android/Android/MiniAppCaller/README.md).
 
 Some things to take into consideration about this definition:
 
