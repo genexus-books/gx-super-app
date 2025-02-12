@@ -2,7 +2,7 @@ group 'com.genexus.example_superapp'
 version '1.2'
 
 buildscript {
-    ext.kotlin_version = '1.9.24'
+    ext.kotlin_version = '1.7.10'
     ext.genexus_render_version = '2.5-rc37'
 
     repositories {
