@@ -31,7 +31,7 @@ Follow these steps to set up and run the project:
     flutter clean && flutter pub get
     ```
 
-3. Navigate to the ios directory and install CocoaPods dependencies:
+3. Navigate to the iOS directory and install CocoaPods dependencies:
     ```bash
     cd example/ios
     pod install

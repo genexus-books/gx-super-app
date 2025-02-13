@@ -88,7 +88,7 @@ The `presentingViewController()` function is in charge of getting the required V
 private func presentingViewController() throws -> UIViewController {
     guard let presentingController = gxActionHandlerUserInterfaceController?.actionHandlerUserInterfaceController,
             presentingController.presentedViewController == nil else {
-        throw NSError.fatalGXError(withDeveloperDescription: "No valid prensenting view controller found for payment UI.")
+        throw NSError.fatalGXError(withDeveloperDescription: "No valid presenting view controller found for payment UI.")
     }
     return presentingController
 }
@@ -103,7 +103,6 @@ onFinishedExecutingWithSuccess()
 As previously stated, the `onFinishedExecutingWithSuccess()` must be called before finishing the execution.
 
 
-// AQUI CORREGIR //
 In the case of the payment with UI, the sample creates a `FlutterViewController`, presents it using the `UINavigationController` and waits for result in gxResultHandler to return the value and finish the execution. 
 
 ```Swift
@@ -195,7 +194,7 @@ do {
 
 To implement a communication interface between Mini Apps and Super Apps, visit the official documentation:
 
-- For a Native mobile Mini App, please refer to: [HowTo: Call a Super App API from a Native mobile Mini App](https://wiki.genexus.com/commwiki/wiki?58185,HowTo%3A+Call+a+Super+App+API+from+a+Native+mobile+Mini+App#HowTo%3A+Call+a+non-GeneXus+Super+App+API)
+- For a Native mobile Mini App, please refer to: [HowTo: Call a Super App API from a Native mobile Mini App](https://wiki.genexus.com/commwiki/wiki?58185,HowTo%3A+Call+a+Super+App+API+from+a+Native+Mobile+Mini+App#HowTo:+Call+a+non-GeneXus+Super+App+API)
 - For a Web Mini App, please refer to: [HowTo: Call a Super App API from a Web Mini App](https://wiki.genexus.com/commwiki/wiki?57430,HowTo%3A+Call+a+Super+App+API+from+a+Web+Mini+App)
 
 # Conclusion

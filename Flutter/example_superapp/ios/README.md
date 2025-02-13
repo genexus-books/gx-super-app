@@ -34,9 +34,9 @@ In all the cases the return value is an operation that can be cancelled if neces
 
 ```swift
     /// Performs a request to the Mini App Center for an available Mini App with the given identifier.
-    /// - Parameter id: The Mini App identifier to look for..
+    /// - Parameter id: The Mini App identifier to look for.
     /// - Parameter completion: Completion handler for the result.
-    /// - Returns A cancelable operation.
+    /// - Returns a cancelable operation.
     @discardableResult
     open class func miniAppInfoById(_ id: String, completion: @escaping GXSuperApp.GXSuperAppProvisioning.OptionalMiniAppInfoCompletion) -> GXFoundation.GXCancelableOperation
 ```
@@ -47,7 +47,7 @@ In all the cases the return value is an operation that can be cancelled if neces
     /// - Parameter start: 0-based index from which elements will be returned.
     /// - Parameter count: Maximum number of returned elements ( 0 means all ).
     /// - Parameter completion: Completion handler for the result.
-    /// - Returns A cancelable operation.
+    /// - Returns a cancelable operation.
     open class func miniAppsInfoByText(_ text: String, start: Int, count: Int, completion: @escaping GXSuperApp.GXSuperAppProvisioning.MiniAppsInfoCompletion) -> GXFoundation.GXCancelableOperation
 ```
 
@@ -58,7 +58,7 @@ In all the cases the return value is an operation that can be cancelled if neces
     /// - Parameter start: 0-based index from which elements will be returned.
     /// - Parameter count: Maximum number of returned elements ( 0 means all ).
     /// - Parameter completion: Completion handler for the result.
-    /// - Returns A cancelable operation.
+    /// - Returns a cancelable operation.
     open class func miniAppsInfoByLocation(center: CLLocationCoordinate2D, radius: CLLocationDistance, start: Int, count: Int, completion: @escaping GXSuperApp.GXSuperAppProvisioning.MiniAppsInfoCompletion) -> GXFoundation.GXCancelableOperation
 ```
 
@@ -68,7 +68,7 @@ In all the cases the return value is an operation that can be cancelled if neces
     /// - Parameter start: 0-based index from which elements will be returned.
     /// - Parameter count: Maximum number of returned elements ( 0 means all ).
     /// - Parameter completion: Completion handler for the result.
-    /// - Returns A cancelable operation.
+    /// - Returns a cancelable operation.
     open class func miniAppsInfoByTag(tag: String, start: Int, count: Int, completion: @escaping GXSuperApp.GXSuperAppProvisioning.MiniAppsInfoCompletion) -> GXFoundation.GXCancelableOperation
 ```
 
@@ -77,7 +77,7 @@ In all the cases the return value is an operation that can be cancelled if neces
     /// - Parameter start: 0-based index from which elements will be returned.
     /// - Parameter count: Maximum number of returned elements ( 0 means all ).
     /// - Parameter completion: Completion handler for the result.
-    /// - Returns A cancelable operation.
+    /// - Returns a cancelable operation.
     open class func featuredMiniAppsInfo(start: Int, count: Int, completion: @escaping GXSuperApp.GXSuperAppProvisioning.MiniAppsInfoCompletion) -> GXFoundation.GXCancelableOperation
 ```
 
@@ -94,13 +94,13 @@ In all the cases the return value is an operation that can be cancelled if neces
     /// - Parameter start: 0-based index from which elements will be returned.
     /// - Parameter count: Maximum number of returned elements ( 0 means all ).
     /// - Parameter completion: Completion handler for the result.
-    /// - Returns A cancelable operation.
+    /// - Returns a cancelable operation.
     open class func miniAppsInfoByFilters(miniAppFilters: [MiniAppFilter], start: Int, count: Int, completion: @escaping GXSuperApp.GXSuperAppProvisioning.MiniAppsInfoCompletion) -> GXFoundation.GXCancelableOperation
 ```
 
 For general information on how GetByFilters works, please refer to:
 
-- [General information](https://wiki.genexus.com/commwiki/wiki?57960,Provisioning.GetByFilters)
+- [General information](https://wiki.genexus.com/commwiki/wiki?57960,Provisioning.GetByFilters+method)
 - [How to configure attributes in Super Apps](https://wiki.genexus.com/commwiki/wiki?53316,HowTo%3A+Create+a+Super+App+on+the+Mini+App+Center#Attribute+Configuration+in+Super+Apps)
 - [How to instantiate attribute values at the Mini App Version level](https://wiki.genexus.com/commwiki/wiki?53318,HowTo%3A+Upload+a+Mini+App+version+to+the+Mini+App+Center#Instantiate+attribute+values+at+the+Mini+App+Version+level)
 
