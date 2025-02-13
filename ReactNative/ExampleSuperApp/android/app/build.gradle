@@ -109,7 +109,7 @@ android {
         compose true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.14"
+        kotlinCompilerExtensionVersion = compose_version
     }
     packagingOptions {
         resources {
@@ -118,27 +118,27 @@ android {
     }
 }
 repositories {
-    maven { url 'https://pkgs.dev.azure.com/genexuslabs/155eaada-eb3c-418f-9c98-dcbcffffae50/_packaging/android-releases/maven/v1' }
+    maven { url 'https://pkgs.dev.azure.com/genexuslabs/155eaada-eb3c-418f-9c98-dcbcffffae50/_packaging/android-releases/maven/v1' }     // Release
     maven { url 'https://pkgs.dev.azure.com/genexuslabs/3361ab3b-96bc-4a69-a37a-f2b255ff2f35/_packaging/releases/maven/v1' }
 }
 dependencies {
     //Genexus libraries
-    implementation "com.genexus.android:FlexibleClient:${fc_version}"
-    implementation "com.genexus.android:SqlDroidBase:${fc_version}"
-    implementation "com.genexus.android:CoreExternalObjects:${fc_version}"
-    implementation "com.genexus.android:CoreUserControls:${fc_version}"
-    implementation "com.genexus.android:SmartGridLib:${fc_version}"
-    implementation "com.genexus.android:SuperAppsLib:${fc_version}" //SuperAppsLib not available
+    implementation "com.genexus.android:FlexibleClient:$fc_version"
+    implementation "com.genexus.android:SqlDroidBase:$fc_version"
+    implementation "com.genexus.android:CoreExternalObjects:$fc_version"
+    implementation "com.genexus.android:CoreUserControls:$fc_version"
+    implementation "com.genexus.android:SmartGridLib:$fc_version"
+    implementation "com.genexus.android:SuperAppsLib:$fc_version" //SuperAppsLib not available
 
     // The version of react-native is set by the React Native Gradle Plugin
     implementation("com.facebook.react:react-android")
 
-    //compose imports
+    //compose imports   
     implementation 'androidx.activity:activity-compose:1.9.2'
     implementation "androidx.compose.ui:ui:$compose_version"
     implementation "androidx.compose.material:material:$compose_version"
     implementation "androidx.compose.ui:ui-tooling:$compose_version"
-    implementation 'androidx.compose.material3:material3-android:1.3.1'
+    implementation "androidx.compose.material3:material3-android:$compose_version"
     debugImplementation 'androidx.compose.ui:ui-test-manifest:1.5.4'
 
     if (hermesEnabled.toBoolean()) {
@@ -149,3 +149,4 @@ dependencies {
 }
 
 apply from: "../../node_modules/react-native-vector-icons/fonts.gradle"
+apply plugin: 'org.jetbrains.kotlin.plugin.compose'
