@@ -576,40 +576,40 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/GeneXus-SwiftPackages/GXUIApplication.git";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = "3.0.0-rc.15";
+				kind = upToNextMinorVersion;
+				minimumVersion = 3.0.0;
 			};
 		};
 		2B1EDFC82AA11345006D6673 /* XCRemoteSwiftPackageReference "GXSuperApp" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/GeneXus-SwiftPackages/GXSuperApp.git";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = "3.0.0-rc.15";
+				kind = upToNextMinorVersion;
+				minimumVersion = 3.0.0;
 			};
 		};
 		2B1EDFD22AA113BC006D6673 /* XCRemoteSwiftPackageReference "GXSuperAppSandbox" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/GeneXus-SwiftPackages/GXSuperAppSandbox.git";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = "3.0.0-rc.15";
+				kind = upToNextMinorVersion;
+				minimumVersion = 3.0.0;
 			};
 		};
 		9381BE8D2CE372480052671D /* XCRemoteSwiftPackageReference "GXGAMUI" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/GeneXus-SwiftPackages/GXGAMUI.git";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = "3.0.0-rc.15";
+				kind = upToNextMinorVersion;
+				minimumVersion = 3.0.0;
 			};
 		};
 		AEC2C5C72AAA17E900DB9755 /* XCRemoteSwiftPackageReference "GXDataLayerRemote" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/GeneXus-SwiftPackages/GXDataLayerRemote";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = "3.0.0-rc.15";
+				kind = upToNextMinorVersion;
+				minimumVersion = 3.0.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
