@@ -606,7 +606,7 @@
 		};
 		AEC2C5C72AAA17E900DB9755 /* XCRemoteSwiftPackageReference "GXDataLayerRemote" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/GeneXus-SwiftPackages/GXDataLayerRemote";
+			repositoryURL = "https://github.com/GeneXus-SwiftPackages/GXDataLayerRemote.git";
 			requirement = {
 				kind = upToNextMinorVersion;
 				minimumVersion = 3.0.0;
