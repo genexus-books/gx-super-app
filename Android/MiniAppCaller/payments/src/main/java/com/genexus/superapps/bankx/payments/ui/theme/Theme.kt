@@ -2,8 +2,6 @@ package com.genexus.superapps.bankx.payments.ui.theme
 
 import android.app.Activity
 import android.os.Build
-import android.view.WindowInsets
-import android.view.WindowInsetsController
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.darkColorScheme
@@ -39,6 +37,7 @@ private val LightColorScheme = lightColorScheme(
     */
 )
 
+@Suppress("deprecation")
 @Composable
 fun BankingSuperAppTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
@@ -57,23 +56,8 @@ fun BankingSuperAppTheme(
     val view = LocalView.current
     if (!view.isInEditMode) {
         SideEffect {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
-                val windowInsetsController: WindowInsetsController? =
-                    (view.context as Activity).window.insetsController
-
-                windowInsetsController?.let {
-                    it.setSystemBarsAppearance(
-                        WindowInsetsController.APPEARANCE_LIGHT_STATUS_BARS,
-                        WindowInsetsController.APPEARANCE_LIGHT_STATUS_BARS
-                    )
-                }
-
-                view.setOnApplyWindowInsetsListener { v, insets ->
-                    val statusBarInsets = insets.getInsets(WindowInsets.Type.statusBars())
-                    v.setPadding(v.paddingLeft, v.paddingTop + statusBarInsets.top, v.paddingRight, v.paddingBottom)
-                    insets // Debes devolver los insets
-                }
-            }
+            (view.context as Activity).window.statusBarColor = colorScheme.primary.toArgb()
+            ViewCompat.getWindowInsetsController(view)?.isAppearanceLightStatusBars = darkTheme
         }
     }
 
