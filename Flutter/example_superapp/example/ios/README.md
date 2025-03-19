@@ -126,7 +126,13 @@ Communication between Flutter instances is handled using [platform channels](htt
 
 A diagram of this implementation is shown below.
 
-![Diagram to implement multiple Flutter instances](iOSDiagram.png)
+![Diagram to implement multiple Flutter instances](Multi-Instance_iOS.png)
+
+To access the information provided by the Super App in the other Flutter instance, it is necessary to go through [platform channels](https://docs.flutter.dev/platform-integration/platform-channels) again.
+
+A diagram of this implementation is shown below.
+
+![Diagram for implementing access to information in Flutter Multi-instances](AccessInformation_iOS.png)
 
 ## Implementation of the _extension library_
 
