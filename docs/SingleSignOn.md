@@ -42,5 +42,5 @@ To implement Single Sign-On (SSO) using [Genexus Access Manager (GAM)](https://w
 To implement Single Sign-On (SSO) functionality in Super App Render for both iOS and Android platforms, follow these examples:
 
 - [Android](/Android/SingleSignOn.md)
-- [iOS (Not yet implemented)](/iOS/SingleSignOn.md)
+- [iOS](/iOS/SingleSignOn.md)
 
