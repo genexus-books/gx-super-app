@@ -12,10 +12,8 @@
 		2B1EDFCD2AA11384006D6673 /* GXUIApplication in Frameworks */ = {isa = PBXBuildFile; productRef = 2B1EDFCC2AA11384006D6673 /* GXUIApplication */; };
 		2B1EDFD12AA11384006D6673 /* GXSuperApp in Frameworks */ = {isa = PBXBuildFile; productRef = 2B1EDFD02AA11384006D6673 /* GXSuperApp */; };
 		2B1EDFD42AA113BC006D6673 /* GXSuperAppSandbox in Frameworks */ = {isa = PBXBuildFile; productRef = 2B1EDFD32AA113BC006D6673 /* GXSuperAppSandbox */; };
-		AE34576D269B7BE900A276BE /* GXCustomUserControlsMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE34576C269B7BE900A276BE /* GXCustomUserControlsMapper.swift */; };
 		AE457F20293A7F1700CD9D83 /* ProvisioningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE50801A2697504100926F54 /* ProvisioningViewController.swift */; };
 		AE457F21293A7F1700CD9D83 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5080162697504100926F54 /* AppDelegate.swift */; };
-		AE457F22293A7F1700CD9D83 /* GXCustomUserControlsMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE34576C269B7BE900A276BE /* GXCustomUserControlsMapper.swift */; };
 		AE457F23293A7F1700CD9D83 /* SampleExObjHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEEE718426DEC1780039C5E5 /* SampleExObjHandler.swift */; };
 		AE457F24293A7F1700CD9D83 /* CacheViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4BA5BD2795B85300286676 /* CacheViewController.swift */; };
 		AE457F25293A7F1700CD9D83 /* SampleExObjLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEEE718626DEC1780039C5E5 /* SampleExObjLibrary.swift */; };
@@ -60,7 +58,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		AE34576C269B7BE900A276BE /* GXCustomUserControlsMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GXCustomUserControlsMapper.swift; sourceTree = "<group>"; };
 		AE457F44293A7F1700CD9D83 /* ExampleSuperAppSandbox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExampleSuperAppSandbox.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE457F45293A7F1700CD9D83 /* Sandbox-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Sandbox-Info.plist"; path = "../Sandbox-Info.plist"; sourceTree = "<group>"; };
 		AE4BA53127958A5D00286676 /* superapp.crt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = superapp.crt; sourceTree = "<group>"; };
@@ -143,7 +140,6 @@
 				AE5080162697504100926F54 /* AppDelegate.swift */,
 				AE50801A2697504100926F54 /* ProvisioningViewController.swift */,
 				AE4BA5BD2795B85300286676 /* CacheViewController.swift */,
-				AE34576C269B7BE900A276BE /* GXCustomUserControlsMapper.swift */,
 				AE4BA53127958A5D00286676 /* superapp.crt */,
 				AE50801C2697504100926F54 /* Main.storyboard */,
 				AE50801F2697504200926F54 /* Assets.xcassets */,
@@ -259,6 +255,7 @@
 				2B1EDFC82AA11345006D6673 /* XCRemoteSwiftPackageReference "GXSuperApp" */,
 				2B1EDFD22AA113BC006D6673 /* XCRemoteSwiftPackageReference "GXSuperAppSandbox" */,
 				AEC2C5C72AAA17E900DB9755 /* XCRemoteSwiftPackageReference "GXDataLayerRemote" */,
+				9381BE8D2CE372480052671D /* XCRemoteSwiftPackageReference "GXGAMUI" */,
 			);
 			productRefGroup = AE5080142697504100926F54 /* Products */;
 			projectDirPath = "";
@@ -302,7 +299,6 @@
 			files = (
 				AE457F20293A7F1700CD9D83 /* ProvisioningViewController.swift in Sources */,
 				AE457F21293A7F1700CD9D83 /* AppDelegate.swift in Sources */,
-				AE457F22293A7F1700CD9D83 /* GXCustomUserControlsMapper.swift in Sources */,
 				AE457F23293A7F1700CD9D83 /* SampleExObjHandler.swift in Sources */,
 				AE457F24293A7F1700CD9D83 /* CacheViewController.swift in Sources */,
 				AE457F25293A7F1700CD9D83 /* SampleExObjLibrary.swift in Sources */,
@@ -315,7 +311,6 @@
 			files = (
 				AE50801B2697504100926F54 /* ProvisioningViewController.swift in Sources */,
 				AE5080172697504100926F54 /* AppDelegate.swift in Sources */,
-				AE34576D269B7BE900A276BE /* GXCustomUserControlsMapper.swift in Sources */,
 				AEEE718726DEC1850039C5E5 /* SampleExObjHandler.swift in Sources */,
 				AE4BA5BE2795B85300286676 /* CacheViewController.swift in Sources */,
 				AEEE718826DEC1880039C5E5 /* SampleExObjLibrary.swift in Sources */,
@@ -581,32 +576,40 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/GeneXus-SwiftPackages/GXUIApplication.git";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.2.0;
+				kind = upToNextMinorVersion;
+				minimumVersion = 3.0.0;
 			};
 		};
 		2B1EDFC82AA11345006D6673 /* XCRemoteSwiftPackageReference "GXSuperApp" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/GeneXus-SwiftPackages/GXSuperApp.git";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.2.0;
+				kind = upToNextMinorVersion;
+				minimumVersion = 3.0.0;
 			};
 		};
 		2B1EDFD22AA113BC006D6673 /* XCRemoteSwiftPackageReference "GXSuperAppSandbox" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/GeneXus-SwiftPackages/GXSuperAppSandbox.git";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.2.0;
+				kind = upToNextMinorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
+		9381BE8D2CE372480052671D /* XCRemoteSwiftPackageReference "GXGAMUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/GeneXus-SwiftPackages/GXGAMUI.git";
+			requirement = {
+				kind = upToNextMinorVersion;
+				minimumVersion = 3.0.0;
 			};
 		};
 		AEC2C5C72AAA17E900DB9755 /* XCRemoteSwiftPackageReference "GXDataLayerRemote" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/GeneXus-SwiftPackages/GXDataLayerRemote";
+			repositoryURL = "https://github.com/GeneXus-SwiftPackages/GXDataLayerRemote.git";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.2.0;
+				kind = upToNextMinorVersion;
+				minimumVersion = 3.0.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */

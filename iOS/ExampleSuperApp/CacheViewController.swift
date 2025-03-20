@@ -87,7 +87,7 @@ class CacheViewController: UITableViewController {
 	
 	override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
 		let cachedMiniApp = loadedCachedMiniApps[indexPath.row]
-		let deleteAction = UIContextualAction(style: .destructive, title: "Borrar", handler: { [weak self] _, _, completion in
+		let deleteAction = UIContextualAction(style: .destructive, title: "Delete", handler: { [weak self] _, _, completion in
 			var success = true
 			do {
 				try GXMiniAppsManager.removeCachedMiniApp(id: cachedMiniApp.miniAppId, version: cachedMiniApp.miniAppVersion)
@@ -124,8 +124,8 @@ private class CachedMiniAppTableViewCell: UITableViewCell {
 			dateFormatter.timeStyle = .medium
 			detailTextLabel?.numberOfLines = 0
 			detailTextLabel?.text = """
-				Creación: \(dateFormatter.string(from: cachedMiniApp.creationDatetime))
-				Último uso: \(dateFormatter.string(from: cachedMiniApp.lastUsedDatetime))
+				Created: \(dateFormatter.string(from: cachedMiniApp.creationDatetime))
+				Last used: \(dateFormatter.string(from: cachedMiniApp.lastUsedDatetime))
 				"""
 		}
 	}
