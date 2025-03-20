@@ -64,5 +64,3 @@ rm -rf ~/Library/Developer/Xcode/DerivedData
     ```
 
 3. Open example/android/ on Android Studio and Run.
-
-#### Troubleshooting:
