@@ -134,7 +134,7 @@ In all cases, the error can be one of three types:
 - `networkError` is a network error in communication with the Mini App Center, including an internal error. This case should be handled accordingly, as it is likely to occur in the final app, depending on the network conditions of the device. 
 - `invalidResponse` is an invalid response from the Mini App Center. It includes a message to the developer with its cause. 
 
-## Loads a Mini App
+## Mini App Load
 
 Once the Mini Apps information has been obtained from the Mini App Center, the class `GXMiniAppsManager`, which is included in the `GXSuperApp`, is used to load them.
 The `loadMiniApp(info:completion)` method receives the Mini App's information obtained from the Mini App Center as its first parameter, and a callback at the end the operation as its second parameter, which can include an error if the loading failed for some reason (for example if the signature is not valid). 
