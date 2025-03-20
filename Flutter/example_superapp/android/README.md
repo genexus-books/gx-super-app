@@ -125,7 +125,7 @@ In all cases within the `OnFailureListener` Listener, the error can be one of th
 - `NETWORK_ERROR` is a network error in communication with the Mini App Center.
 - `INVALID_RESPONSE` is an invalid response from the Mini App Center.
 
-## Loads a Mini App
+## Mini App Load
 
 Once the Mini Apps have been obtained from the Mini App Center, the same `SuperAppsHelper` class is used to load one of them. 
 The `load` method receives the Mini App's information from the Mini App Center as a parameter and returns a `Task<Boolean, LoadError>`, which also accepts the Listeners' registry for handling results. 
