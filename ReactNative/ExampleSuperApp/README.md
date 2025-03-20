@@ -10,7 +10,7 @@ Ensure you have the following tools installed on your system before proceeding:
 
 - [Node.js](https://nodejs.org/)
 - [npm](https://www.npmjs.com/)
-- [Xcode](https://developer.apple.com/xcode/) (for iOS development)
+- [Xcode 16](https://developer.apple.com/xcode/) (for iOS development)
 - [Android Studio](https://developer.android.com/studio) (for Android development)
 - [CocoaPods](https://cocoapods.org/) (for iOS dependency management)
 
