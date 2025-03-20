@@ -37,6 +37,7 @@ private val LightColorScheme = lightColorScheme(
     */
 )
 
+@Suppress("deprecation")
 @Composable
 fun BankingSuperAppTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
