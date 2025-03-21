@@ -1,16 +1,6 @@
-# Programming a functionality provided by a native SuperApp
-
-## Setting
-
-- Point the local repository URL at [build.gradle](https://github.com/genexus-books/gx-super-app/blob/fcc14fade3caf5379892c20545f0cf53ba2b574e/Flutter/example_superapp/android/build.gradle) to the directory where it is located.
-
-- Configure the Android SDK directory.
-
-- Open the Android Studio project, compile and run.
-
 ## Introduction
 
-This document briefly details how a functionality provided by a native Super App must be programmed so that it can be referenced from an External Object integrated in a Mini App build with GeneXus.
+This document briefly details how a functionality provided by a native Super App must be programmed so that it can be referenced from an External Object integrated in a Mini App built with GeneXus.
 
 
 ## Native implementation of the External Object in Flutter
@@ -62,13 +52,13 @@ class ExampleSuperappPlugin: FlutterPlugin {
 	private fun initApplication(context: Application) {
 		application = ApplicationHelper(context, entityProvider)
 		application?.apply {
-			//These modules are provided by GeneXus and required by the MiniApps in order to work properly
+			//These modules are provided by GeneXus and required by the Mini Apps in order to work properly.
 			registerModule(com.genexus.android.core.externalobjects.CoreExternalObjectsModule())
 			registerModule(com.genexus.android.core.usercontrols.CoreUserControlsModule())
 			registerModule(com.genexus.android.controls.grids.smart.SmartGridModule())
 			registerModule(com.genexus.android.superapps.SuperAppsModule())
 
-			//This is a custom module provided by the native SuperApp, exposing its public API to the MiniApps
+			//This is a custom module provided by the native Super App, exposing its public API to the Mini Apps.
 			registerModule(PaymentsModule())
 
 			onCreate()
@@ -166,7 +156,7 @@ Note:
 - That amount is processed in a "payWithoutUI" method. 
 - This same method returns ExternalApiResult.SUCCESS_WAIT, indicating that the execution is waiting for a result to continue (the one returned by the flow).
 
-The second method is “PayWithUI”. Is similar to the method before. 
+The second method is “PayWithUI”. It is similar to the previous method. 
 
 In a real-life case, it could be possible to create a payment flow that guides the user by collecting their data to then return the payment ID, completing it.
 
@@ -207,11 +197,17 @@ Communication between Flutter instances is handled using [platform channels](htt
 
 A diagram of this implementation is shown below.
 
-![Diagram to implement multiple Flutter instances](androidDiagram.png)
+![Diagram to implement multiple Flutter instances](Multi-Instance_Android.png)
+
+To access the information provided by the Super App in the other Flutter instance, it is necessary to go through [platform channels](https://docs.flutter.dev/platform-integration/platform-channels) again.
+
+A diagram of this implementation is shown below.
+
+![Diagram for implementing access to information in Flutter Multi-instances](AccessInformation_Android.png)
 
 # Definition of the External Object
 
-The definition of the External Object used in this document is the same as [the one described for Android](https://github.com/genexus-books/gx-super-app/blob/main/Android/MiniAppCaller/README.md).
+The definition of the External Object used in this document is the same as [the one described for Android](../../../../Android/MiniAppCaller/README.md).
 
 Some things to take into consideration about this definition:
 

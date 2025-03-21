@@ -6,14 +6,13 @@ This document explains how to develop and integrate the functionality that provi
 
 There are certain initial configuration steps in the project Xcode:
 
-1. Go to the flutter project folder and run:
-	`flutter clean && flutter pub get && cd ios && pod install && cd ..`.
+1. Integration of the [iOS frameworks](../../../iOS/GeneXus%20Frameworks/README.md) corresponding to [Super App Render](../../../docs/SuperAppRender.md).
 2. Set certain values in the app's [Info.plist](../example/ios/Runner/Info.plist):
 	- `GXSuperAppProvisioningURL`: String corresponding to the [Mini App Center's](../../../docs/Provisioning.md) URL, the provisioning server of the Mini Apps.
 	- `GXSuperAppId`: String corresponding to the Super App identifier, to be used at the Mini App Center. If this key is not included, the app's [bundle identifier](https://developer.apple.com/documentation/bundleresources/information_property_list/cfbundleidentifier) will be used.
 	- `GXSuperAppVersion`: String corresponding to the Super App version, to be used at the Mini App Center. If this key is not included, the app's [CFBundleVersion](https://developer.apple.com/documentation/bundleresources/information_property_list/cfbundleversion) will be used.
 	- `GXMiniprogramsEnabled`: Boolean with its value in true. Required to enable the Super App / Mini App functionality in the  [Super App Render](../../../docs/SuperAppRender.md).
-3. The file [superapp.crt](../../../iOS/ExampleSuperApp), corresponding to the public key that verifies the signature of the Mini Apps, once it's downloaded from the Mini App Center. It must be an app resource with that name. 
+3. The file [superapp.crt](../example/ios/Runner/superapp.crt), corresponding to the public key that verifies the signature of the Mini Apps, once it's downloaded from the Mini App Center. It must be an app resource with that name. 
 	
 
 ## Communication API with the Mini App Center
@@ -35,9 +34,9 @@ In all the cases the return value is an operation that can be cancelled if neces
 
 ```swift
     /// Performs a request to the Mini App Center for an available Mini App with the given identifier.
-    /// - Parameter id: The Mini App identifier to look for..
+    /// - Parameter id: The Mini App identifier to look for.
     /// - Parameter completion: Completion handler for the result.
-    /// - Returns A cancelable operation.
+    /// - Returns a cancelable operation.
     @discardableResult
     open class func miniAppInfoById(_ id: String, completion: @escaping GXSuperApp.GXSuperAppProvisioning.OptionalMiniAppInfoCompletion) -> GXFoundation.GXCancelableOperation
 ```
@@ -48,7 +47,7 @@ In all the cases the return value is an operation that can be cancelled if neces
     /// - Parameter start: 0-based index from which elements will be returned.
     /// - Parameter count: Maximum number of returned elements ( 0 means all ).
     /// - Parameter completion: Completion handler for the result.
-    /// - Returns A cancelable operation.
+    /// - Returns a cancelable operation.
     open class func miniAppsInfoByText(_ text: String, start: Int, count: Int, completion: @escaping GXSuperApp.GXSuperAppProvisioning.MiniAppsInfoCompletion) -> GXFoundation.GXCancelableOperation
 ```
 
@@ -59,7 +58,7 @@ In all the cases the return value is an operation that can be cancelled if neces
     /// - Parameter start: 0-based index from which elements will be returned.
     /// - Parameter count: Maximum number of returned elements ( 0 means all ).
     /// - Parameter completion: Completion handler for the result.
-    /// - Returns A cancelable operation.
+    /// - Returns a cancelable operation.
     open class func miniAppsInfoByLocation(center: CLLocationCoordinate2D, radius: CLLocationDistance, start: Int, count: Int, completion: @escaping GXSuperApp.GXSuperAppProvisioning.MiniAppsInfoCompletion) -> GXFoundation.GXCancelableOperation
 ```
 
@@ -69,7 +68,7 @@ In all the cases the return value is an operation that can be cancelled if neces
     /// - Parameter start: 0-based index from which elements will be returned.
     /// - Parameter count: Maximum number of returned elements ( 0 means all ).
     /// - Parameter completion: Completion handler for the result.
-    /// - Returns A cancelable operation.
+    /// - Returns a cancelable operation.
     open class func miniAppsInfoByTag(tag: String, start: Int, count: Int, completion: @escaping GXSuperApp.GXSuperAppProvisioning.MiniAppsInfoCompletion) -> GXFoundation.GXCancelableOperation
 ```
 
@@ -78,7 +77,7 @@ In all the cases the return value is an operation that can be cancelled if neces
     /// - Parameter start: 0-based index from which elements will be returned.
     /// - Parameter count: Maximum number of returned elements ( 0 means all ).
     /// - Parameter completion: Completion handler for the result.
-    /// - Returns A cancelable operation.
+    /// - Returns a cancelable operation.
     open class func featuredMiniAppsInfo(start: Int, count: Int, completion: @escaping GXSuperApp.GXSuperAppProvisioning.MiniAppsInfoCompletion) -> GXFoundation.GXCancelableOperation
 ```
 
@@ -95,17 +94,23 @@ In all the cases the return value is an operation that can be cancelled if neces
     /// - Parameter start: 0-based index from which elements will be returned.
     /// - Parameter count: Maximum number of returned elements ( 0 means all ).
     /// - Parameter completion: Completion handler for the result.
-    /// - Returns A cancelable operation.
+    /// - Returns a cancelable operation.
     open class func miniAppsInfoByFilters(miniAppFilters: [MiniAppFilter], start: Int, count: Int, completion: @escaping GXSuperApp.GXSuperAppProvisioning.MiniAppsInfoCompletion) -> GXFoundation.GXCancelableOperation
 ```
-
-For general information on how GetByFilters works, please refer to:
-
-- [General information](https://wiki.genexus.com/commwiki/wiki?57960,Provisioning.GetByFilters)
-- [How to configure attributes in Super Apps](https://wiki.genexus.com/commwiki/wiki?53316,HowTo%3A+Create+a+Super+App+on+the+Mini+App+Center#Attribute+Configuration+in+Super+Apps)
-- [How to instantiate attribute values at the Mini App Version level](https://wiki.genexus.com/commwiki/wiki?53318,HowTo%3A+Upload+a+Mini+App+version+to+the+Mini+App+Center#Instantiate+attribute+values+at+the+Mini+App+Version+level)
+> **_NOTE:_**
+> For general information on how GetByFilters works, please refer to:
+> 
+> - [General information](https://wiki.genexus.com/commwiki/wiki?57960,Provisioning.GetByFilters+method)
+> - [How to configure attributes in Super Apps](https://wiki.genexus.com/commwiki/wiki?53316,HowTo%3A+Create+a+Super+App+on+the+Mini+App+Center#Attribute+Configuration+in+Super+Apps)
+> - [How to instantiate attribute values at the Mini App Version level](https://wiki.genexus.com/commwiki/wiki?53318,HowTo%3A+Upload+a+Mini+App+version+to+the+Mini+App+Center#Instantiate+attribute+values+at+the+Mini+App+Version+level)
 
 Practical usage examples are available in the source [ProvisioningAPI.swift](../example/ios/Runner/ProvisioningAPI.swift).
+
+The example provided is developed in the native iOS language (swift), therefore [platform channels](https://docs.flutter.dev/platform-integration/platform-channels) must be used to invoke these methods. 
+
+A diagram of this implementation is shown below.
+
+![Diagram with implementation of channels to communicate Flutter with native platform](Provisioning_iOS.png)
 
 ### Error handling
 
@@ -129,7 +134,7 @@ In all cases, the error can be one of three types:
 - `networkError` is a network error in communication with the Mini App Center, including an internal error. This case should be handled accordingly, as it is likely to occur in the final app, depending on the network conditions of the device. 
 - `invalidResponse` is an invalid response from the Mini App Center. It includes a message to the developer with its cause. 
 
-## Mini App upload API
+## Mini App Load
 
 Once the Mini Apps information has been obtained from the Mini App Center, the class `GXMiniAppsManager`, which is included in the `GXSuperApp`, is used to load them.
 The `loadMiniApp(info:completion)` method receives the Mini App's information obtained from the Mini App Center as its first parameter, and a callback at the end the operation as its second parameter, which can include an error if the loading failed for some reason (for example if the signature is not valid). 
@@ -146,6 +151,12 @@ A practical usage example is available in [ProvisioningAPI.swift](../example/ios
     
 Once a Mini App is loaded, the `rootController` of the `keyWindow` is replaced by the Mini App's UI.
 To return to the Super App, both the Mini App developer and the Super App developer can use the `exitFromMiniProgram()` method of the `GXMiniProgramLoader` class, also included in the `GXSuperApp` framework. This restores the existing `rootController` at the time the Mini App was loaded. 
+
+The example provided is developed in the native iOS language (swift), therefore [platform channels](https://docs.flutter.dev/platform-integration/platform-channels) must be used to invoke these methods. 
+
+A diagram of this implementation is shown below.
+
+![Diagram with implementation of channels to communicate Flutter with native platform](Load_iOS.png)
 
 ## Mini Apps Cache Management
 
@@ -186,6 +197,5 @@ A method to get a list of the Mini Apps in the cache is included (`cachedMiniApp
     /// - Note: Performs several file IO operations depending on the number of cached Mini Apps. To avoid blocking the main thread, consider calling on a background queue.
     open class func clearCachedMiniApps() throws
 ```
-    
 
 In any other case, the Mini App is kept in the cache indefinitely and the OS itself could remove it from the cache at its discretion since it is stored in a temporary directory.

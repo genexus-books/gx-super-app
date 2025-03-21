@@ -6,15 +6,12 @@ This document explains how to develop and integrate the functionality that provi
 
 There are certain initial configuration steps in the project:
 
-1. Integration of the [Android libraries](../../../Android/GeneXus%20Libraries/README.md) corresponding to [Super App Render](../../../docs/SuperAppRender.md)
+1. Integration of the [Android libraries](../../../Android/GeneXus%20Libraries/README.md) corresponding to [Super App Render](../../../docs/SuperAppRender.md).
 2. Set the values in the app's [superapp_json](../example/android/app/src/main/res/raw/superapp_json) file:
 	- `GXSuperAppProvisioningURL`: String corresponding to the [Mini App Center's](../../../docs/Provisioning.md) URL of the Mini Apps.
 	- `GXSuperAppId`: String corresponding to the Super App identifier, to be used at the Mini App Center. If this key is not included, the app's [Package Name](https://developer.android.com/reference/android/content/Context#getPackageName()) will be used.  
 	- `GXSuperAppVersion`: String corresponding to the Version of Super App, to be used at the Mini App Center. If this key is not included, the app's [Version Code](https://developer.android.com/reference/android/content/pm/PackageInfo#getLongVersionCode()) will be used.
-3. The public key that verifies the signature of the Mini Apps. It's downloaded from the Mini App Center and must be placed in the app's resources under the name [superapp_crt](../example/android/app/src/main/res/raw/superapp_crt)
-4. Point the local repository URL and version at [build.gradle](build.gradle) to the directory where it is located.
-5. Point the local repository URL at [example\build.gradle](../example/android/build.gradle) to the directory where it is located.
-6. run ```flutter pub get```
+3. The public key that verifies the signature of the Mini Apps. It's downloaded from the Mini App Center and must be placed in the app's resources under the name [superapp_crt](../example/android/app/src/main/res/raw/superapp_crt).
    
 ## Communication API with the Mini App Center
 
@@ -97,11 +94,20 @@ In all the cases the return value is a `Task<MiniAppCollection, SearchError>`, t
      */
     fun searchByFilters(miniAppFilters: MiniAppFilters, start: Int, count: Int): Task<MiniAppCollection, SearchError>
 ```
-For general information on how GetByFilters works, please refer to:
+> **_NOTE:_**
+>For general information on how GetByFilters works, please refer to:
+>
+>- [General information](https://wiki.genexus.com/commwiki/wiki?57960,Provisioning.GetByFilters+method)
+>- [How to configure attributes in Super Apps](https://wiki.genexus.com/commwiki/wiki?53316,HowTo%3A+Create+a+Super+App+on>+the+Mini+App+Center#Attribute+Configuration+in+Super+Apps)
+>- [How to instantiate attribute values at the Mini App Version level](https://wiki.genexus.com/commwiki/wiki?53318,HowTo%3A+Upload+a+Mini+App+version+to+the+Mini+App+Center#Instantiate+attribute+values+at+the+Mini+App+Version+level)
 
-- [General information](https://wiki.genexus.com/commwiki/wiki?57960,Provisioning.GetByFilters)
-- [How to configure attributes in Super Apps](https://wiki.genexus.com/commwiki/wiki?53316,HowTo%3A+Create+a+Super+App+on+the+Mini+App+Center#Attribute+Configuration+in+Super+Apps)
-- [How to instantiate attribute values at the Mini App Version level](https://wiki.genexus.com/commwiki/wiki?53318,HowTo%3A+Upload+a+Mini+App+version+to+the+Mini+App+Center#Instantiate+attribute+values+at+the+Mini+App+Version+level)
+Practical usage examples are available in the source [ProvisioningAPI.kt](../android/src/main/kotlin/com/genexus/example_superapp/ProvisioningAPI.kt).
+
+The example provided is developed in the native Android language (kotlin), therefore [platform channels](https://docs.flutter.dev/platform-integration/platform-channels) must be used to invoke these methods. 
+
+A diagram of this implementation is shown below.
+
+![Diagram with implementation of channels to communicate Flutter with native platform](Provisioning_Android.png)
 
 ### Error handling
 
@@ -119,7 +125,7 @@ In all cases within the `OnFailureListener` Listener, the error can be one of th
 - `NETWORK_ERROR` is a network error in communication with the Mini App Center.
 - `INVALID_RESPONSE` is an invalid response from the Mini App Center.
 
-## Mini App upload API
+## Mini App Load
 
 Once the Mini Apps have been obtained from the Mini App Center, the same `SuperAppsHelper` class is used to load one of them. 
 The `load` method receives the Mini App's information from the Mini App Center as a parameter and returns a `Task<Boolean, LoadError>`, which also accepts the Listeners' registry for handling results. 
@@ -132,6 +138,14 @@ The `load` method receives the Mini App's information from the Mini App Center a
      */
     fun load(miniApp: MiniApp): Task<Boolean, LoadError>
 ```
+
+Practical usage examples are available in the source [ProvisioningAPI.kt](../android/src/main/kotlin/com/genexus/example_superapp/ProvisioningAPI.kt).
+
+The example provided is developed in the native Android language (kotlin), therefore [platform channels](https://docs.flutter.dev/platform-integration/platform-channels) must be used to invoke these methods. 
+
+A diagram of this implementation is shown below.
+
+![Diagram with implementation of channels to communicate Flutter with native platform](Load_Android.png)
 
 ### Error handling
 

@@ -1,9 +1,9 @@
 group 'com.genexus.example_superapp'
-version '1.0-SNAPSHOT'
+version '1.2'
 
 buildscript {
-    ext.kotlin_version = '1.8.0'
-    ext.genexus_render_version = '2.0.2'
+    ext.kotlin_version = '1.7.10'
+    ext.genexus_render_version = '2.5.+'
 
     repositories {
         google()
@@ -11,17 +11,17 @@ buildscript {
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:7.1.3'
+        classpath 'com.android.tools.build:gradle:8.7.3'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
     }
 }
 
 allprojects {
     repositories {
+        maven { url 'https://pkgs.dev.azure.com/genexuslabs/155eaada-eb3c-418f-9c98-dcbcffffae50/_packaging/android-releases/maven/v1' }     // Release
+        maven { url 'https://pkgs.dev.azure.com/genexuslabs/3361ab3b-96bc-4a69-a37a-f2b255ff2f35/_packaging/releases/maven/v1' }
         google()
         mavenCentral()
-        maven { url 'https://pkgs.dev.azure.com/genexuslabs/155eaada-eb3c-418f-9c98-dcbcffffae50/_packaging/android-releases/maven/v1' }
-        maven { url 'https://pkgs.dev.azure.com/genexuslabs/3361ab3b-96bc-4a69-a37a-f2b255ff2f35/_packaging/releases/maven/v1' }
     }
 }
 
@@ -29,7 +29,9 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 
 android {
-    compileSdkVersion 31
+    namespace = 'com.genexus.example_superapp_example'
+
+    compileSdkVersion 35
 
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
@@ -45,7 +47,7 @@ android {
     }
 
     defaultConfig {
-        minSdkVersion 21
+        minSdkVersion 24
     }
 }
 
