@@ -6,7 +6,7 @@ class FlutterPaymentViewController: FlutterViewController {
 	private var data: String
 	private var gxResultHandler: ((Result<String, Error>) -> Void)?
 	
-	private lazy var flutterChannel = FlutterMethodChannel(name: StaticVars.CHANNEL, binaryMessenger: self.engine!.binaryMessenger)
+	private lazy var flutterChannel = FlutterMethodChannel(name: StaticVars.CHANNEL, binaryMessenger: self.engine.binaryMessenger)
 	
 	init(data: String, gxResultHanlder: @escaping (Result<String, Error>) -> Void) {
 		self.data = data
