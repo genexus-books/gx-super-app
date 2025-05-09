@@ -52,7 +52,7 @@ android {
 
     packagingOptions {
         resources {
-            exclude 'META-INF/versions/9/OSGI-INF/MANIFEST.MF'
+            excludes += 'META-INF/versions/9/OSGI-INF/MANIFEST.MF'
         }
     }
 }
