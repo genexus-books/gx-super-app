@@ -3,7 +3,7 @@ version '1.2'
 
 buildscript {
     ext.kotlin_version = '1.7.10'
-    ext.genexus_render_version = '2.5.+'
+    ext.genexus_render_version = '2.6.+'
 
     repositories {
         google()
@@ -48,6 +48,12 @@ android {
 
     defaultConfig {
         minSdkVersion 24
+    }
+
+    packagingOptions {
+        resources {
+            exclude 'META-INF/versions/9/OSGI-INF/MANIFEST.MF'
+        }
     }
 }
 
